@@ -1,0 +1,195 @@
+{
+    "area": {
+        "breakdown": {
+            "FloatvAddFloatv": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 32,
+                        "FF": 6704,
+                        "LUT": 3644,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "FloatvMultConst": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 51,
+                        "FF": 3704,
+                        "LUT": 1602,
+                        "URAM": 0
+                    }
+                },
+                "count": 16
+            },
+            "Merger": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 69,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "PEG_Bmtx": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 128,
+                        "DSP": 97,
+                        "FF": 8088,
+                        "LUT": 9745,
+                        "URAM": 0
+                    }
+                },
+                "count": 16
+            },
+            "PEG_Cmtx": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 65,
+                        "FF": 17721,
+                        "LUT": 11573,
+                        "URAM": 32
+                    }
+                },
+                "count": 16
+            },
+            "Scatter_1_2": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 67,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "black_hole_float_v16": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 4
+            },
+            "black_hole_int": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "read_A": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 1,
+                        "FF": 132,
+                        "LUT": 346,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "read_B": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 2,
+                        "FF": 348,
+                        "LUT": 403,
+                        "URAM": 0
+                    }
+                },
+                "count": 4
+            },
+            "read_C": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 1,
+                        "FF": 153,
+                        "LUT": 391,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "read_edge_list_ptr": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 1,
+                        "FF": 164,
+                        "LUT": 422,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "write_C": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 1,
+                        "FF": 197,
+                        "LUT": 448,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 2048,
+            "DSP": 3697,
+            "FF": 533716,
+            "LUT": 412932,
+            "URAM": 512
+        }
+    },
+    "name": "Sextans",
+    "performance": {
+        "clock_period": "3.656",
+        "critical_path": {
+            "PEG_Bmtx": {
+                "clock_period": "3.656",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

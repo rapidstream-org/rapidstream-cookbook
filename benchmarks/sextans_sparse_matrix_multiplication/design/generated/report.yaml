@@ -1,0 +1,148 @@
+schema: v0.0.20210922
+name: Sextans
+performance:
+  source: hls
+  clock_period: '3.656'
+  critical_path:
+    PEG_Bmtx:
+      source: hls
+      clock_period: '3.656'
+area:
+  source: hls
+  total:
+    BRAM_18K: 2048
+    DSP: 3697
+    FF: 533716
+    LUT: 412932
+    URAM: 512
+  breakdown:
+    FloatvAddFloatv:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 32
+          FF: 6704
+          LUT: 3644
+          URAM: 0
+    FloatvMultConst:
+      count: 16
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 51
+          FF: 3704
+          LUT: 1602
+          URAM: 0
+    Merger:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 69
+          URAM: 0
+    PEG_Bmtx:
+      count: 16
+      area:
+        source: hls
+        total:
+          BRAM_18K: 128
+          DSP: 97
+          FF: 8088
+          LUT: 9745
+          URAM: 0
+    PEG_Cmtx:
+      count: 16
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 65
+          FF: 17721
+          LUT: 11573
+          URAM: 32
+    Scatter_1_2:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 67
+          URAM: 0
+    black_hole_float_v16:
+      count: 4
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 43
+          URAM: 0
+    black_hole_int:
+      count: 2
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 43
+          URAM: 0
+    read_A:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 1
+          FF: 132
+          LUT: 346
+          URAM: 0
+    read_B:
+      count: 4
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 2
+          FF: 348
+          LUT: 403
+          URAM: 0
+    read_C:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 1
+          FF: 153
+          LUT: 391
+          URAM: 0
+    read_edge_list_ptr:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 1
+          FF: 164
+          LUT: 422
+          URAM: 0
+    write_C:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 1
+          FF: 197
+          LUT: 448
+          URAM: 0
