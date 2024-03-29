@@ -33,6 +33,12 @@ pip install pre-commit
 pre-commit install
 ```
 
+Then run pre-commit to check if the formatting and linting are correct:
+```bash
+pre-commit run
+```
+
+
 ### Editors
 
 Visual Studio Code users could configure to use RapidStream as the Python interpreter, run:
