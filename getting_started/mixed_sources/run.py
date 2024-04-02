@@ -26,7 +26,7 @@ rs.add_vlog_dir("./design/rtl")
 
 # Add the HLS design files:
 #  * The HLS-generated Verilog files can be imported directly.
-#  * The HLS report directory is needed to extract the performance information.
+#  * The HLS report directory is needed to extract the interface information.
 rs.add_vlog_dir("./design/hls")
 rs.add_hls_report_dir("./design/report")
 
