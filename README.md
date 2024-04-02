@@ -3,26 +3,103 @@ Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All ri
 The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 -->
 
+<img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/1b565657-df33-41f9-f29e-0d539743e700/128" width="64px" alt="RapidStream Logo" />
+
 RapidStream Cookbook
 ====================
 
-RapidStream is an agile and efficient development flow for modern FPGAs. RapidStream Cookbook is a collection of Python script templates and tutorials to help you learn how to optimize your FPGA designs using RapidStream's Python-defined flows.
+RapidStream Cookbook offers a curated set of Python script templates and in-depth tutorials designed to guide you in optimizing your FPGA designs efficiently using RapidStream's Python-driven development flows.
 
-Requirements
-------------
+
+Composing Large-Scale FPGA-Based Systems
+----------------------------------------
+
+[RapidStream](https://rapidstream-da.com/) is a streamlined development flow for modern FPGAs, designed to help users quickly create high-performance systems. By working alongside FPGA vendor tools, RapidStream allows for the easy integration of small building blocks into complex, high-frequency designs. Users can take advantage of RapidStream's Python-based scripting language to efficiently implement high-performance FPGA accelerators using software-defined flows.
+
+
+Where to Start
+--------------
+
+If you're new to RapidStream and want to learn the basics or get a quick overview of how it works, check out the recipes in the [Getting Started](./getting_started) section. Once you're familiar with the fundamentals, explore real-world applications of RapidStream on various benchmarks in the [Benchmarks](./benchmarks) section.
+
+To get a local copy of the RapidStream Cookbook repository, clone it to your system by running the following command:
+
+```bash
+git clone https://github.com/rapidstream-org/rapidstream-cookbook.git
+cd rapidstream-cookbook
+```
 
 You must have RapidStream installed, a valid RapidStream license, and a valid Vivado Design Suite license to download or run the cookbooks. If you are an academic researcher or would like to contribute to this cookbook, please contact us at https://rapidstream-da.com/ for a free RapidStream license.
 
-All RapidStream Python scripts (`*.py`) in this cookbook should be executed using the `rapidstream` command. For example, to run `getting_started/mixed_sources/run.py`, use the following command:
+All RapidStream Python script recipes (`*.py`) in this cookbook should be executed using the `rapidstream` command. For example, to run `getting_started/mixed_sources/run.py`, use the following command:
 
 ```bash
 rapidstream getting_started/mixed_sources/run.py
 ```
 
+The default branch always matches the latest RapidStream release. Please update your software before using the recipes.
+
+
+Recipes
+-------
+
+<table border="0" width="100%">
+    <tbody>
+        <tr><td colspan="3"><h2><a href="./getting_started">Getting Started</a></h2></td></tr>
+        <tr><td colspan="3">
+            Begin your journey with RapidStream by integrating the flow into your FPGA vendor tool. No prior experience required – start from here!
+        </td></tr>
+        <tr><td colspan="3"><strong>Basic Usages</strong></td></tr>
+        <tr>
+            <td><a href="./getting_started/vitis_source">AMD Vitis Design</a></td>
+            <td><a href="./getting_started/mixed_sources">Mixed Sources Design</a></td>
+        </tr>
+        <tr><td colspan="3"><strong>Custom Devices</strong></td></tr>
+        <tr>
+            <td><a href="./getting_started/device_factory_vitis_platform">Custom Vitis Platforms</a></td>
+            <td><a href="./getting_started/device_factory_part_num">Custom Vivado Parts</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<table border="0" width="100%">
+    <tbody>
+        <tr><td colspan="5"><h2><a href="./benchmarks">Benchmarks</a></h2></td></tr>
+        <tr><td colspan="5">
+            Discover how RapidStream flow streamlines FPGA acceleration design of state-of-the-art architectures, enabling you to achieve optimal performance for performance-critical systems.
+        </td></tr>
+        <tr><td colspan="5"><strong>Scientific Computation</strong></td></tr>
+        <tr>
+            <td><strong>Design</strong></td>
+            <td><strong>Developer</strong></td>
+            <td><strong>Platforms</strong></td>
+            <td><strong>Sources</strong></td>
+            <td><strong>Purpose</strong></td>
+        </tr>
+        <tr style="vertical-align:top">
+            <td><a href="./benchmarks/sextans_sparse_matrix_multiplication">Sextans</a></td>
+            <td><a href="https://dl.acm.org/doi/abs/10.1145/3490422.3502357">Song <i>et al.</i><br/>(FPGA '22)</a></td>
+            <td>Vitis U250 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+How to Get Help
+---------------
+
+* For questions about the RapidStream software, contact your sales representative.
+* For questions or issues about the recipes, create an [issue](https://github.com/rapidstream-org/rapidstream-cookbook/issues/new).
+
+
 Contributing
 ------------
 
-### Tests
+To get a free academic license of RapidStream for contributing to the cookbook or showcasing your FPGA design success story, simply [reach out to us](https://rapidstream-da.com/contact-us). Fork this repository, add your design or usage guide, and create a pull request. We'll gladly include your contribution and help increase your project's visibility.
+
+### Quality Assurance
 
 All tests and `pre-commit` checks shall pass before committing to the repository.
 
@@ -33,11 +110,13 @@ pip install pre-commit
 pre-commit install
 ```
 
-Then run pre-commit to check if the formatting and linting are correct:
+You may then run `pre-commit` to check if the formatting and linting are correct:
+
 ```bash
 pre-commit run
 ```
 
+We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) as our commit message guideline.
 
 ### Editors
 
@@ -68,4 +147,4 @@ Please note that this is a summary of the licensing terms, and the full text of 
 
 -----
 
-Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
+<sub>Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors. All rights reserved.</sub>
