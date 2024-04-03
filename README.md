@@ -83,6 +83,13 @@ Recipes
             <td>TAPA HLS</td>
             <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
         </tr>
+        <tr style="vertical-align:top">
+            <td><a href="./benchmarks/autosa_cnn">Convolutional neural network</a></td>
+            <td><a href="https://dl.acm.org/doi/10.1145/3431920.3439292">Wang <i>et al.</i><br/>(FPGA '21)</a></td>
+            <td>Vitis U250 XDMA</td>
+            <td>Vitis HLS</td>
+            <td>Systolic array accelerator for a convolutional neural network layer.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -147,4 +154,4 @@ Please note that this is a summary of the licensing terms, and the full text of 
 
 -----
 
-<sub>Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors. All rights reserved.</sub>
+Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors. All rights reserved.
