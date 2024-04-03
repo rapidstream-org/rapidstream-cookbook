@@ -76,14 +76,14 @@ Recipes
             <td><strong>Sources</strong></td>
             <td><strong>Purpose</strong></td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td><a href="./benchmarks/sextans_sparse_matrix_multiplication">Sextans</a></td>
             <td><a href="https://dl.acm.org/doi/abs/10.1145/3490422.3502357">Song <i>et al.</i><br/>(FPGA '22)</a></td>
             <td>Vitis U250 XDMA</td>
             <td>TAPA HLS</td>
             <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
         </tr>
-        <tr style="vertical-align:top">
+        <tr>
             <td><a href="./benchmarks/autosa_cnn">Convolutional neural network</a></td>
             <td><a href="https://dl.acm.org/doi/10.1145/3431920.3439292">Wang <i>et al.</i><br/>(FPGA '21)</a></td>
             <td>Vitis U250 XDMA</td>
