@@ -13,7 +13,7 @@ using namespace std;
 void PE_int8_int16_r3(
   hls::stream<ap_int<8>>& A_in, hls::stream<ap_int<8>>& A_out,
   hls::stream<ap_int<16>>& B_in, hls::stream<ap_int<16>>& B_out,
-  ap_int<64>& C_out, int k_size
+  hls::stream<ap_int<64>>& C_out, int k_size
 ) {
   ap_int<32> C_out1;
   ap_int<32> C_out0;
@@ -31,7 +31,7 @@ void PE_int8_int16_r3(
     A_out.write(a);
     B_out.write(b);
   }
-  C_out = (C_out1, C_out0);
+  C_out.write((C_out1, C_out0));
 }
 
 void systolic_array_ds1(
@@ -46,9 +46,8 @@ void systolic_array_ds1(
   #pragma HLS STREAM variable=B_fifo depth=block_size_b * 2 + 1
   #pragma HLS BIND_STORAGE variable=B_fifo type=fifo impl=srl
 
-  ap_int<64> C[block_size_a][block_size_b * 2] = {0};
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 1
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 2
+ hls::stream<ap_int<64>> C_fifo[block_size_a][block_size_b * 2];
+  #pragma HLS BIND_STORAGE variable=C_fifo type=fifo impl=srl
 
 	#pragma HLS DATAFLOW
 	data_load_AB:for (int k = 0; k < inp_len; k++) {
@@ -71,7 +70,7 @@ void systolic_array_ds1(
 	#pragma HLS UNROLL
 		for (int n = 0; n < block_size_b * 2; n++) {
 		#pragma HLS UNROLL
-			PE_int8_int16_r3(A_fifo[m][n], A_fifo[m][n+1], B_fifo[n][m], B_fifo[n][m+1], C[m][n], inp_len);
+			PE_int8_int16_r3(A_fifo[m][n], A_fifo[m][n+1], B_fifo[n][m], B_fifo[n][m+1], C_fifo[m][n], inp_len);
 		}
 	}
 
@@ -89,7 +88,7 @@ void systolic_array_ds1(
 	#pragma HLS PIPELINE II=1
 		io_pack_int64 C_temp;
 		for (int m = 0; m < block_size_a; m++) {
-			C_temp.range(m*64 + 63, m*64) = C[m][n];
+			C_temp.range(m*64 + 63, m*64) = C_fifo[m][n].read();
 		}
 		C_drainer.write(C_temp);
 	}
@@ -107,9 +106,8 @@ void systolic_array_ds2(
   #pragma HLS STREAM variable=B_fifo depth=block_size_b * 2 + 1
   #pragma HLS BIND_STORAGE variable=B_fifo type=fifo impl=srl
 
-  ap_int<64> C[block_size_a][block_size_b * 2] = {0};
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 1
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 2
+  hls::stream<ap_int<64>> C_fifo[block_size_a][block_size_b * 2];
+  #pragma HLS BIND_STORAGE variable=C_fifo type=fifo impl=srl
 
 	#pragma HLS DATAFLOW
 	data_load_AB:for (int k = 0; k < gelu_len; k++) {
@@ -132,7 +130,7 @@ void systolic_array_ds2(
 	#pragma HLS UNROLL
 		for (int n = 0; n < block_size_b * 2; n++) {
 		#pragma HLS UNROLL
-			PE_int8_int16_r3(A_fifo[m][n], A_fifo[m][n+1], B_fifo[n][m], B_fifo[n][m+1], C[m][n], gelu_len);
+			PE_int8_int16_r3(A_fifo[m][n], A_fifo[m][n+1], B_fifo[n][m], B_fifo[n][m+1], C_fifo[m][n], gelu_len);
 		}
 	}
 
@@ -150,7 +148,7 @@ void systolic_array_ds2(
 	#pragma HLS PIPELINE II=1
 		io_pack_int64 C_temp;
 		for (int m = 0; m < block_size_a; m++) {
-			C_temp.range(m*64 + 63, m*64) = C[m][n];
+			C_temp.range(m*64 + 63, m*64) = C_fifo[m][n].read();
 		}
 		C_drainer.write(C_temp);
 	}
