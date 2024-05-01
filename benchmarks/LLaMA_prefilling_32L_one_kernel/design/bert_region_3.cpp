@@ -50,18 +50,27 @@ void systolic_array_ds1(
   #pragma HLS BIND_STORAGE variable=C_fifo type=fifo impl=srl
 
 	#pragma HLS DATAFLOW
-	data_load_AB:for (int k = 0; k < inp_len; k++) {
+
+	data_load_A:for (int k = 0; k < inp_len; k++) {
 	#pragma HLS PIPELINE II=1
 		io_pack_int8 A_temp = A_loader.read();
-        io_pack_int16 B_temp_0 = B_loader[0].read();
-        io_pack_int16 B_temp_1 = B_loader[1].read();
-
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][0].write(A_temp.range(m*8 + 7, m*8));
 		}
+	}
 
+	data_load_B0:for (int k = 0; k < inp_len; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int16 B_temp_0 = B_loader[0].read();
 		for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][0].write(B_temp_0.range(n*16 + 15, n*16));
+		}
+	}
+
+	data_load_B1:for (int k = 0; k < inp_len; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int16 B_temp_1 = B_loader[1].read();
+		for (int n = 0; n < block_size_b; n++) {
             B_fifo[block_size_b + n][0].write(B_temp_1.range(n*16 + 15, n*16));
 		}
 	}
@@ -74,11 +83,15 @@ void systolic_array_ds1(
 		}
 	}
 
-	data_drain_AB:for (int k = 0; k < inp_len; k++) {
+	data_drain_A:for (int k = 0; k < inp_len; k++) {
 	#pragma HLS PIPELINE II=1
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][block_size_b * 2].read();
 		}
+	}
+
+	data_drain_B:for (int k = 0; k < inp_len; k++) {
+	#pragma HLS PIPELINE II=1
 		for (int n = 0; n < block_size_b * 2; n++) {
 			B_fifo[n][block_size_a].read();
 		}
@@ -110,18 +123,27 @@ void systolic_array_ds2(
   #pragma HLS BIND_STORAGE variable=C_fifo type=fifo impl=srl
 
 	#pragma HLS DATAFLOW
-	data_load_AB:for (int k = 0; k < gelu_len; k++) {
+
+	data_load_A:for (int k = 0; k < gelu_len; k++) {
 	#pragma HLS PIPELINE II=1
 		io_pack_int8 A_temp = A_loader.read();
-        io_pack_int16 B_temp_0 = B_loader[0].read();
-        io_pack_int16 B_temp_1 = B_loader[1].read();
-
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][0].write(A_temp.range(m*8 + 7, m*8));
 		}
+	}
 
+	data_load_B0:for (int k = 0; k < gelu_len; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int16 B_temp_0 = B_loader[0].read();
 		for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][0].write(B_temp_0.range(n*16 + 15, n*16));
+		}
+	}
+
+	data_load_B1:for (int k = 0; k < gelu_len; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int16 B_temp_1 = B_loader[1].read();
+		for (int n = 0; n < block_size_b; n++) {
             B_fifo[block_size_b + n][0].write(B_temp_1.range(n*16 + 15, n*16));
 		}
 	}
@@ -134,11 +156,15 @@ void systolic_array_ds2(
 		}
 	}
 
-	data_drain_AB:for (int k = 0; k < gelu_len; k++) {
+	data_drain_A:for (int k = 0; k < gelu_len; k++) {
 	#pragma HLS PIPELINE II=1
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][block_size_b * 2].read();
 		}
+	}
+
+	data_drain_B:for (int k = 0; k < gelu_len; k++) {
+	#pragma HLS PIPELINE II=1
 		for (int n = 0; n < block_size_b * 2; n++) {
 			B_fifo[n][block_size_a].read();
 		}
