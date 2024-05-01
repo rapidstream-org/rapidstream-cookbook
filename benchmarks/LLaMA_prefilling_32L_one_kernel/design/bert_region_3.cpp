@@ -494,7 +494,17 @@ void output_writer(
     }
 }
 
-
+void relay(
+    hls::stream<io_pack_float>& stream_in,
+    hls::stream<io_pack_float>& stream_out
+) {
+    l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        l_loader_j: for (int j = 0; j < inp_len; j++) {        // L5
+        #pragma HLS pipeline II=1
+            stream_out.write(stream_in.read());
+        }
+    }
+}
 
 void Bert_layer_dataflow_region_3(
     double_io_pack_int16 *w_ds1_addr,
@@ -503,9 +513,22 @@ void Bert_layer_dataflow_region_3(
     io_pack_float *outp_addr
 ){
 
-    hls::stream<io_pack_float> inp_res1; // only this one need to have large depth
-    #pragma HLS STREAM variable=inp_res1 depth=32*4096
-    #pragma HLS BIND_STORAGE variable=inp_res1 type=fifo impl=uram
+    hls::stream<io_pack_float> inp_res1_split1; // only this one need to have large depth
+    #pragma HLS STREAM variable=inp_res1_split1 depth=8*4096
+    #pragma HLS BIND_STORAGE variable=inp_res1_split1 type=fifo impl=uram
+
+    hls::stream<io_pack_float> inp_res1_split2; // only this one need to have large depth
+    #pragma HLS STREAM variable=inp_res1_split2 depth=8*4096
+    #pragma HLS BIND_STORAGE variable=inp_res1_split2 type=fifo impl=uram
+
+    hls::stream<io_pack_float> inp_res1_split3; // only this one need to have large depth
+    #pragma HLS STREAM variable=inp_res1_split3 depth=8*4096
+    #pragma HLS BIND_STORAGE variable=inp_res1_split3 type=fifo impl=uram
+
+    hls::stream<io_pack_float> inp_res1_split4; // only this one need to have large depth
+    #pragma HLS STREAM variable=inp_res1_split4 depth=8*4096
+    #pragma HLS BIND_STORAGE variable=inp_res1_split4 type=fifo impl=uram
+
     hls::stream<io_pack_int8> inp_ds1;
     #pragma HLS STREAM variable=inp_ds1 depth=4
     #pragma HLS BIND_STORAGE variable=inp_ds1 type=fifo impl=srl
@@ -533,12 +556,17 @@ void Bert_layer_dataflow_region_3(
     #pragma HLS BIND_STORAGE variable=block_w_ds2_loader type=fifo impl=srl
 
     #pragma HLS DATAFLOW
-    input_loader_ds1_res1(outp_ln0, inp_res1, inp_ds1);
+    input_loader_ds1_res1(outp_ln0, inp_res1_split1, inp_ds1);
+
+    relay(inp_res1_split1, inp_res1_split2);
+    relay(inp_res1_split2, inp_res1_split3);
+    relay(inp_res1_split3, inp_res1_split4);
+
     weight_loader_r3(w_ds1_addr, w_ds2_addr, block_w_ds1_loader, block_w_ds2_loader);
     Linear_layer_ds1(inp_ds1, block_w_ds1_loader, outp_ds1);
     Gelu_layer(outp_ds1, outp_gelu);
     Linear_layer_ds2(outp_gelu, block_w_ds2_loader, outp_ds2);
-    Res_layer1(outp_ds2, inp_res1, outp_res1);
+    Res_layer1(outp_ds2, inp_res1_split4, outp_res1);
     Layer_norm1(outp_res1, outp_ln1);
     output_writer(outp_ln1, outp_addr);
 }
