@@ -13,7 +13,7 @@ using namespace std;
 void PE_int8_int16_r2(
   hls::stream<ap_int<8>>& A_in, hls::stream<ap_int<8>>& A_out,
   hls::stream<ap_int<16>>& B_in, hls::stream<ap_int<16>>& B_out,
-  ap_int<64>& C_out, int k_size
+  hls::stream<ap_int<64>>& C_out, int k_size
 ) {
   ap_int<32> C_out1;
   ap_int<32> C_out0;
@@ -31,7 +31,7 @@ void PE_int8_int16_r2(
     A_out.write(a);
     B_out.write(b);
   }
-  C_out = (C_out1, C_out0);
+  C_out.write((C_out1, C_out0));
 }
 
 void systolic_array_attn(
@@ -46,21 +46,21 @@ void systolic_array_attn(
   #pragma HLS STREAM variable=B_fifo depth=block_size_b + 1
   #pragma HLS BIND_STORAGE variable=B_fifo type=fifo impl=srl
 
-  ap_int<64> C[block_size_a][block_size_b] = {0};
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 1
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 2
+  hls::stream<ap_int<64>> C[block_size_a][block_size_b];
 
 	#pragma HLS DATAFLOW
-	data_load_AB:for (int k = 0; k < head_len; k++) {
+	data_load_A:for (int k = 0; k < head_len; k++) {
 	#pragma HLS PIPELINE II=1
 		io_pack_int8 A_temp = A_loader.read();
-    io_pack_int8 B_temp = B_loader.read();
-
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][0].write(A_temp.range(m*8 + 7, m*8));
 		}
+	}
 
-		for (int n = 0; n < block_size_b; n++) {
+	data_load_B:for (int k = 0; k < head_len; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int8 B_temp = B_loader.read();
+    	for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][0].write(B_temp.range(n*16 + 15, n*16));
 		}
 	}
@@ -73,11 +73,15 @@ void systolic_array_attn(
 		}
 	}
 
-	data_drain_AB:for (int k = 0; k < head_len; k++) {
+	data_drain_A:for (int k = 0; k < head_len; k++) {
 	#pragma HLS PIPELINE II=1
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][block_size_b].read();
 		}
+	}
+
+	data_drain_B:for (int k = 0; k < head_len; k++) {
+	#pragma HLS PIPELINE II=1
 		for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][block_size_a].read();
 		}
@@ -87,7 +91,7 @@ void systolic_array_attn(
 	#pragma HLS PIPELINE II=1
 		io_pack_int64 C_temp;
 		for (int m = 0; m < block_size_a; m++) {
-			C_temp.range(m*64 + 63, m*64) = C[m][n];
+			C_temp.range(m*64 + 63, m*64) = C[m][n].read();
 		}
 		C_drainer.write(C_temp);
 	}
@@ -106,20 +110,20 @@ void systolic_array_cont(
   #pragma HLS STREAM variable=B_fifo depth=block_size_b + 1
   #pragma HLS BIND_STORAGE variable=B_fifo type=fifo impl=srl
 
-  ap_int<64> C[block_size_a][block_size_b] = {0};
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 1
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 2
+  hls::stream<ap_int<64>> C[block_size_a][block_size_b];
 
 	#pragma HLS DATAFLOW
-	data_load_AB:for (int k = 0; k < seq_num; k++) {
+	data_load_A:for (int k = 0; k < seq_num; k++) {
 	#pragma HLS PIPELINE II=1
 		io_pack_int8 A_temp = A_loader.read();
-    io_pack_int8 B_temp = B_loader.read();
-
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][0].write(A_temp.range(m*8 + 7, m*8));
 		}
+	}
 
+	data_load_B:for (int k = 0; k < seq_num; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int8 B_temp = B_loader.read();
 		for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][0].write(B_temp.range(n*16 + 15, n*16));
 		}
@@ -133,11 +137,15 @@ void systolic_array_cont(
 		}
 	}
 
-	data_drain_AB:for (int k = 0; k < seq_num; k++) {
+	data_drain_A:for (int k = 0; k < seq_num; k++) {
 	#pragma HLS PIPELINE II=1
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][block_size_b].read();
 		}
+	}
+
+	data_drain_B:for (int k = 0; k < seq_num; k++) {
+	#pragma HLS PIPELINE II=1
 		for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][block_size_a].read();
 		}
@@ -147,7 +155,7 @@ void systolic_array_cont(
 	#pragma HLS PIPELINE II=1
 		io_pack_int64 C_temp;
 		for (int m = 0; m < block_size_a; m++) {
-			C_temp.range(m*64 + 63, m*64) = C[m][n];
+			C_temp.range(m*64 + 63, m*64) = C[m][n].read();
 		}
 		C_drainer.write(C_temp);
 	}
@@ -165,19 +173,20 @@ void systolic_array_ds0(
   #pragma HLS STREAM variable=B_fifo depth=block_size_b + 1
   #pragma HLS BIND_STORAGE variable=B_fifo type=fifo impl=srl
 
-  ap_int<64> C[block_size_a][block_size_b] = {0};
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 1
-  #pragma HLS ARRAY_PARTITION variable = C complete dim = 2
+  hls::stream<ap_int<64>> C[block_size_a][block_size_b];
 
 	#pragma HLS DATAFLOW
-	data_load_AB:for (int k = 0; k < inp_len; k++) {
+	data_load_A:for (int k = 0; k < inp_len; k++) {
 	#pragma HLS PIPELINE II=1
 		io_pack_int8 A_temp = A_loader.read();
-    io_pack_int8 B_temp = B_loader.read();
-
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][0].write(A_temp.range(m*8 + 7, m*8));
 		}
+	}
+
+	data_load_B:for (int k = 0; k < inp_len; k++) {
+	#pragma HLS PIPELINE II=1
+        io_pack_int8 B_temp = B_loader.read();
 
 		for (int n = 0; n < block_size_b; n++) {
 			B_fifo[n][0].write(B_temp.range(n*16 + 15, n*16));
@@ -192,13 +201,17 @@ void systolic_array_ds0(
 		}
 	}
 
-	data_drain_AB:for (int k = 0; k < inp_len; k++) {
+	data_drain_A:for (int k = 0; k < inp_len; k++) {
 	#pragma HLS PIPELINE II=1
 		for (int m = 0; m < block_size_a; m++) {
 			A_fifo[m][block_size_b].read();
 		}
-		for (int n = 0; n < block_size_b; n++) {
-			B_fifo[n][block_size_a].read();
+	}
+
+	data_drain_B:for (int k = 0; k < inp_len; k++) {
+	#pragma HLS PIPELINE II=1
+		for (int m = 0; m < block_size_a; m++) {
+			B_fifo[m][block_size_b].read();
 		}
 	}
 
@@ -206,7 +219,7 @@ void systolic_array_ds0(
 	#pragma HLS PIPELINE II=1
 		io_pack_int64 C_temp;
 		for (int m = 0; m < block_size_a; m++) {
-			C_temp.range(m*64 + 63, m*64) = C[m][n];
+			C_temp.range(m*64 + 63, m*64) = C[m][n].read();
 		}
 		C_drainer.write(C_temp);
 	}
@@ -283,9 +296,11 @@ void Attention_layer(
 void Context_layer(
     hls::stream<io_pack_int8>& inp,
     io_pack_int16 B[seq_num][pack_inp_len_w],
-    const float s[seq_num],
     hls::stream<double_io_pack_int8>& outp
 ){
+#include "const/buf23.h"
+#pragma HLS array_partition variable=buf23 cyclic factor=8
+
     io_pack_int8 A[seq_num];
 
     hls::stream<io_pack_int8> block_A_loader;
@@ -332,8 +347,8 @@ void Context_layer(
                         ap_int<64> outp_temp = acc_temp.range(i*64 + 63, i*64);
                         ap_int<32> outp0_dp = outp_temp.range(31, 0);
                         ap_int<32> outp1_dp = outp_temp.range(63, 32);
-                        ap_int<8> outp0 = outp0_dp * s[ps_offset + i];
-                        ap_int<8> outp1 = outp1_dp * s[ps_offset + i];
+                        ap_int<8> outp0 = outp0_dp * buf23[ps_offset + i];
+                        ap_int<8> outp1 = outp1_dp * buf23[ps_offset + i];
                         outp_data_pack_0.range(i*8 + 7, i*8) = outp0;
                         outp_data_pack_1.range(i*8 + 7, i*8) = outp1;
                     }
@@ -674,14 +689,12 @@ void V_writer_Context_layer(
 	hls::stream<double_io_pack_int8>& outp_sfa
 
 ){
-#include "const/buf23.h"
-#pragma HLS array_partition variable=buf23 cyclic factor=8
 
     io_pack_int16 V[seq_num][pack_inp_len_w];
     #pragma HLS BIND_STORAGE variable=V type=ram_2p impl=uram
 
     V_writer(outp_v, V);
-    Context_layer(sfm_outp, V, buf23, outp_sfa);
+    Context_layer(sfm_outp, V, outp_sfa);
 
 }
 
