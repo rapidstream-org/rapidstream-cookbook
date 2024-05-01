@@ -234,6 +234,7 @@ void Linear_layer_ds1(
     #pragma HLS STREAM variable=block_C_drainer depth=4
     #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
 
+    #pragma HLS dataflow
     Linear_layer_ds1_sub1(inp, block_A_loader);
     Linear_layer_ds1_sub2(block_A_loader, block_B_loader, block_C_drainer);
     Linear_layer_ds1_sub3(block_C_drainer, outp);
@@ -241,44 +242,51 @@ void Linear_layer_ds1(
 }
 
 
-void Linear_layer_ds2(
+
+void Linear_layer_ds2_sub1(
   hls::stream<io_pack_int8>& inp,
+  hls::stream<io_pack_int8>& block_A_loader
+){
+    io_pack_int8 A[gelu_len];
+
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        for (int j = 0; j < gelu_len; j++) {    // L19
+            A[j] = inp.read();
+        }
+
+        for(int jj = 0; jj < pack_inp_len_w / 2; jj++){
+            for(int k = 0; k < gelu_len; k++){
+                block_A_loader.write(A[k]);
+            }
+        }
+    }
+}
+
+
+void Linear_layer_ds2_sub2(
+  hls::stream<io_pack_int8>& block_A_loader,
   hls::stream<io_pack_int16> block_B_loader[2],
+  hls::stream<io_pack_int64>& block_C_drainer
+){
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        for(int jj = 0; jj < pack_inp_len_w / 2; jj++){
+            systolic_array_ds2(block_A_loader, block_B_loader, block_C_drainer);
+        }
+    }
+}
+
+
+void Linear_layer_ds2_sub3(
+  hls::stream<io_pack_int64>& block_C_drainer,
   hls::stream<double_io_pack_float>& outp
 ){
 #include "const/buf28.h"
 #pragma HLS array_partition variable=buf28 cyclic factor=8
-  io_pack_int8 A[gelu_len];
-
-  hls::stream<io_pack_int8> block_A_loader;
-  #pragma HLS STREAM variable=block_A_loader depth=4
-  #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
-
-  hls::stream<io_pack_int64> block_C_drainer;
-  #pragma HLS STREAM variable=block_C_drainer depth=4
-  #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
 
   l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
-  #pragma HLS DATAFLOW
     int ps_offset = ps_id * inp_parallel;
 
-    init_inp_buf: for (int j = 0; j < gelu_len; j++) {    // L19
-    #pragma HLS pipeline II=1
-        A[j] = inp.read();
-    }
-
-    block_gemm:
     for(int jj = 0; jj < pack_inp_len_w / 2; jj++){
-    #pragma HLS DATAFLOW
-
-      init_block_AB:
-      for(int k = 0; k < gelu_len; k++){
-      #pragma HLS PIPELINE II=1
-          block_A_loader.write(A[k]);
-      }
-
-      systolic_array_ds2(block_A_loader, block_B_loader, block_C_drainer);
-
       io_pack_float outp_data_pack_0;
       io_pack_float outp_data_pack_1;
       double_io_pack_float outp_data_pack;
@@ -301,6 +309,28 @@ void Linear_layer_ds2(
       }
     }
   }
+}
+
+
+void Linear_layer_ds2(
+  hls::stream<io_pack_int8>& inp,
+  hls::stream<io_pack_int16> block_B_loader[2],
+  hls::stream<double_io_pack_float>& outp
+){
+
+    hls::stream<io_pack_int8> block_A_loader;
+    #pragma HLS STREAM variable=block_A_loader depth=4
+    #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
+
+    hls::stream<io_pack_int64> block_C_drainer;
+    #pragma HLS STREAM variable=block_C_drainer depth=4
+    #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
+
+    #pragma HLS dataflow
+    Linear_layer_ds2_sub1(inp, block_A_loader);
+    Linear_layer_ds2_sub2(block_A_loader, block_B_loader, block_C_drainer);
+    Linear_layer_ds2_sub3(block_C_drainer, outp);
+
 }
 
 void input_loader_ds1_res1(
