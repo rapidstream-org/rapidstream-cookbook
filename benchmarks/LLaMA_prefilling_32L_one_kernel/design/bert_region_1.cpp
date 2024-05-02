@@ -99,7 +99,7 @@ void systolic_array_qkv(
 }
 
 
-void Linear_layer_qkv1_sub1(
+void Linear_layer_qkv_sub1(
   hls::stream<io_pack_int8>& inp,
   hls::stream<io_pack_int8>& block_A_loader
 ){
@@ -119,7 +119,7 @@ void Linear_layer_qkv1_sub1(
 }
 
 
-void Linear_layer_qkv1_sub2(
+void Linear_layer_qkv_sub2(
   hls::stream<io_pack_int8>& block_A_loader,
   hls::stream<io_pack_int16>& block_B_loader,
   hls::stream<io_pack_int64>& block_C_drainer
@@ -170,8 +170,6 @@ void Linear_layer_qkv1(
   hls::stream<io_pack_int16>& block_B_loader,
   hls::stream<double_io_pack_int8>& outp
 ){
-#include "const/buf18.h"
-#pragma HLS array_partition variable=buf18 cyclic factor=8
 
   hls::stream<io_pack_int8> block_A_loader;
   #pragma HLS STREAM variable=block_A_loader depth=4
@@ -183,52 +181,23 @@ void Linear_layer_qkv1(
 
   #pragma HLS DATAFLOW
 
-  Linear_layer_qkv1_sub1(inp, block_A_loader);
-  Linear_layer_qkv1_sub2(block_A_loader, block_B_loader, block_C_drainer);
+  Linear_layer_qkv_sub1(inp, block_A_loader);
+  Linear_layer_qkv_sub2(block_A_loader, block_B_loader, block_C_drainer);
   Linear_layer_qkv1_sub3(block_C_drainer, outp);
 
 }
 
 
-void Linear_layer_qkv2(
-  hls::stream<io_pack_int8>& inp,
-  hls::stream<io_pack_int16>& block_B_loader,
+void Linear_layer_qkv2_sub3(
+  hls::stream<io_pack_int64>& block_C_drainer,
   hls::stream<double_io_pack_int8>& outp
 ){
 #include "const/buf19.h"
 #pragma HLS array_partition variable=buf19 cyclic factor=8
 
-  io_pack_int8 A[inp_len];
-
-  hls::stream<io_pack_int8> block_A_loader;
-  #pragma HLS STREAM variable=block_A_loader depth=4
-  #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
-
-  hls::stream<io_pack_int64> block_C_drainer;
-  #pragma HLS STREAM variable=block_C_drainer depth=4
-  #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
-
-  l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
-  #pragma HLS DATAFLOW
+  for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
     int ps_offset = ps_id * inp_parallel;
-
-    init_inp_buf: for (int j = 0; j < inp_len; j++) {    // L19
-    #pragma HLS pipeline II=1
-        A[j] = inp.read();
-    }
-
-    block_gemm:
     for(int jj = 0; jj < pack_inp_len_w; jj++){
-    #pragma HLS DATAFLOW
-
-      init_block_AB:
-      for(int k = 0; k < inp_len; k++){
-      #pragma HLS PIPELINE II=1
-          block_A_loader.write(A[k]);
-      }
-
-      systolic_array_qkv(block_A_loader, block_B_loader, block_C_drainer);
-
       io_pack_int8 outp_data_pack_0;
       io_pack_int8 outp_data_pack_1;
       l_bias_scale_j: for (int j = 0; j < block_size_b; j++) {    // L41
@@ -252,45 +221,16 @@ void Linear_layer_qkv2(
 }
 
 
-void Linear_layer_qkv3(
-  hls::stream<io_pack_int8>& inp,
-  hls::stream<io_pack_int16>& block_B_loader,
+void Linear_layer_qkv3_sub3(
+  hls::stream<io_pack_int64>& block_C_drainer,
   hls::stream<double_io_pack_int8>& outp
 ){
 #include "const/buf20.h"
 #pragma HLS array_partition variable=buf20 cyclic factor=8
 
-  io_pack_int8 A[inp_len];
-
-  hls::stream<io_pack_int8> block_A_loader;
-  #pragma HLS STREAM variable=block_A_loader depth=4
-  #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
-
-  hls::stream<io_pack_int64> block_C_drainer;
-  #pragma HLS STREAM variable=block_C_drainer depth=4
-  #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
-
-  l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
-  #pragma HLS DATAFLOW
+  for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
     int ps_offset = ps_id * inp_parallel;
-
-    init_inp_buf: for (int j = 0; j < inp_len; j++) {    // L19
-    #pragma HLS pipeline II=1
-        A[j] = inp.read();
-    }
-
-    block_gemm:
     for(int jj = 0; jj < pack_inp_len_w; jj++){
-    #pragma HLS DATAFLOW
-
-      init_block_AB:
-      for(int k = 0; k < inp_len; k++){
-      #pragma HLS PIPELINE II=1
-          block_A_loader.write(A[k]);
-      }
-
-      systolic_array_qkv(block_A_loader, block_B_loader, block_C_drainer);
-
       io_pack_int8 outp_data_pack_0;
       io_pack_int8 outp_data_pack_1;
       l_bias_scale_j: for (int j = 0; j < block_size_b; j++) {    // L41
@@ -311,6 +251,50 @@ void Linear_layer_qkv3(
       }
     }
   }
+}
+
+
+void Linear_layer_qkv2(
+  hls::stream<io_pack_int8>& inp,
+  hls::stream<io_pack_int16>& block_B_loader,
+  hls::stream<double_io_pack_int8>& outp
+){
+  hls::stream<io_pack_int8> block_A_loader;
+  #pragma HLS STREAM variable=block_A_loader depth=4
+  #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
+
+  hls::stream<io_pack_int64> block_C_drainer;
+  #pragma HLS STREAM variable=block_C_drainer depth=4
+  #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
+
+  #pragma HLS DATAFLOW
+
+  Linear_layer_qkv_sub1(inp, block_A_loader);
+  Linear_layer_qkv_sub2(block_A_loader, block_B_loader, block_C_drainer);
+  Linear_layer_qkv2_sub3(block_C_drainer, outp);
+
+}
+
+void Linear_layer_qkv3(
+  hls::stream<io_pack_int8>& inp,
+  hls::stream<io_pack_int16>& block_B_loader,
+  hls::stream<double_io_pack_int8>& outp
+){
+
+  hls::stream<io_pack_int8> block_A_loader;
+  #pragma HLS STREAM variable=block_A_loader depth=4
+  #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
+
+  hls::stream<io_pack_int64> block_C_drainer;
+  #pragma HLS STREAM variable=block_C_drainer depth=4
+  #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
+
+  #pragma HLS DATAFLOW
+
+  Linear_layer_qkv_sub1(inp, block_A_loader);
+  Linear_layer_qkv_sub2(block_A_loader, block_B_loader, block_C_drainer);
+  Linear_layer_qkv3_sub3(block_C_drainer, outp);
+
 }
 
 void input_loader(
@@ -412,8 +396,6 @@ void weight_loader_r1(
     }
   }
 }
-
-
 
 
 void Bert_layer_dataflow_region_1(
