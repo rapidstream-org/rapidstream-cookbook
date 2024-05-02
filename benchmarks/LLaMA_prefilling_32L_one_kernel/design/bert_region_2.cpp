@@ -295,7 +295,7 @@ void Attention_layer(
 
 void Context_layer(
     hls::stream<io_pack_int8>& inp,
-    io_pack_int16 B[seq_num][pack_inp_len_w],
+    hls::stream<io_pack_int16>& block_B_loader,
     hls::stream<double_io_pack_int8>& outp
 ){
 #include "const/buf23.h"
@@ -304,11 +304,8 @@ void Context_layer(
     io_pack_int8 A[seq_num];
 
     hls::stream<io_pack_int8> block_A_loader;
-    hls::stream<io_pack_int16> block_B_loader;
     #pragma HLS STREAM variable=block_A_loader depth=4
     #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
-    #pragma HLS STREAM variable=block_B_loader depth=4
-    #pragma HLS BIND_STORAGE variable=block_B_loader type=fifo impl=srl
 
     hls::stream<io_pack_int64> block_C_drainer;
     #pragma HLS STREAM variable=block_C_drainer depth=4
@@ -332,7 +329,6 @@ void Context_layer(
                 for(int k = 0; k < seq_num; k++){
                 #pragma HLS PIPELINE II=1
                     block_A_loader.write(A[k]);
-                    block_B_loader.write(B[k][h * pack_head_len_w + jj]);
                 }
 
                 systolic_array_cont(block_A_loader, block_B_loader, block_C_drainer);
@@ -463,11 +459,14 @@ void K_writer(
 
 void V_writer(
     hls::stream<double_io_pack_int8>& inp,
-    io_pack_int16 V[seq_num][pack_inp_len_w]
+    hls::stream<io_pack_int16>& block_B_loader
 ){
     double_io_pack_int8 data_pack;
     io_pack_int8 buf[inp_len];
     #pragma HLS array_partition variable=buf cyclic factor=2
+
+    io_pack_int16 V[seq_num][pack_inp_len_w];
+    #pragma HLS BIND_STORAGE variable=V type=ram_2p impl=uram
 
     l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
         l_buf: for (int j = 0; j < inp_len/2; j++) {
@@ -481,6 +480,16 @@ void V_writer(
         #pragma HLS pipeline II=8
             l_write_i: for (int i = 0; i < inp_parallel; i++) {
                 V[ps_id * inp_parallel + i][j / w_parallel].range((j % w_parallel)*8 + 7, (j % w_parallel)*8) = buf[j].range(i*8 + 7, i*8);
+            }
+        }
+    }
+
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        for (int h = 0; h < head_num; h++){
+            for(int jj = 0; jj < pack_head_len_w; jj++){
+                for(int k = 0; k < seq_num; k++){
+                    block_B_loader.write(V[k][h * pack_head_len_w + jj]);
+                }
             }
         }
     }
@@ -690,11 +699,12 @@ void V_writer_Context_layer(
 
 ){
 
-    io_pack_int16 V[seq_num][pack_inp_len_w];
-    #pragma HLS BIND_STORAGE variable=V type=ram_2p impl=uram
+    hls::stream<io_pack_int16> block_B_loader;
+    #pragma HLS STREAM variable=block_B_loader depth=4
+    #pragma HLS BIND_STORAGE variable=block_B_loader type=fifo impl=srl
 
-    V_writer(outp_v, V);
-    Context_layer(sfm_outp, V, outp_sfa);
+    V_writer(outp_v, block_B_loader);
+    Context_layer(sfm_outp, block_B_loader, outp_sfa);
 
 }
 
