@@ -225,46 +225,59 @@ void systolic_array_ds0(
 	}
 }
 
-void Attention_layer(
+
+
+void Attention_layer_sub1(
     hls::stream<io_pack_int8>& inp,
+    hls::stream<io_pack_int8>& block_A_loader
+){
+    io_pack_int8 A[head_len];
+
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        for (int h = 0; h < head_num; h++){
+            for (int j = 0; j < head_len; j++) {    // L19
+                A[j] = inp.read();
+            }
+
+            for(int jj = 0; jj < pack_seq_num_w; jj++){
+                for(int k = 0; k < head_len; k++){
+                    block_A_loader.write(A[k]);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+void Attention_layer_sub2(
+    hls::stream<io_pack_int8>& block_A_loader,
     hls::stream<io_pack_int16>& block_B_loader,
+    hls::stream<io_pack_int64>& block_C_drainer
+){
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        for (int h = 0; h < head_num; h++){
+            for(int jj = 0; jj < pack_seq_num_w; jj++){
+                systolic_array_attn(block_A_loader, block_B_loader, block_C_drainer);
+            }
+        }
+    }
+}
+
+
+
+void Attention_layer_sub3(
+    hls::stream<io_pack_int64>& block_C_drainer,
     hls::stream<double_io_pack_float>& outp
 ){
 #include "const/buf21.h"
 #pragma HLS array_partition variable=buf21 cyclic factor=8
 
-    io_pack_int8 A[head_len];
-
-    hls::stream<io_pack_int8> block_A_loader;
-    #pragma HLS STREAM variable=block_A_loader depth=4
-    #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
-
-    hls::stream<io_pack_int64> block_C_drainer;
-    #pragma HLS STREAM variable=block_C_drainer depth=4
-    #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
-
-    l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
-    #pragma HLS DATAFLOW
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
         int ps_offset = ps_id * inp_parallel;
-        l_multi_head: for (int h = 0; h < head_num; h++){
-        #pragma HLS DATAFLOW
-            init_inp_buf: for (int j = 0; j < head_len; j++) {    // L19
-            #pragma HLS pipeline II=1
-                A[j] = inp.read();
-            }
-
-            block_gemm:
+        for (int h = 0; h < head_num; h++){
             for(int jj = 0; jj < pack_seq_num_w; jj++){
-            #pragma HLS DATAFLOW
-
-                init_block_AB:
-                for(int k = 0; k < head_len; k++){
-                #pragma HLS PIPELINE II=1
-                    block_A_loader.write(A[k]);
-                }
-
-                systolic_array_attn(block_A_loader, block_B_loader, block_C_drainer);
-
                 io_pack_float outp_data_pack_0;
                 io_pack_float outp_data_pack_1;
                 double_io_pack_float outp_data_pack;
@@ -290,6 +303,30 @@ void Attention_layer(
     }
 }
 
+
+void Attention_layer(
+    hls::stream<io_pack_int8>& inp,
+    hls::stream<io_pack_int16>& block_B_loader,
+    hls::stream<double_io_pack_float>& outp
+){
+#include "const/buf21.h"
+#pragma HLS array_partition variable=buf21 cyclic factor=8
+
+    hls::stream<io_pack_int8> block_A_loader;
+    #pragma HLS STREAM variable=block_A_loader depth=4
+    #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
+
+    hls::stream<io_pack_int64> block_C_drainer;
+    #pragma HLS STREAM variable=block_C_drainer depth=4
+    #pragma HLS BIND_STORAGE variable=block_C_drainer type=fifo impl=srl
+
+    #pragma HLS DATAFLOW
+
+    Attention_layer_sub1(inp, block_A_loader);
+    Attention_layer_sub2(block_A_loader, block_B_loader, block_C_drainer);
+    Attention_layer_sub3(block_C_drainer, outp);
+
+}
 
 
 void Context_layer_sub1(
