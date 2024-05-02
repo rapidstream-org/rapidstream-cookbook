@@ -434,7 +434,6 @@ void Gelu_layer(
     io_pack_int8 outp_data_pack;
 
     l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
-    #pragma HLS DATAFLOW
         int ps_offset = ps_id * inp_parallel;
 
         l_buf: for (int j = 0; j < gelu_len/2; j++) {

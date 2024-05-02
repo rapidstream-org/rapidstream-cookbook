@@ -521,7 +521,6 @@ void weight_ds0_loader(
   io_pack_int16 *w_ds0_addr,
   hls::stream<io_pack_int16>& w_ds0_loader
 ){
-  #pragma HLS DATAFLOW
     l_pack_seq_ds0: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
         block_w_ds0_load: for(int jj = 0; jj < pack_inp_len_w; jj++){
             for(int k = 0; k < inp_len; k++){
