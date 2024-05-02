@@ -227,18 +227,17 @@ void systolic_array_ds0(
 
 void Attention_layer(
     hls::stream<io_pack_int8>& inp,
-    io_pack_int16 B[pack_seq_num_w][inp_len],
-    const float s[seq_num],
+    hls::stream<io_pack_int16>& block_B_loader,
     hls::stream<double_io_pack_float>& outp
 ){
+#include "const/buf21.h"
+#pragma HLS array_partition variable=buf21 cyclic factor=8
+
     io_pack_int8 A[head_len];
 
     hls::stream<io_pack_int8> block_A_loader;
-    hls::stream<io_pack_int16> block_B_loader;
     #pragma HLS STREAM variable=block_A_loader depth=4
     #pragma HLS BIND_STORAGE variable=block_A_loader type=fifo impl=srl
-    #pragma HLS STREAM variable=block_B_loader depth=4
-    #pragma HLS BIND_STORAGE variable=block_B_loader type=fifo impl=srl
 
     hls::stream<io_pack_int64> block_C_drainer;
     #pragma HLS STREAM variable=block_C_drainer depth=4
@@ -262,7 +261,6 @@ void Attention_layer(
                 for(int k = 0; k < head_len; k++){
                 #pragma HLS PIPELINE II=1
                     block_A_loader.write(A[k]);
-                    block_B_loader.write(B[jj][h * head_len + k]);
                 }
 
                 systolic_array_attn(block_A_loader, block_B_loader, block_C_drainer);
@@ -279,8 +277,8 @@ void Attention_layer(
                         ap_int<32> outp1_dp = outp_temp.range(63, 32);
                         converter_t outp0;
                         converter_t outp1;
-                        outp0.f = outp0_dp / 11.3137 * s[ps_offset + i];
-                        outp1.f = outp1_dp / 11.3137 * s[ps_offset + i];
+                        outp0.f = outp0_dp / 11.3137 * buf21[ps_offset + i];
+                        outp1.f = outp1_dp / 11.3137 * buf21[ps_offset + i];
                         outp_data_pack_0.range(i*32 + 31, i*32) = outp0.i;
                         outp_data_pack_1.range(i*32 + 31, i*32) = outp1.i;
                     }
@@ -436,11 +434,14 @@ void weight_ds0_loader(
 
 void K_writer(
     hls::stream<double_io_pack_int8>& inp,
-    io_pack_int16 K[pack_seq_num_w][inp_len]
+    hls::stream<io_pack_int16>& block_B_loader
 ){
     double_io_pack_int8 data_pack;
     io_pack_int8 buf[inp_len];
     #pragma HLS array_partition variable=buf cyclic factor=2
+
+    io_pack_int16 K[pack_seq_num_w][inp_len];
+    #pragma HLS BIND_STORAGE variable=K type=ram_2p impl=uram
 
     l_pack_seq: for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
         l_buf: for (int j = 0; j < inp_len/2; j++) {
@@ -455,6 +456,17 @@ void K_writer(
             K[ps_id * inp_parallel / w_parallel][j].range((ps_id % 2) * 64 + 63,  (ps_id % 2) * 64) = buf[j];
         }
     }
+
+    for (int ps_id = 0; ps_id < pack_seq_num_inp; ps_id++){
+        for (int h = 0; h < head_num; h++){
+            for(int jj = 0; jj < pack_seq_num_w; jj++){
+                for(int k = 0; k < head_len; k++){
+                    block_B_loader.write(K[jj][h * head_len + k]);
+                }
+            }
+        }
+    }
+
 }
 
 void V_writer(
@@ -668,46 +680,35 @@ void Layer_norm0(
     }
 }
 
-
-
-
-
-
-
-
-
 void K_writer_Attention_layer(
 	hls::stream<double_io_pack_int8>& outp_k,
 	hls::stream<io_pack_int8>& inp_sfa,
     hls::stream<double_io_pack_float>& attn_outp
 ){
-#include "const/buf21.h"
-#pragma HLS array_partition variable=buf21 cyclic factor=8
+    hls::stream<io_pack_int16> block_B_loader;
+    #pragma HLS STREAM variable=block_B_loader depth=4
+    #pragma HLS BIND_STORAGE variable=block_B_loader type=fifo impl=srl
+    #pragma HLS dataflow
 
-    io_pack_int16 K[pack_seq_num_w][inp_len];
-    #pragma HLS BIND_STORAGE variable=K type=ram_2p impl=uram
-
-    K_writer(outp_k, K);
-    Attention_layer(inp_sfa, K, buf21, attn_outp);
+    K_writer(outp_k, block_B_loader);
+    Attention_layer(inp_sfa, block_B_loader, attn_outp);
 }
-
 
 void V_writer_Context_layer(
 	hls::stream<double_io_pack_int8>& outp_v,
     hls::stream<io_pack_int8>& sfm_outp,
 	hls::stream<double_io_pack_int8>& outp_sfa
-
 ){
-
     hls::stream<io_pack_int16> block_B_loader;
     #pragma HLS STREAM variable=block_B_loader depth=4
     #pragma HLS BIND_STORAGE variable=block_B_loader type=fifo impl=srl
+
+    #pragma HLS dataflow
 
     V_writer(outp_v, block_B_loader);
     Context_layer(sfm_outp, block_B_loader, outp_sfa);
 
 }
-
 
 void Bert_layer_dataflow_region_2(
     io_pack_int16 *w_ds0_addr,
@@ -717,9 +718,6 @@ void Bert_layer_dataflow_region_2(
     hls::stream<io_pack_float>& outp_inp,
     hls::stream<io_pack_float>& outp_ln0 // depth=4
 ){
-
-
-
 
     hls::stream<io_pack_int8> inp_sfa;
     #pragma HLS STREAM variable=inp_sfa depth=4
