@@ -10,7 +10,13 @@ Custom Vitis Platforms
 
 For those utilizing a Vitis platform, you can input the platform name, such as the U250 with XDMA.  With this information, RapidStream will then calculates the available resources, taking into account what’s already reserved by the Vitis shell.
 
-For example, the output of this recipe looks like this:
+Run command to extract resources of each slot of the platform:
+
+```bash
+rapidstream ./run.py
+```
+
+The output of this recipe looks like this:
 
 ```
 [RS-0001] Invoking Vivado to extract resources of each slot of part "xcu250-figd2104-2L-e"...
@@ -29,3 +35,7 @@ For example, the output of this recipe looks like this:
 In this recipe, Slot X1Y1 have no available resources because it's occupied by the Vitis shell:
 
 <img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/0c011f29-9654-432f-d73d-97b41337fc00/1024" height="512px" alt="U250 Layout"/>
+
+Next Step
+---------
+  **Click here to [go back to Getting Started](../README.md)**

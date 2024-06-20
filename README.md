@@ -20,7 +20,7 @@ Composing Large-Scale FPGA-Based Systems
 Where to Start
 --------------
 
-If you're new to RapidStream and want to learn the basics or get a quick overview of how it works, check out the recipes in the [Getting Started](./getting_started) section. Once you're familiar with the fundamentals, explore real-world applications of RapidStream on various benchmarks in the [Benchmarks](./benchmarks) section.
+If you're new to RapidStream and want to learn the basics or get a quick overview of how it works, you may read [rapidstream documents](https://docs.rapidstream-da.com/) and check out the recipes in the [Getting Started](./getting_started) section. Once you're familiar with the fundamentals, explore real-world applications of RapidStream on various benchmarks in the [Benchmarks](./benchmarks) section.
 
 To get a local copy of the RapidStream Cookbook repository, clone it to your system by running the following command:
 
@@ -30,6 +30,13 @@ cd rapidstream-cookbook
 ```
 
 You must have RapidStream installed, a valid RapidStream license, and a valid Vivado Design Suite license to download or run the cookbooks. If you are an academic researcher or would like to contribute to this cookbook, please contact us at https://rapidstream-da.com/ for a free RapidStream license.
+
+We recommend using Vivado version 2023.2 or later. Source the Vivado settings script before running the RapidStream Python scripts. For example, to source the Vivado settings script, run the following command:
+
+
+```bash
+source <Vivado_installation_path>/Vivado/2023.2/settings64.sh
+```
 
 All RapidStream Python script recipes (`*.py`) in this cookbook should be executed using the `rapidstream` command. For example, to run `getting_started/mixed_sources/run.py`, use the following command:
 
@@ -45,7 +52,7 @@ Recipes
 
 <table border="0" width="100%">
     <tbody>
-        <tr><td colspan="3"><h2><a href="./getting_started">Getting Started</a></h2></td></tr>
+        <tr><td colspan="3"  align="center"><h2><a href="./getting_started">Getting Started</a></h2></td></tr>
         <tr><td colspan="3">
             Begin your journey with RapidStream by integrating the flow into your FPGA vendor tool. No prior experience required – start from here!
         </td></tr>
@@ -64,17 +71,24 @@ Recipes
 
 <table border="0" width="100%">
     <tbody>
-        <tr><td colspan="5"><h2><a href="./benchmarks">Benchmarks</a></h2></td></tr>
+        <tr><td colspan="5"  align="center"><h2><a href="./benchmarks">Vitis Flow Benchmarks</a></h2></td></tr>
         <tr><td colspan="5">
             Discover how RapidStream flow streamlines FPGA acceleration design of state-of-the-art architectures, enabling you to achieve optimal performance for performance-critical systems.
         </td></tr>
         <tr><td colspan="5"><strong>Scientific Computation</strong></td></tr>
         <tr>
-            <td><strong>Design</strong></td>
+            <td ><strong>Design</strong></td>
             <td><strong>Developer</strong></td>
             <td><strong>Platforms</strong></td>
             <td><strong>Sources</strong></td>
             <td><strong>Purpose</strong></td>
+        </tr>
+        <tr>
+            <td><a href="./benchmarks/vitis_flow/VecAdd">VecAdd</a></td>
+            <td><a href="https://rapidstream-da.com/">Rapidstream-DA</a></td>
+            <td><a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html">Vitis Alveo U50</a></td>
+            <td>Vitis HLS</td>
+            <td>An introductory example to get started with Rapidstream support for the Vitis flow.</td>
         </tr>
         <tr>
             <td><a href="./benchmarks/sextans_sparse_matrix_multiplication">Sextans</a></td>

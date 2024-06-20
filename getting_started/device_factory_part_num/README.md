@@ -14,6 +14,12 @@ In the [`run.py`](./run.py) script file, we specify the component's part number 
 
 <img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/89a38702-5590-4373-4aa4-97f4011e2700/1024" height="512px" alt="VP2552 Layout"/>
 
+To extract the resource for VP1552, run the the following command:
+
+```bash
+rapidstream ./run.py
+```
+
 An example output is:
 
 ```
@@ -29,3 +35,7 @@ An example output is:
 [RS-0005]   SLOT_X1Y2: lut=288768 ff=577536 bram_18k=864 dsp=1152 uram=192
 [RS-0005]   SLOT_X1Y3: lut=138368 ff=276736 bram_18k=432 dsp=552 uram=96
 ```
+
+Next Step
+---------
+  **Click here to [go back to Getting Started](../README.md)**

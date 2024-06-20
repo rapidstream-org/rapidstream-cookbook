@@ -44,3 +44,7 @@ To examine the timing results for each design point, use this command:
 ```bash
 find ./build -name *.xclbin.info
 ```
+
+Next Step
+---------
+  **Click here to [go back to Getting Started](../README.md)**
