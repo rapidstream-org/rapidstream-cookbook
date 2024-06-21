@@ -444,3 +444,5 @@ xst/
 _ngo/
 _xmsgs/
 _x.*/
+
+Makefile
