@@ -7,17 +7,68 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 # AMD Vitis Design
 
+## Introduction
+
 Rapidsteam is fully compatible with AMD Vitis by taking Vitis object files (`.xo`) as input, performing optimization and generating optimized `.xo` files as output. Therefore, users can use `v++ -link` to continue their Vitis development flow.
 
-![](../img/rapidsteram_xo.png)
+<img src="../img/rapidsteram_xo.png" width="600" alt="RapidStream Flow">
 
-In this recipe, we demonstrate how to optimize a simple vector addition design in a Vitis object file (`.xo`), and use its output object file to continue the Vitis development flow.
+In this recipe, we illustrate how to create a Vitis objective file (`.xo`) using Vitis, then optimize the `.xo` file with Rapidstream, and finally utilize the optimized output in the ongoing Vitis development process.
+
 
 ## Xilinx Object Files
 
 [Vitis compiled object files (`.xo`)](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Design-Topology) are IP packages used in the AMD Vitis kernel development flow for programming the programmable logic (PL) region of target devices.
 
 These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `VecAdd.xo` file, but the same flow applies to object files generated through other methods.
+
+## Tutorial
+
+## Step 1: C++ Simulation
+
+Since our
+design calls Xilinx Libraries, we need to source the Vitis environment before running the simulation.
+
+```bash
+source <Vitis_install_path>/Vitis/2023.2/settings64.sh
+```
+
+Before generating the `.xo` file, we recommend running a C++ simulation to verify the correctness of the design. This step is optional but highly recommended. Run the following command or `make csim` to perform C++ simulation:
+
+```bash
+g++ -I ${XILINX_HLS}/include ./design/VecAdd.cpp ./design/main.cpp -o main.exe
+./main.exe
+```
+
+Your should see the following output:
+
+```bash
+PASS!
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 4096
+```
+
+## Step 2: Targeting Vitis Software Emulation
+
+AMD Vitis provides an easy way to target software emulation for debugging and performance analysis. To target software emulation, your need to source Vitis and XRT environment setting up scripts and run the following command:
+
+```bash
+source <Vitis_install_path>/Vitis/2023.2/settings64.sh
+source /opt/xilinx/xrt/setup.sh
+make TARGET=sw_emu sw_emu
+```
+
+
+
+## Step 1: Generate the Xilinx Object File (`.xo`)
+
+We use Vitis 2023.2 to generate the `.xo` file. Run the following command:
+
+```bash
+source <Vitis_install_path>/Vitis/2023.2/settings64.sh
+cd <repo root>/getting_started/vitis_source
+make xo
+```
+
 
 ## RapidStream for Vitis
 
@@ -32,15 +83,6 @@ The RapidStream flow for Vitis requires four key inputs:
 
 To execute the flow and generate optimized `.xo` files, run `rapidstream run.py` using the input from the `design` folder.
 
-## Step 1: Generate the Xilinx Object File (`.xo`)
-
-We use Vitis 2023.2 to generate the `.xo` file. Run the following command:
-
-```bash
-source <Vitis_install_path>/Vitis/2023.2/settings64.sh
-cd <repo root>/getting_started/vitis_source
-make xo
-```
 
 
 ## Step 2: Call RapidStream to Optimize the Design

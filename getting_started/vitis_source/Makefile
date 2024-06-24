@@ -7,18 +7,44 @@ SRC_DIR=design
 TARGET=hw
 TEMP_DIR=build
 KERNEL_XO=$(TEMP_DIR)/$(KERNEL_NAME).xo
-INCLUDE=-I ${XILINX_HLS}/include
+KERNEL_XCLBIN=$(TEMP_DIR)/$(KERNEL_NAME).xclbin
+INCLUDE=-I $(XILINX_HLS)/include
 CFLAGS=$(INCLUDE) $(OPT_LEVEL)
 CXX=g++
+HOST=app.exe
 
+all:$(KERNEL_XCLBIN)
 
-all: $(KERNEL_XO)
-	rapidstream ./run.py
+sw_emu: $(KERNEL_XCLBIN) $(HOST)
+	XCL_EMULATION_MODE=sw_emu ./app.exe $<
+
+$(KERNEL_XCLBIN): $(KERNEL_XO)
+	v++ -l -t ${TARGET} \
+	--platform $(PLATFORM) \
+	--kernel $(KERNEL_NAME) \
+	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
+	--config $(SRC_DIR)/link_config.ini \
+	--temp_dir $(TEMP_DIR) \
+	-o $@ \
+	$^
 
 xo:$(KERNEL_XO)
 
-$(KERNEL_XO): $(SRC_DIR)/$(KERNEL_NAME).cpp
-	v++ -c -t ${TARGET} --platform $(PLATFORM) -k $(KERNEL_NAME) -o $(KERNEL_XO) --temp_dir $(TEMP_DIR) $^
+$(KERNEL_XO): $(SRC_DIR)/$(KERNEL_NAME).cpp $(SRC_DIR)/$(KERNEL_NAME).h
+	v++ -c -t ${TARGET} \
+	--platform $(PLATFORM) \
+	-k $(KERNEL_NAME) \
+	--temp_dir $(TEMP_DIR) \
+	-o $@ \
+	$^
+
+host:$(HOST)
+
+$(HOST): $(SRC_DIR)/host.cpp
+	$(CXX) -Wall -g -std=c++11 $^ -o app.exe \
+		-I${XILINX_XRT}/include/ \
+		-I${XILINX_VIVADO}/include/ \
+		-L${XILINX_XRT}/lib/ -lOpenCL -lpthread -lrt -lstdc++
 
 csim:$(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 	$(CXX) $(CFLAGS) $^ -o main.exe
@@ -28,5 +54,5 @@ csim:$(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 
 clean:
 	rm -rf $(TEMP_DIR) *.log
-	rm -rf .Xil
+	rm -rf .Xil .run
 	rm -rf *.exe
