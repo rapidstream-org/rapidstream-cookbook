@@ -13,10 +13,15 @@ CFLAGS=$(INCLUDE) $(OPT_LEVEL)
 CXX=g++
 HOST=app.exe
 
-all:$(KERNEL_XCLBIN)
+all:rs_opt
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
 	XCL_EMULATION_MODE=sw_emu ./app.exe $<
+
+hw: $(KERNEL_XCLBIN) $(HOST)
+
+rs_opt:$(KERNEL_XO)
+	rapidstream ./run.py
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
 	v++ -l -t ${TARGET} \
@@ -56,3 +61,4 @@ clean:
 	rm -rf $(TEMP_DIR) *.log
 	rm -rf .Xil .run
 	rm -rf *.exe
+	rm -rf .ipcache
