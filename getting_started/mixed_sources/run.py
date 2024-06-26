@@ -1,6 +1,6 @@
 """Getting Started: Mixed Language Vector Addition
 
-`RapidStreamCore` is a set of low-level API that provides the flexibility.
+`RapidStreamHLS` is a set of low-level API that provides the flexibility.
 In this demo, we use this API to show how RapidStream Pro works.
 """
 
@@ -9,10 +9,13 @@ Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All ri
 The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 """
 
-from rapidstream import RapidStreamCore, get_u50_default_device
+from rapidstream import RapidStreamHLS, get_u50_default_device
+import os
+
+CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # We create a RapidStream Pro project called "build":
-rs = RapidStreamCore("build")
+rs = RapidStreamHLS(f"{CURR_DIR}/build")
 
 # To optimize the design layout, the resource information is needed.
 #   * We pre-defined the most common options: U50, U250, U280, VCK190, etc.
@@ -22,22 +25,25 @@ rs.set_virtual_device(get_u50_default_device())
 
 # Add the RTL design files:
 #   * Interface information should be specified in the RTL files with pragmas.
-rs.add_vlog_dir("./design/rtl")
+rs.add_vlog_dir(f"{CURR_DIR}/design/rtl")
+rs.add_hls_solution(f"{CURR_DIR}/build/kernel_add/solution")
+rs.add_hls_solution(f"{CURR_DIR}/build/read_mem/solution")
+rs.add_hls_solution(f"{CURR_DIR}/build/write_mem/solution")
 
 # Add the HLS design files:
 #  * The HLS-generated Verilog files can be imported directly.
 #  * The HLS report directory is needed to extract the interface information.
-rs.add_vlog_dir("./design/hls")
-rs.add_hls_report_dir("./design/report")
+# rs.add_vlog_dir(f"{CURR_DIR}/kernel_add/solution/syn/verilog")
+# rs.add_hls_report_dir("build/kernel_add/solution/syn/report")
 
 # Add the IP files:
 #  * The IPs should be packaged as XCI files.
 #  * Interface information will be inferred from the XCI files.
-rs.add_xci_dir("./design/ip")
+rs.add_xci_dir(f"{CURR_DIR}/design/xci/ip/design_1_proc_sys_reset_0_0")
 
 # Set the top module name and the target clock period:
-rs.set_top_module_name("VecAdd")
-rs.add_clock("system_clock", period_ns=2)
+rs.set_top_module_name("VecAddMix")
+rs.add_clock("ap_clk", period_ns=2)
 
 # Add design constraints:
 #  * Using `assign_port_to_region` to place ports to the specified region.
