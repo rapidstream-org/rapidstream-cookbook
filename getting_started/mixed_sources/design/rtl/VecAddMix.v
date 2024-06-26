@@ -775,11 +775,10 @@ module VecAddMix
   assign write_mem_0_m_axi_gmem1_RVALID = m_axi_gmem1_rvalid;
   assign write_mem_0_m_axi_gmem1_WREADY = m_axi_gmem1_wready;
 
-  fifo #(
-    .DATA_WIDTH(32),
-    .ADDR_WIDTH(5),
-    .DEPTH(32)
-  ) fifo_0
+  sync_fifo #(
+    .DSIZE(32),
+    .ASIZE(9)
+  ) fifo_read2kernel0
        (.clk(ap_clk_1),
         .din_TDATA(read_mem_0_stream_out_TDATA),
         .din_TREADY(read_mem_0_stream_out_TREADY),
@@ -787,13 +786,12 @@ module VecAddMix
         .dout_TDATA(fifo_0_dout_TDATA),
         .dout_TREADY(fifo_0_dout_TREADY),
         .dout_TVALID(fifo_0_dout_TVALID),
-        .resetn(resetn_1));
+        .rst_n(resetn_1));
 
-  fifo #(
-    .DATA_WIDTH(32),
-    .ADDR_WIDTH(5),
-    .DEPTH(32)
-  ) fifo_1
+  sync_fifo #(
+    .DSIZE(32),
+    .ASIZE(9)
+  ) fifo_read2kernel1
        (.clk(ap_clk_1),
         .din_TDATA(read_mem_1_stream_out_TDATA),
         .din_TREADY(read_mem_1_stream_out_TREADY),
@@ -801,13 +799,12 @@ module VecAddMix
         .dout_TDATA(fifo_1_dout_TDATA),
         .dout_TREADY(fifo_1_dout_TREADY),
         .dout_TVALID(fifo_1_dout_TVALID),
-        .resetn(resetn_1));
+        .rst_n(resetn_1));
 
-  fifo #(
-    .DATA_WIDTH(32),
-    .ADDR_WIDTH(5),
-    .DEPTH(32)
-  ) fifo_2
+  sync_fifo #(
+    .DSIZE(32),
+    .ASIZE(9)
+  ) fifo_kernel2write
        (.clk(ap_clk_1),
         .din_TDATA(kernel_add_0_stream_out_TDATA),
         .din_TREADY(kernel_add_0_stream_out_TREADY),
@@ -815,7 +812,7 @@ module VecAddMix
         .dout_TDATA(fifo_2_dout_TDATA),
         .dout_TREADY(fifo_2_dout_TREADY),
         .dout_TVALID(fifo_2_dout_TVALID),
-        .resetn(resetn_1));
+        .rst_n(resetn_1));
 
   kernel_add #(
     .ap_ST_fsm_pp0_stage0(1'B1)

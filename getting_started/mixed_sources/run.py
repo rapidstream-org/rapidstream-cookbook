@@ -26,15 +26,14 @@ rs.set_virtual_device(get_u50_default_device())
 # Add the RTL design files:
 #   * Interface information should be specified in the RTL files with pragmas.
 rs.add_vlog_dir(f"{CURR_DIR}/design/rtl")
-rs.add_hls_solution(f"{CURR_DIR}/build/kernel_add/solution")
-rs.add_hls_solution(f"{CURR_DIR}/build/read_mem/solution")
-rs.add_hls_solution(f"{CURR_DIR}/build/write_mem/solution")
 
 # Add the HLS design files:
 #  * The HLS-generated Verilog files can be imported directly.
 #  * The HLS report directory is needed to extract the interface information.
-# rs.add_vlog_dir(f"{CURR_DIR}/kernel_add/solution/syn/verilog")
-# rs.add_hls_report_dir("build/kernel_add/solution/syn/report")
+rs.add_hls_solution(f"{CURR_DIR}/build/kernel_add/solution")
+rs.add_hls_solution(f"{CURR_DIR}/build/read_mem/solution")
+rs.add_hls_solution(f"{CURR_DIR}/build/write_mem/solution")
+
 
 # Add the IP files:
 #  * The IPs should be packaged as XCI files.
@@ -49,6 +48,11 @@ rs.add_clock("ap_clk", period_ns=2)
 #  * Using `assign_port_to_region` to place ports to the specified region.
 #  * For example, here, we place all ports to HBM 16-31, lower right corner.
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
+rs.assign_cell_to_region(".*kernel_add.*", "SLOT_X0Y1:SLOT_X0Y1")
+rs.assign_cell_to_region(".*fifo_read2kernel0.*", "SLOT_X0Y1:SLOT_X0Y1")
+rs.assign_cell_to_region(".*fifo_read2kernel1.*", "SLOT_X0Y0:SLOT_X0Y0")
+rs.assign_cell_to_region(".*fifo_kernel2write.*", "SLOT_X1Y1:SLOT_X1Y1")
+
 
 # After the configurations, just start RapidStream:
 rs.run_dse()
