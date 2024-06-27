@@ -212,18 +212,12 @@ The final OoC implementation layout is as below.
 <img src="../img/mixed_ooc_layout.png" width="512px" alt="U50 Partitioning Scheme"/>
 
 
+### Step 3: Check results
 
-## RapidStream Flow
-
-Call the RapidStream API to create a design space exploration (DSE) flow by running commands in the terminal.
-
-
-## Outputs
-
-The RapidStream flow performs design space exploration and creates optimized design checkpoint (`.dcp`) files. To find these files, run the following command in your terminal:
+The RapidStream flow performs design space exploration and creates optimized design checkpoint (`.dcp`) files. If you execution is successful, you should find the post-routed dcp located at:
 
 ```bash
-find ./build/dse -name *.dcp
+build/dse/candidate_0/route.dcp
 ```
 
 To review the timing results for each generated design point, use this command:
