@@ -19,7 +19,7 @@ factory = get_u250_vitis_device_factory("xilinx_u250_gen3x16_xdma_4_1_202210_1")
 ```
 
 Uses can refer to function `get_u250_vitis_device_factory` in `u250.py` located at
-your RapidStream installation directory, such as
+their RapidStream installation directory, such as
 `<home_dir>/.rapidstream/opt/python3.10/lib/python3.10/site-packages/rapidstream/assets/device_library/u250/u250.py`.
 
 ```python
@@ -81,11 +81,11 @@ device = factory.generate_virtual_device()
 
 <img src="../img/au250_virtual_device.png" width="1000px" alt="RapidStream Logo" />
 
-
 ## Tutorial
 Run command to extract resources of each slot of the platform:
 
 ```bash
+source <Vitis_install_path>/Vitis/2023.2/settings64.sh
 rapidstream ./run.py
 ```
 
@@ -94,7 +94,7 @@ The output of this recipe looks like this:
 ```
 [RS-0001] Invoking Vivado to extract resources of each slot of part "xcu250-figd2104-2L-e"...
 [RS-0047] Running command with PID 1532299: vivado -mode batch -source /tmp/tmp5fy5rueh/get_pblock_resources.tcl
-Resource ff is not found in the report  /tmp/tmp5fy5rueh/x1y1.rpt
+Resource ff is not found in the report /tmp/tmp5fy5rueh/x1y1.rpt
 Resource lut is not found in the report /tmp/tmp5fy5rueh/x1y1.rpt
 Resource bram_18k is not found in the report /tmp/tmp5fy5rueh/x1y1.rpt
 Resource dsp is not found in the report /tmp/tmp5fy5rueh/x1y1.rpt
@@ -118,6 +118,7 @@ Resource uram is not found in the report /tmp/tmp5fy5rueh/x1y1.rpt
 [RS-0005]   SLOT_X1Y2: lut=207648 ff=415296 bram_18k=576 dsp=1536 uram=192
 [RS-0005]   SLOT_X1Y3: lut=215040 ff=430080 bram_18k=576 dsp=1536 uram=192
 ```
+
 
 In this recipe, Slot X1Y1 have no available resources because it's occupied by the Vitis shell.
 
