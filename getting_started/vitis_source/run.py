@@ -38,4 +38,4 @@ rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 # rs.assign_cell_to_region("a", "SLOT_X0Y1:SLOT_X0Y1")
 
 # Start the RapidStream optimization process:
-rs.run_dse()
+rs.run_dse(skip_impl=True)

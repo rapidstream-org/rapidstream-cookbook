@@ -49,12 +49,34 @@ INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the d
 
 ### Step 2: Targeting Vitis Software Emulation
 
-AMD Vitis provides an easy way to target software emulation for debugging and performance analysis. To target software emulation, your need to source Vitis and XRT environment setting up scripts and run the following command:
+AMD Vitis provides an easy way to target software emulation for debugging and performance analysis. To target software emulation, your need to source Vitis and XRT environment setting up scripts and run the following command or run `make TARGET=sw_emu sw_emu`:
 
 ```bash
 source <Vitis_install_path>/Vitis/2023.2/settings64.sh
 source /opt/xilinx/xrt/setup.sh
-make TARGET=sw_emu sw_emu
+
+v++ -c -t sw_emu \
+	--platform xilinx_u280_gen3x16_xdma_1_202211_1 \
+	-k VecAdd \
+	--temp_dir build \
+	-o build/VecAdd.xo \
+	design/VecAdd.cpp design/VecAdd.h
+
+v++ -l -t sw_emu \
+	--platform xilinx_u280_gen3x16_xdma_1_202211_1 \
+	--kernel VecAdd \
+	--connectivity.nk VecAdd:1:VecAdd \
+	--config design/link_config.ini \
+	--temp_dir build \
+	-o build/VecAdd.xclbin \
+	build/VecAdd.xo
+
+g++ -Wall -g -std=c++11 design/host.cpp -o app.exe \
+	-I${XILINX_XRT}/include/ \
+	-I${XILINX_VIVADO}/include/ \
+	-L${XILINX_XRT}/lib/ -lOpenCL -lpthread -lrt -lstdc++
+
+XCL_EMULATION_MODE=sw_emu ./app.exe build/VecAdd.xclbin
 ```
 
 You would see the following output:
@@ -76,13 +98,18 @@ INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the d
 
 ### Step 3: Generate the Xilinx Object File (`.xo`)
 
-We use Vitis 2023.2 to generate the `.xo` file. Run the following command:
+We use Vitis 2023.2 to generate the `.xo` file. Run the following command or run `make xo`:
 
 ```bash
 source <Vitis_install_path>/Vitis/2023.2/settings64.sh
 make clean
 cd <repo root>/getting_started/vitis_source
-make xo
+v++ -c -t hw \
+	--platform xilinx_u280_gen3x16_xdma_1_202211_1 \
+	-k VecAdd \
+	--temp_dir build \
+	-o build/VecAdd.xo \
+	design/VecAdd.cpp design/VecAdd.h
 ```
 
 ### Step 4 (Optional): Use Vitis --link to Generate the `.xclbin` File
@@ -138,7 +165,7 @@ If everything is successful, you should at least get one optimized `.xo` file lo
 
 ### Step 6: Use Vitis --link with the Optimized `.xo` File
 
-With the optimized `.xo` file generated, you can use `v++ -link` to generate the `.xclbin` file. Run the following command:
+With the optimized `.xo` file generated, you can use `v++ -link` to generate the `.xclbin` file. Run the following command or run `make`:
 
 ```bash
 v++ -l -t hw \
@@ -147,7 +174,7 @@ v++ -l -t hw \
   --connectivity.nk VecAdd:1:VecAdd \
   --config design/link_config.ini \
   --temp_dir build/rapidstream \
-  -o build/rapidstream/VecAdd_rs_opt.xclbin \
+  -o build/VecAdd_rs_opt.xclbin \
   ./build/dse/candidate_0/exported/VecAdd.xo
 ```
 
