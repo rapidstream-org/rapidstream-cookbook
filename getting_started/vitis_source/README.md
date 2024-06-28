@@ -133,7 +133,7 @@ If your machines is equipped with the target FPGA device, you can deploy the opt
 ./app.exe <path_to_vitis_xclbin>
 ```
 
-:warning: **Note**: This step can take hours to complete. We recommend using the RapidStream flow to optimize the `.xo` file instead of generating the `.xclbin` file if you are familiar with ADM Vitis flow.
+:warning: **Note**: This step can take hours to complete. We recommend using the RapidStream flow to optimize the `.xo` file instead of generating the `.xclbin` file if you are familiar with AMD Vitis flow.
 
 
 ### Step 5: Call RapidStream to Optimize the Design

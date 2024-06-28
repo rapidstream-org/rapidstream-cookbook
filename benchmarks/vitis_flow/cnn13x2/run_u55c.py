@@ -20,15 +20,15 @@ CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 rs = RapidStreamVitis(f"{CURR_DIR}/build")
 
 # Use the "xilinx_u55c_gen3x16_xdma_3_202210_1" platform as the device:
-u50_factory = get_u55c_vitis_device_factory("xilinx_u55c_gen3x16_xdma_3_202210_1")
-rs.set_virtual_device(u50_factory.generate_virtual_device())
+u55c_factory = get_u55c_vitis_device_factory("xilinx_u55c_gen3x16_xdma_3_202210_1")
+rs.set_virtual_device(u55c_factory.generate_virtual_device())
 
 # Add the design object file (".xo") to the project:
 rs.add_xo_file(f"{CURR_DIR}/build/kernel3.xo")
 
 # Specify the Vitis platform and connectivity configuration:
 rs.set_vitis_platform("xilinx_u55c_gen3x16_xdma_3_202210_1")
-rs.set_vitis_connectivity_config(f"{CURR_DIR}/design/link_config.ini")
+rs.set_vitis_connectivity_config(f"{CURR_DIR}/design/link_config_hbm.ini")
 
 # Set the clock target for the design:
 rs.add_clock("ap_clk", period_ns=3)
@@ -37,4 +37,4 @@ rs.add_clock("ap_clk", period_ns=3)
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 
 # Start the RapidStream optimization process:
-rs.run_dse()
+rs.run_dse(skip_impl=True)

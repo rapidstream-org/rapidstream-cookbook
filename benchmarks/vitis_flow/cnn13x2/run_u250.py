@@ -10,7 +10,7 @@ Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All ri
 The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 """
 
-from rapidstream import get_u50_vitis_device_factory, RapidStreamVitis
+from rapidstream import get_u250_vitis_device_factory, RapidStreamVitis
 import os
 
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,21 +19,21 @@ CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 # Create a RapidStream project in the "run" directory:
 rs = RapidStreamVitis(f"{CURR_DIR}/build")
 
-# Use the "xilinx_u50_gen3x16_xdma_5_202210_1" platform as the device:
-u50_factory = get_u50_vitis_device_factory("xilinx_u50_gen3x16_xdma_5_202210_1")
-rs.set_virtual_device(u50_factory.generate_virtual_device())
+# Use the "xilinx_u250_gen3x16_xdma_4_1_202210_1" platform as the device:
+u250_factory = get_u250_vitis_device_factory("xilinx_u250_gen3x16_xdma_4_1_202210_1")
+rs.set_virtual_device(u250_factory.generate_virtual_device())
 
 # Add the design object file (".xo") to the project:
 rs.add_xo_file(f"{CURR_DIR}/build/kernel3.xo")
 
 # Specify the Vitis platform and connectivity configuration:
-rs.set_vitis_platform("xilinx_u50_gen3x16_xdma_5_202210_1")
-rs.set_vitis_connectivity_config(f"{CURR_DIR}/design/link_config_hbm.ini")
+rs.set_vitis_platform("xilinx_u250_gen3x16_xdma_4_1_202210_1")
+rs.set_vitis_connectivity_config(f"{CURR_DIR}/design/link_config_ddr.ini")
 
 # Set the clock target for the design:
 rs.add_clock("ap_clk", period_ns=3)
 
-# Bind all ports to HBM 16-31:
+# Bind all ports to DDR 0-3:
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 
 # Start the RapidStream optimization process:
