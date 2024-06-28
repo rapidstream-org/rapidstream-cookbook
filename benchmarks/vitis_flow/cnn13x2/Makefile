@@ -17,12 +17,16 @@ CLK_PERIOD_NS=4
 
 ifeq ($(PLATFORM), xilinx_u50_gen3x16_xdma_5_202210_1)
 PART := xcu50-fsvh2104-2-e
+RUN_FILE := run_au50.py
 else ifeq ($(PLATFORM), xilinx_u55c_gen3x16_xdma_3_202210_1)
 PART := xcu55c-fsvh2892-2L-e
+RUN_FILE := run_u55c.py
 else ifeq ($(PLATFORM), xilinx_u250_gen3x16_xdma_4_1_202210_1)
 PART := xcu250-figd2104-2L-e
+RUN_FILE := run_u250.py
 else ifeq ($(PLATFORM), xilinx_u280_gen3x16_xdma_1_202211_1)
 PART := xcu280-fsvh2892-2L-e
+RUN_FILE := run_u280.py
 else
     $(error PLATFORM not supported)
 endif
@@ -35,7 +39,7 @@ sw_emu: $(KERNEL_XCLBIN) $(HOST)
 hw: $(KERNEL_XCLBIN) $(HOST)
 
 rs_opt:$(KERNEL_XO)
-	rapidstream ./run.py
+	rapidstream $(RUN_FILE)
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
 	v++ -l -t ${TARGET} \
