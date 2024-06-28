@@ -13,14 +13,8 @@ Rapidsteam is fully compatible with AMD Vitis by taking Vitis object files (`.xo
 
 <img src="../../../getting_started/img/rapidsteram_xo.png" width="600" alt="RapidStream Flow">
 
-In this recipe, we illustrate how to create a Vitis objective file (`.xo`) using Vitis, then optimize the `.xo` file with Rapidstream, and finally utilize the optimized output in the ongoing Vitis development process.
+In this recipe, we illustrate how to create a Vitis objective file (`.xo`) for a Convolutional neural network (CNN) kernel using Vitis, then optimize the `.xo` file with Rapidstream, and finally utilize the optimized output in the ongoing Vitis development process.
 
-
-## Xilinx Object Files
-
-[Vitis compiled object files (`.xo`)](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Design-Topology) are IP packages used in the AMD Vitis kernel development flow for programming the programmable logic (PL) region of target devices.
-
-These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `kernel3.xo` file, but the same flow applies to object files generated through other methods.
 
 ## Tutorial
 
