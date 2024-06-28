@@ -20,7 +20,7 @@ In this recipe, we illustrate how to create a Vitis objective file (`.xo`) using
 
 [Vitis compiled object files (`.xo`)](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Design-Topology) are IP packages used in the AMD Vitis kernel development flow for programming the programmable logic (PL) region of target devices.
 
-These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `VecAdd.xo` file, but the same flow applies to object files generated through other methods.
+These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `kernel3.xo` file, but the same flow applies to object files generated through other methods.
 
 ## Tutorial
 
@@ -36,15 +36,16 @@ source <Vitis_install_path>/Vitis/2023.2/settings64.sh
 Before generating the `.xo` file, we recommend running a C++ simulation to verify the correctness of the design. This step is optional but highly recommended. Run the following command or `make csim` to perform C++ simulation:
 
 ```bash
-g++ -I ${XILINX_HLS}/include ./design/VecAdd.cpp ./design/main.cpp -o main.exe
+g++ -I ${XILINX_HLS}/include ./design/kernel3.cpp ./design/main.cpp -o main.exe
 ./main.exe
 ```
 
 Your should see the following output:
 
 ```bash
-PASS!
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 4096
+./main.exe
+Passed!
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 32768
 ```
 
 ### Step 2: Targeting Vitis Software Emulation
@@ -60,16 +61,19 @@ make TARGET=sw_emu sw_emu
 You would see the following output:
 
 ```bash
+INFO: reading build/kernel3.xclbin xclbinfile
+INFO: loading: 'build/kernel3.xclbin'
+CRITICAL WARNING: [SW-EM 09-0] Unable to find emconfig.json. Using default device "xilinx:pcie-hw-em:7v3:1.0"
 Trying to program device[0]: xilinx:pcie-hw-em:7v3:1.0
-Kernel Name: VecAdd, CU Number: 0, Thread creation status: success
+Kernel Name: kernel3, CU Number: 0, Thread creation status: success
 Device[0]: xclbin is loaded successfully!
-Kernel Name: VecAdd, CU Number: 0, State: Start
-Kernel Name: VecAdd, CU Number: 0, State: Running
-Kernel Name: VecAdd, CU Number: 0, State: Idle
+Kernel Name: kernel3, CU Number: 0, State: Start
+Kernel Name: kernel3, CU Number: 0, State: Running
+Kernel Name: kernel3, CU Number: 0, State: Idle
 TEST PASSED!
 device process sw_emu_device done
-Kernel Name: VecAdd, CU Number: 0, Status: Shutdown
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 4096
+Kernel Name: kernel3, CU Number: 0, Status: Shutdown
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 32768
 ```
 
 :warning: **Note**: Clean the sw_emu `.xo` file before next steps by running `make clean`.
@@ -91,13 +95,13 @@ With the `.xo` file generated, you can use `v++ -link` to generate the `.xclbin`
 
 ```bash
 v++ -l -t hw \
-  --platform  xilinx_u280_gen3x16_xdma_1_202211_1 \
-  --kernel VecAdd \
-  --connectivity.nk VecAdd:1:VecAdd \
+  --platform xilinx_u50_gen3x16_xdma_5_202210_1 \
+  --kernel kernel3 \
+  --connectivity.nk kernel3:1:kernel3 \
   --config design/link_config.ini \
   --temp_dir build \
-  -o build/VecAdd.xclbin \
-  build/VecAdd.xo
+  -o build/kernel3.xclbin \
+  build/kernel3.xo
 ```
 
 If your machines is equipped with the target FPGA device, you can deploy the optimized design on the FPGA by running the following command:
@@ -133,7 +137,7 @@ When finished, you can locate these files using the following command:
 find ./build/dse/ -name *.xo
 ```
 
-If everything is successful, you should at least get one optimized `.xo` file located in `./build/dse/candidate_0/exported/VecAdd.xo`.
+If everything is successful, you should at least get one optimized `.xo` file located in `./build/dse/candidate_0/exported/kernel3.xo`.
 
 
 ### Step 6: Use Vitis --link with the Optimized `.xo` File
@@ -142,13 +146,13 @@ With the optimized `.xo` file generated, you can use `v++ -link` to generate the
 
 ```bash
 v++ -l -t hw \
-  --platform  xilinx_u280_gen3x16_xdma_1_202211_1 \
-  --kernel VecAdd \
-  --connectivity.nk VecAdd:1:VecAdd \
+  --platform xilinx_u50_gen3x16_xdma_5_202210_1 \
+  --kernel kernel3 \
+  --connectivity.nk kernel3:1:kernel3 \
   --config design/link_config.ini \
   --temp_dir build/rapidstream \
-  -o build/rapidstream/VecAdd_rs_opt.xclbin \
-  ./build/dse/candidate_0/exported/VecAdd.xo
+  -o build/rapidstream/kernel3_rs_opt.xclbin \
+  ./build/dse/candidate_0/exported/kernel3.xo
 ```
 
 
