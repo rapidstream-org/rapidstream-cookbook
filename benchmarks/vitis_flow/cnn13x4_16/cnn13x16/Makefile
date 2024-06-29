@@ -15,7 +15,7 @@ INCLUDE=-I $(XILINX_HLS)/include
 CFLAGS := $(INCLUDE) $(OPT_LEVEL)
 CXX := g++
 HOST := app.exe
-HLS2XO_TCL=../../common/tcl/hls2xo.tcl
+HLS2XO_TCL=../../../common/tcl/hls2xo.tcl
 CLK_PERIOD_NS := 4
 
 

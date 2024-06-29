@@ -84,11 +84,22 @@ Recipes
             <td><strong>Purpose</strong></td>
         </tr>
         <tr>
-            <td><a href="./benchmarks/vitis_flow/VecAdd">VecAdd</a></td>
-            <td><a href="https://rapidstream-da.com/">Rapidstream-DA</a></td>
-            <td><a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html">Vitis Alveo U50</a></td>
+            <td><a href="./benchmarks/vitis_flow/cnn13x2">CNN13x2</a></td>
+            <td><a href="https://github.com/UCLA-VAST/AutoBridge">AutoBridge</a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> U50 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> U55c </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html"> U280 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> U250 </a></td>
             <td>Vitis HLS</td>
-            <td>An introductory example to get started with Rapidstream support for the Vitis flow.</td>
+            <td>An HLS accelerator for the convolutional neural network kernel.</td>
+        </tr>
+        <tr>
+            <td><a href="./benchmarks/vitis_flow/cnn13x4_16">CNN13x{4..16}</a></td>
+            <td><a href="https://github.com/UCLA-VAST/AutoBridge">AutoBridge</a></td>
+            <td align="center">
+            <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> U250 </a></td>
+            <td>Vitis HLS</td>
+            <td>An HLS accelerator for the convolutional neural network kernel.</td>
         </tr>
         <tr>
             <td><a href="./benchmarks/sextans_sparse_matrix_multiplication">Sextans</a></td>

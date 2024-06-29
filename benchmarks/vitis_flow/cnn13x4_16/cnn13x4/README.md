@@ -5,11 +5,11 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 <img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/1b565657-df33-41f9-f29e-0d539743e700/128" width="64px" alt="RapidStream Logo" />
 
-# CNN13x12 Benchmark
+# CNN13x4 Benchmark
 
 ## Introduction
 
-In this tutorial, we demonstrate the process of creating a Vitis objective file (`.xo`) for a Convolutional Neural Network (CNN) kernel used in [AutoBridge](https://github.com/UCLA-VAST/AutoBridge/tree/master/archive/benchmarks/CNN) with Vitis. We then optimize the `.xo`  file with RapidStream and incorporate the optimized output into the ongoing Vitis development workflow. For this demonstration, we use the Alveo U250 device. To adapt the design for other devices, such as the Alveo U50, Alveo U55C, or Alveo U280, please refer to the [CNN13x2](../cnn13x2/README.md)  tutorial.
+In this tutorial, we demonstrate the process of creating a Vitis objective file (`.xo`) for a Convolutional Neural Network (CNN) kernel used in [AutoBridge](https://github.com/UCLA-VAST/AutoBridge/tree/master/archive/benchmarks/CNN) with Vitis. We then optimize the `.xo`  file with RapidStream and incorporate the optimized output into the ongoing Vitis development workflow. For this demonstration, we use the Alveo U250 device. To adapt the design for other devices, such as the Alveo U50, Alveo U55C, or Alveo U280, please refer to the [CNN13x2](../../cnn13x2/README.md)  tutorial.
 
 
 ## Tutorial
@@ -35,7 +35,7 @@ Your should see the following output:
 ```bash
 ./main.exe
 Passed!
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 79872
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 32768
 ```
 
 ### Step 2: Targeting Vitis Software Emulation
@@ -86,14 +86,14 @@ Kernel Name: kernel3, CU Number: 0, State: Idle
 TEST PASSED!
 device process sw_emu_device done
 Kernel Name: kernel3, CU Number: 0, Status: Shutdown
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 79872
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 32768
 ```
 
 :warning: **Note**: Clean the sw_emu `.xo` file before next steps by running `make clean`.
 
 ### Step 3: Generate the Xilinx Object File (`.xo`)
 
-We use Vitis 2023.2 to generate the `.xo` file. Since we want to disable [free running pipeline (FRP)](https://www.xilinx.com/htmldocs/xilinx2021_2/hls-guidance/200-1553.html) feature for HLS step, we use [hls2xo.tcl](../../common/tcl/hls2xo.tcl) to compile the C++ code to `.xo` file instead of using `v++`.
+We use Vitis 2023.2 to generate the `.xo` file. Since we want to disable [free running pipeline (FRP)](https://www.xilinx.com/htmldocs/xilinx2021_2/hls-guidance/200-1553.html) feature for HLS step, we use [hls2xo.tcl](../../../common/tcl/hls2xo.tcl) to compile the C++ code to `.xo` file instead of using `v++`.
 
 Run the following command or run `make clean && make xo`:
 
@@ -101,7 +101,7 @@ Run the following command or run `make clean && make xo`:
 source <Vitis_install_path>/Vitis/2023.2/settings64.sh
 make clean
 mkdir -p build
-vitis_hls ../../common/tcl/hls2xo.tcl \
+vitis_hls ../../../common/tcl/hls2xo.tcl \
 -l build/vitis_hls_kernel3.log \
 -tclargs xcu250-figd2104-2L-e 4 kernel3 design/kernel3.cpp design/kernel3.h
 ```
