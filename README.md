@@ -73,7 +73,7 @@ Recipes
 
 <table border="0" width="100%">
     <tbody>
-        <tr><td colspan="5"  align="center"><h2><a href="./benchmarks">Vitis Flow Benchmarks</a></h2></td></tr>
+        <tr><td colspan="5"  align="center"><h2><a href="./benchmarks/vitis_flow">Vitis Flow Benchmarks</a></h2></td></tr>
         <tr><td colspan="5">
             Discover how RapidStream flow streamlines FPGA acceleration design of state-of-the-art architectures, enabling you to achieve optimal performance for performance-critical systems.
         </td></tr>
