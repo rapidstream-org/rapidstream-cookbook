@@ -69,6 +69,8 @@ Recipes
     </tbody>
 </table>
 
+
+
 <table border="0" width="100%">
     <tbody>
         <tr><td colspan="5"  align="center"><h2><a href="./benchmarks">Vitis Flow Benchmarks</a></h2></td></tr>
@@ -101,7 +103,53 @@ Recipes
             <td>Vitis HLS</td>
             <td>An HLS accelerator for the convolutional neural network kernel.</td>
         </tr>
+    </tbody>
+</table>
+
+
+<table border="0" width="100%">
+    <tbody>
+        <tr><td colspan="5"  align="center"><h2><a href="./benchmarks/vivado_flow">Vivado Flow Benchmarks</a></h2></td></tr>
+        <tr><td colspan="5">
+            Discover how RapidStream flow streamlines FPGA acceleration design of state-of-the-art architectures, enabling you to achieve optimal performance for performance-critical systems.
+        </td></tr>
+        <tr><td colspan="5"><strong>Scientific Computation</strong></td></tr>
         <tr>
+            <td ><strong>Design</strong></td>
+            <td><strong>Developer</strong></td>
+            <td><strong>Platforms</strong></td>
+            <td><strong>Sources</strong></td>
+            <td><strong>Purpose</strong></td>
+        </tr>
+        <tr>
+            <td><a href="./benchmarks/vitis_flow/cnn13x2">LLM</a></td>
+            <td><a href="https://github.com/UCLA-VAST/AutoBridge">Chen <i>et al.</i><br/>(TRETS)</a></a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> VCK190 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> VHK158 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html"> VP1552 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> VU9P </a></td>
+            <td> Vitis HLS, Manual Verilog
+            </td>
+            <td>A model-specific spatial acceleration for Large Language Model (LLM) inference on FPGAs.</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table border="0" width="100%">
+    <tbody>
+        <tr><td colspan="5"  align="center"><h2><a href="./benchmarks/tapa_flow/">TAPA Flow Benchmarks</a></h2></td></tr>
+        <tr><td colspan="5">
+            Discover how RapidStream flow streamlines FPGA acceleration design of state-of-the-art architectures, enabling you to achieve optimal performance for performance-critical systems.
+        </td></tr>
+        <tr><td colspan="5"><strong>Scientific Computation</strong></td></tr>
+        <tr>
+            <td ><strong>Design</strong></td>
+            <td><strong>Developer</strong></td>
+            <td><strong>Platforms</strong></td>
+            <td><strong>Sources</strong></td>
+            <td><strong>Purpose</strong></td>
+        </tr>
             <td><a href="./benchmarks/sextans_sparse_matrix_multiplication">Sextans</a></td>
             <td><a href="https://dl.acm.org/doi/abs/10.1145/3490422.3502357">Song <i>et al.</i><br/>(FPGA '22)</a></td>
             <td>Vitis U250 XDMA</td>
