@@ -93,7 +93,7 @@ INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the d
 
 ### Step 3: Generate the Xilinx Object File (`.xo`)
 
-We use Vitis 2023.2 to generate the `.xo` file. Since we want to disable [free running pipeline (FRP)](https://www.xilinx.com/htmldocs/xilinx2021_2/hls-guidance/200-1553.html) feature for HLS step, we use [hls2xo.tcl](../../../common/tcl/hls2xo.tcl) to compile the C++ code to `.xo` file instead of using `v++`.
+We use Vitis 2023.2 to generate the `.xo` file. Since we want to disable [free running pipeline (FRP)](https://www.xilinx.com/htmldocs/xilinx2021_2/hls-guidance/200-1553.html) feature for HLS step, we use [hls2rtl.tcl](../../../../common/tcl/hls2rtl.tcl) to compile the C++ code to `.xo` file instead of using `v++`.
 
 Run the following command or run `make clean && make xo`:
 
@@ -101,7 +101,7 @@ Run the following command or run `make clean && make xo`:
 source <Vitis_install_path>/Vitis/2023.2/settings64.sh
 make clean
 mkdir -p build
-vitis_hls ../../../common/tcl/hls2xo.tcl \
+vitis_hls ../../../../common/tcl/hls2rtl.tcl \
 -l build/vitis_hls_kernel3.log \
 -tclargs xcu250-figd2104-2L-e 4 kernel3 design/kernel3.cpp design/kernel3.h
 ```
