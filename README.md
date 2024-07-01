@@ -123,7 +123,7 @@ Recipes
         </tr>
         <tr>
             <td><a href="./benchmarks/vitis_flow/cnn13x2">LLM</a></td>
-            <td><a href="https://github.com/UCLA-VAST/AutoBridge">Chen <i>et al.</i><br/>(TRETS)</a></a></td>
+            <td><a href="https://dl.acm.org/doi/10.1145/3656177">Chen <i>et al.</i><br/>(TRETS)</a></a></td>
             <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> VCK190 </a><br>
                 <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> VHK158 </a><br>
                 <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html"> VP1552 </a><br>

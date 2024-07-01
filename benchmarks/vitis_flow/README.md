@@ -16,13 +16,15 @@ In this recipe, we illustrate how to create a Vitis objective file (.xo) using V
 # How it works
 
 
-The figures below demonstrate how RapidStream seamlessly integrates with the Vitis flow. In Figure (a), within the standard AMD Vitis flow, HLS C++ files undergo initial compilation using Vitis_HLS and are stored as Xilinx Objective files (`.xo`). Subsequently, Vitis links the `.xo` file to the target FPGA device, executing tasks such as placement, routing, and bitstream generation.
+The figures below demonstrate how RapidStream seamlessly integrates with the Vitis flow. In Figure (a), within the standard AMD Vitis flow, HLS C++ files undergo initial compilation using `Vitis_HLS` and are stored as Xilinx Objective files (`.xo`). Subsequently, Vitis links the `.xo` file to the target FPGA device, executing tasks such as placement, routing, and bitstream generation.
 
 
-Figure (b) illustrates the integration of RapidStream with the Vitis flow. Users continue to leverage Vitis HLS for compiling dataflow HLS C++ code into an Xilinx Objective file (`.xo`). Subsequently, RapidStream processes the `.xo` file, seamlessly implementing transformations like partitioning, floorplanning, and pipeline insertion. The optimized design is then re-packaged into another `.xo` file format, which can be integrated with standard Vitis tools to target FPGA devices for generating executable bitstreams.
+Figure (b) illustrates the integration of RapidStream with the Vitis flow. Users continue to leverage Vitis HLS for compiling dataflow HLS C++ code into an Xilinx Objective file (`.xo`). Subsequently, RapidStream processes the `.xo` file, seamlessly implementing transformations like partitioning, floorplanning, and pipeline insertion. The optimized design is then re-packaged into another `.xo` file format, which can be integrated with standard Vitis tools to target FPGA devices for generating executable bitstreams (`xclbin`).
 
 
 <img src="../../getting_started/img/vitis_rapidstream_flow.png" width="1024px" alt="RapidStream Logo" />
+
+Compared to the standard Vitis flow, the RapidStream-aided Vitis flow shows distinct advantages in layout generation. The standard implementation tends to consolidate all logic within a single SLR (Super Logic Region), which can lead to local routing congestion. In contrast, RapidStream distributes the logic across four separate slots, effectively mitigating this congestion. Additionally, by incorporating pipeline registers after floorplanning, the extended route wires are less likely to impact the clock frequency negatively.
 
 
 # Feature Tutorials
