@@ -103,6 +103,16 @@ Recipes
             <td>Vitis HLS</td>
             <td>An HLS accelerator for the convolutional neural network kernel.</td>
         </tr>
+        <tr>
+            <td><a href="./benchmarks/vitis_flow/LLM/">LLM</a></td>
+            <td><a href="https://dl.acm.org/doi/10.1145/3656177">Chen <i>et al.</i><br/>(TRETS)</a></a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> U50 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> U55c </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html"> U280 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> U250 </a></td>
+            <td>Vitis HLS</td>
+            <td>A model-specific spatial acceleration for Large Language Model (LLM) inference on FPGAs.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -120,6 +130,13 @@ Recipes
             <td><strong>Platforms</strong></td>
             <td><strong>Sources</strong></td>
             <td><strong>Purpose</strong></td>
+        </tr>
+        <tr>
+            <td><a href="./benchmarks/vivado_flow/CNN">CNN</a></td>
+            <td><a href="https://github.com/UCLA-VAST/AutoBridge">AutoBridge</a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> RapidShell (U50) </a><br>
+            <td>Vitis HLS</td>
+            <td>An HLS accelerator for the convolutional neural network kernel.</td>
         </tr>
         <tr>
             <td><a href="./benchmarks/vitis_flow/cnn13x2">LLM</a></td>
