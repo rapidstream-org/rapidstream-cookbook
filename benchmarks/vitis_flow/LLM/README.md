@@ -72,47 +72,28 @@ Run the following command or execute `make rs_opt`:
 rapidstream ./run_u50.py
 ```
 
+Unlike in the example provided in [getting_started/vitis_source](../../../getting_started/vitis_source/run.py) where the `skip_impl` variable is set to `True`, in this case, the DSE engine will automatically launch Vitis to link the optimized `.xo` file to the target device and generate the `.xclbin` file.
+
+```bash
+# Skip Vitis implementation.
+rs.run_dse(skip_impl=True)
+```
+
 When finished, you can locate these files using the following command:
 
-```bash
-find ./build/dse/ -name *.xo
-```
-
-If everything is successful, you should at least get one optimized `.xo` file located in `./build/dse/candidate_0/exported/kernel3.xo`.
-
-
-### Step 6: Use Vitis --link with the Optimized `.xo` File
-
-With the optimized `.xo` file generated, you can use `v++ -link` to generate the `.xclbin` file. Run the following command:
 
 ```bash
-v++ -l -t hw \
-  --platform xilinx_u50_gen3x16_xdma_5_202210_1 \
-  --kernel kernel3 \
-  --connectivity.nk kernel3:1:kernel3 \
-  --config design/link_config.ini \
-  --temp_dir build/rapidstream \
-  -o build/rapidstream/kernel3_rs_opt.xclbin \
-  ./build/dse/candidate_0/exported/kernel3.xo
+find ./build/dse/ -name *.xclbin
 ```
 
+If everything is successful, you should at least get one optimized `.xclbin` file.
 
-To examine the timing results for each design point, use this command:
 
-```bash
-find ./build -name *.xclbin.info
-```
 
-If your machine is equipped with the target FPGA device, you can deploy the optimized design on the FPGA by running the following command:
-
-```bash
-make host
-./app.exe <path_to_optimized_xclbin>
-```
 
 ## Other platforms
 
-We also provide scripts to compile this example (CNN13x2) for various devices as below.
+We also provide scripts to compile this example for various devices as below.
 
 
 |  Target Device |             Vitis Platform            |            Scripts           |

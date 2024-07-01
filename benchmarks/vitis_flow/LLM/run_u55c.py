@@ -24,7 +24,7 @@ u55c_factory = get_u55c_vitis_device_factory("xilinx_u55c_gen3x16_xdma_3_202210_
 rs.set_virtual_device(u55c_factory.generate_virtual_device())
 
 # Add the design object file (".xo") to the project:
-rs.add_xo_file(f"{CURR_DIR}/build/kernel3.xo")
+rs.add_xo_file(f"{CURR_DIR}/build/bert_all.xo")
 
 # Specify the Vitis platform and connectivity configuration:
 rs.set_vitis_platform("xilinx_u55c_gen3x16_xdma_3_202210_1")
@@ -37,4 +37,4 @@ rs.add_clock("ap_clk", period_ns=3)
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 
 # Start the RapidStream optimization process:
-rs.run_dse(skip_impl=True)
+rs.run_dse()

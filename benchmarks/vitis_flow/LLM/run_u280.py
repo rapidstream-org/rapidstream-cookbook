@@ -24,7 +24,7 @@ u280_factory = get_u280_vitis_device_factory("xilinx_u280_gen3x16_xdma_1_202211_
 rs.set_virtual_device(u280_factory.generate_virtual_device())
 
 # Add the design object file (".xo") to the project:
-rs.add_xo_file(f"{CURR_DIR}/build/kernel3.xo")
+rs.add_xo_file(f"{CURR_DIR}/build/bert_all.xo")
 
 # Specify the Vitis platform and connectivity configuration:
 rs.set_vitis_platform("xilinx_u280_gen3x16_xdma_1_202211_1")
@@ -37,4 +37,4 @@ rs.add_clock("ap_clk", period_ns=3)
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 
 # Start the RapidStream optimization process:
-rs.run_dse(skip_impl=True)
+rs.run_dse()
