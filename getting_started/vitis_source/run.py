@@ -38,7 +38,7 @@ rs.add_clock("ap_clk", period_ns=3)
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 
 # Force some cells to be placed in a specific region:
-# rs.assign_cell_to_region("a", "SLOT_X0Y1:SLOT_X0Y1")
+rs.assign_cell_to_region(".*add_kernel.*", "SLOT_X0Y1:SLOT_X0Y1")
 
 # Start the RapidStream optimization process:
 rs.run_dse(skip_impl=True)
