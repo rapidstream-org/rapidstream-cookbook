@@ -10,20 +10,24 @@ HLS_DIR_TARGETS=$(foreach n, $(HLS_KERNELS), $(TEMP_DIR)/$(n)/solution/syn/veril
 DCP_TARGET=$(TEMP_DIR)/dse/candidate_0/route.dcp
 KERNEL_CLK_PERIOD_NS=4
 TARGET=hw
+HLS_TCL=../../common/tcl/hls2rtl.tcl
 
 all:$(DCP_TARGET)
 
 $(DCP_TARGET):$(HLS_DIR_TARGETS)
 	rapidstream ./run.py
 
+hls:$(HLS_DIR_TARGETS)
+
 $(HLS_DIR_TARGETS):$(TEMP_DIR)/%/solution/syn/verilog:$(HLS_SRC_DIR)/VecAdd.cpp
 	mkdir -p $(TEMP_DIR)
-	$(HLSXX) ../util/hls2rtl.tcl \
+	$(HLSXX)  $(HLS_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_$*.log \
 	-tclargs \
 	$(PART_NUM) \
 	$(KERNEL_CLK_PERIOD_NS) \
 	$* \
+	0 \
 	$^
 
 host:$(HOST)
