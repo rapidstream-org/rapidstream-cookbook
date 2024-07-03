@@ -15,7 +15,7 @@ INCLUDE=-I $(XILINX_HLS)/include
 CFLAGS := $(INCLUDE) $(OPT_LEVEL)
 CXX := g++
 HOST := app.exe
-HLS2XO_TCL=../../../common/tcl/hls2xo.tcl
+HLS2XO_TCL=../../../../common/tcl/hls2rtl.tcl
 CLK_PERIOD_NS := 4
 
 
@@ -47,7 +47,7 @@ ifeq ($(TARGET), hw)
 	mkdir -p $(TEMP_DIR)
 	vitis_hls $(HLS2XO_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_$(KERNEL_NAME).log \
-	-tclargs $(PART) $(CLK_PERIOD_NS) $(KERNEL_NAME) \
+	-tclargs $(PART) $(CLK_PERIOD_NS) $(KERNEL_NAME) 1 \
 	$^
 else
 	v++ -c -t ${TARGET} \
