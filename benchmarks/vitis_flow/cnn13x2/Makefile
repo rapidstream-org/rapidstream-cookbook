@@ -17,7 +17,7 @@ CLK_PERIOD_NS=4
 
 ifeq ($(PLATFORM), xilinx_u50_gen3x16_xdma_5_202210_1)
 PART := xcu50-fsvh2104-2-e
-RUN_FILE := run_au50.py
+RUN_FILE := run_u50.py
 LINK_FILE := link_config_hbm.ini
 else ifeq ($(PLATFORM), xilinx_u55c_gen3x16_xdma_3_202210_1)
 PART := xcu55c-fsvh2892-2L-e
