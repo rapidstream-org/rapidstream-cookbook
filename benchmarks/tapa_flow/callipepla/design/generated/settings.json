@@ -1,0 +1,8 @@
+{
+    "additional_fifo_pipelining": false,
+    "clock_period": 4.3,
+    "linked": true,
+    "part_num": "xcu280-fsvh2892-2L-e",
+    "platform": null,
+    "synthed": true
+}

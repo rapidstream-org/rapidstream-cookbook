@@ -1,0 +1,13 @@
+I0708 14:21:41.679 tapa.util:184] logging level set to INFO
+I0708 14:21:41.679 tapa.tapac:407] Executing all steps of tapac
+I0708 14:21:41.679 tapa.tapac:521] running translated command: `tapa --work-dir=generated analyze --input=src/callipepla.cpp --top=Callipepla synth --part-num=xcu280-fsvh2892-2L-e --clock-period=4.30 link pack --output=generated/Callipepla.xo`
+I0708 14:21:41.680 tapa.util:184] logging level set to INFO
+I0708 14:21:41.680 tapa.util:184] logging level set to INFO
+I0708 14:21:41.680 tapa.tapa:54] tapa version: 0.0.20240301.1
+I0708 14:21:41.680 tapa.tapa:54] tapa version: 0.0.20240301.1
+I0708 14:21:41.680 tapa.tapa:58] Python recursion limit set to 3000
+I0708 14:21:41.680 tapa.tapa:58] Python recursion limit set to 3000
+I0708 14:21:41.697 tapa.steps.analyze:248] Running tapacc command: /usr/bin/tapacc generated/flatten/flatten-f0e70f9a-callipepla.cpp -top Callipepla -- -std=c++17 -I /home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src -stdlib=libc++ -isystem /usr/lib/llvm-17/include/c++/v1/ -isystem /usr/include/clang/17/include/ -isystem /usr/lib/clang/17/include/
+I0708 14:21:41.697 tapa.steps.analyze:248] Running tapacc command: /usr/bin/tapacc generated/flatten/flatten-f0e70f9a-callipepla.cpp -top Callipepla -- -std=c++17 -I /home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src -stdlib=libc++ -isystem /usr/lib/llvm-17/include/c++/v1/ -isystem /usr/include/clang/17/include/ -isystem /usr/lib/clang/17/include/
+E0708 14:21:42.282 tapa.steps.analyze:179] command ('/usr/bin/tapacc', 'generated/flatten/flatten-f0e70f9a-callipepla.cpp', '-top', 'Callipepla', '--', '-std=c++17', '-I', '/home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src', '-stdlib=libc++', '-isystem', '/usr/lib/llvm-17/include/c++/v1/', '-isystem', '/usr/include/clang/17/include/', '-isystem', '/usr/lib/clang/17/include/') failed with exit code 1
+E0708 14:21:42.282 tapa.steps.analyze:179] command ('/usr/bin/tapacc', 'generated/flatten/flatten-f0e70f9a-callipepla.cpp', '-top', 'Callipepla', '--', '-std=c++17', '-I', '/home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src', '-stdlib=libc++', '-isystem', '/usr/lib/llvm-17/include/c++/v1/', '-isystem', '/usr/include/clang/17/include/', '-isystem', '/usr/lib/clang/17/include/') failed with exit code 1

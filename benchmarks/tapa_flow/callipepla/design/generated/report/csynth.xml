@@ -1,0 +1,1166 @@
+<profile>
+    <ReportVersion>
+        <Version>2022.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>virtexuplus</ProductFamily>
+        <Part>xcu280-fsvh2892-2L-e</Part>
+        <TopModelName>Callipepla</TopModelName>
+        <TargetClockPeriod>4.30</TargetClockPeriod>
+        <ClockUncertainty>1.16</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>1.000</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>0</Best-caseLatency>
+            <Average-caseLatency>0</Average-caseLatency>
+            <Worst-caseLatency>0</Worst-caseLatency>
+            <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+            <Interval-min>1</Interval-min>
+            <Interval-max>1</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>2078</FF>
+            <LUT>3752</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>4032</BRAM_18K>
+            <DSP>9024</DSP>
+            <FF>2607360</FF>
+            <LUT>1303680</LUT>
+            <URAM>960</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_control_AWVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWADDR</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>9</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WDATA</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WSTRB</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARADDR</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>9</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RDATA</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RRESP</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BRESP</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>double</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>Callipepla</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>Callipepla</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>Callipepla</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="1">
+            <ModuleName>Callipepla</ModuleName>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>Callipepla</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.30</TargetClockPeriod>
+                    <ClockUncertainty>1.16</ClockUncertainty>
+                    <EstimatedClockPeriod>1.000</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>2078</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>3752</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands>
+        <config_compile name_max_length="253"/>
+        <config_rtl reset_level="low"/>
+    </UserConfigCommands>
+    <Args>
+        <Arg ArgName="edge_list_ptr" index="0" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ptr_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ptr_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_0" index="1" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_0_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_0_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_1" index="2" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_1_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_1_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_2" index="3" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_2_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_2_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_3" index="4" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_3_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_3_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_4" index="5" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_4_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_4_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_5" index="6" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_5_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_5_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_6" index="7" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_6_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_6_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_7" index="8" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_7_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_7_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_8" index="9" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_8_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_8_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_9" index="10" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_9_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_9_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_10" index="11" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_10_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_10_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_11" index="12" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_11_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_11_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_12" index="13" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_12_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_12_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_13" index="14" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_13_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_13_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_14" index="15" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_14_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_14_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_15" index="16" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_15_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_15_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_x_0" index="17" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_x_0_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_x_0_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_x_1" index="18" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_x_1_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_x_1_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_p_0" index="19" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_p_0_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_p_0_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_p_1" index="20" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_p_1_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_p_1_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_Ap" index="21" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_Ap_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_Ap_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_r_0" index="22" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_r_0_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_r_0_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_r_1" index="23" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_r_1_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_r_1_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_digA" index="24" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_digA_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_digA_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_res" index="25" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_res_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_res_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="NUM_ITE" index="26" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="NUM_ITE" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="NUM_A_LEN" index="27" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="NUM_A_LEN" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="M" index="28" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="M" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="rp_time" index="29" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="rp_time" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="th_termination" index="30" direction="in" srcType="double const " srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="th_termination_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="th_termination_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="9" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
+            <ports>
+                <port>s_axi_control_ARADDR</port>
+                <port>s_axi_control_ARREADY</port>
+                <port>s_axi_control_ARVALID</port>
+                <port>s_axi_control_AWADDR</port>
+                <port>s_axi_control_AWREADY</port>
+                <port>s_axi_control_AWVALID</port>
+                <port>s_axi_control_BREADY</port>
+                <port>s_axi_control_BRESP</port>
+                <port>s_axi_control_BVALID</port>
+                <port>s_axi_control_RDATA</port>
+                <port>s_axi_control_RREADY</port>
+                <port>s_axi_control_RRESP</port>
+                <port>s_axi_control_RVALID</port>
+                <port>s_axi_control_WDATA</port>
+                <port>s_axi_control_WREADY</port>
+                <port>s_axi_control_WSTRB</port>
+                <port>s_axi_control_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="INTERRUPT" access="R" description="Control signal Register for 'interrupt'."/>
+                        <field offset="10" width="22" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x10" name="edge_list_ptr_1" access="W" description="Data signal of edge_list_ptr" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ptr" access="W" description="Bit 31 to 0 of edge_list_ptr"/>
+                    </fields>
+                </register>
+                <register offset="0x14" name="edge_list_ptr_2" access="W" description="Data signal of edge_list_ptr" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ptr" access="W" description="Bit 63 to 32 of edge_list_ptr"/>
+                    </fields>
+                </register>
+                <register offset="0x1c" name="edge_list_ch_0_1" access="W" description="Data signal of edge_list_ch_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_0" access="W" description="Bit 31 to 0 of edge_list_ch_0"/>
+                    </fields>
+                </register>
+                <register offset="0x20" name="edge_list_ch_0_2" access="W" description="Data signal of edge_list_ch_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_0" access="W" description="Bit 63 to 32 of edge_list_ch_0"/>
+                    </fields>
+                </register>
+                <register offset="0x28" name="edge_list_ch_1_1" access="W" description="Data signal of edge_list_ch_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_1" access="W" description="Bit 31 to 0 of edge_list_ch_1"/>
+                    </fields>
+                </register>
+                <register offset="0x2c" name="edge_list_ch_1_2" access="W" description="Data signal of edge_list_ch_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_1" access="W" description="Bit 63 to 32 of edge_list_ch_1"/>
+                    </fields>
+                </register>
+                <register offset="0x34" name="edge_list_ch_2_1" access="W" description="Data signal of edge_list_ch_2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_2" access="W" description="Bit 31 to 0 of edge_list_ch_2"/>
+                    </fields>
+                </register>
+                <register offset="0x38" name="edge_list_ch_2_2" access="W" description="Data signal of edge_list_ch_2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_2" access="W" description="Bit 63 to 32 of edge_list_ch_2"/>
+                    </fields>
+                </register>
+                <register offset="0x40" name="edge_list_ch_3_1" access="W" description="Data signal of edge_list_ch_3" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_3" access="W" description="Bit 31 to 0 of edge_list_ch_3"/>
+                    </fields>
+                </register>
+                <register offset="0x44" name="edge_list_ch_3_2" access="W" description="Data signal of edge_list_ch_3" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_3" access="W" description="Bit 63 to 32 of edge_list_ch_3"/>
+                    </fields>
+                </register>
+                <register offset="0x4c" name="edge_list_ch_4_1" access="W" description="Data signal of edge_list_ch_4" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_4" access="W" description="Bit 31 to 0 of edge_list_ch_4"/>
+                    </fields>
+                </register>
+                <register offset="0x50" name="edge_list_ch_4_2" access="W" description="Data signal of edge_list_ch_4" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_4" access="W" description="Bit 63 to 32 of edge_list_ch_4"/>
+                    </fields>
+                </register>
+                <register offset="0x58" name="edge_list_ch_5_1" access="W" description="Data signal of edge_list_ch_5" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_5" access="W" description="Bit 31 to 0 of edge_list_ch_5"/>
+                    </fields>
+                </register>
+                <register offset="0x5c" name="edge_list_ch_5_2" access="W" description="Data signal of edge_list_ch_5" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_5" access="W" description="Bit 63 to 32 of edge_list_ch_5"/>
+                    </fields>
+                </register>
+                <register offset="0x64" name="edge_list_ch_6_1" access="W" description="Data signal of edge_list_ch_6" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_6" access="W" description="Bit 31 to 0 of edge_list_ch_6"/>
+                    </fields>
+                </register>
+                <register offset="0x68" name="edge_list_ch_6_2" access="W" description="Data signal of edge_list_ch_6" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_6" access="W" description="Bit 63 to 32 of edge_list_ch_6"/>
+                    </fields>
+                </register>
+                <register offset="0x70" name="edge_list_ch_7_1" access="W" description="Data signal of edge_list_ch_7" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_7" access="W" description="Bit 31 to 0 of edge_list_ch_7"/>
+                    </fields>
+                </register>
+                <register offset="0x74" name="edge_list_ch_7_2" access="W" description="Data signal of edge_list_ch_7" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_7" access="W" description="Bit 63 to 32 of edge_list_ch_7"/>
+                    </fields>
+                </register>
+                <register offset="0x7c" name="edge_list_ch_8_1" access="W" description="Data signal of edge_list_ch_8" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_8" access="W" description="Bit 31 to 0 of edge_list_ch_8"/>
+                    </fields>
+                </register>
+                <register offset="0x80" name="edge_list_ch_8_2" access="W" description="Data signal of edge_list_ch_8" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_8" access="W" description="Bit 63 to 32 of edge_list_ch_8"/>
+                    </fields>
+                </register>
+                <register offset="0x88" name="edge_list_ch_9_1" access="W" description="Data signal of edge_list_ch_9" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_9" access="W" description="Bit 31 to 0 of edge_list_ch_9"/>
+                    </fields>
+                </register>
+                <register offset="0x8c" name="edge_list_ch_9_2" access="W" description="Data signal of edge_list_ch_9" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_9" access="W" description="Bit 63 to 32 of edge_list_ch_9"/>
+                    </fields>
+                </register>
+                <register offset="0x94" name="edge_list_ch_10_1" access="W" description="Data signal of edge_list_ch_10" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_10" access="W" description="Bit 31 to 0 of edge_list_ch_10"/>
+                    </fields>
+                </register>
+                <register offset="0x98" name="edge_list_ch_10_2" access="W" description="Data signal of edge_list_ch_10" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_10" access="W" description="Bit 63 to 32 of edge_list_ch_10"/>
+                    </fields>
+                </register>
+                <register offset="0xa0" name="edge_list_ch_11_1" access="W" description="Data signal of edge_list_ch_11" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_11" access="W" description="Bit 31 to 0 of edge_list_ch_11"/>
+                    </fields>
+                </register>
+                <register offset="0xa4" name="edge_list_ch_11_2" access="W" description="Data signal of edge_list_ch_11" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_11" access="W" description="Bit 63 to 32 of edge_list_ch_11"/>
+                    </fields>
+                </register>
+                <register offset="0xac" name="edge_list_ch_12_1" access="W" description="Data signal of edge_list_ch_12" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_12" access="W" description="Bit 31 to 0 of edge_list_ch_12"/>
+                    </fields>
+                </register>
+                <register offset="0xb0" name="edge_list_ch_12_2" access="W" description="Data signal of edge_list_ch_12" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_12" access="W" description="Bit 63 to 32 of edge_list_ch_12"/>
+                    </fields>
+                </register>
+                <register offset="0xb8" name="edge_list_ch_13_1" access="W" description="Data signal of edge_list_ch_13" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_13" access="W" description="Bit 31 to 0 of edge_list_ch_13"/>
+                    </fields>
+                </register>
+                <register offset="0xbc" name="edge_list_ch_13_2" access="W" description="Data signal of edge_list_ch_13" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_13" access="W" description="Bit 63 to 32 of edge_list_ch_13"/>
+                    </fields>
+                </register>
+                <register offset="0xc4" name="edge_list_ch_14_1" access="W" description="Data signal of edge_list_ch_14" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_14" access="W" description="Bit 31 to 0 of edge_list_ch_14"/>
+                    </fields>
+                </register>
+                <register offset="0xc8" name="edge_list_ch_14_2" access="W" description="Data signal of edge_list_ch_14" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_14" access="W" description="Bit 63 to 32 of edge_list_ch_14"/>
+                    </fields>
+                </register>
+                <register offset="0xd0" name="edge_list_ch_15_1" access="W" description="Data signal of edge_list_ch_15" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_15" access="W" description="Bit 31 to 0 of edge_list_ch_15"/>
+                    </fields>
+                </register>
+                <register offset="0xd4" name="edge_list_ch_15_2" access="W" description="Data signal of edge_list_ch_15" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_15" access="W" description="Bit 63 to 32 of edge_list_ch_15"/>
+                    </fields>
+                </register>
+                <register offset="0xdc" name="vec_x_0_1" access="W" description="Data signal of vec_x_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_x_0" access="W" description="Bit 31 to 0 of vec_x_0"/>
+                    </fields>
+                </register>
+                <register offset="0xe0" name="vec_x_0_2" access="W" description="Data signal of vec_x_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_x_0" access="W" description="Bit 63 to 32 of vec_x_0"/>
+                    </fields>
+                </register>
+                <register offset="0xe8" name="vec_x_1_1" access="W" description="Data signal of vec_x_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_x_1" access="W" description="Bit 31 to 0 of vec_x_1"/>
+                    </fields>
+                </register>
+                <register offset="0xec" name="vec_x_1_2" access="W" description="Data signal of vec_x_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_x_1" access="W" description="Bit 63 to 32 of vec_x_1"/>
+                    </fields>
+                </register>
+                <register offset="0xf4" name="vec_p_0_1" access="W" description="Data signal of vec_p_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_p_0" access="W" description="Bit 31 to 0 of vec_p_0"/>
+                    </fields>
+                </register>
+                <register offset="0xf8" name="vec_p_0_2" access="W" description="Data signal of vec_p_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_p_0" access="W" description="Bit 63 to 32 of vec_p_0"/>
+                    </fields>
+                </register>
+                <register offset="0x100" name="vec_p_1_1" access="W" description="Data signal of vec_p_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_p_1" access="W" description="Bit 31 to 0 of vec_p_1"/>
+                    </fields>
+                </register>
+                <register offset="0x104" name="vec_p_1_2" access="W" description="Data signal of vec_p_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_p_1" access="W" description="Bit 63 to 32 of vec_p_1"/>
+                    </fields>
+                </register>
+                <register offset="0x10c" name="vec_Ap_1" access="W" description="Data signal of vec_Ap" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_Ap" access="W" description="Bit 31 to 0 of vec_Ap"/>
+                    </fields>
+                </register>
+                <register offset="0x110" name="vec_Ap_2" access="W" description="Data signal of vec_Ap" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_Ap" access="W" description="Bit 63 to 32 of vec_Ap"/>
+                    </fields>
+                </register>
+                <register offset="0x118" name="vec_r_0_1" access="W" description="Data signal of vec_r_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_r_0" access="W" description="Bit 31 to 0 of vec_r_0"/>
+                    </fields>
+                </register>
+                <register offset="0x11c" name="vec_r_0_2" access="W" description="Data signal of vec_r_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_r_0" access="W" description="Bit 63 to 32 of vec_r_0"/>
+                    </fields>
+                </register>
+                <register offset="0x124" name="vec_r_1_1" access="W" description="Data signal of vec_r_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_r_1" access="W" description="Bit 31 to 0 of vec_r_1"/>
+                    </fields>
+                </register>
+                <register offset="0x128" name="vec_r_1_2" access="W" description="Data signal of vec_r_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_r_1" access="W" description="Bit 63 to 32 of vec_r_1"/>
+                    </fields>
+                </register>
+                <register offset="0x130" name="vec_digA_1" access="W" description="Data signal of vec_digA" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_digA" access="W" description="Bit 31 to 0 of vec_digA"/>
+                    </fields>
+                </register>
+                <register offset="0x134" name="vec_digA_2" access="W" description="Data signal of vec_digA" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_digA" access="W" description="Bit 63 to 32 of vec_digA"/>
+                    </fields>
+                </register>
+                <register offset="0x13c" name="vec_res_1" access="W" description="Data signal of vec_res" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_res" access="W" description="Bit 31 to 0 of vec_res"/>
+                    </fields>
+                </register>
+                <register offset="0x140" name="vec_res_2" access="W" description="Data signal of vec_res" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_res" access="W" description="Bit 63 to 32 of vec_res"/>
+                    </fields>
+                </register>
+                <register offset="0x148" name="NUM_ITE" access="W" description="Data signal of NUM_ITE" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="NUM_ITE" access="W" description="Bit 31 to 0 of NUM_ITE"/>
+                    </fields>
+                </register>
+                <register offset="0x150" name="NUM_A_LEN" access="W" description="Data signal of NUM_A_LEN" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="NUM_A_LEN" access="W" description="Bit 31 to 0 of NUM_A_LEN"/>
+                    </fields>
+                </register>
+                <register offset="0x158" name="M" access="W" description="Data signal of M" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="M" access="W" description="Bit 31 to 0 of M"/>
+                    </fields>
+                </register>
+                <register offset="0x160" name="rp_time" access="W" description="Data signal of rp_time" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="rp_time" access="W" description="Bit 31 to 0 of rp_time"/>
+                    </fields>
+                </register>
+                <register offset="0x168" name="th_termination_1" access="W" description="Data signal of th_termination" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="th_termination" access="W" description="Bit 31 to 0 of th_termination"/>
+                    </fields>
+                </register>
+                <register offset="0x16c" name="th_termination_2" access="W" description="Data signal of th_termination" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="th_termination" access="W" description="Bit 63 to 32 of th_termination"/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="edge_list_ptr"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="28" argName="edge_list_ch_0"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="40" argName="edge_list_ch_1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="52" argName="edge_list_ch_2"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="64" argName="edge_list_ch_3"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="76" argName="edge_list_ch_4"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="88" argName="edge_list_ch_5"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="100" argName="edge_list_ch_6"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="112" argName="edge_list_ch_7"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="124" argName="edge_list_ch_8"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="136" argName="edge_list_ch_9"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="148" argName="edge_list_ch_10"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="160" argName="edge_list_ch_11"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="172" argName="edge_list_ch_12"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="184" argName="edge_list_ch_13"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="196" argName="edge_list_ch_14"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="208" argName="edge_list_ch_15"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="220" argName="vec_x_0"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="232" argName="vec_x_1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="244" argName="vec_p_0"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="256" argName="vec_p_1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="268" argName="vec_Ap"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="280" argName="vec_r_0"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="292" argName="vec_r_1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="304" argName="vec_digA"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="316" argName="vec_res"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="328" argName="NUM_ITE"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="336" argName="NUM_A_LEN"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="344" argName="M"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="352" argName="rp_time"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="360" argName="th_termination"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="S_AXILITE Interfaces">
+                <table isCollapsed="0">
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_control">32, 9, 16, 0, , , , , </column>
+                </table>
+            </item>
+            <item name="S_AXILITE Registers">
+                <table isCollapsed="0">
+                    <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
+                    <column name="s_axi_control">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT</column>
+                    <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
+                    <column name="s_axi_control">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
+                    <column name="s_axi_control">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
+                    <column name="s_axi_control">edge_list_ptr_1, 0x10, 32, W, Data signal of edge_list_ptr, </column>
+                    <column name="s_axi_control">edge_list_ptr_2, 0x14, 32, W, Data signal of edge_list_ptr, </column>
+                    <column name="s_axi_control">edge_list_ch_0_1, 0x1c, 32, W, Data signal of edge_list_ch_0, </column>
+                    <column name="s_axi_control">edge_list_ch_0_2, 0x20, 32, W, Data signal of edge_list_ch_0, </column>
+                    <column name="s_axi_control">edge_list_ch_1_1, 0x28, 32, W, Data signal of edge_list_ch_1, </column>
+                    <column name="s_axi_control">edge_list_ch_1_2, 0x2c, 32, W, Data signal of edge_list_ch_1, </column>
+                    <column name="s_axi_control">edge_list_ch_2_1, 0x34, 32, W, Data signal of edge_list_ch_2, </column>
+                    <column name="s_axi_control">edge_list_ch_2_2, 0x38, 32, W, Data signal of edge_list_ch_2, </column>
+                    <column name="s_axi_control">edge_list_ch_3_1, 0x40, 32, W, Data signal of edge_list_ch_3, </column>
+                    <column name="s_axi_control">edge_list_ch_3_2, 0x44, 32, W, Data signal of edge_list_ch_3, </column>
+                    <column name="s_axi_control">edge_list_ch_4_1, 0x4c, 32, W, Data signal of edge_list_ch_4, </column>
+                    <column name="s_axi_control">edge_list_ch_4_2, 0x50, 32, W, Data signal of edge_list_ch_4, </column>
+                    <column name="s_axi_control">edge_list_ch_5_1, 0x58, 32, W, Data signal of edge_list_ch_5, </column>
+                    <column name="s_axi_control">edge_list_ch_5_2, 0x5c, 32, W, Data signal of edge_list_ch_5, </column>
+                    <column name="s_axi_control">edge_list_ch_6_1, 0x64, 32, W, Data signal of edge_list_ch_6, </column>
+                    <column name="s_axi_control">edge_list_ch_6_2, 0x68, 32, W, Data signal of edge_list_ch_6, </column>
+                    <column name="s_axi_control">edge_list_ch_7_1, 0x70, 32, W, Data signal of edge_list_ch_7, </column>
+                    <column name="s_axi_control">edge_list_ch_7_2, 0x74, 32, W, Data signal of edge_list_ch_7, </column>
+                    <column name="s_axi_control">edge_list_ch_8_1, 0x7c, 32, W, Data signal of edge_list_ch_8, </column>
+                    <column name="s_axi_control">edge_list_ch_8_2, 0x80, 32, W, Data signal of edge_list_ch_8, </column>
+                    <column name="s_axi_control">edge_list_ch_9_1, 0x88, 32, W, Data signal of edge_list_ch_9, </column>
+                    <column name="s_axi_control">edge_list_ch_9_2, 0x8c, 32, W, Data signal of edge_list_ch_9, </column>
+                    <column name="s_axi_control">edge_list_ch_10_1, 0x94, 32, W, Data signal of edge_list_ch_10, </column>
+                    <column name="s_axi_control">edge_list_ch_10_2, 0x98, 32, W, Data signal of edge_list_ch_10, </column>
+                    <column name="s_axi_control">edge_list_ch_11_1, 0xa0, 32, W, Data signal of edge_list_ch_11, </column>
+                    <column name="s_axi_control">edge_list_ch_11_2, 0xa4, 32, W, Data signal of edge_list_ch_11, </column>
+                    <column name="s_axi_control">edge_list_ch_12_1, 0xac, 32, W, Data signal of edge_list_ch_12, </column>
+                    <column name="s_axi_control">edge_list_ch_12_2, 0xb0, 32, W, Data signal of edge_list_ch_12, </column>
+                    <column name="s_axi_control">edge_list_ch_13_1, 0xb8, 32, W, Data signal of edge_list_ch_13, </column>
+                    <column name="s_axi_control">edge_list_ch_13_2, 0xbc, 32, W, Data signal of edge_list_ch_13, </column>
+                    <column name="s_axi_control">edge_list_ch_14_1, 0xc4, 32, W, Data signal of edge_list_ch_14, </column>
+                    <column name="s_axi_control">edge_list_ch_14_2, 0xc8, 32, W, Data signal of edge_list_ch_14, </column>
+                    <column name="s_axi_control">edge_list_ch_15_1, 0xd0, 32, W, Data signal of edge_list_ch_15, </column>
+                    <column name="s_axi_control">edge_list_ch_15_2, 0xd4, 32, W, Data signal of edge_list_ch_15, </column>
+                    <column name="s_axi_control">vec_x_0_1, 0xdc, 32, W, Data signal of vec_x_0, </column>
+                    <column name="s_axi_control">vec_x_0_2, 0xe0, 32, W, Data signal of vec_x_0, </column>
+                    <column name="s_axi_control">vec_x_1_1, 0xe8, 32, W, Data signal of vec_x_1, </column>
+                    <column name="s_axi_control">vec_x_1_2, 0xec, 32, W, Data signal of vec_x_1, </column>
+                    <column name="s_axi_control">vec_p_0_1, 0xf4, 32, W, Data signal of vec_p_0, </column>
+                    <column name="s_axi_control">vec_p_0_2, 0xf8, 32, W, Data signal of vec_p_0, </column>
+                    <column name="s_axi_control">vec_p_1_1, 0x100, 32, W, Data signal of vec_p_1, </column>
+                    <column name="s_axi_control">vec_p_1_2, 0x104, 32, W, Data signal of vec_p_1, </column>
+                    <column name="s_axi_control">vec_Ap_1, 0x10c, 32, W, Data signal of vec_Ap, </column>
+                    <column name="s_axi_control">vec_Ap_2, 0x110, 32, W, Data signal of vec_Ap, </column>
+                    <column name="s_axi_control">vec_r_0_1, 0x118, 32, W, Data signal of vec_r_0, </column>
+                    <column name="s_axi_control">vec_r_0_2, 0x11c, 32, W, Data signal of vec_r_0, </column>
+                    <column name="s_axi_control">vec_r_1_1, 0x124, 32, W, Data signal of vec_r_1, </column>
+                    <column name="s_axi_control">vec_r_1_2, 0x128, 32, W, Data signal of vec_r_1, </column>
+                    <column name="s_axi_control">vec_digA_1, 0x130, 32, W, Data signal of vec_digA, </column>
+                    <column name="s_axi_control">vec_digA_2, 0x134, 32, W, Data signal of vec_digA, </column>
+                    <column name="s_axi_control">vec_res_1, 0x13c, 32, W, Data signal of vec_res, </column>
+                    <column name="s_axi_control">vec_res_2, 0x140, 32, W, Data signal of vec_res, </column>
+                    <column name="s_axi_control">NUM_ITE, 0x148, 32, W, Data signal of NUM_ITE, </column>
+                    <column name="s_axi_control">NUM_A_LEN, 0x150, 32, W, Data signal of NUM_A_LEN, </column>
+                    <column name="s_axi_control">M, 0x158, 32, W, Data signal of M, </column>
+                    <column name="s_axi_control">rp_time, 0x160, 32, W, Data signal of rp_time, </column>
+                    <column name="s_axi_control">th_termination_1, 0x168, 32, W, Data signal of th_termination, </column>
+                    <column name="s_axi_control">th_termination_2, 0x16c, 32, W, Data signal of th_termination, </column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst_n">reset, ap_rst_n, </column>
+                    <column name="interrupt">interrupt, interrupt, </column>
+                    <column name="ap_ctrl">ap_ctrl_hs, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="edge_list_ptr">in, long unsigned int</column>
+                    <column name="edge_list_ch_0">in, long unsigned int</column>
+                    <column name="edge_list_ch_1">in, long unsigned int</column>
+                    <column name="edge_list_ch_2">in, long unsigned int</column>
+                    <column name="edge_list_ch_3">in, long unsigned int</column>
+                    <column name="edge_list_ch_4">in, long unsigned int</column>
+                    <column name="edge_list_ch_5">in, long unsigned int</column>
+                    <column name="edge_list_ch_6">in, long unsigned int</column>
+                    <column name="edge_list_ch_7">in, long unsigned int</column>
+                    <column name="edge_list_ch_8">in, long unsigned int</column>
+                    <column name="edge_list_ch_9">in, long unsigned int</column>
+                    <column name="edge_list_ch_10">in, long unsigned int</column>
+                    <column name="edge_list_ch_11">in, long unsigned int</column>
+                    <column name="edge_list_ch_12">in, long unsigned int</column>
+                    <column name="edge_list_ch_13">in, long unsigned int</column>
+                    <column name="edge_list_ch_14">in, long unsigned int</column>
+                    <column name="edge_list_ch_15">in, long unsigned int</column>
+                    <column name="vec_x_0">in, long unsigned int</column>
+                    <column name="vec_x_1">in, long unsigned int</column>
+                    <column name="vec_p_0">in, long unsigned int</column>
+                    <column name="vec_p_1">in, long unsigned int</column>
+                    <column name="vec_Ap">in, long unsigned int</column>
+                    <column name="vec_r_0">in, long unsigned int</column>
+                    <column name="vec_r_1">in, long unsigned int</column>
+                    <column name="vec_digA">in, long unsigned int</column>
+                    <column name="vec_res">in, long unsigned int</column>
+                    <column name="NUM_ITE">in, int const </column>
+                    <column name="NUM_A_LEN">in, int const </column>
+                    <column name="M">in, int const </column>
+                    <column name="rp_time">in, int const </column>
+                    <column name="th_termination">in, double const </column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="4">Argument, HW Interface, HW Type, HW Info</keys>
+                    <column name="edge_list_ptr">s_axi_control, register, name=edge_list_ptr_1 offset=0x10 range=32, </column>
+                    <column name="edge_list_ptr">s_axi_control, register, name=edge_list_ptr_2 offset=0x14 range=32, </column>
+                    <column name="edge_list_ch_0">s_axi_control, register, name=edge_list_ch_0_1 offset=0x1c range=32, </column>
+                    <column name="edge_list_ch_0">s_axi_control, register, name=edge_list_ch_0_2 offset=0x20 range=32, </column>
+                    <column name="edge_list_ch_1">s_axi_control, register, name=edge_list_ch_1_1 offset=0x28 range=32, </column>
+                    <column name="edge_list_ch_1">s_axi_control, register, name=edge_list_ch_1_2 offset=0x2c range=32, </column>
+                    <column name="edge_list_ch_2">s_axi_control, register, name=edge_list_ch_2_1 offset=0x34 range=32, </column>
+                    <column name="edge_list_ch_2">s_axi_control, register, name=edge_list_ch_2_2 offset=0x38 range=32, </column>
+                    <column name="edge_list_ch_3">s_axi_control, register, name=edge_list_ch_3_1 offset=0x40 range=32, </column>
+                    <column name="edge_list_ch_3">s_axi_control, register, name=edge_list_ch_3_2 offset=0x44 range=32, </column>
+                    <column name="edge_list_ch_4">s_axi_control, register, name=edge_list_ch_4_1 offset=0x4c range=32, </column>
+                    <column name="edge_list_ch_4">s_axi_control, register, name=edge_list_ch_4_2 offset=0x50 range=32, </column>
+                    <column name="edge_list_ch_5">s_axi_control, register, name=edge_list_ch_5_1 offset=0x58 range=32, </column>
+                    <column name="edge_list_ch_5">s_axi_control, register, name=edge_list_ch_5_2 offset=0x5c range=32, </column>
+                    <column name="edge_list_ch_6">s_axi_control, register, name=edge_list_ch_6_1 offset=0x64 range=32, </column>
+                    <column name="edge_list_ch_6">s_axi_control, register, name=edge_list_ch_6_2 offset=0x68 range=32, </column>
+                    <column name="edge_list_ch_7">s_axi_control, register, name=edge_list_ch_7_1 offset=0x70 range=32, </column>
+                    <column name="edge_list_ch_7">s_axi_control, register, name=edge_list_ch_7_2 offset=0x74 range=32, </column>
+                    <column name="edge_list_ch_8">s_axi_control, register, name=edge_list_ch_8_1 offset=0x7c range=32, </column>
+                    <column name="edge_list_ch_8">s_axi_control, register, name=edge_list_ch_8_2 offset=0x80 range=32, </column>
+                    <column name="edge_list_ch_9">s_axi_control, register, name=edge_list_ch_9_1 offset=0x88 range=32, </column>
+                    <column name="edge_list_ch_9">s_axi_control, register, name=edge_list_ch_9_2 offset=0x8c range=32, </column>
+                    <column name="edge_list_ch_10">s_axi_control, register, name=edge_list_ch_10_1 offset=0x94 range=32, </column>
+                    <column name="edge_list_ch_10">s_axi_control, register, name=edge_list_ch_10_2 offset=0x98 range=32, </column>
+                    <column name="edge_list_ch_11">s_axi_control, register, name=edge_list_ch_11_1 offset=0xa0 range=32, </column>
+                    <column name="edge_list_ch_11">s_axi_control, register, name=edge_list_ch_11_2 offset=0xa4 range=32, </column>
+                    <column name="edge_list_ch_12">s_axi_control, register, name=edge_list_ch_12_1 offset=0xac range=32, </column>
+                    <column name="edge_list_ch_12">s_axi_control, register, name=edge_list_ch_12_2 offset=0xb0 range=32, </column>
+                    <column name="edge_list_ch_13">s_axi_control, register, name=edge_list_ch_13_1 offset=0xb8 range=32, </column>
+                    <column name="edge_list_ch_13">s_axi_control, register, name=edge_list_ch_13_2 offset=0xbc range=32, </column>
+                    <column name="edge_list_ch_14">s_axi_control, register, name=edge_list_ch_14_1 offset=0xc4 range=32, </column>
+                    <column name="edge_list_ch_14">s_axi_control, register, name=edge_list_ch_14_2 offset=0xc8 range=32, </column>
+                    <column name="edge_list_ch_15">s_axi_control, register, name=edge_list_ch_15_1 offset=0xd0 range=32, </column>
+                    <column name="edge_list_ch_15">s_axi_control, register, name=edge_list_ch_15_2 offset=0xd4 range=32, </column>
+                    <column name="vec_x_0">s_axi_control, register, name=vec_x_0_1 offset=0xdc range=32, </column>
+                    <column name="vec_x_0">s_axi_control, register, name=vec_x_0_2 offset=0xe0 range=32, </column>
+                    <column name="vec_x_1">s_axi_control, register, name=vec_x_1_1 offset=0xe8 range=32, </column>
+                    <column name="vec_x_1">s_axi_control, register, name=vec_x_1_2 offset=0xec range=32, </column>
+                    <column name="vec_p_0">s_axi_control, register, name=vec_p_0_1 offset=0xf4 range=32, </column>
+                    <column name="vec_p_0">s_axi_control, register, name=vec_p_0_2 offset=0xf8 range=32, </column>
+                    <column name="vec_p_1">s_axi_control, register, name=vec_p_1_1 offset=0x100 range=32, </column>
+                    <column name="vec_p_1">s_axi_control, register, name=vec_p_1_2 offset=0x104 range=32, </column>
+                    <column name="vec_Ap">s_axi_control, register, name=vec_Ap_1 offset=0x10c range=32, </column>
+                    <column name="vec_Ap">s_axi_control, register, name=vec_Ap_2 offset=0x110 range=32, </column>
+                    <column name="vec_r_0">s_axi_control, register, name=vec_r_0_1 offset=0x118 range=32, </column>
+                    <column name="vec_r_0">s_axi_control, register, name=vec_r_0_2 offset=0x11c range=32, </column>
+                    <column name="vec_r_1">s_axi_control, register, name=vec_r_1_1 offset=0x124 range=32, </column>
+                    <column name="vec_r_1">s_axi_control, register, name=vec_r_1_2 offset=0x128 range=32, </column>
+                    <column name="vec_digA">s_axi_control, register, name=vec_digA_1 offset=0x130 range=32, </column>
+                    <column name="vec_digA">s_axi_control, register, name=vec_digA_2 offset=0x134 range=32, </column>
+                    <column name="vec_res">s_axi_control, register, name=vec_res_1 offset=0x13c range=32, </column>
+                    <column name="vec_res">s_axi_control, register, name=vec_res_2 offset=0x140 range=32, </column>
+                    <column name="NUM_ITE">s_axi_control, register, name=NUM_ITE offset=0x148 range=32, </column>
+                    <column name="NUM_A_LEN">s_axi_control, register, name=NUM_A_LEN offset=0x150 range=32, </column>
+                    <column name="M">s_axi_control, register, name=M offset=0x158 range=32, </column>
+                    <column name="rp_time">s_axi_control, register, name=rp_time offset=0x160 range=32, </column>
+                    <column name="th_termination">s_axi_control, register, name=th_termination_1 offset=0x168 range=32, </column>
+                    <column name="th_termination">s_axi_control, register, name=th_termination_2 offset=0x16c range=32, </column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
+    </ReportBurst>
+    <PragmaReport>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:80" status="valid" parentFunction="async_read" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:100" status="valid" parentFunction="async_write" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:126" status="valid" parentFunction="q2q" variable="" isDirective="0" options=""/>
+        <Pragma type="loop_tripcount" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:129" status="valid" parentFunction="q2q" variable="" isDirective="0" options="min=1 max=500000"/>
+        <Pragma type="pipeline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:130" status="valid" parentFunction="q2q" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:142" status="valid" parentFunction="clearq" variable="" isDirective="0" options=""/>
+        <Pragma type="loop_tripcount" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:145" status="valid" parentFunction="clearq" variable="" isDirective="0" options="min=1 max=500000"/>
+        <Pragma type="pipeline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:146" status="valid" parentFunction="clearq" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:159" status="valid" parentFunction="q2q" variable="" isDirective="0" options=""/>
+        <Pragma type="loop_tripcount" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:162" status="valid" parentFunction="q2q" variable="" isDirective="0" options="min=1 max=500000"/>
+        <Pragma type="pipeline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:163" status="valid" parentFunction="q2q" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:179" status="valid" parentFunction="qq2qq" variable="" isDirective="0" options=""/>
+        <Pragma type="loop_tripcount" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:182" status="valid" parentFunction="qq2qq" variable="" isDirective="0" options="min=1 max=500000"/>
+        <Pragma type="pipeline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:183" status="valid" parentFunction="qq2qq" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_flatten" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:221" status="valid" parentFunction="read_vec" variable="" isDirective="0" options="off"/>
+        <Pragma type="loop_tripcount" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:222" status="valid" parentFunction="read_vec" variable="" isDirective="0" options="min=1 max=16"/>
+        <Pragma type="loop_tripcount" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:225" status="valid" parentFunction="read_vec" variable="" isDirective="0" options="min=1 max=500000"/>
+        <Pragma type="pipeline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:226" status="valid" parentFunction="read_vec" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:269" status="valid" parentFunction="bh" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:271" status="valid" parentFunction="bh" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:437" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ptr bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:441" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_0 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:442" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_1 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:443" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_2 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:444" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_3 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:445" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_4 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:446" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_5 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:447" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_6 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:448" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_7 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:449" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_8 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:450" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_9 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:451" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_10 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:452" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_11 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:453" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_12 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:454" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_13 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:455" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_14 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:456" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = edge_list_ch_15 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:474" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_x_0 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:475" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_x_1 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:479" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_p_0 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:480" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_p_1 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:484" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_Ap bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:488" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_r_0 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:489" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_r_1 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:493" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_digA bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:497" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = vec_res bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:501" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = NUM_ITE bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:504" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = NUM_A_LEN bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:507" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = M bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:510" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = rp_time bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:513" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = th_termination bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/callipepla/generated/cpp/Callipepla.cpp:517" status="valid" parentFunction="callipepla" variable="" isDirective="0" options="s_axilite port = return bundle = control"/>
+    </PragmaReport>
+</profile>

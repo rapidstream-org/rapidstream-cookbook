@@ -15,7 +15,6 @@ Vivado is a leading FPGA development tool in the industry, and RapidStream offer
 These tutorials target various FPGA devices. The table below lists the tutorials available, and the features and flows showcased in all of these tutorials.
 
 <table border="1" width="100%">
-    <tbody>
         <tr>
             <td ><strong>Design</strong></td>
             <td><strong>Developer</strong></td>
@@ -40,6 +39,4 @@ These tutorials target various FPGA devices. The table below lists the tutorials
                 <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> VU9P </a></td>
             <td>Vitis HLS</td>
             <td>Large Language Model</td>
-
-    </tbody>
 </table>

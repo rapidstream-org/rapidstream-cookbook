@@ -1,0 +1,364 @@
+{
+    "area": {
+        "breakdown": {
+            "Arbiter_Y": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 228,
+                        "LUT": 585,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "Merger_Y": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 158,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "PEG_Xvec": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 64,
+                        "DSP": 64,
+                        "FF": 7560,
+                        "LUT": 5219,
+                        "URAM": 0
+                    }
+                },
+                "count": 16
+            },
+            "PEG_Yvec": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 24,
+                        "FF": 6098,
+                        "LUT": 8833,
+                        "URAM": 24
+                    }
+                },
+                "count": 16
+            },
+            "black_hole_bool": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "black_hole_double_v8": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "black_hole_int": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "ctrl_AP": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 207,
+                        "LUT": 735,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "ctrl_P": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 405,
+                        "LUT": 1204,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "ctrl_R": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 334,
+                        "LUT": 942,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "ctrl_X": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 261,
+                        "LUT": 757,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "dot_alpha": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 88,
+                        "FF": 11431,
+                        "LUT": 11148,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "dot_res": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 88,
+                        "FF": 10892,
+                        "LUT": 10919,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "dot_rznew": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 88,
+                        "FF": 11270,
+                        "LUT": 10887,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "duplicator": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 67,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "left_div": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 2384,
+                        "LUT": 1580,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "rdwr_vec": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 332,
+                        "LUT": 693,
+                        "URAM": 0
+                    }
+                },
+                "count": 7
+            },
+            "read_A": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 106,
+                        "LUT": 325,
+                        "URAM": 0
+                    }
+                },
+                "count": 16
+            },
+            "read_digA": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 198,
+                        "LUT": 364,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "read_edge_list_ptr": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 140,
+                        "LUT": 412,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "term_signal_router": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 100,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "updt_p": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 88,
+                        "FF": 9615,
+                        "LUT": 7372,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "updt_r": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 88,
+                        "FF": 9554,
+                        "LUT": 7185,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "updt_x": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 88,
+                        "FF": 9519,
+                        "LUT": 7146,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "vecp_mux": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 208,
+                        "LUT": 551,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "wr_r": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 135,
+                        "LUT": 352,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 1024,
+            "DSP": 1936,
+            "FF": 293045,
+            "LUT": 305366,
+            "URAM": 384
+        }
+    },
+    "name": "Callipepla",
+    "performance": {
+        "clock_period": "4.744",
+        "critical_path": {
+            "PEG_Yvec": {
+                "clock_period": "4.744",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

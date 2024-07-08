@@ -1,0 +1,278 @@
+schema: v0.0.20210922
+name: Callipepla
+performance:
+  source: hls
+  clock_period: '4.744'
+  critical_path:
+    PEG_Yvec:
+      source: hls
+      clock_period: '4.744'
+area:
+  source: hls
+  total:
+    BRAM_18K: 1024
+    DSP: 1936
+    FF: 293045
+    LUT: 305366
+    URAM: 384
+  breakdown:
+    Arbiter_Y:
+      count: 8
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 228
+          LUT: 585
+          URAM: 0
+    Merger_Y:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 158
+          URAM: 0
+    PEG_Xvec:
+      count: 16
+      area:
+        source: hls
+        total:
+          BRAM_18K: 64
+          DSP: 64
+          FF: 7560
+          LUT: 5219
+          URAM: 0
+    PEG_Yvec:
+      count: 16
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 24
+          FF: 6098
+          LUT: 8833
+          URAM: 24
+    black_hole_bool:
+      count: 2
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 43
+          URAM: 0
+    black_hole_double_v8:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 43
+          URAM: 0
+    black_hole_int:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 43
+          URAM: 0
+    ctrl_AP:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 207
+          LUT: 735
+          URAM: 0
+    ctrl_P:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 405
+          LUT: 1204
+          URAM: 0
+    ctrl_R:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 334
+          LUT: 942
+          URAM: 0
+    ctrl_X:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 261
+          LUT: 757
+          URAM: 0
+    dot_alpha:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 88
+          FF: 11431
+          LUT: 11148
+          URAM: 0
+    dot_res:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 88
+          FF: 10892
+          LUT: 10919
+          URAM: 0
+    dot_rznew:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 88
+          FF: 11270
+          LUT: 10887
+          URAM: 0
+    duplicator:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 67
+          URAM: 0
+    left_div:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 2384
+          LUT: 1580
+          URAM: 0
+    rdwr_vec:
+      count: 7
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 332
+          LUT: 693
+          URAM: 0
+    read_A:
+      count: 16
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 106
+          LUT: 325
+          URAM: 0
+    read_digA:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 198
+          LUT: 364
+          URAM: 0
+    read_edge_list_ptr:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 140
+          LUT: 412
+          URAM: 0
+    term_signal_router:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6
+          LUT: 100
+          URAM: 0
+    updt_p:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 88
+          FF: 9615
+          LUT: 7372
+          URAM: 0
+    updt_r:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 88
+          FF: 9554
+          LUT: 7185
+          URAM: 0
+    updt_x:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 88
+          FF: 9519
+          LUT: 7146
+          URAM: 0
+    vecp_mux:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 208
+          LUT: 551
+          URAM: 0
+    wr_r:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 135
+          LUT: 352
+          URAM: 0
