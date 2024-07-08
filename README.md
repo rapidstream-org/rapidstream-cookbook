@@ -245,3 +245,30 @@ Please note that this is a summary of the licensing terms, and the full text of 
 -----
 
 Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors. All rights reserved.
+
+
+Common Issues
+-------------
+
+Below list some common issues user may encounter.
+
+### 1. Vivado Path Missing
+
+Error Message:
+
+```bash
+...
+  File "/home/vagrantxiao24/.rapidstream/opt/python3.10/lib/python3.10/subprocess.py", line 1863, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'vivado'
+make: *** [Makefile:24: rs_opt] Error 1
+```
+
+
+Rapidstream relies on Vivado to compile the designs. If you encounter the error above, you should source the `Vivado` setup scripts first.
+
+Command to resolve:
+
+```bash
+source <Vitis_install_path>/Vitis/2023.2/settings64.sh
+```
