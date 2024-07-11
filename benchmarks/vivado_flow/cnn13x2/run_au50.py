@@ -18,11 +18,8 @@ from glob import glob
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 src_dir = f"{CURR_DIR}/design"
-kernel_clk_mhz = 300
-hbm_clk_mhz = 300
-temp_dir = f"{CURR_DIR}/build/08d1da12"
+temp_dir = f"{CURR_DIR}/build"
 kernel_name = "kernel3"
-card = "au50"
 top = "design_1_wrapper"
 
 rs = RapidStreamHLS(
@@ -31,7 +28,6 @@ rs = RapidStreamHLS(
 )
 
 rs.set_virtual_device(get_u50_default_device())
-# rs.set_shell_path(shell_path)
 rs.add_hls_solution(Path(f"{src_dir}/hls/solution"))
 rs.add_vlog_files([Path(f) for f in glob(f"{src_dir}/hdl/*.v")])
 rs.add_xci_files([Path(f) for f in glob(f"{src_dir}/xci/**/*.xci", recursive=True)])

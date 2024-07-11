@@ -446,3 +446,4 @@ _xmsgs/
 _x.*/
 
 .ipcache/
+*.bit
