@@ -17,7 +17,7 @@ from pathlib import Path
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 kernel_clk_ns = 3
-temp_dir = "build"
+temp_dir = f"{CURR_DIR}/build"
 kernel_name = "bert_all"
 card = "vu9p"
 

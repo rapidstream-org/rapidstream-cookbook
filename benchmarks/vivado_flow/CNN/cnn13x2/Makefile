@@ -72,7 +72,7 @@ hls:$(HLS_SOL)
 
 $(HLS_SOL): $(SRC_DIR)/$(KERNEL_NAME).cpp $(SRC_DIR)/$(KERNEL_NAME).h
 	mkdir -p $(TEMP_DIR)
-	vitis_hls $(HLS2RTL_TCL) \
+	cd $(TEMP_DIR) && vitis_hls $(HLS2RTL_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_kernel3.log \
 	-tclargs \
 	$(PART) \

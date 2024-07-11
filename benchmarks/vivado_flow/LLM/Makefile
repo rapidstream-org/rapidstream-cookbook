@@ -30,27 +30,27 @@ BD_TCL    := $(CURDIR)/tcl/gen_design_vhk158.tcl
 else ifeq ($(PLATFORM), vp1552)
 PART      := xcvp1552-vsva3340-2MHP-i-S
 BOARD     := dummy
-RUN_FILE  := run_vp1552.py
+RUN_FILE  := $(CURDIR)/run_vp1552.py
 BD_TCL    := $(CURDIR)/tcl/gen_design_vp1552.tcl
 else ifeq ($(PLATFORM), vu9p)
 PART      := xcvu9p-flga2104-2L-e
 BOARD     := xilinx.com:vcu118:part0:2.4
-RUN_FILE  := run_vu9p.py
+RUN_FILE  := $(CURDIR)/run_vu9p.py
 BD_TCL    := $(CURDIR)/tcl/gen_design_vu9p.tcl
 else ifeq ($(PLATFORM), xilinx_u280_gen3x16_xdma_1_202211_1)
 PART      := xcu280-fsvh2892-2L-e
 BOARD     := dummy
-RUN_FILE  := run_u280.py
+RUN_FILE  := $(CURDIR)/run_u280.py
 BD_TCL    := $(CURDIR)/tcl/gen_design_u280.tcl
 else ifeq ($(PLATFORM), xilinx_u55c_gen3x16_xdma_3_202210_1)
 PART      := xcu55c-fsvh2892-2L-e
 BOARD     := dummy
-RUN_FILE  := run_u55c.py
+RUN_FILE  := $(CURDIR)/run_u55c.py
 BD_TCL    := $(CURDIR)/tcl/gen_design_u55c.tcl
 else ifeq ($(PLATFORM), xilinx_u250_gen3x16_xdma_4_1_202210_1)
 PART      := xcu250-figd2104-2L-e
 BOARD     := dummy
-RUN_FILE  := run_u250.py
+RUN_FILE  := $(CURDIR)/run_u250.py
 BD_TCL    := $(CURDIR)/tcl/gen_design_u250.tcl
 else
     $(error PLATFORM not supported)
