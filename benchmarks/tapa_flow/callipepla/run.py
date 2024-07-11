@@ -4,10 +4,12 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 """
 
 from rapidstream import get_u280_vitis_device_factory, RapidStreamTAPA
+import os
 
-INI_PATH = "./design/config/link_config.ini"
+CURR_DIR = os.path.dirname(os.path.abspath(__file__))
+INI_PATH = f"{CURR_DIR}/design/config/link_config.ini"
 VITIS_PLATFORM = "xilinx_u280_gen3x16_xdma_1_202211_1"
-XO_PATH = "./design/generated/Callipepla.xo"
+XO_PATH = f"{CURR_DIR}design/generated/Callipepla.xo"
 
 
 factory = get_u280_vitis_device_factory(VITIS_PLATFORM)
