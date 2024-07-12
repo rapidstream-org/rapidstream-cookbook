@@ -1,0 +1,195 @@
+{
+    "area": {
+        "breakdown": {
+            "bloom_aggregate_SPLIT": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 41,
+                        "LUT": 300,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "bloom_arb_forwarder": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 857,
+                        "LUT": 3896,
+                        "URAM": 0
+                    }
+                },
+                "count": 14
+            },
+            "bloom_arbiter_ratemonitor": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1319,
+                        "LUT": 21333,
+                        "URAM": 0
+                    }
+                },
+                "count": 14
+            },
+            "bloom_hier_arbiter_atom": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 339,
+                        "LUT": 641,
+                        "URAM": 0
+                    }
+                },
+                "count": 336
+            },
+            "computeHash_Computer": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 15,
+                        "FF": 1126,
+                        "LUT": 601,
+                        "URAM": 0
+                    }
+                },
+                "count": 56
+            },
+            "computeHash_Feeder": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 142,
+                        "LUT": 1157,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "loadBV": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 298,
+                        "LUT": 357,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "loadKey": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 330,
+                        "LUT": 373,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "packOutput": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 68,
+                        "LUT": 164,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "queryResult_per_hash": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 64,
+                        "DSP": 0,
+                        "FF": 828,
+                        "LUT": 3768,
+                        "URAM": 16
+                    }
+                },
+                "count": 7
+            },
+            "shuffle_TtoS_per_hash": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 872,
+                        "LUT": 2873,
+                        "URAM": 0
+                    }
+                },
+                "count": 14
+            },
+            "shuffle_reordering_per_hash": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 3438,
+                        "LUT": 13086,
+                        "URAM": 0
+                    }
+                },
+                "count": 56
+            },
+            "writeOutput_synchronous": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 3269,
+                        "LUT": 7144,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 448,
+            "DSP": 840,
+            "FF": 424145,
+            "LUT": 1422982,
+            "URAM": 112
+        }
+    },
+    "name": "workload",
+    "performance": {
+        "clock_period": "24.626",
+        "critical_path": {
+            "queryResult_per_hash": {
+                "clock_period": "24.626",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

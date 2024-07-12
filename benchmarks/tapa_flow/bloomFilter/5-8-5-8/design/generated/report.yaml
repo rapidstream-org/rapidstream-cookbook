@@ -1,0 +1,148 @@
+schema: v0.0.20210922
+name: workload
+performance:
+  source: hls
+  clock_period: '24.626'
+  critical_path:
+    queryResult_per_hash:
+      source: hls
+      clock_period: '24.626'
+area:
+  source: hls
+  total:
+    BRAM_18K: 320
+    DSP: 750
+    FF: 315819
+    LUT: 881795
+    URAM: 80
+  breakdown:
+    bloom_aggregate_SPLIT:
+      count: 10
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 41
+          LUT: 252
+          URAM: 0
+    bloom_arb_forwarder:
+      count: 10
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1065
+          LUT: 4853
+          URAM: 0
+    bloom_arbiter_ratemonitor:
+      count: 10
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1205
+          LUT: 13457
+          URAM: 0
+    bloom_hier_arbiter_atom:
+      count: 320
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 388
+          LUT: 722
+          URAM: 0
+    computeHash_Computer:
+      count: 50
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 15
+          FF: 1126
+          LUT: 601
+          URAM: 0
+    computeHash_Feeder:
+      count: 10
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 140
+          LUT: 891
+          URAM: 0
+    loadBV:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 234
+          LUT: 321
+          URAM: 0
+    loadKey:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 394
+          LUT: 409
+          URAM: 0
+    packOutput:
+      count: 10
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 68
+          LUT: 164
+          URAM: 0
+    queryResult_per_hash:
+      count: 5
+      area:
+        source: hls
+        total:
+          BRAM_18K: 64
+          DSP: 0
+          FF: 828
+          LUT: 3778
+          URAM: 16
+    shuffle_TtoS_per_hash:
+      count: 10
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1088
+          LUT: 3521
+          URAM: 0
+    shuffle_reordering_per_hash:
+      count: 50
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1764
+          LUT: 7163
+          URAM: 0
+    writeOutput_synchronous:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 6037
+          LUT: 11067
+          URAM: 0
