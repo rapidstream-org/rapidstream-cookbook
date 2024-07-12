@@ -4,15 +4,17 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 """
 
 from rapidstream import get_u280_vitis_device_factory, RapidStreamTAPA
+import os
 
-INI_PATH = "./design/config/link_config.ini"
+CURR_DIR = os.path.dirname(os.path.abspath(__file__))
+INI_PATH = f"{CURR_DIR}/design/config/link_config.ini"
 VITIS_PLATFORM = "xilinx_u280_gen3x16_xdma_1_202211_1"
-XO_PATH = "./design/generated/Sextans.xo"
+XO_PATH = f"{CURR_DIR}/design/generated/Sextans.xo"
 
 
 factory = get_u280_vitis_device_factory(VITIS_PLATFORM)
 
-# Reserve resources for the HBM Memory Sub-System.
+# Reserve resource for the HBM Memory Sub-System.
 # The HMSS is not part of the user kernel so the partition optimization process
 # is unaware of its existence. We need to manually reserve resources for it.
 # For 512-bit HBM channels, each HBM channel uses approximately the following resources:
@@ -32,7 +34,7 @@ factory.reduce_slot_area(0, 0, lut=5000 * 13, ff=6500 * 13)
 print("Reducing DSP of (1, 1) to make it less congested")
 factory.reduce_slot_area(1, 1, dsp=100)
 
-rs = RapidStreamTAPA("./build")
+rs = RapidStreamTAPA(f"{CURR_DIR}build")
 
 rs.set_virtual_device(factory.generate_virtual_device())
 rs.add_xo_file(XO_PATH)
