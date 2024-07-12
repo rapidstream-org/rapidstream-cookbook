@@ -29,7 +29,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="25" op_0_bw="32">
+<Node id="11" bw="26" op_0_bw="32">
 <![CDATA[
 newFuncRoot:0 %i = alloca i32 1
 
@@ -194,9 +194,9 @@ newFuncRoot:10 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, 
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="22" bw="26" op_0_bw="26" op_1_bw="26">
+<Node id="22" bw="27" op_0_bw="27" op_1_bw="27">
 <![CDATA[
-newFuncRoot:11 %select_ln141_1_read = read i26 @_ssdm_op_Read.ap_auto.i26, i26 %select_ln141_1
+newFuncRoot:11 %select_ln141_1_read = read i27 @_ssdm_op_Read.ap_auto.i27, i27 %select_ln141_1
 
 ]]></Node>
 <StgValue><ssdm name="select_ln141_1_read"/></StgValue>
@@ -224,9 +224,9 @@ newFuncRoot:12 %store_ln0 = store i32 0, i32 %c_idx
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="0" op_0_bw="25" op_1_bw="25">
+<Node id="24" bw="0" op_0_bw="26" op_1_bw="26">
 <![CDATA[
-newFuncRoot:13 %store_ln0 = store i25 0, i25 %i
+newFuncRoot:13 %store_ln0 = store i26 0, i26 %i
 
 ]]></Node>
 <StgValue><ssdm name="store_ln0"/></StgValue>
@@ -254,9 +254,9 @@ newFuncRoot:14 %br_ln0 = br void %load-store-loop65.1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="25" op_0_bw="25" op_1_bw="0">
+<Node id="27" bw="26" op_0_bw="26" op_1_bw="0">
 <![CDATA[
-load-store-loop65.1:0 %i_1 = load i25 %i
+load-store-loop65.1:0 %i_1 = load i26 %i
 
 ]]></Node>
 <StgValue><ssdm name="i_1"/></StgValue>
@@ -269,9 +269,9 @@ load-store-loop65.1:0 %i_1 = load i25 %i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="26" op_0_bw="25">
+<Node id="28" bw="27" op_0_bw="26">
 <![CDATA[
-load-store-loop65.1:1 %zext_ln186 = zext i25 %i_1
+load-store-loop65.1:1 %zext_ln186 = zext i26 %i_1
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln186"/></StgValue>
@@ -284,9 +284,9 @@ load-store-loop65.1:1 %zext_ln186 = zext i25 %i_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="29" bw="1" op_0_bw="27" op_1_bw="27">
 <![CDATA[
-load-store-loop65.1:2 %icmp_ln186 = icmp_slt  i26 %zext_ln186, i26 %select_ln141_1_read
+load-store-loop65.1:2 %icmp_ln186 = icmp_slt  i27 %zext_ln186, i27 %select_ln141_1_read
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln186"/></StgValue>
@@ -299,9 +299,9 @@ load-store-loop65.1:2 %icmp_ln186 = icmp_slt  i26 %zext_ln186, i26 %select_ln141
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="25" op_0_bw="25" op_1_bw="25">
+<Node id="30" bw="26" op_0_bw="26" op_1_bw="26">
 <![CDATA[
-load-store-loop65.1:3 %i_2 = add i25 %i_1, i25 1
+load-store-loop65.1:3 %i_2 = add i26 %i_1, i26 1
 
 ]]></Node>
 <StgValue><ssdm name="i_2"/></StgValue>
@@ -330,9 +330,9 @@ load-store-loop65.1:4 %br_ln186 = br i1 %icmp_ln186, void %for.inc98.loopexit.ex
 </and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="13" op_0_bw="13" op_1_bw="25" op_2_bw="32" op_3_bw="32">
+<Node id="37" bw="13" op_0_bw="13" op_1_bw="26" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-load-store-loop65.1.split:4 %lshr_ln = partselect i13 @_ssdm_op_PartSelect.i13.i25.i32.i32, i25 %i_1, i32 3, i32 15
+load-store-loop65.1.split:4 %lshr_ln = partselect i13 @_ssdm_op_PartSelect.i13.i26.i32.i32, i26 %i_1, i32 3, i32 15
 
 ]]></Node>
 <StgValue><ssdm name="lshr_ln"/></StgValue>
@@ -618,9 +618,9 @@ load-store-loop65.1.split:22 %local_C_V_7_load = load i13 %local_C_V_7_addr
 </and_exp></or_exp>
 </condition>
 
-<Node id="63" bw="0" op_0_bw="25" op_1_bw="25" op_2_bw="0" op_3_bw="0">
+<Node id="63" bw="0" op_0_bw="26" op_1_bw="26" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-load-store-loop65.1.split:30 %store_ln186 = store i25 %i_2, i25 %i
+load-store-loop65.1.split:30 %store_ln186 = store i26 %i_2, i26 %i
 
 ]]></Node>
 <StgValue><ssdm name="store_ln186"/></StgValue>

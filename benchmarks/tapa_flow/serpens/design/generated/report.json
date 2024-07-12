@@ -7,8 +7,8 @@
                     "total": {
                         "BRAM_18K": 0,
                         "DSP": 6,
-                        "FF": 781,
-                        "LUT": 958,
+                        "FF": 783,
+                        "LUT": 871,
                         "URAM": 0
                     }
                 },
@@ -64,7 +64,7 @@
                         "URAM": 0
                     }
                 },
-                "count": 56
+                "count": 24
             },
             "PEG_Yvec": {
                 "area": {
@@ -72,12 +72,12 @@
                     "total": {
                         "BRAM_18K": 0,
                         "DSP": 22,
-                        "FF": 8501,
-                        "LUT": 6817,
+                        "FF": 8506,
+                        "LUT": 6824,
                         "URAM": 16
                     }
                 },
-                "count": 56
+                "count": 24
             },
             "black_hole_float_v16": {
                 "area": {
@@ -116,7 +116,7 @@
                         "URAM": 0
                     }
                 },
-                "count": 56
+                "count": 24
             },
             "read_X": {
                 "area": {
@@ -173,11 +173,11 @@
         },
         "source": "hls",
         "total": {
-            "BRAM_18K": 3584,
-            "DSP": 2758,
-            "FF": 787029,
-            "LUT": 744189,
-            "URAM": 896
+            "BRAM_18K": 1536,
+            "DSP": 1286,
+            "FF": 349853,
+            "LUT": 328301,
+            "URAM": 384
         }
     },
     "name": "Serpens",

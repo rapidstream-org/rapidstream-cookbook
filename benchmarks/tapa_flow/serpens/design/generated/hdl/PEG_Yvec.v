@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps
 
-(* CORE_GENERATION_INFO="PEG_Yvec_PEG_Yvec,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu280-fsvh2892-2L-e,HLS_INPUT_CLOCK=3.330000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.764450,HLS_SYN_LAT=33277,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=8501,HLS_SYN_LUT=6817,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="PEG_Yvec_PEG_Yvec,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu280-fsvh2892-2L-e,HLS_INPUT_CLOCK=3.330000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.764450,HLS_SYN_LAT=33277,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=8506,HLS_SYN_LUT=6824,HLS_VERSION=2022_2}" *)
 
 module PEG_Yvec (
         ap_clk,
@@ -95,16 +95,16 @@ wire    ap_CS_fsm_state3;
 wire   [64:0] grp_fu_410_p2;
 reg   [64:0] mul_ln140_reg_724;
 wire    ap_CS_fsm_state4;
-reg   [22:0] tmp_31_reg_729;
+reg   [23:0] tmp_31_reg_729;
 wire   [64:0] grp_fu_419_p2;
 reg   [64:0] mul_ln141_reg_735;
-reg   [25:0] tmp_34_reg_740;
+reg   [26:0] tmp_34_reg_740;
 wire   [31:0] rp_time_fu_445_p1;
 reg   [31:0] rp_time_reg_746;
-wire   [25:0] select_ln141_1_fu_503_p3;
-reg   [25:0] select_ln141_1_reg_751;
-wire   [22:0] select_ln140_1_fu_509_p3;
-reg   [22:0] select_ln140_1_reg_756;
+wire   [26:0] select_ln141_1_fu_503_p3;
+reg   [26:0] select_ln141_1_reg_751;
+wire   [23:0] select_ln140_1_fu_509_p3;
+reg   [23:0] select_ln140_1_reg_756;
 wire   [30:0] rp_2_fu_527_p2;
 reg   [30:0] rp_2_reg_764;
 wire    ap_CS_fsm_state6;
@@ -369,13 +369,13 @@ wire   [31:0] M_fu_375_p1;
 wire   [33:0] grp_fu_410_p1;
 wire   [33:0] grp_fu_419_p1;
 wire   [64:0] sub_ln140_fu_449_p2;
-wire   [22:0] tmp_30_fu_454_p4;
-wire   [22:0] select_ln140_fu_464_p3;
+wire   [23:0] tmp_30_fu_454_p4;
+wire   [23:0] select_ln140_fu_464_p3;
 wire   [64:0] sub_ln141_fu_476_p2;
-wire   [25:0] tmp_33_fu_481_p4;
-wire   [25:0] select_ln141_fu_491_p3;
-wire   [25:0] sub_ln141_1_fu_497_p2;
-wire   [22:0] sub_ln140_1_fu_470_p2;
+wire   [26:0] tmp_33_fu_481_p4;
+wire   [26:0] select_ln141_fu_491_p3;
+wire   [26:0] sub_ln141_1_fu_497_p2;
+wire   [23:0] sub_ln140_1_fu_470_p2;
 wire   [31:0] zext_ln146_fu_518_p1;
 wire   [31:0] zext_ln160_fu_537_p1;
 reg   [10:0] ap_NS_fsm;
@@ -1022,8 +1022,8 @@ always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
         mul_ln140_reg_724 <= grp_fu_410_p2;
         mul_ln141_reg_735 <= grp_fu_419_p2;
-        tmp_31_reg_729 <= {{grp_fu_410_p2[64:42]}};
-        tmp_34_reg_740 <= {{grp_fu_419_p2[64:39]}};
+        tmp_31_reg_729 <= {{grp_fu_410_p2[64:41]}};
+        tmp_34_reg_740 <= {{grp_fu_419_p2[64:38]}};
     end
 end
 
@@ -1720,9 +1720,9 @@ assign M_fu_375_p1 = fifo_inst_in_s_dout[31:0];
 
 assign NUM_ITE_fu_366_p1 = fifo_inst_in_s_dout[31:0];
 
-assign add_ln140_fu_379_p2 = (M_fu_375_p1 + 32'd895);
+assign add_ln140_fu_379_p2 = (M_fu_375_p1 + 32'd383);
 
-assign add_ln141_fu_393_p2 = (M_fu_375_p1 + 32'd111);
+assign add_ln141_fu_393_p2 = (M_fu_375_p1 + 32'd47);
 
 assign add_ln160_fu_546_p2 = (i_1_reg_276 + 31'd1);
 
@@ -1778,9 +1778,9 @@ assign grp_PEG_Yvec_Pipeline_init_C_fu_297_ap_start = grp_PEG_Yvec_Pipeline_init
 
 assign grp_PEG_Yvec_Pipeline_write_C_outer_fu_310_ap_start = grp_PEG_Yvec_Pipeline_write_C_outer_fu_310_ap_start_reg;
 
-assign grp_fu_410_p1 = 65'd4908534053;
+assign grp_fu_410_p1 = 65'd5726623062;
 
-assign grp_fu_419_p1 = 65'd4908534053;
+assign grp_fu_419_p1 = 65'd5726623062;
 
 assign icmp_ln146_fu_522_p2 = (($signed(zext_ln146_fu_518_p1) < $signed(rp_time_reg_746)) ? 1'b1 : 1'b0);
 
@@ -1800,17 +1800,17 @@ assign select_ln141_fu_491_p3 = ((tmp_32_reg_708[0:0] == 1'b1) ? tmp_33_fu_481_p
 
 assign start_32_fu_533_p1 = fifo_inst_in_s_dout[31:0];
 
-assign sub_ln140_1_fu_470_p2 = (23'd0 - select_ln140_fu_464_p3);
+assign sub_ln140_1_fu_470_p2 = (24'd0 - select_ln140_fu_464_p3);
 
 assign sub_ln140_fu_449_p2 = (65'd0 - mul_ln140_reg_724);
 
-assign sub_ln141_1_fu_497_p2 = (26'd0 - select_ln141_fu_491_p3);
+assign sub_ln141_1_fu_497_p2 = (27'd0 - select_ln141_fu_491_p3);
 
 assign sub_ln141_fu_476_p2 = (65'd0 - mul_ln141_reg_735);
 
-assign tmp_30_fu_454_p4 = {{sub_ln140_fu_449_p2[64:42]}};
+assign tmp_30_fu_454_p4 = {{sub_ln140_fu_449_p2[64:41]}};
 
-assign tmp_33_fu_481_p4 = {{sub_ln141_fu_476_p2[64:39]}};
+assign tmp_33_fu_481_p4 = {{sub_ln141_fu_476_p2[64:38]}};
 
 assign zext_ln146_fu_518_p1 = rp_fu_98;
 

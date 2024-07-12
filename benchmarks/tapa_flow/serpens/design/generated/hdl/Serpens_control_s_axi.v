@@ -6,7 +6,7 @@
 `timescale 1ns/1ps
 module Serpens_control_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 10,
+    C_S_AXI_ADDR_WIDTH = 9,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -55,38 +55,6 @@ module Serpens_control_s_axi
     output wire [63:0]                   edge_list_ch_21,
     output wire [63:0]                   edge_list_ch_22,
     output wire [63:0]                   edge_list_ch_23,
-    output wire [63:0]                   edge_list_ch_24,
-    output wire [63:0]                   edge_list_ch_25,
-    output wire [63:0]                   edge_list_ch_26,
-    output wire [63:0]                   edge_list_ch_27,
-    output wire [63:0]                   edge_list_ch_28,
-    output wire [63:0]                   edge_list_ch_29,
-    output wire [63:0]                   edge_list_ch_30,
-    output wire [63:0]                   edge_list_ch_31,
-    output wire [63:0]                   edge_list_ch_32,
-    output wire [63:0]                   edge_list_ch_33,
-    output wire [63:0]                   edge_list_ch_34,
-    output wire [63:0]                   edge_list_ch_35,
-    output wire [63:0]                   edge_list_ch_36,
-    output wire [63:0]                   edge_list_ch_37,
-    output wire [63:0]                   edge_list_ch_38,
-    output wire [63:0]                   edge_list_ch_39,
-    output wire [63:0]                   edge_list_ch_40,
-    output wire [63:0]                   edge_list_ch_41,
-    output wire [63:0]                   edge_list_ch_42,
-    output wire [63:0]                   edge_list_ch_43,
-    output wire [63:0]                   edge_list_ch_44,
-    output wire [63:0]                   edge_list_ch_45,
-    output wire [63:0]                   edge_list_ch_46,
-    output wire [63:0]                   edge_list_ch_47,
-    output wire [63:0]                   edge_list_ch_48,
-    output wire [63:0]                   edge_list_ch_49,
-    output wire [63:0]                   edge_list_ch_50,
-    output wire [63:0]                   edge_list_ch_51,
-    output wire [63:0]                   edge_list_ch_52,
-    output wire [63:0]                   edge_list_ch_53,
-    output wire [63:0]                   edge_list_ch_54,
-    output wire [63:0]                   edge_list_ch_55,
     output wire [63:0]                   vec_X,
     output wire [63:0]                   vec_Y,
     output wire [63:0]                   vec_Y_out,
@@ -245,404 +213,148 @@ module Serpens_control_s_axi
 // 0x134 : Data signal of edge_list_ch_23
 //         bit 31~0 - edge_list_ch_23[63:32] (Read/Write)
 // 0x138 : reserved
-// 0x13c : Data signal of edge_list_ch_24
-//         bit 31~0 - edge_list_ch_24[31:0] (Read/Write)
-// 0x140 : Data signal of edge_list_ch_24
-//         bit 31~0 - edge_list_ch_24[63:32] (Read/Write)
-// 0x144 : reserved
-// 0x148 : Data signal of edge_list_ch_25
-//         bit 31~0 - edge_list_ch_25[31:0] (Read/Write)
-// 0x14c : Data signal of edge_list_ch_25
-//         bit 31~0 - edge_list_ch_25[63:32] (Read/Write)
-// 0x150 : reserved
-// 0x154 : Data signal of edge_list_ch_26
-//         bit 31~0 - edge_list_ch_26[31:0] (Read/Write)
-// 0x158 : Data signal of edge_list_ch_26
-//         bit 31~0 - edge_list_ch_26[63:32] (Read/Write)
-// 0x15c : reserved
-// 0x160 : Data signal of edge_list_ch_27
-//         bit 31~0 - edge_list_ch_27[31:0] (Read/Write)
-// 0x164 : Data signal of edge_list_ch_27
-//         bit 31~0 - edge_list_ch_27[63:32] (Read/Write)
-// 0x168 : reserved
-// 0x16c : Data signal of edge_list_ch_28
-//         bit 31~0 - edge_list_ch_28[31:0] (Read/Write)
-// 0x170 : Data signal of edge_list_ch_28
-//         bit 31~0 - edge_list_ch_28[63:32] (Read/Write)
-// 0x174 : reserved
-// 0x178 : Data signal of edge_list_ch_29
-//         bit 31~0 - edge_list_ch_29[31:0] (Read/Write)
-// 0x17c : Data signal of edge_list_ch_29
-//         bit 31~0 - edge_list_ch_29[63:32] (Read/Write)
-// 0x180 : reserved
-// 0x184 : Data signal of edge_list_ch_30
-//         bit 31~0 - edge_list_ch_30[31:0] (Read/Write)
-// 0x188 : Data signal of edge_list_ch_30
-//         bit 31~0 - edge_list_ch_30[63:32] (Read/Write)
-// 0x18c : reserved
-// 0x190 : Data signal of edge_list_ch_31
-//         bit 31~0 - edge_list_ch_31[31:0] (Read/Write)
-// 0x194 : Data signal of edge_list_ch_31
-//         bit 31~0 - edge_list_ch_31[63:32] (Read/Write)
-// 0x198 : reserved
-// 0x19c : Data signal of edge_list_ch_32
-//         bit 31~0 - edge_list_ch_32[31:0] (Read/Write)
-// 0x1a0 : Data signal of edge_list_ch_32
-//         bit 31~0 - edge_list_ch_32[63:32] (Read/Write)
-// 0x1a4 : reserved
-// 0x1a8 : Data signal of edge_list_ch_33
-//         bit 31~0 - edge_list_ch_33[31:0] (Read/Write)
-// 0x1ac : Data signal of edge_list_ch_33
-//         bit 31~0 - edge_list_ch_33[63:32] (Read/Write)
-// 0x1b0 : reserved
-// 0x1b4 : Data signal of edge_list_ch_34
-//         bit 31~0 - edge_list_ch_34[31:0] (Read/Write)
-// 0x1b8 : Data signal of edge_list_ch_34
-//         bit 31~0 - edge_list_ch_34[63:32] (Read/Write)
-// 0x1bc : reserved
-// 0x1c0 : Data signal of edge_list_ch_35
-//         bit 31~0 - edge_list_ch_35[31:0] (Read/Write)
-// 0x1c4 : Data signal of edge_list_ch_35
-//         bit 31~0 - edge_list_ch_35[63:32] (Read/Write)
-// 0x1c8 : reserved
-// 0x1cc : Data signal of edge_list_ch_36
-//         bit 31~0 - edge_list_ch_36[31:0] (Read/Write)
-// 0x1d0 : Data signal of edge_list_ch_36
-//         bit 31~0 - edge_list_ch_36[63:32] (Read/Write)
-// 0x1d4 : reserved
-// 0x1d8 : Data signal of edge_list_ch_37
-//         bit 31~0 - edge_list_ch_37[31:0] (Read/Write)
-// 0x1dc : Data signal of edge_list_ch_37
-//         bit 31~0 - edge_list_ch_37[63:32] (Read/Write)
-// 0x1e0 : reserved
-// 0x1e4 : Data signal of edge_list_ch_38
-//         bit 31~0 - edge_list_ch_38[31:0] (Read/Write)
-// 0x1e8 : Data signal of edge_list_ch_38
-//         bit 31~0 - edge_list_ch_38[63:32] (Read/Write)
-// 0x1ec : reserved
-// 0x1f0 : Data signal of edge_list_ch_39
-//         bit 31~0 - edge_list_ch_39[31:0] (Read/Write)
-// 0x1f4 : Data signal of edge_list_ch_39
-//         bit 31~0 - edge_list_ch_39[63:32] (Read/Write)
-// 0x1f8 : reserved
-// 0x1fc : Data signal of edge_list_ch_40
-//         bit 31~0 - edge_list_ch_40[31:0] (Read/Write)
-// 0x200 : Data signal of edge_list_ch_40
-//         bit 31~0 - edge_list_ch_40[63:32] (Read/Write)
-// 0x204 : reserved
-// 0x208 : Data signal of edge_list_ch_41
-//         bit 31~0 - edge_list_ch_41[31:0] (Read/Write)
-// 0x20c : Data signal of edge_list_ch_41
-//         bit 31~0 - edge_list_ch_41[63:32] (Read/Write)
-// 0x210 : reserved
-// 0x214 : Data signal of edge_list_ch_42
-//         bit 31~0 - edge_list_ch_42[31:0] (Read/Write)
-// 0x218 : Data signal of edge_list_ch_42
-//         bit 31~0 - edge_list_ch_42[63:32] (Read/Write)
-// 0x21c : reserved
-// 0x220 : Data signal of edge_list_ch_43
-//         bit 31~0 - edge_list_ch_43[31:0] (Read/Write)
-// 0x224 : Data signal of edge_list_ch_43
-//         bit 31~0 - edge_list_ch_43[63:32] (Read/Write)
-// 0x228 : reserved
-// 0x22c : Data signal of edge_list_ch_44
-//         bit 31~0 - edge_list_ch_44[31:0] (Read/Write)
-// 0x230 : Data signal of edge_list_ch_44
-//         bit 31~0 - edge_list_ch_44[63:32] (Read/Write)
-// 0x234 : reserved
-// 0x238 : Data signal of edge_list_ch_45
-//         bit 31~0 - edge_list_ch_45[31:0] (Read/Write)
-// 0x23c : Data signal of edge_list_ch_45
-//         bit 31~0 - edge_list_ch_45[63:32] (Read/Write)
-// 0x240 : reserved
-// 0x244 : Data signal of edge_list_ch_46
-//         bit 31~0 - edge_list_ch_46[31:0] (Read/Write)
-// 0x248 : Data signal of edge_list_ch_46
-//         bit 31~0 - edge_list_ch_46[63:32] (Read/Write)
-// 0x24c : reserved
-// 0x250 : Data signal of edge_list_ch_47
-//         bit 31~0 - edge_list_ch_47[31:0] (Read/Write)
-// 0x254 : Data signal of edge_list_ch_47
-//         bit 31~0 - edge_list_ch_47[63:32] (Read/Write)
-// 0x258 : reserved
-// 0x25c : Data signal of edge_list_ch_48
-//         bit 31~0 - edge_list_ch_48[31:0] (Read/Write)
-// 0x260 : Data signal of edge_list_ch_48
-//         bit 31~0 - edge_list_ch_48[63:32] (Read/Write)
-// 0x264 : reserved
-// 0x268 : Data signal of edge_list_ch_49
-//         bit 31~0 - edge_list_ch_49[31:0] (Read/Write)
-// 0x26c : Data signal of edge_list_ch_49
-//         bit 31~0 - edge_list_ch_49[63:32] (Read/Write)
-// 0x270 : reserved
-// 0x274 : Data signal of edge_list_ch_50
-//         bit 31~0 - edge_list_ch_50[31:0] (Read/Write)
-// 0x278 : Data signal of edge_list_ch_50
-//         bit 31~0 - edge_list_ch_50[63:32] (Read/Write)
-// 0x27c : reserved
-// 0x280 : Data signal of edge_list_ch_51
-//         bit 31~0 - edge_list_ch_51[31:0] (Read/Write)
-// 0x284 : Data signal of edge_list_ch_51
-//         bit 31~0 - edge_list_ch_51[63:32] (Read/Write)
-// 0x288 : reserved
-// 0x28c : Data signal of edge_list_ch_52
-//         bit 31~0 - edge_list_ch_52[31:0] (Read/Write)
-// 0x290 : Data signal of edge_list_ch_52
-//         bit 31~0 - edge_list_ch_52[63:32] (Read/Write)
-// 0x294 : reserved
-// 0x298 : Data signal of edge_list_ch_53
-//         bit 31~0 - edge_list_ch_53[31:0] (Read/Write)
-// 0x29c : Data signal of edge_list_ch_53
-//         bit 31~0 - edge_list_ch_53[63:32] (Read/Write)
-// 0x2a0 : reserved
-// 0x2a4 : Data signal of edge_list_ch_54
-//         bit 31~0 - edge_list_ch_54[31:0] (Read/Write)
-// 0x2a8 : Data signal of edge_list_ch_54
-//         bit 31~0 - edge_list_ch_54[63:32] (Read/Write)
-// 0x2ac : reserved
-// 0x2b0 : Data signal of edge_list_ch_55
-//         bit 31~0 - edge_list_ch_55[31:0] (Read/Write)
-// 0x2b4 : Data signal of edge_list_ch_55
-//         bit 31~0 - edge_list_ch_55[63:32] (Read/Write)
-// 0x2b8 : reserved
-// 0x2bc : Data signal of vec_X
+// 0x13c : Data signal of vec_X
 //         bit 31~0 - vec_X[31:0] (Read/Write)
-// 0x2c0 : Data signal of vec_X
+// 0x140 : Data signal of vec_X
 //         bit 31~0 - vec_X[63:32] (Read/Write)
-// 0x2c4 : reserved
-// 0x2c8 : Data signal of vec_Y
+// 0x144 : reserved
+// 0x148 : Data signal of vec_Y
 //         bit 31~0 - vec_Y[31:0] (Read/Write)
-// 0x2cc : Data signal of vec_Y
+// 0x14c : Data signal of vec_Y
 //         bit 31~0 - vec_Y[63:32] (Read/Write)
-// 0x2d0 : reserved
-// 0x2d4 : Data signal of vec_Y_out
+// 0x150 : reserved
+// 0x154 : Data signal of vec_Y_out
 //         bit 31~0 - vec_Y_out[31:0] (Read/Write)
-// 0x2d8 : Data signal of vec_Y_out
+// 0x158 : Data signal of vec_Y_out
 //         bit 31~0 - vec_Y_out[63:32] (Read/Write)
-// 0x2dc : reserved
-// 0x2e0 : Data signal of NUM_ITE
+// 0x15c : reserved
+// 0x160 : Data signal of NUM_ITE
 //         bit 31~0 - NUM_ITE[31:0] (Read/Write)
-// 0x2e4 : reserved
-// 0x2e8 : Data signal of NUM_A_LEN
+// 0x164 : reserved
+// 0x168 : Data signal of NUM_A_LEN
 //         bit 31~0 - NUM_A_LEN[31:0] (Read/Write)
-// 0x2ec : reserved
-// 0x2f0 : Data signal of M
+// 0x16c : reserved
+// 0x170 : Data signal of M
 //         bit 31~0 - M[31:0] (Read/Write)
-// 0x2f4 : reserved
-// 0x2f8 : Data signal of K
+// 0x174 : reserved
+// 0x178 : Data signal of K
 //         bit 31~0 - K[31:0] (Read/Write)
-// 0x2fc : reserved
-// 0x300 : Data signal of P_N
+// 0x17c : reserved
+// 0x180 : Data signal of P_N
 //         bit 31~0 - P_N[31:0] (Read/Write)
-// 0x304 : reserved
-// 0x308 : Data signal of alpha_u
+// 0x184 : reserved
+// 0x188 : Data signal of alpha_u
 //         bit 31~0 - alpha_u[31:0] (Read/Write)
-// 0x30c : reserved
-// 0x310 : Data signal of beta_u
+// 0x18c : reserved
+// 0x190 : Data signal of beta_u
 //         bit 31~0 - beta_u[31:0] (Read/Write)
-// 0x314 : reserved
+// 0x194 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL                = 10'h000,
-    ADDR_GIE                    = 10'h004,
-    ADDR_IER                    = 10'h008,
-    ADDR_ISR                    = 10'h00c,
-    ADDR_EDGE_LIST_PTR_DATA_0   = 10'h010,
-    ADDR_EDGE_LIST_PTR_DATA_1   = 10'h014,
-    ADDR_EDGE_LIST_PTR_CTRL     = 10'h018,
-    ADDR_EDGE_LIST_CH_0_DATA_0  = 10'h01c,
-    ADDR_EDGE_LIST_CH_0_DATA_1  = 10'h020,
-    ADDR_EDGE_LIST_CH_0_CTRL    = 10'h024,
-    ADDR_EDGE_LIST_CH_1_DATA_0  = 10'h028,
-    ADDR_EDGE_LIST_CH_1_DATA_1  = 10'h02c,
-    ADDR_EDGE_LIST_CH_1_CTRL    = 10'h030,
-    ADDR_EDGE_LIST_CH_2_DATA_0  = 10'h034,
-    ADDR_EDGE_LIST_CH_2_DATA_1  = 10'h038,
-    ADDR_EDGE_LIST_CH_2_CTRL    = 10'h03c,
-    ADDR_EDGE_LIST_CH_3_DATA_0  = 10'h040,
-    ADDR_EDGE_LIST_CH_3_DATA_1  = 10'h044,
-    ADDR_EDGE_LIST_CH_3_CTRL    = 10'h048,
-    ADDR_EDGE_LIST_CH_4_DATA_0  = 10'h04c,
-    ADDR_EDGE_LIST_CH_4_DATA_1  = 10'h050,
-    ADDR_EDGE_LIST_CH_4_CTRL    = 10'h054,
-    ADDR_EDGE_LIST_CH_5_DATA_0  = 10'h058,
-    ADDR_EDGE_LIST_CH_5_DATA_1  = 10'h05c,
-    ADDR_EDGE_LIST_CH_5_CTRL    = 10'h060,
-    ADDR_EDGE_LIST_CH_6_DATA_0  = 10'h064,
-    ADDR_EDGE_LIST_CH_6_DATA_1  = 10'h068,
-    ADDR_EDGE_LIST_CH_6_CTRL    = 10'h06c,
-    ADDR_EDGE_LIST_CH_7_DATA_0  = 10'h070,
-    ADDR_EDGE_LIST_CH_7_DATA_1  = 10'h074,
-    ADDR_EDGE_LIST_CH_7_CTRL    = 10'h078,
-    ADDR_EDGE_LIST_CH_8_DATA_0  = 10'h07c,
-    ADDR_EDGE_LIST_CH_8_DATA_1  = 10'h080,
-    ADDR_EDGE_LIST_CH_8_CTRL    = 10'h084,
-    ADDR_EDGE_LIST_CH_9_DATA_0  = 10'h088,
-    ADDR_EDGE_LIST_CH_9_DATA_1  = 10'h08c,
-    ADDR_EDGE_LIST_CH_9_CTRL    = 10'h090,
-    ADDR_EDGE_LIST_CH_10_DATA_0 = 10'h094,
-    ADDR_EDGE_LIST_CH_10_DATA_1 = 10'h098,
-    ADDR_EDGE_LIST_CH_10_CTRL   = 10'h09c,
-    ADDR_EDGE_LIST_CH_11_DATA_0 = 10'h0a0,
-    ADDR_EDGE_LIST_CH_11_DATA_1 = 10'h0a4,
-    ADDR_EDGE_LIST_CH_11_CTRL   = 10'h0a8,
-    ADDR_EDGE_LIST_CH_12_DATA_0 = 10'h0ac,
-    ADDR_EDGE_LIST_CH_12_DATA_1 = 10'h0b0,
-    ADDR_EDGE_LIST_CH_12_CTRL   = 10'h0b4,
-    ADDR_EDGE_LIST_CH_13_DATA_0 = 10'h0b8,
-    ADDR_EDGE_LIST_CH_13_DATA_1 = 10'h0bc,
-    ADDR_EDGE_LIST_CH_13_CTRL   = 10'h0c0,
-    ADDR_EDGE_LIST_CH_14_DATA_0 = 10'h0c4,
-    ADDR_EDGE_LIST_CH_14_DATA_1 = 10'h0c8,
-    ADDR_EDGE_LIST_CH_14_CTRL   = 10'h0cc,
-    ADDR_EDGE_LIST_CH_15_DATA_0 = 10'h0d0,
-    ADDR_EDGE_LIST_CH_15_DATA_1 = 10'h0d4,
-    ADDR_EDGE_LIST_CH_15_CTRL   = 10'h0d8,
-    ADDR_EDGE_LIST_CH_16_DATA_0 = 10'h0dc,
-    ADDR_EDGE_LIST_CH_16_DATA_1 = 10'h0e0,
-    ADDR_EDGE_LIST_CH_16_CTRL   = 10'h0e4,
-    ADDR_EDGE_LIST_CH_17_DATA_0 = 10'h0e8,
-    ADDR_EDGE_LIST_CH_17_DATA_1 = 10'h0ec,
-    ADDR_EDGE_LIST_CH_17_CTRL   = 10'h0f0,
-    ADDR_EDGE_LIST_CH_18_DATA_0 = 10'h0f4,
-    ADDR_EDGE_LIST_CH_18_DATA_1 = 10'h0f8,
-    ADDR_EDGE_LIST_CH_18_CTRL   = 10'h0fc,
-    ADDR_EDGE_LIST_CH_19_DATA_0 = 10'h100,
-    ADDR_EDGE_LIST_CH_19_DATA_1 = 10'h104,
-    ADDR_EDGE_LIST_CH_19_CTRL   = 10'h108,
-    ADDR_EDGE_LIST_CH_20_DATA_0 = 10'h10c,
-    ADDR_EDGE_LIST_CH_20_DATA_1 = 10'h110,
-    ADDR_EDGE_LIST_CH_20_CTRL   = 10'h114,
-    ADDR_EDGE_LIST_CH_21_DATA_0 = 10'h118,
-    ADDR_EDGE_LIST_CH_21_DATA_1 = 10'h11c,
-    ADDR_EDGE_LIST_CH_21_CTRL   = 10'h120,
-    ADDR_EDGE_LIST_CH_22_DATA_0 = 10'h124,
-    ADDR_EDGE_LIST_CH_22_DATA_1 = 10'h128,
-    ADDR_EDGE_LIST_CH_22_CTRL   = 10'h12c,
-    ADDR_EDGE_LIST_CH_23_DATA_0 = 10'h130,
-    ADDR_EDGE_LIST_CH_23_DATA_1 = 10'h134,
-    ADDR_EDGE_LIST_CH_23_CTRL   = 10'h138,
-    ADDR_EDGE_LIST_CH_24_DATA_0 = 10'h13c,
-    ADDR_EDGE_LIST_CH_24_DATA_1 = 10'h140,
-    ADDR_EDGE_LIST_CH_24_CTRL   = 10'h144,
-    ADDR_EDGE_LIST_CH_25_DATA_0 = 10'h148,
-    ADDR_EDGE_LIST_CH_25_DATA_1 = 10'h14c,
-    ADDR_EDGE_LIST_CH_25_CTRL   = 10'h150,
-    ADDR_EDGE_LIST_CH_26_DATA_0 = 10'h154,
-    ADDR_EDGE_LIST_CH_26_DATA_1 = 10'h158,
-    ADDR_EDGE_LIST_CH_26_CTRL   = 10'h15c,
-    ADDR_EDGE_LIST_CH_27_DATA_0 = 10'h160,
-    ADDR_EDGE_LIST_CH_27_DATA_1 = 10'h164,
-    ADDR_EDGE_LIST_CH_27_CTRL   = 10'h168,
-    ADDR_EDGE_LIST_CH_28_DATA_0 = 10'h16c,
-    ADDR_EDGE_LIST_CH_28_DATA_1 = 10'h170,
-    ADDR_EDGE_LIST_CH_28_CTRL   = 10'h174,
-    ADDR_EDGE_LIST_CH_29_DATA_0 = 10'h178,
-    ADDR_EDGE_LIST_CH_29_DATA_1 = 10'h17c,
-    ADDR_EDGE_LIST_CH_29_CTRL   = 10'h180,
-    ADDR_EDGE_LIST_CH_30_DATA_0 = 10'h184,
-    ADDR_EDGE_LIST_CH_30_DATA_1 = 10'h188,
-    ADDR_EDGE_LIST_CH_30_CTRL   = 10'h18c,
-    ADDR_EDGE_LIST_CH_31_DATA_0 = 10'h190,
-    ADDR_EDGE_LIST_CH_31_DATA_1 = 10'h194,
-    ADDR_EDGE_LIST_CH_31_CTRL   = 10'h198,
-    ADDR_EDGE_LIST_CH_32_DATA_0 = 10'h19c,
-    ADDR_EDGE_LIST_CH_32_DATA_1 = 10'h1a0,
-    ADDR_EDGE_LIST_CH_32_CTRL   = 10'h1a4,
-    ADDR_EDGE_LIST_CH_33_DATA_0 = 10'h1a8,
-    ADDR_EDGE_LIST_CH_33_DATA_1 = 10'h1ac,
-    ADDR_EDGE_LIST_CH_33_CTRL   = 10'h1b0,
-    ADDR_EDGE_LIST_CH_34_DATA_0 = 10'h1b4,
-    ADDR_EDGE_LIST_CH_34_DATA_1 = 10'h1b8,
-    ADDR_EDGE_LIST_CH_34_CTRL   = 10'h1bc,
-    ADDR_EDGE_LIST_CH_35_DATA_0 = 10'h1c0,
-    ADDR_EDGE_LIST_CH_35_DATA_1 = 10'h1c4,
-    ADDR_EDGE_LIST_CH_35_CTRL   = 10'h1c8,
-    ADDR_EDGE_LIST_CH_36_DATA_0 = 10'h1cc,
-    ADDR_EDGE_LIST_CH_36_DATA_1 = 10'h1d0,
-    ADDR_EDGE_LIST_CH_36_CTRL   = 10'h1d4,
-    ADDR_EDGE_LIST_CH_37_DATA_0 = 10'h1d8,
-    ADDR_EDGE_LIST_CH_37_DATA_1 = 10'h1dc,
-    ADDR_EDGE_LIST_CH_37_CTRL   = 10'h1e0,
-    ADDR_EDGE_LIST_CH_38_DATA_0 = 10'h1e4,
-    ADDR_EDGE_LIST_CH_38_DATA_1 = 10'h1e8,
-    ADDR_EDGE_LIST_CH_38_CTRL   = 10'h1ec,
-    ADDR_EDGE_LIST_CH_39_DATA_0 = 10'h1f0,
-    ADDR_EDGE_LIST_CH_39_DATA_1 = 10'h1f4,
-    ADDR_EDGE_LIST_CH_39_CTRL   = 10'h1f8,
-    ADDR_EDGE_LIST_CH_40_DATA_0 = 10'h1fc,
-    ADDR_EDGE_LIST_CH_40_DATA_1 = 10'h200,
-    ADDR_EDGE_LIST_CH_40_CTRL   = 10'h204,
-    ADDR_EDGE_LIST_CH_41_DATA_0 = 10'h208,
-    ADDR_EDGE_LIST_CH_41_DATA_1 = 10'h20c,
-    ADDR_EDGE_LIST_CH_41_CTRL   = 10'h210,
-    ADDR_EDGE_LIST_CH_42_DATA_0 = 10'h214,
-    ADDR_EDGE_LIST_CH_42_DATA_1 = 10'h218,
-    ADDR_EDGE_LIST_CH_42_CTRL   = 10'h21c,
-    ADDR_EDGE_LIST_CH_43_DATA_0 = 10'h220,
-    ADDR_EDGE_LIST_CH_43_DATA_1 = 10'h224,
-    ADDR_EDGE_LIST_CH_43_CTRL   = 10'h228,
-    ADDR_EDGE_LIST_CH_44_DATA_0 = 10'h22c,
-    ADDR_EDGE_LIST_CH_44_DATA_1 = 10'h230,
-    ADDR_EDGE_LIST_CH_44_CTRL   = 10'h234,
-    ADDR_EDGE_LIST_CH_45_DATA_0 = 10'h238,
-    ADDR_EDGE_LIST_CH_45_DATA_1 = 10'h23c,
-    ADDR_EDGE_LIST_CH_45_CTRL   = 10'h240,
-    ADDR_EDGE_LIST_CH_46_DATA_0 = 10'h244,
-    ADDR_EDGE_LIST_CH_46_DATA_1 = 10'h248,
-    ADDR_EDGE_LIST_CH_46_CTRL   = 10'h24c,
-    ADDR_EDGE_LIST_CH_47_DATA_0 = 10'h250,
-    ADDR_EDGE_LIST_CH_47_DATA_1 = 10'h254,
-    ADDR_EDGE_LIST_CH_47_CTRL   = 10'h258,
-    ADDR_EDGE_LIST_CH_48_DATA_0 = 10'h25c,
-    ADDR_EDGE_LIST_CH_48_DATA_1 = 10'h260,
-    ADDR_EDGE_LIST_CH_48_CTRL   = 10'h264,
-    ADDR_EDGE_LIST_CH_49_DATA_0 = 10'h268,
-    ADDR_EDGE_LIST_CH_49_DATA_1 = 10'h26c,
-    ADDR_EDGE_LIST_CH_49_CTRL   = 10'h270,
-    ADDR_EDGE_LIST_CH_50_DATA_0 = 10'h274,
-    ADDR_EDGE_LIST_CH_50_DATA_1 = 10'h278,
-    ADDR_EDGE_LIST_CH_50_CTRL   = 10'h27c,
-    ADDR_EDGE_LIST_CH_51_DATA_0 = 10'h280,
-    ADDR_EDGE_LIST_CH_51_DATA_1 = 10'h284,
-    ADDR_EDGE_LIST_CH_51_CTRL   = 10'h288,
-    ADDR_EDGE_LIST_CH_52_DATA_0 = 10'h28c,
-    ADDR_EDGE_LIST_CH_52_DATA_1 = 10'h290,
-    ADDR_EDGE_LIST_CH_52_CTRL   = 10'h294,
-    ADDR_EDGE_LIST_CH_53_DATA_0 = 10'h298,
-    ADDR_EDGE_LIST_CH_53_DATA_1 = 10'h29c,
-    ADDR_EDGE_LIST_CH_53_CTRL   = 10'h2a0,
-    ADDR_EDGE_LIST_CH_54_DATA_0 = 10'h2a4,
-    ADDR_EDGE_LIST_CH_54_DATA_1 = 10'h2a8,
-    ADDR_EDGE_LIST_CH_54_CTRL   = 10'h2ac,
-    ADDR_EDGE_LIST_CH_55_DATA_0 = 10'h2b0,
-    ADDR_EDGE_LIST_CH_55_DATA_1 = 10'h2b4,
-    ADDR_EDGE_LIST_CH_55_CTRL   = 10'h2b8,
-    ADDR_VEC_X_DATA_0           = 10'h2bc,
-    ADDR_VEC_X_DATA_1           = 10'h2c0,
-    ADDR_VEC_X_CTRL             = 10'h2c4,
-    ADDR_VEC_Y_DATA_0           = 10'h2c8,
-    ADDR_VEC_Y_DATA_1           = 10'h2cc,
-    ADDR_VEC_Y_CTRL             = 10'h2d0,
-    ADDR_VEC_Y_OUT_DATA_0       = 10'h2d4,
-    ADDR_VEC_Y_OUT_DATA_1       = 10'h2d8,
-    ADDR_VEC_Y_OUT_CTRL         = 10'h2dc,
-    ADDR_NUM_ITE_DATA_0         = 10'h2e0,
-    ADDR_NUM_ITE_CTRL           = 10'h2e4,
-    ADDR_NUM_A_LEN_DATA_0       = 10'h2e8,
-    ADDR_NUM_A_LEN_CTRL         = 10'h2ec,
-    ADDR_M_DATA_0               = 10'h2f0,
-    ADDR_M_CTRL                 = 10'h2f4,
-    ADDR_K_DATA_0               = 10'h2f8,
-    ADDR_K_CTRL                 = 10'h2fc,
-    ADDR_P_N_DATA_0             = 10'h300,
-    ADDR_P_N_CTRL               = 10'h304,
-    ADDR_ALPHA_U_DATA_0         = 10'h308,
-    ADDR_ALPHA_U_CTRL           = 10'h30c,
-    ADDR_BETA_U_DATA_0          = 10'h310,
-    ADDR_BETA_U_CTRL            = 10'h314,
+    ADDR_AP_CTRL                = 9'h000,
+    ADDR_GIE                    = 9'h004,
+    ADDR_IER                    = 9'h008,
+    ADDR_ISR                    = 9'h00c,
+    ADDR_EDGE_LIST_PTR_DATA_0   = 9'h010,
+    ADDR_EDGE_LIST_PTR_DATA_1   = 9'h014,
+    ADDR_EDGE_LIST_PTR_CTRL     = 9'h018,
+    ADDR_EDGE_LIST_CH_0_DATA_0  = 9'h01c,
+    ADDR_EDGE_LIST_CH_0_DATA_1  = 9'h020,
+    ADDR_EDGE_LIST_CH_0_CTRL    = 9'h024,
+    ADDR_EDGE_LIST_CH_1_DATA_0  = 9'h028,
+    ADDR_EDGE_LIST_CH_1_DATA_1  = 9'h02c,
+    ADDR_EDGE_LIST_CH_1_CTRL    = 9'h030,
+    ADDR_EDGE_LIST_CH_2_DATA_0  = 9'h034,
+    ADDR_EDGE_LIST_CH_2_DATA_1  = 9'h038,
+    ADDR_EDGE_LIST_CH_2_CTRL    = 9'h03c,
+    ADDR_EDGE_LIST_CH_3_DATA_0  = 9'h040,
+    ADDR_EDGE_LIST_CH_3_DATA_1  = 9'h044,
+    ADDR_EDGE_LIST_CH_3_CTRL    = 9'h048,
+    ADDR_EDGE_LIST_CH_4_DATA_0  = 9'h04c,
+    ADDR_EDGE_LIST_CH_4_DATA_1  = 9'h050,
+    ADDR_EDGE_LIST_CH_4_CTRL    = 9'h054,
+    ADDR_EDGE_LIST_CH_5_DATA_0  = 9'h058,
+    ADDR_EDGE_LIST_CH_5_DATA_1  = 9'h05c,
+    ADDR_EDGE_LIST_CH_5_CTRL    = 9'h060,
+    ADDR_EDGE_LIST_CH_6_DATA_0  = 9'h064,
+    ADDR_EDGE_LIST_CH_6_DATA_1  = 9'h068,
+    ADDR_EDGE_LIST_CH_6_CTRL    = 9'h06c,
+    ADDR_EDGE_LIST_CH_7_DATA_0  = 9'h070,
+    ADDR_EDGE_LIST_CH_7_DATA_1  = 9'h074,
+    ADDR_EDGE_LIST_CH_7_CTRL    = 9'h078,
+    ADDR_EDGE_LIST_CH_8_DATA_0  = 9'h07c,
+    ADDR_EDGE_LIST_CH_8_DATA_1  = 9'h080,
+    ADDR_EDGE_LIST_CH_8_CTRL    = 9'h084,
+    ADDR_EDGE_LIST_CH_9_DATA_0  = 9'h088,
+    ADDR_EDGE_LIST_CH_9_DATA_1  = 9'h08c,
+    ADDR_EDGE_LIST_CH_9_CTRL    = 9'h090,
+    ADDR_EDGE_LIST_CH_10_DATA_0 = 9'h094,
+    ADDR_EDGE_LIST_CH_10_DATA_1 = 9'h098,
+    ADDR_EDGE_LIST_CH_10_CTRL   = 9'h09c,
+    ADDR_EDGE_LIST_CH_11_DATA_0 = 9'h0a0,
+    ADDR_EDGE_LIST_CH_11_DATA_1 = 9'h0a4,
+    ADDR_EDGE_LIST_CH_11_CTRL   = 9'h0a8,
+    ADDR_EDGE_LIST_CH_12_DATA_0 = 9'h0ac,
+    ADDR_EDGE_LIST_CH_12_DATA_1 = 9'h0b0,
+    ADDR_EDGE_LIST_CH_12_CTRL   = 9'h0b4,
+    ADDR_EDGE_LIST_CH_13_DATA_0 = 9'h0b8,
+    ADDR_EDGE_LIST_CH_13_DATA_1 = 9'h0bc,
+    ADDR_EDGE_LIST_CH_13_CTRL   = 9'h0c0,
+    ADDR_EDGE_LIST_CH_14_DATA_0 = 9'h0c4,
+    ADDR_EDGE_LIST_CH_14_DATA_1 = 9'h0c8,
+    ADDR_EDGE_LIST_CH_14_CTRL   = 9'h0cc,
+    ADDR_EDGE_LIST_CH_15_DATA_0 = 9'h0d0,
+    ADDR_EDGE_LIST_CH_15_DATA_1 = 9'h0d4,
+    ADDR_EDGE_LIST_CH_15_CTRL   = 9'h0d8,
+    ADDR_EDGE_LIST_CH_16_DATA_0 = 9'h0dc,
+    ADDR_EDGE_LIST_CH_16_DATA_1 = 9'h0e0,
+    ADDR_EDGE_LIST_CH_16_CTRL   = 9'h0e4,
+    ADDR_EDGE_LIST_CH_17_DATA_0 = 9'h0e8,
+    ADDR_EDGE_LIST_CH_17_DATA_1 = 9'h0ec,
+    ADDR_EDGE_LIST_CH_17_CTRL   = 9'h0f0,
+    ADDR_EDGE_LIST_CH_18_DATA_0 = 9'h0f4,
+    ADDR_EDGE_LIST_CH_18_DATA_1 = 9'h0f8,
+    ADDR_EDGE_LIST_CH_18_CTRL   = 9'h0fc,
+    ADDR_EDGE_LIST_CH_19_DATA_0 = 9'h100,
+    ADDR_EDGE_LIST_CH_19_DATA_1 = 9'h104,
+    ADDR_EDGE_LIST_CH_19_CTRL   = 9'h108,
+    ADDR_EDGE_LIST_CH_20_DATA_0 = 9'h10c,
+    ADDR_EDGE_LIST_CH_20_DATA_1 = 9'h110,
+    ADDR_EDGE_LIST_CH_20_CTRL   = 9'h114,
+    ADDR_EDGE_LIST_CH_21_DATA_0 = 9'h118,
+    ADDR_EDGE_LIST_CH_21_DATA_1 = 9'h11c,
+    ADDR_EDGE_LIST_CH_21_CTRL   = 9'h120,
+    ADDR_EDGE_LIST_CH_22_DATA_0 = 9'h124,
+    ADDR_EDGE_LIST_CH_22_DATA_1 = 9'h128,
+    ADDR_EDGE_LIST_CH_22_CTRL   = 9'h12c,
+    ADDR_EDGE_LIST_CH_23_DATA_0 = 9'h130,
+    ADDR_EDGE_LIST_CH_23_DATA_1 = 9'h134,
+    ADDR_EDGE_LIST_CH_23_CTRL   = 9'h138,
+    ADDR_VEC_X_DATA_0           = 9'h13c,
+    ADDR_VEC_X_DATA_1           = 9'h140,
+    ADDR_VEC_X_CTRL             = 9'h144,
+    ADDR_VEC_Y_DATA_0           = 9'h148,
+    ADDR_VEC_Y_DATA_1           = 9'h14c,
+    ADDR_VEC_Y_CTRL             = 9'h150,
+    ADDR_VEC_Y_OUT_DATA_0       = 9'h154,
+    ADDR_VEC_Y_OUT_DATA_1       = 9'h158,
+    ADDR_VEC_Y_OUT_CTRL         = 9'h15c,
+    ADDR_NUM_ITE_DATA_0         = 9'h160,
+    ADDR_NUM_ITE_CTRL           = 9'h164,
+    ADDR_NUM_A_LEN_DATA_0       = 9'h168,
+    ADDR_NUM_A_LEN_CTRL         = 9'h16c,
+    ADDR_M_DATA_0               = 9'h170,
+    ADDR_M_CTRL                 = 9'h174,
+    ADDR_K_DATA_0               = 9'h178,
+    ADDR_K_CTRL                 = 9'h17c,
+    ADDR_P_N_DATA_0             = 9'h180,
+    ADDR_P_N_CTRL               = 9'h184,
+    ADDR_ALPHA_U_DATA_0         = 9'h188,
+    ADDR_ALPHA_U_CTRL           = 9'h18c,
+    ADDR_BETA_U_DATA_0          = 9'h190,
+    ADDR_BETA_U_CTRL            = 9'h194,
     WRIDLE                      = 2'd0,
     WRDATA                      = 2'd1,
     WRRESP                      = 2'd2,
@@ -650,7 +362,7 @@ localparam
     RDIDLE                      = 2'd0,
     RDDATA                      = 2'd1,
     RDRESET                     = 2'd2,
-    ADDR_BITS                = 10;
+    ADDR_BITS                = 9;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -704,38 +416,6 @@ localparam
     reg  [63:0]                   int_edge_list_ch_21 = 'b0;
     reg  [63:0]                   int_edge_list_ch_22 = 'b0;
     reg  [63:0]                   int_edge_list_ch_23 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_24 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_25 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_26 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_27 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_28 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_29 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_30 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_31 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_32 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_33 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_34 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_35 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_36 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_37 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_38 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_39 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_40 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_41 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_42 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_43 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_44 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_45 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_46 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_47 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_48 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_49 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_50 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_51 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_52 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_53 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_54 = 'b0;
-    reg  [63:0]                   int_edge_list_ch_55 = 'b0;
     reg  [63:0]                   int_vec_X = 'b0;
     reg  [63:0]                   int_vec_Y = 'b0;
     reg  [63:0]                   int_vec_Y_out = 'b0;
@@ -1005,198 +685,6 @@ always @(posedge ACLK) begin
                 ADDR_EDGE_LIST_CH_23_DATA_1: begin
                     rdata <= int_edge_list_ch_23[63:32];
                 end
-                ADDR_EDGE_LIST_CH_24_DATA_0: begin
-                    rdata <= int_edge_list_ch_24[31:0];
-                end
-                ADDR_EDGE_LIST_CH_24_DATA_1: begin
-                    rdata <= int_edge_list_ch_24[63:32];
-                end
-                ADDR_EDGE_LIST_CH_25_DATA_0: begin
-                    rdata <= int_edge_list_ch_25[31:0];
-                end
-                ADDR_EDGE_LIST_CH_25_DATA_1: begin
-                    rdata <= int_edge_list_ch_25[63:32];
-                end
-                ADDR_EDGE_LIST_CH_26_DATA_0: begin
-                    rdata <= int_edge_list_ch_26[31:0];
-                end
-                ADDR_EDGE_LIST_CH_26_DATA_1: begin
-                    rdata <= int_edge_list_ch_26[63:32];
-                end
-                ADDR_EDGE_LIST_CH_27_DATA_0: begin
-                    rdata <= int_edge_list_ch_27[31:0];
-                end
-                ADDR_EDGE_LIST_CH_27_DATA_1: begin
-                    rdata <= int_edge_list_ch_27[63:32];
-                end
-                ADDR_EDGE_LIST_CH_28_DATA_0: begin
-                    rdata <= int_edge_list_ch_28[31:0];
-                end
-                ADDR_EDGE_LIST_CH_28_DATA_1: begin
-                    rdata <= int_edge_list_ch_28[63:32];
-                end
-                ADDR_EDGE_LIST_CH_29_DATA_0: begin
-                    rdata <= int_edge_list_ch_29[31:0];
-                end
-                ADDR_EDGE_LIST_CH_29_DATA_1: begin
-                    rdata <= int_edge_list_ch_29[63:32];
-                end
-                ADDR_EDGE_LIST_CH_30_DATA_0: begin
-                    rdata <= int_edge_list_ch_30[31:0];
-                end
-                ADDR_EDGE_LIST_CH_30_DATA_1: begin
-                    rdata <= int_edge_list_ch_30[63:32];
-                end
-                ADDR_EDGE_LIST_CH_31_DATA_0: begin
-                    rdata <= int_edge_list_ch_31[31:0];
-                end
-                ADDR_EDGE_LIST_CH_31_DATA_1: begin
-                    rdata <= int_edge_list_ch_31[63:32];
-                end
-                ADDR_EDGE_LIST_CH_32_DATA_0: begin
-                    rdata <= int_edge_list_ch_32[31:0];
-                end
-                ADDR_EDGE_LIST_CH_32_DATA_1: begin
-                    rdata <= int_edge_list_ch_32[63:32];
-                end
-                ADDR_EDGE_LIST_CH_33_DATA_0: begin
-                    rdata <= int_edge_list_ch_33[31:0];
-                end
-                ADDR_EDGE_LIST_CH_33_DATA_1: begin
-                    rdata <= int_edge_list_ch_33[63:32];
-                end
-                ADDR_EDGE_LIST_CH_34_DATA_0: begin
-                    rdata <= int_edge_list_ch_34[31:0];
-                end
-                ADDR_EDGE_LIST_CH_34_DATA_1: begin
-                    rdata <= int_edge_list_ch_34[63:32];
-                end
-                ADDR_EDGE_LIST_CH_35_DATA_0: begin
-                    rdata <= int_edge_list_ch_35[31:0];
-                end
-                ADDR_EDGE_LIST_CH_35_DATA_1: begin
-                    rdata <= int_edge_list_ch_35[63:32];
-                end
-                ADDR_EDGE_LIST_CH_36_DATA_0: begin
-                    rdata <= int_edge_list_ch_36[31:0];
-                end
-                ADDR_EDGE_LIST_CH_36_DATA_1: begin
-                    rdata <= int_edge_list_ch_36[63:32];
-                end
-                ADDR_EDGE_LIST_CH_37_DATA_0: begin
-                    rdata <= int_edge_list_ch_37[31:0];
-                end
-                ADDR_EDGE_LIST_CH_37_DATA_1: begin
-                    rdata <= int_edge_list_ch_37[63:32];
-                end
-                ADDR_EDGE_LIST_CH_38_DATA_0: begin
-                    rdata <= int_edge_list_ch_38[31:0];
-                end
-                ADDR_EDGE_LIST_CH_38_DATA_1: begin
-                    rdata <= int_edge_list_ch_38[63:32];
-                end
-                ADDR_EDGE_LIST_CH_39_DATA_0: begin
-                    rdata <= int_edge_list_ch_39[31:0];
-                end
-                ADDR_EDGE_LIST_CH_39_DATA_1: begin
-                    rdata <= int_edge_list_ch_39[63:32];
-                end
-                ADDR_EDGE_LIST_CH_40_DATA_0: begin
-                    rdata <= int_edge_list_ch_40[31:0];
-                end
-                ADDR_EDGE_LIST_CH_40_DATA_1: begin
-                    rdata <= int_edge_list_ch_40[63:32];
-                end
-                ADDR_EDGE_LIST_CH_41_DATA_0: begin
-                    rdata <= int_edge_list_ch_41[31:0];
-                end
-                ADDR_EDGE_LIST_CH_41_DATA_1: begin
-                    rdata <= int_edge_list_ch_41[63:32];
-                end
-                ADDR_EDGE_LIST_CH_42_DATA_0: begin
-                    rdata <= int_edge_list_ch_42[31:0];
-                end
-                ADDR_EDGE_LIST_CH_42_DATA_1: begin
-                    rdata <= int_edge_list_ch_42[63:32];
-                end
-                ADDR_EDGE_LIST_CH_43_DATA_0: begin
-                    rdata <= int_edge_list_ch_43[31:0];
-                end
-                ADDR_EDGE_LIST_CH_43_DATA_1: begin
-                    rdata <= int_edge_list_ch_43[63:32];
-                end
-                ADDR_EDGE_LIST_CH_44_DATA_0: begin
-                    rdata <= int_edge_list_ch_44[31:0];
-                end
-                ADDR_EDGE_LIST_CH_44_DATA_1: begin
-                    rdata <= int_edge_list_ch_44[63:32];
-                end
-                ADDR_EDGE_LIST_CH_45_DATA_0: begin
-                    rdata <= int_edge_list_ch_45[31:0];
-                end
-                ADDR_EDGE_LIST_CH_45_DATA_1: begin
-                    rdata <= int_edge_list_ch_45[63:32];
-                end
-                ADDR_EDGE_LIST_CH_46_DATA_0: begin
-                    rdata <= int_edge_list_ch_46[31:0];
-                end
-                ADDR_EDGE_LIST_CH_46_DATA_1: begin
-                    rdata <= int_edge_list_ch_46[63:32];
-                end
-                ADDR_EDGE_LIST_CH_47_DATA_0: begin
-                    rdata <= int_edge_list_ch_47[31:0];
-                end
-                ADDR_EDGE_LIST_CH_47_DATA_1: begin
-                    rdata <= int_edge_list_ch_47[63:32];
-                end
-                ADDR_EDGE_LIST_CH_48_DATA_0: begin
-                    rdata <= int_edge_list_ch_48[31:0];
-                end
-                ADDR_EDGE_LIST_CH_48_DATA_1: begin
-                    rdata <= int_edge_list_ch_48[63:32];
-                end
-                ADDR_EDGE_LIST_CH_49_DATA_0: begin
-                    rdata <= int_edge_list_ch_49[31:0];
-                end
-                ADDR_EDGE_LIST_CH_49_DATA_1: begin
-                    rdata <= int_edge_list_ch_49[63:32];
-                end
-                ADDR_EDGE_LIST_CH_50_DATA_0: begin
-                    rdata <= int_edge_list_ch_50[31:0];
-                end
-                ADDR_EDGE_LIST_CH_50_DATA_1: begin
-                    rdata <= int_edge_list_ch_50[63:32];
-                end
-                ADDR_EDGE_LIST_CH_51_DATA_0: begin
-                    rdata <= int_edge_list_ch_51[31:0];
-                end
-                ADDR_EDGE_LIST_CH_51_DATA_1: begin
-                    rdata <= int_edge_list_ch_51[63:32];
-                end
-                ADDR_EDGE_LIST_CH_52_DATA_0: begin
-                    rdata <= int_edge_list_ch_52[31:0];
-                end
-                ADDR_EDGE_LIST_CH_52_DATA_1: begin
-                    rdata <= int_edge_list_ch_52[63:32];
-                end
-                ADDR_EDGE_LIST_CH_53_DATA_0: begin
-                    rdata <= int_edge_list_ch_53[31:0];
-                end
-                ADDR_EDGE_LIST_CH_53_DATA_1: begin
-                    rdata <= int_edge_list_ch_53[63:32];
-                end
-                ADDR_EDGE_LIST_CH_54_DATA_0: begin
-                    rdata <= int_edge_list_ch_54[31:0];
-                end
-                ADDR_EDGE_LIST_CH_54_DATA_1: begin
-                    rdata <= int_edge_list_ch_54[63:32];
-                end
-                ADDR_EDGE_LIST_CH_55_DATA_0: begin
-                    rdata <= int_edge_list_ch_55[31:0];
-                end
-                ADDR_EDGE_LIST_CH_55_DATA_1: begin
-                    rdata <= int_edge_list_ch_55[63:32];
-                end
                 ADDR_VEC_X_DATA_0: begin
                     rdata <= int_vec_X[31:0];
                 end
@@ -1273,38 +761,6 @@ assign edge_list_ch_20   = int_edge_list_ch_20;
 assign edge_list_ch_21   = int_edge_list_ch_21;
 assign edge_list_ch_22   = int_edge_list_ch_22;
 assign edge_list_ch_23   = int_edge_list_ch_23;
-assign edge_list_ch_24   = int_edge_list_ch_24;
-assign edge_list_ch_25   = int_edge_list_ch_25;
-assign edge_list_ch_26   = int_edge_list_ch_26;
-assign edge_list_ch_27   = int_edge_list_ch_27;
-assign edge_list_ch_28   = int_edge_list_ch_28;
-assign edge_list_ch_29   = int_edge_list_ch_29;
-assign edge_list_ch_30   = int_edge_list_ch_30;
-assign edge_list_ch_31   = int_edge_list_ch_31;
-assign edge_list_ch_32   = int_edge_list_ch_32;
-assign edge_list_ch_33   = int_edge_list_ch_33;
-assign edge_list_ch_34   = int_edge_list_ch_34;
-assign edge_list_ch_35   = int_edge_list_ch_35;
-assign edge_list_ch_36   = int_edge_list_ch_36;
-assign edge_list_ch_37   = int_edge_list_ch_37;
-assign edge_list_ch_38   = int_edge_list_ch_38;
-assign edge_list_ch_39   = int_edge_list_ch_39;
-assign edge_list_ch_40   = int_edge_list_ch_40;
-assign edge_list_ch_41   = int_edge_list_ch_41;
-assign edge_list_ch_42   = int_edge_list_ch_42;
-assign edge_list_ch_43   = int_edge_list_ch_43;
-assign edge_list_ch_44   = int_edge_list_ch_44;
-assign edge_list_ch_45   = int_edge_list_ch_45;
-assign edge_list_ch_46   = int_edge_list_ch_46;
-assign edge_list_ch_47   = int_edge_list_ch_47;
-assign edge_list_ch_48   = int_edge_list_ch_48;
-assign edge_list_ch_49   = int_edge_list_ch_49;
-assign edge_list_ch_50   = int_edge_list_ch_50;
-assign edge_list_ch_51   = int_edge_list_ch_51;
-assign edge_list_ch_52   = int_edge_list_ch_52;
-assign edge_list_ch_53   = int_edge_list_ch_53;
-assign edge_list_ch_54   = int_edge_list_ch_54;
-assign edge_list_ch_55   = int_edge_list_ch_55;
 assign vec_X             = int_vec_X;
 assign vec_Y             = int_vec_Y;
 assign vec_Y_out         = int_vec_Y_out;
@@ -1934,646 +1390,6 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_EDGE_LIST_CH_23_DATA_1)
             int_edge_list_ch_23[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_23[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_24[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_24[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_24_DATA_0)
-            int_edge_list_ch_24[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_24[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_24[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_24[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_24_DATA_1)
-            int_edge_list_ch_24[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_24[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_25[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_25[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_25_DATA_0)
-            int_edge_list_ch_25[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_25[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_25[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_25[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_25_DATA_1)
-            int_edge_list_ch_25[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_25[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_26[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_26[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_26_DATA_0)
-            int_edge_list_ch_26[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_26[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_26[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_26[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_26_DATA_1)
-            int_edge_list_ch_26[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_26[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_27[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_27[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_27_DATA_0)
-            int_edge_list_ch_27[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_27[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_27[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_27[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_27_DATA_1)
-            int_edge_list_ch_27[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_27[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_28[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_28[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_28_DATA_0)
-            int_edge_list_ch_28[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_28[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_28[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_28[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_28_DATA_1)
-            int_edge_list_ch_28[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_28[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_29[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_29[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_29_DATA_0)
-            int_edge_list_ch_29[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_29[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_29[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_29[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_29_DATA_1)
-            int_edge_list_ch_29[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_29[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_30[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_30[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_30_DATA_0)
-            int_edge_list_ch_30[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_30[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_30[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_30[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_30_DATA_1)
-            int_edge_list_ch_30[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_30[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_31[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_31[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_31_DATA_0)
-            int_edge_list_ch_31[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_31[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_31[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_31[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_31_DATA_1)
-            int_edge_list_ch_31[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_31[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_32[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_32[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_32_DATA_0)
-            int_edge_list_ch_32[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_32[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_32[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_32[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_32_DATA_1)
-            int_edge_list_ch_32[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_32[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_33[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_33[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_33_DATA_0)
-            int_edge_list_ch_33[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_33[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_33[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_33[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_33_DATA_1)
-            int_edge_list_ch_33[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_33[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_34[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_34[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_34_DATA_0)
-            int_edge_list_ch_34[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_34[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_34[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_34[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_34_DATA_1)
-            int_edge_list_ch_34[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_34[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_35[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_35[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_35_DATA_0)
-            int_edge_list_ch_35[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_35[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_35[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_35[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_35_DATA_1)
-            int_edge_list_ch_35[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_35[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_36[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_36[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_36_DATA_0)
-            int_edge_list_ch_36[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_36[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_36[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_36[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_36_DATA_1)
-            int_edge_list_ch_36[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_36[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_37[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_37[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_37_DATA_0)
-            int_edge_list_ch_37[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_37[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_37[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_37[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_37_DATA_1)
-            int_edge_list_ch_37[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_37[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_38[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_38[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_38_DATA_0)
-            int_edge_list_ch_38[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_38[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_38[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_38[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_38_DATA_1)
-            int_edge_list_ch_38[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_38[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_39[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_39[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_39_DATA_0)
-            int_edge_list_ch_39[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_39[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_39[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_39[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_39_DATA_1)
-            int_edge_list_ch_39[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_39[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_40[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_40[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_40_DATA_0)
-            int_edge_list_ch_40[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_40[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_40[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_40[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_40_DATA_1)
-            int_edge_list_ch_40[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_40[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_41[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_41[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_41_DATA_0)
-            int_edge_list_ch_41[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_41[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_41[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_41[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_41_DATA_1)
-            int_edge_list_ch_41[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_41[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_42[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_42[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_42_DATA_0)
-            int_edge_list_ch_42[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_42[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_42[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_42[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_42_DATA_1)
-            int_edge_list_ch_42[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_42[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_43[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_43[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_43_DATA_0)
-            int_edge_list_ch_43[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_43[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_43[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_43[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_43_DATA_1)
-            int_edge_list_ch_43[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_43[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_44[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_44[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_44_DATA_0)
-            int_edge_list_ch_44[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_44[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_44[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_44[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_44_DATA_1)
-            int_edge_list_ch_44[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_44[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_45[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_45[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_45_DATA_0)
-            int_edge_list_ch_45[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_45[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_45[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_45[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_45_DATA_1)
-            int_edge_list_ch_45[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_45[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_46[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_46[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_46_DATA_0)
-            int_edge_list_ch_46[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_46[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_46[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_46[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_46_DATA_1)
-            int_edge_list_ch_46[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_46[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_47[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_47[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_47_DATA_0)
-            int_edge_list_ch_47[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_47[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_47[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_47[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_47_DATA_1)
-            int_edge_list_ch_47[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_47[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_48[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_48[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_48_DATA_0)
-            int_edge_list_ch_48[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_48[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_48[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_48[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_48_DATA_1)
-            int_edge_list_ch_48[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_48[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_49[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_49[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_49_DATA_0)
-            int_edge_list_ch_49[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_49[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_49[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_49[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_49_DATA_1)
-            int_edge_list_ch_49[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_49[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_50[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_50[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_50_DATA_0)
-            int_edge_list_ch_50[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_50[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_50[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_50[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_50_DATA_1)
-            int_edge_list_ch_50[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_50[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_51[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_51[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_51_DATA_0)
-            int_edge_list_ch_51[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_51[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_51[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_51[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_51_DATA_1)
-            int_edge_list_ch_51[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_51[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_52[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_52[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_52_DATA_0)
-            int_edge_list_ch_52[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_52[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_52[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_52[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_52_DATA_1)
-            int_edge_list_ch_52[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_52[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_53[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_53[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_53_DATA_0)
-            int_edge_list_ch_53[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_53[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_53[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_53[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_53_DATA_1)
-            int_edge_list_ch_53[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_53[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_54[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_54[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_54_DATA_0)
-            int_edge_list_ch_54[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_54[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_54[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_54[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_54_DATA_1)
-            int_edge_list_ch_54[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_54[63:32] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_55[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_55[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_55_DATA_0)
-            int_edge_list_ch_55[31:0] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_55[31:0] & ~wmask);
-    end
-end
-
-// int_edge_list_ch_55[63:32]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_edge_list_ch_55[63:32] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_EDGE_LIST_CH_55_DATA_1)
-            int_edge_list_ch_55[63:32] <= (WDATA[31:0] & wmask) | (int_edge_list_ch_55[63:32] & ~wmask);
     end
 end
 

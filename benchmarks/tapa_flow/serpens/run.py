@@ -118,7 +118,6 @@ right_args = [
     "edge_list_ptr",
     "vec_X",
     "vec_Y",
-    "vec_Y_out",
 ]
 for arg in right_args:
     rs.assign_port_to_region(f"m_axi_{arg}_.*", right_slot)

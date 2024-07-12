@@ -158,9 +158,9 @@ newFuncRoot:8 %specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i64 %lo
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="23" op_0_bw="23" op_1_bw="23">
+<Node id="19" bw="24" op_0_bw="24" op_1_bw="24">
 <![CDATA[
-newFuncRoot:9 %select_ln140_1_read = read i23 @_ssdm_op_Read.ap_auto.i23, i23 %select_ln140_1
+newFuncRoot:9 %select_ln140_1_read = read i24 @_ssdm_op_Read.ap_auto.i24, i24 %select_ln140_1
 
 ]]></Node>
 <StgValue><ssdm name="select_ln140_1_read"/></StgValue>
@@ -218,7 +218,7 @@ for.inc:0 %i_3 = load i14 %i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="23" op_0_bw="14">
+<Node id="24" bw="24" op_0_bw="14">
 <![CDATA[
 for.inc:1 %zext_ln151_1 = zext i14 %i_3
 
@@ -233,9 +233,9 @@ for.inc:1 %zext_ln151_1 = zext i14 %i_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="25" bw="1" op_0_bw="24" op_1_bw="24">
 <![CDATA[
-for.inc:2 %icmp_ln151 = icmp_slt  i23 %zext_ln151_1, i23 %select_ln140_1_read
+for.inc:2 %icmp_ln151 = icmp_slt  i24 %zext_ln151_1, i24 %select_ln140_1_read
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln151"/></StgValue>

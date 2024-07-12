@@ -712,7 +712,7 @@ entry:52 %M = trunc i33 %fifo_inst_in_s_read_1
 
 <Node id="61" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-entry:55 %add_ln140 = add i32 %M, i32 895
+entry:55 %add_ln140 = add i32 %M, i32 383
 
 ]]></Node>
 <StgValue><ssdm name="add_ln140"/></StgValue>
@@ -742,7 +742,7 @@ entry:59 %tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %add_ln140, i32
 
 <Node id="70" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-entry:64 %add_ln141 = add i32 %M, i32 111
+entry:64 %add_ln141 = add i32 %M, i32 47
 
 ]]></Node>
 <StgValue><ssdm name="add_ln141"/></StgValue>
@@ -790,7 +790,7 @@ entry:56 %sext_ln140 = sext i32 %add_ln140
 
 <Node id="63" bw="65" op_0_bw="65" op_1_bw="65">
 <![CDATA[
-entry:57 %mul_ln140 = mul i65 %sext_ln140, i65 4908534053
+entry:57 %mul_ln140 = mul i65 %sext_ln140, i65 5726623062
 
 ]]></Node>
 <StgValue><ssdm name="mul_ln140"/></StgValue>
@@ -820,7 +820,7 @@ entry:65 %sext_ln141 = sext i32 %add_ln141
 
 <Node id="72" bw="65" op_0_bw="65" op_1_bw="65">
 <![CDATA[
-entry:66 %mul_ln141 = mul i65 %sext_ln141, i65 4908534053
+entry:66 %mul_ln141 = mul i65 %sext_ln141, i65 5726623062
 
 ]]></Node>
 <StgValue><ssdm name="mul_ln141"/></StgValue>
@@ -838,7 +838,7 @@ entry:66 %mul_ln141 = mul i65 %sext_ln141, i65 4908534053
 
 <Node id="63" bw="65" op_0_bw="65" op_1_bw="65">
 <![CDATA[
-entry:57 %mul_ln140 = mul i65 %sext_ln140, i65 4908534053
+entry:57 %mul_ln140 = mul i65 %sext_ln140, i65 5726623062
 
 ]]></Node>
 <StgValue><ssdm name="mul_ln140"/></StgValue>
@@ -851,9 +851,9 @@ entry:57 %mul_ln140 = mul i65 %sext_ln140, i65 4908534053
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="23" op_0_bw="23" op_1_bw="65" op_2_bw="32" op_3_bw="32">
+<Node id="67" bw="24" op_0_bw="24" op_1_bw="65" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-entry:61 %tmp_31 = partselect i23 @_ssdm_op_PartSelect.i23.i65.i32.i32, i65 %mul_ln140, i32 42, i32 64
+entry:61 %tmp_31 = partselect i24 @_ssdm_op_PartSelect.i24.i65.i32.i32, i65 %mul_ln140, i32 41, i32 64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_31"/></StgValue>
@@ -868,7 +868,7 @@ entry:61 %tmp_31 = partselect i23 @_ssdm_op_PartSelect.i23.i65.i32.i32, i65 %mul
 
 <Node id="72" bw="65" op_0_bw="65" op_1_bw="65">
 <![CDATA[
-entry:66 %mul_ln141 = mul i65 %sext_ln141, i65 4908534053
+entry:66 %mul_ln141 = mul i65 %sext_ln141, i65 5726623062
 
 ]]></Node>
 <StgValue><ssdm name="mul_ln141"/></StgValue>
@@ -881,9 +881,9 @@ entry:66 %mul_ln141 = mul i65 %sext_ln141, i65 4908534053
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="26" op_0_bw="26" op_1_bw="65" op_2_bw="32" op_3_bw="32">
+<Node id="76" bw="27" op_0_bw="27" op_1_bw="65" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-entry:70 %tmp_34 = partselect i26 @_ssdm_op_PartSelect.i26.i65.i32.i32, i65 %mul_ln141, i32 39, i32 64
+entry:70 %tmp_34 = partselect i27 @_ssdm_op_PartSelect.i27.i65.i32.i32, i65 %mul_ln141, i32 38, i32 64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_34"/></StgValue>
@@ -1141,9 +1141,9 @@ entry:58 %sub_ln140 = sub i65 0, i65 %mul_ln140
 </and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="23" op_0_bw="23" op_1_bw="65" op_2_bw="32" op_3_bw="32">
+<Node id="66" bw="24" op_0_bw="24" op_1_bw="65" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-entry:60 %tmp_30 = partselect i23 @_ssdm_op_PartSelect.i23.i65.i32.i32, i65 %sub_ln140, i32 42, i32 64
+entry:60 %tmp_30 = partselect i24 @_ssdm_op_PartSelect.i24.i65.i32.i32, i65 %sub_ln140, i32 41, i32 64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_30"/></StgValue>
@@ -1157,9 +1157,9 @@ entry:60 %tmp_30 = partselect i23 @_ssdm_op_PartSelect.i23.i65.i32.i32, i65 %sub
 </and_exp></or_exp>
 </condition>
 
-<Node id="68" bw="23" op_0_bw="1" op_1_bw="23" op_2_bw="23">
+<Node id="68" bw="24" op_0_bw="1" op_1_bw="24" op_2_bw="24">
 <![CDATA[
-entry:62 %select_ln140 = select i1 %tmp, i23 %tmp_30, i23 %tmp_31
+entry:62 %select_ln140 = select i1 %tmp, i24 %tmp_30, i24 %tmp_31
 
 ]]></Node>
 <StgValue><ssdm name="select_ln140"/></StgValue>
@@ -1173,9 +1173,9 @@ entry:62 %select_ln140 = select i1 %tmp, i23 %tmp_30, i23 %tmp_31
 </and_exp></or_exp>
 </condition>
 
-<Node id="69" bw="23" op_0_bw="23" op_1_bw="23">
+<Node id="69" bw="24" op_0_bw="24" op_1_bw="24">
 <![CDATA[
-entry:63 %sub_ln140_1 = sub i23 0, i23 %select_ln140
+entry:63 %sub_ln140_1 = sub i24 0, i24 %select_ln140
 
 ]]></Node>
 <StgValue><ssdm name="sub_ln140_1"/></StgValue>
@@ -1205,9 +1205,9 @@ entry:67 %sub_ln141 = sub i65 0, i65 %mul_ln141
 </and_exp></or_exp>
 </condition>
 
-<Node id="75" bw="26" op_0_bw="26" op_1_bw="65" op_2_bw="32" op_3_bw="32">
+<Node id="75" bw="27" op_0_bw="27" op_1_bw="65" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-entry:69 %tmp_33 = partselect i26 @_ssdm_op_PartSelect.i26.i65.i32.i32, i65 %sub_ln141, i32 39, i32 64
+entry:69 %tmp_33 = partselect i27 @_ssdm_op_PartSelect.i27.i65.i32.i32, i65 %sub_ln141, i32 38, i32 64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_33"/></StgValue>
@@ -1221,9 +1221,9 @@ entry:69 %tmp_33 = partselect i26 @_ssdm_op_PartSelect.i26.i65.i32.i32, i65 %sub
 </and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="26" op_0_bw="1" op_1_bw="26" op_2_bw="26">
+<Node id="77" bw="27" op_0_bw="1" op_1_bw="27" op_2_bw="27">
 <![CDATA[
-entry:71 %select_ln141 = select i1 %tmp_32, i26 %tmp_33, i26 %tmp_34
+entry:71 %select_ln141 = select i1 %tmp_32, i27 %tmp_33, i27 %tmp_34
 
 ]]></Node>
 <StgValue><ssdm name="select_ln141"/></StgValue>
@@ -1237,9 +1237,9 @@ entry:71 %select_ln141 = select i1 %tmp_32, i26 %tmp_33, i26 %tmp_34
 </and_exp></or_exp>
 </condition>
 
-<Node id="78" bw="26" op_0_bw="26" op_1_bw="26">
+<Node id="78" bw="27" op_0_bw="27" op_1_bw="27">
 <![CDATA[
-entry:72 %sub_ln141_1 = sub i26 0, i26 %select_ln141
+entry:72 %sub_ln141_1 = sub i27 0, i27 %select_ln141
 
 ]]></Node>
 <StgValue><ssdm name="sub_ln141_1"/></StgValue>
@@ -1252,9 +1252,9 @@ entry:72 %sub_ln141_1 = sub i26 0, i26 %select_ln141
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="79" bw="26" op_0_bw="1" op_1_bw="26" op_2_bw="26">
+<Node id="79" bw="27" op_0_bw="1" op_1_bw="27" op_2_bw="27">
 <![CDATA[
-entry:73 %select_ln141_1 = select i1 %tmp_32, i26 %sub_ln141_1, i26 %tmp_34
+entry:73 %select_ln141_1 = select i1 %tmp_32, i27 %sub_ln141_1, i27 %tmp_34
 
 ]]></Node>
 <StgValue><ssdm name="select_ln141_1"/></StgValue>
@@ -1387,9 +1387,9 @@ entry:81 %specmemcore_ln143 = specmemcore void @_ssdm_op_SpecMemCore, i64 %local
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="23" op_0_bw="1" op_1_bw="23" op_2_bw="23">
+<Node id="88" bw="24" op_0_bw="1" op_1_bw="24" op_2_bw="24">
 <![CDATA[
-entry:82 %select_ln140_1 = select i1 %tmp, i23 %sub_ln140_1, i23 %tmp_31
+entry:82 %select_ln140_1 = select i1 %tmp, i24 %sub_ln140_1, i24 %tmp_31
 
 ]]></Node>
 <StgValue><ssdm name="select_ln140_1"/></StgValue>
@@ -1496,9 +1496,9 @@ init_C:4 %br_ln146 = br i1 %icmp_ln146, void %for.end100.loopexit, void %init_C.
 </and_exp></or_exp>
 </condition>
 
-<Node id="100" bw="0" op_0_bw="0" op_1_bw="23" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64">
+<Node id="100" bw="0" op_0_bw="0" op_1_bw="24" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64">
 <![CDATA[
-init_C.split:2 %call_ln140 = call void @PEG_Yvec_Pipeline_init_C, i23 %select_ln140_1, i64 %local_C_V_7, i64 %local_C_V_6, i64 %local_C_V_5, i64 %local_C_V_4, i64 %local_C_V_3, i64 %local_C_V_2, i64 %local_C_V_1, i64 %local_C_V
+init_C.split:2 %call_ln140 = call void @PEG_Yvec_Pipeline_init_C, i24 %select_ln140_1, i64 %local_C_V_7, i64 %local_C_V_6, i64 %local_C_V_5, i64 %local_C_V_4, i64 %local_C_V_3, i64 %local_C_V_2, i64 %local_C_V_1, i64 %local_C_V
 
 ]]></Node>
 <StgValue><ssdm name="call_ln140"/></StgValue>
@@ -1560,9 +1560,9 @@ init_C.split:1 %specloopname_ln146 = specloopname void @_ssdm_op_SpecLoopName, v
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="100" bw="0" op_0_bw="0" op_1_bw="23" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64">
+<Node id="100" bw="0" op_0_bw="0" op_1_bw="24" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64">
 <![CDATA[
-init_C.split:2 %call_ln140 = call void @PEG_Yvec_Pipeline_init_C, i23 %select_ln140_1, i64 %local_C_V_7, i64 %local_C_V_6, i64 %local_C_V_5, i64 %local_C_V_4, i64 %local_C_V_3, i64 %local_C_V_2, i64 %local_C_V_1, i64 %local_C_V
+init_C.split:2 %call_ln140 = call void @PEG_Yvec_Pipeline_init_C, i24 %select_ln140_1, i64 %local_C_V_7, i64 %local_C_V_6, i64 %local_C_V_5, i64 %local_C_V_4, i64 %local_C_V_3, i64 %local_C_V_2, i64 %local_C_V_1, i64 %local_C_V
 
 ]]></Node>
 <StgValue><ssdm name="call_ln140"/></StgValue>
@@ -1762,9 +1762,9 @@ load-store-loop65.1.preheader:0 %empty_60 = wait i32 @_ssdm_op_Wait
 </and_exp></or_exp>
 </condition>
 
-<Node id="121" bw="0" op_0_bw="0" op_1_bw="26" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64" op_10_bw="65" op_11_bw="0" op_12_bw="0" op_13_bw="0">
+<Node id="121" bw="0" op_0_bw="0" op_1_bw="27" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64" op_10_bw="65" op_11_bw="0" op_12_bw="0" op_13_bw="0">
 <![CDATA[
-load-store-loop65.1.preheader:1 %call_ln141 = call void @PEG_Yvec_Pipeline_write_C_outer, i26 %select_ln141_1, i64 %local_C_V, i64 %local_C_V_1, i64 %local_C_V_2, i64 %local_C_V_3, i64 %local_C_V_4, i64 %local_C_V_5, i64 %local_C_V_6, i64 %local_C_V_7, i65 %fifo_Y_out
+load-store-loop65.1.preheader:1 %call_ln141 = call void @PEG_Yvec_Pipeline_write_C_outer, i27 %select_ln141_1, i64 %local_C_V, i64 %local_C_V_1, i64 %local_C_V_2, i64 %local_C_V_3, i64 %local_C_V_4, i64 %local_C_V_5, i64 %local_C_V_6, i64 %local_C_V_7, i65 %fifo_Y_out
 
 ]]></Node>
 <StgValue><ssdm name="call_ln141"/></StgValue>
@@ -1892,9 +1892,9 @@ computation.split:6 %br_ln160 = br void %computation
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="121" bw="0" op_0_bw="0" op_1_bw="26" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64" op_10_bw="65" op_11_bw="0" op_12_bw="0" op_13_bw="0">
+<Node id="121" bw="0" op_0_bw="0" op_1_bw="27" op_2_bw="64" op_3_bw="64" op_4_bw="64" op_5_bw="64" op_6_bw="64" op_7_bw="64" op_8_bw="64" op_9_bw="64" op_10_bw="65" op_11_bw="0" op_12_bw="0" op_13_bw="0">
 <![CDATA[
-load-store-loop65.1.preheader:1 %call_ln141 = call void @PEG_Yvec_Pipeline_write_C_outer, i26 %select_ln141_1, i64 %local_C_V, i64 %local_C_V_1, i64 %local_C_V_2, i64 %local_C_V_3, i64 %local_C_V_4, i64 %local_C_V_5, i64 %local_C_V_6, i64 %local_C_V_7, i65 %fifo_Y_out
+load-store-loop65.1.preheader:1 %call_ln141 = call void @PEG_Yvec_Pipeline_write_C_outer, i27 %select_ln141_1, i64 %local_C_V, i64 %local_C_V_1, i64 %local_C_V_2, i64 %local_C_V_3, i64 %local_C_V_4, i64 %local_C_V_5, i64 %local_C_V_6, i64 %local_C_V_7, i65 %fifo_Y_out
 
 ]]></Node>
 <StgValue><ssdm name="call_ln141"/></StgValue>

@@ -10,11 +10,11 @@ performance:
 area:
   source: hls
   total:
-    BRAM_18K: 3584
-    DSP: 2758
-    FF: 787029
-    LUT: 744189
-    URAM: 896
+    BRAM_18K: 1536
+    DSP: 1286
+    FF: 349853
+    LUT: 328301
+    URAM: 384
   breakdown:
     Arbiter_Y:
       count: 8
@@ -23,8 +23,8 @@ area:
         total:
           BRAM_18K: 0
           DSP: 6
-          FF: 781
-          LUT: 958
+          FF: 783
+          LUT: 871
           URAM: 0
     FloatvAddFloatv:
       count: 1
@@ -57,7 +57,7 @@ area:
           LUT: 147
           URAM: 0
     PEG_Xvec:
-      count: 56
+      count: 24
       area:
         source: hls
         total:
@@ -67,14 +67,14 @@ area:
           LUT: 5703
           URAM: 0
     PEG_Yvec:
-      count: 56
+      count: 24
       area:
         source: hls
         total:
           BRAM_18K: 0
           DSP: 22
-          FF: 8501
-          LUT: 6817
+          FF: 8506
+          LUT: 6824
           URAM: 16
     black_hole_float_v16:
       count: 1
@@ -97,7 +97,7 @@ area:
           LUT: 43
           URAM: 0
     read_A:
-      count: 56
+      count: 24
       area:
         source: hls
         total:

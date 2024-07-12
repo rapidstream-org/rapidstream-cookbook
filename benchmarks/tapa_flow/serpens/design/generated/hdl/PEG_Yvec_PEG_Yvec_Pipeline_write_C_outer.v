@@ -55,7 +55,7 @@ output   ap_ready;
 output  [64:0] fifo_Y_out_din;
 input   fifo_Y_out_full_n;
 output   fifo_Y_out_write;
-input  [25:0] select_ln141_1;
+input  [26:0] select_ln141_1;
 output  [12:0] local_C_V_address0;
 output   local_C_V_ce0;
 input  [63:0] local_C_V_q0;
@@ -112,14 +112,14 @@ reg    ap_block_pp0_stage0_11001;
 wire   [63:0] u_64_V_fu_264_p10;
 reg   [63:0] u_64_V_reg_377;
 wire   [63:0] zext_ln190_fu_240_p1;
-reg   [24:0] i_fu_76;
-wire   [24:0] i_2_fu_224_p2;
+reg   [25:0] i_fu_76;
+wire   [25:0] i_2_fu_224_p2;
 wire    ap_loop_init;
-reg   [24:0] ap_sig_allocacmp_i_1;
+reg   [25:0] ap_sig_allocacmp_i_1;
 reg   [31:0] c_idx_fu_80;
 wire   [31:0] c_idx_2_fu_298_p3;
 reg    ap_block_pp0_stage0_01001;
-wire   [25:0] zext_ln186_fu_214_p1;
+wire   [26:0] zext_ln186_fu_214_p1;
 wire   [12:0] lshr_ln_fu_230_p4;
 wire   [2:0] u_64_V_fu_264_p9;
 wire   [31:0] c_idx_1_fu_286_p2;
@@ -239,7 +239,7 @@ always @ (posedge ap_clk) begin
         if (((icmp_ln186_fu_218_p2 == 1'd1) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
             i_fu_76 <= i_2_fu_224_p2;
         end else if ((ap_loop_init == 1'b1)) begin
-            i_fu_76 <= 25'd0;
+            i_fu_76 <= 26'd0;
         end
     end
 end
@@ -293,7 +293,7 @@ end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1))) begin
-        ap_sig_allocacmp_i_1 = 25'd0;
+        ap_sig_allocacmp_i_1 = 26'd0;
     end else begin
         ap_sig_allocacmp_i_1 = i_fu_76;
     end
@@ -426,7 +426,7 @@ assign c_idx_2_fu_298_p3 = ((icmp_ln197_fu_292_p2[0:0] == 1'b1) ? 32'd0 : c_idx_
 
 assign fifo_Y_out_din = {{1'd0}, {u_64_V_reg_377}};
 
-assign i_2_fu_224_p2 = (ap_sig_allocacmp_i_1 + 25'd1);
+assign i_2_fu_224_p2 = (ap_sig_allocacmp_i_1 + 26'd1);
 
 assign icmp_ln186_fu_218_p2 = (($signed(zext_ln186_fu_214_p1) < $signed(select_ln141_1)) ? 1'b1 : 1'b0);
 
