@@ -34,9 +34,7 @@ BD_TCL               := $(CURDIR)/tcl/gen_design_u50.tcl
 
 BIT                  := $(BIT_TARGET)
 
-#all:$(BIT_TARGET)
-all:
-	echo $(VIVADO_BIT_TARGET)
+all:$(BIT_TARGET)
 
 $(BIT_TARGET):$(RS_TARGET)
 	mkdir -p $(TEMP_DIR)

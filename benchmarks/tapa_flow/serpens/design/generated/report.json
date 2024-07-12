@@ -1,0 +1,195 @@
+{
+    "area": {
+        "breakdown": {
+            "Arbiter_Y": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 6,
+                        "FF": 781,
+                        "LUT": 958,
+                        "URAM": 0
+                    }
+                },
+                "count": 8
+            },
+            "FloatvAddFloatv": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 32,
+                        "FF": 6704,
+                        "LUT": 3644,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "FloatvMultConst": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 51,
+                        "FF": 3715,
+                        "LUT": 1583,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "Merger_Y": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 147,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "PEG_Xvec": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 64,
+                        "DSP": 24,
+                        "FF": 4961,
+                        "LUT": 5703,
+                        "URAM": 0
+                    }
+                },
+                "count": 56
+            },
+            "PEG_Yvec": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 22,
+                        "FF": 8501,
+                        "LUT": 6817,
+                        "URAM": 16
+                    }
+                },
+                "count": 56
+            },
+            "black_hole_float_v16": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "black_hole_int": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6,
+                        "LUT": 43,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "read_A": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 134,
+                        "LUT": 332,
+                        "URAM": 0
+                    }
+                },
+                "count": 56
+            },
+            "read_X": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 194,
+                        "LUT": 371,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "read_Y": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 194,
+                        "LUT": 371,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "read_edge_list_ptr": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 169,
+                        "LUT": 430,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "write_Y": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 194,
+                        "LUT": 430,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 3584,
+            "DSP": 2758,
+            "FF": 787029,
+            "LUT": 744189,
+            "URAM": 896
+        }
+    },
+    "name": "Serpens",
+    "performance": {
+        "clock_period": "3.534",
+        "critical_path": {
+            "PEG_Xvec": {
+                "clock_period": "3.534",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

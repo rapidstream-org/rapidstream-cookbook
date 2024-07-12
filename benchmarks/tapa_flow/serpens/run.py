@@ -7,9 +7,9 @@ from rapidstream import get_u280_vitis_device_factory, RapidStreamTAPA
 import os
 
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
-INI_PATH = f"{CURR_DIR}/design/config/link_config.ini"
+INI_PATH = f"{CURR_DIR}/design/config/link_config_a24.ini"
 VITIS_PLATFORM = "xilinx_u280_gen3x16_xdma_1_202211_1"
-XO_PATH = f"{CURR_DIR}/design/generated/Sextans.xo"
+XO_PATH = f"{CURR_DIR}/design/generated/Serpens.xo"
 
 
 factory = get_u280_vitis_device_factory(VITIS_PLATFORM)
@@ -41,10 +41,10 @@ rs.add_xo_file(XO_PATH)
 rs.set_vitis_platform(VITIS_PLATFORM)
 rs.set_vitis_connectivity_config(INI_PATH)
 
-rs.set_top_module_name("Sextans")
+rs.set_top_module_name("Serpens")
 rs.add_clock("ap_clk", 3.33)
 
-rs.add_flatten_targets(["Sextans"])
+rs.add_flatten_targets(["Serpens"])
 
 # Bind ports to HBM 16-31
 right_slot = "SLOT_X1Y0:SLOT_X1Y0"
@@ -52,22 +52,25 @@ left_slot = "SLOT_X0Y0:SLOT_X0Y0"
 
 # The config file binds the following argument to HBM 0 - 15
 # Thus we need to constrain them to the left side of SLR 0
-#     sp=Sextans.edge_list_ptr:HBM[0]
-#     sp=Sextans.edge_list_ch_0:HBM[1]
-#     sp=Sextans.edge_list_ch_1:HBM[2]
-#     sp=Sextans.edge_list_ch_2:HBM[3]
-#     sp=Sextans.edge_list_ch_3:HBM[4]
-#     sp=Sextans.edge_list_ch_4:HBM[5]
-#     sp=Sextans.edge_list_ch_5:HBM[6]
-#     sp=Sextans.edge_list_ch_6:HBM[7]
-#     sp=Sextans.edge_list_ch_7:HBM[8]
-#     sp=Sextans.mat_B_ch_0:HBM[9]
-#     sp=Sextans.mat_B_ch_1:HBM[10]
-#     sp=Sextans.mat_B_ch_2:HBM[11]
-#     sp=Sextans.mat_B_ch_3:HBM[12]
+# sp=Serpens.edge_list_ch_0:HBM[0]
+# sp=Serpens.edge_list_ch_1:HBM[1]
+# sp=Serpens.edge_list_ch_2:HBM[2]
+# sp=Serpens.edge_list_ch_3:HBM[3]
+# sp=Serpens.edge_list_ch_4:HBM[4]
+# sp=Serpens.edge_list_ch_5:HBM[5]
+# sp=Serpens.edge_list_ch_6:HBM[6]
+# sp=Serpens.edge_list_ch_7:HBM[7]
+
+# sp=Serpens.edge_list_ch_8:HBM[8]
+# sp=Serpens.edge_list_ch_9:HBM[9]
+# sp=Serpens.edge_list_ch_10:HBM[10]
+# sp=Serpens.edge_list_ch_11:HBM[11]
+# sp=Serpens.edge_list_ch_12:HBM[12]
+# sp=Serpens.edge_list_ch_13:HBM[13]
+# sp=Serpens.edge_list_ch_14:HBM[14]
+# sp=Serpens.edge_list_ch_15:HBM[15]
 
 left_args = [
-    "edge_list_ptr",
     "edge_list_ch_0",
     "edge_list_ch_1",
     "edge_list_ch_2",
@@ -76,50 +79,46 @@ left_args = [
     "edge_list_ch_5",
     "edge_list_ch_6",
     "edge_list_ch_7",
-    "mat_B_ch_0",
-    "mat_B_ch_1",
-    "mat_B_ch_2",
-    "mat_B_ch_3",
+    "edge_list_ch_8",
+    "edge_list_ch_9",
+    "edge_list_ch_10",
+    "edge_list_ch_11",
+    "edge_list_ch_12",
+    "edge_list_ch_13",
+    "edge_list_ch_14",
+    "edge_list_ch_15",
 ]
 for arg in left_args:
     rs.assign_port_to_region(f"m_axi_{arg}_.*", left_slot)
 
 # The config file binds the following argument to HBM 16 - 31
 # Thus we need to constrain them to the right side of SLR 0
-#      sp=Sextans.mat_C_ch_0:HBM[16]
-#      sp=Sextans.mat_C_ch_1:HBM[17]
-#      sp=Sextans.mat_C_ch_2:HBM[18]
-#      sp=Sextans.mat_C_ch_3:HBM[19]
-#      sp=Sextans.mat_C_ch_4:HBM[20]
-#      sp=Sextans.mat_C_ch_5:HBM[21]
-#      sp=Sextans.mat_C_ch_6:HBM[22]
-#      sp=Sextans.mat_C_ch_7:HBM[23]
-#      sp=Sextans.mat_C_ch_in_0:HBM[24]
-#      sp=Sextans.mat_C_ch_in_1:HBM[25]
-#      sp=Sextans.mat_C_ch_in_2:HBM[26]
-#      sp=Sextans.mat_C_ch_in_3:HBM[27]
-#      sp=Sextans.mat_C_ch_in_4:HBM[28]
-#      sp=Sextans.mat_C_ch_in_5:HBM[29]
-#      sp=Sextans.mat_C_ch_in_6:HBM[30]
-#      sp=Sextans.mat_C_ch_in_7:HBM[31]
+# sp=Serpens.edge_list_ch_16:HBM[16]
+# sp=Serpens.edge_list_ch_17:HBM[17]
+# sp=Serpens.edge_list_ch_18:HBM[18]
+# sp=Serpens.edge_list_ch_19:HBM[19]
+# sp=Serpens.edge_list_ch_20:HBM[20]
+# sp=Serpens.edge_list_ch_21:HBM[21]
+# sp=Serpens.edge_list_ch_22:HBM[22]
+# sp=Serpens.edge_list_ch_23:HBM[23]
+# sp=Serpens.edge_list_ptr:HBM[24]
+# sp=Serpens.vec_X:HBM[25]
+# sp=Serpens.vec_Y:HBM[26]
+# sp=Serpens.vec_Y_out:HBM[27]
 
 right_args = [
-    "mat_C_ch_0",
-    "mat_C_ch_1",
-    "mat_C_ch_2",
-    "mat_C_ch_3",
-    "mat_C_ch_4",
-    "mat_C_ch_5",
-    "mat_C_ch_6",
-    "mat_C_ch_7",
-    "mat_C_ch_in_0",
-    "mat_C_ch_in_1",
-    "mat_C_ch_in_2",
-    "mat_C_ch_in_3",
-    "mat_C_ch_in_4",
-    "mat_C_ch_in_5",
-    "mat_C_ch_in_6",
-    "mat_C_ch_in_7",
+    "edge_list_ch_16",
+    "edge_list_ch_17",
+    "edge_list_ch_18",
+    "edge_list_ch_19",
+    "edge_list_ch_20",
+    "edge_list_ch_21",
+    "edge_list_ch_22",
+    "edge_list_ch_23",
+    "edge_list_ptr",
+    "vec_X",
+    "vec_Y",
+    "vec_Y_out",
 ]
 for arg in right_args:
     rs.assign_port_to_region(f"m_axi_{arg}_.*", right_slot)
