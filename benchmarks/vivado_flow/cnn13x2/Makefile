@@ -24,8 +24,8 @@ BD_BIT_TARGET        := $(TEMP_DIR)/bd/prj_bd/prj_bd.runs/impl_1/design_1_wrappe
 
 # Do not generate XO file
 GEN_XO               := 0
-#VXX                  := vivado -mode batch -source
-VXX                  := vivado -source
+VXX                  := vivado -mode batch -source
+#VXX                  := vivado -source
 
 PART                 := xcu50-fsvh2104-2-e
 BOARD                := xilinx.com:au50dd:part0:1.0
