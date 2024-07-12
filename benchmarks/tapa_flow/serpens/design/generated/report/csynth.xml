@@ -1,0 +1,1952 @@
+<profile>
+    <ReportVersion>
+        <Version>2022.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>virtexuplus</ProductFamily>
+        <Part>xcu280-fsvh2892-2L-e</Part>
+        <TopModelName>Serpens</TopModelName>
+        <TargetClockPeriod>3.33</TargetClockPeriod>
+        <ClockUncertainty>0.90</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>1.000</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>0</Best-caseLatency>
+            <Average-caseLatency>0</Average-caseLatency>
+            <Worst-caseLatency>0</Worst-caseLatency>
+            <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+            <Interval-min>1</Interval-min>
+            <Interval-max>1</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>4502</FF>
+            <LUT>8168</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>4032</BRAM_18K>
+            <DSP>9024</DSP>
+            <FF>2607360</FF>
+            <LUT>1303680</LUT>
+            <URAM>960</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_control_AWVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWADDR</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>10</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WDATA</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WSTRB</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARADDR</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>10</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RDATA</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RRESP</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BRESP</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>Serpens</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>Serpens</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>Serpens</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="1">
+            <ModuleName>Serpens</ModuleName>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>Serpens</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.33</TargetClockPeriod>
+                    <ClockUncertainty>0.90</ClockUncertainty>
+                    <EstimatedClockPeriod>1.000</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>4502</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>8168</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands>
+        <config_compile name_max_length="253"/>
+        <config_rtl reset_level="low"/>
+    </UserConfigCommands>
+    <Args>
+        <Arg ArgName="edge_list_ptr" index="0" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ptr_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ptr_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_0" index="1" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_0_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_0_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_1" index="2" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_1_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_1_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_2" index="3" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_2_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_2_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_3" index="4" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_3_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_3_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_4" index="5" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_4_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_4_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_5" index="6" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_5_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_5_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_6" index="7" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_6_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_6_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_7" index="8" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_7_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_7_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_8" index="9" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_8_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_8_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_9" index="10" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_9_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_9_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_10" index="11" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_10_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_10_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_11" index="12" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_11_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_11_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_12" index="13" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_12_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_12_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_13" index="14" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_13_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_13_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_14" index="15" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_14_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_14_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_15" index="16" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_15_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_15_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_16" index="17" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_16_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_16_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_17" index="18" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_17_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_17_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_18" index="19" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_18_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_18_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_19" index="20" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_19_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_19_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_20" index="21" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_20_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_20_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_21" index="22" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_21_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_21_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_22" index="23" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_22_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_22_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_23" index="24" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_23_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_23_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_24" index="25" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_24_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_24_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_25" index="26" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_25_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_25_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_26" index="27" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_26_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_26_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_27" index="28" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_27_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_27_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_28" index="29" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_28_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_28_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_29" index="30" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_29_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_29_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_30" index="31" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_30_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_30_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_31" index="32" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_31_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_31_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_32" index="33" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_32_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_32_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_33" index="34" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_33_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_33_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_34" index="35" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_34_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_34_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_35" index="36" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_35_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_35_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_36" index="37" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_36_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_36_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_37" index="38" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_37_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_37_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_38" index="39" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_38_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_38_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_39" index="40" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_39_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_39_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_40" index="41" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_40_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_40_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_41" index="42" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_41_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_41_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_42" index="43" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_42_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_42_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_43" index="44" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_43_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_43_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_44" index="45" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_44_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_44_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_45" index="46" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_45_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_45_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_46" index="47" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_46_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_46_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_47" index="48" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_47_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_47_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_48" index="49" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_48_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_48_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_49" index="50" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_49_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_49_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_50" index="51" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_50_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_50_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_51" index="52" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_51_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_51_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_52" index="53" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_52_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_52_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_53" index="54" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_53_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_53_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_54" index="55" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_54_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_54_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="edge_list_ch_55" index="56" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_55_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="edge_list_ch_55_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_X" index="57" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_X_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_X_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_Y" index="58" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_Y_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_Y_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="vec_Y_out" index="59" direction="in" srcType="long unsigned int" srcSize="64">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="vec_Y_out_1" usage="data" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="vec_Y_out_2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="NUM_ITE" index="60" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="NUM_ITE" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="NUM_A_LEN" index="61" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="NUM_A_LEN" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="M" index="62" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="M" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="K" index="63" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="K" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="P_N" index="64" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="P_N" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="alpha_u" index="65" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="alpha_u" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="beta_u" index="66" direction="in" srcType="int const " srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="beta_u" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="10" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
+            <ports>
+                <port>s_axi_control_ARADDR</port>
+                <port>s_axi_control_ARREADY</port>
+                <port>s_axi_control_ARVALID</port>
+                <port>s_axi_control_AWADDR</port>
+                <port>s_axi_control_AWREADY</port>
+                <port>s_axi_control_AWVALID</port>
+                <port>s_axi_control_BREADY</port>
+                <port>s_axi_control_BRESP</port>
+                <port>s_axi_control_BVALID</port>
+                <port>s_axi_control_RDATA</port>
+                <port>s_axi_control_RREADY</port>
+                <port>s_axi_control_RRESP</port>
+                <port>s_axi_control_RVALID</port>
+                <port>s_axi_control_WDATA</port>
+                <port>s_axi_control_WREADY</port>
+                <port>s_axi_control_WSTRB</port>
+                <port>s_axi_control_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="INTERRUPT" access="R" description="Control signal Register for 'interrupt'."/>
+                        <field offset="10" width="22" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x10" name="edge_list_ptr_1" access="W" description="Data signal of edge_list_ptr" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ptr" access="W" description="Bit 31 to 0 of edge_list_ptr"/>
+                    </fields>
+                </register>
+                <register offset="0x14" name="edge_list_ptr_2" access="W" description="Data signal of edge_list_ptr" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ptr" access="W" description="Bit 63 to 32 of edge_list_ptr"/>
+                    </fields>
+                </register>
+                <register offset="0x1c" name="edge_list_ch_0_1" access="W" description="Data signal of edge_list_ch_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_0" access="W" description="Bit 31 to 0 of edge_list_ch_0"/>
+                    </fields>
+                </register>
+                <register offset="0x20" name="edge_list_ch_0_2" access="W" description="Data signal of edge_list_ch_0" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_0" access="W" description="Bit 63 to 32 of edge_list_ch_0"/>
+                    </fields>
+                </register>
+                <register offset="0x28" name="edge_list_ch_1_1" access="W" description="Data signal of edge_list_ch_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_1" access="W" description="Bit 31 to 0 of edge_list_ch_1"/>
+                    </fields>
+                </register>
+                <register offset="0x2c" name="edge_list_ch_1_2" access="W" description="Data signal of edge_list_ch_1" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_1" access="W" description="Bit 63 to 32 of edge_list_ch_1"/>
+                    </fields>
+                </register>
+                <register offset="0x34" name="edge_list_ch_2_1" access="W" description="Data signal of edge_list_ch_2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_2" access="W" description="Bit 31 to 0 of edge_list_ch_2"/>
+                    </fields>
+                </register>
+                <register offset="0x38" name="edge_list_ch_2_2" access="W" description="Data signal of edge_list_ch_2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_2" access="W" description="Bit 63 to 32 of edge_list_ch_2"/>
+                    </fields>
+                </register>
+                <register offset="0x40" name="edge_list_ch_3_1" access="W" description="Data signal of edge_list_ch_3" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_3" access="W" description="Bit 31 to 0 of edge_list_ch_3"/>
+                    </fields>
+                </register>
+                <register offset="0x44" name="edge_list_ch_3_2" access="W" description="Data signal of edge_list_ch_3" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_3" access="W" description="Bit 63 to 32 of edge_list_ch_3"/>
+                    </fields>
+                </register>
+                <register offset="0x4c" name="edge_list_ch_4_1" access="W" description="Data signal of edge_list_ch_4" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_4" access="W" description="Bit 31 to 0 of edge_list_ch_4"/>
+                    </fields>
+                </register>
+                <register offset="0x50" name="edge_list_ch_4_2" access="W" description="Data signal of edge_list_ch_4" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_4" access="W" description="Bit 63 to 32 of edge_list_ch_4"/>
+                    </fields>
+                </register>
+                <register offset="0x58" name="edge_list_ch_5_1" access="W" description="Data signal of edge_list_ch_5" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_5" access="W" description="Bit 31 to 0 of edge_list_ch_5"/>
+                    </fields>
+                </register>
+                <register offset="0x5c" name="edge_list_ch_5_2" access="W" description="Data signal of edge_list_ch_5" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_5" access="W" description="Bit 63 to 32 of edge_list_ch_5"/>
+                    </fields>
+                </register>
+                <register offset="0x64" name="edge_list_ch_6_1" access="W" description="Data signal of edge_list_ch_6" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_6" access="W" description="Bit 31 to 0 of edge_list_ch_6"/>
+                    </fields>
+                </register>
+                <register offset="0x68" name="edge_list_ch_6_2" access="W" description="Data signal of edge_list_ch_6" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_6" access="W" description="Bit 63 to 32 of edge_list_ch_6"/>
+                    </fields>
+                </register>
+                <register offset="0x70" name="edge_list_ch_7_1" access="W" description="Data signal of edge_list_ch_7" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_7" access="W" description="Bit 31 to 0 of edge_list_ch_7"/>
+                    </fields>
+                </register>
+                <register offset="0x74" name="edge_list_ch_7_2" access="W" description="Data signal of edge_list_ch_7" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_7" access="W" description="Bit 63 to 32 of edge_list_ch_7"/>
+                    </fields>
+                </register>
+                <register offset="0x7c" name="edge_list_ch_8_1" access="W" description="Data signal of edge_list_ch_8" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_8" access="W" description="Bit 31 to 0 of edge_list_ch_8"/>
+                    </fields>
+                </register>
+                <register offset="0x80" name="edge_list_ch_8_2" access="W" description="Data signal of edge_list_ch_8" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_8" access="W" description="Bit 63 to 32 of edge_list_ch_8"/>
+                    </fields>
+                </register>
+                <register offset="0x88" name="edge_list_ch_9_1" access="W" description="Data signal of edge_list_ch_9" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_9" access="W" description="Bit 31 to 0 of edge_list_ch_9"/>
+                    </fields>
+                </register>
+                <register offset="0x8c" name="edge_list_ch_9_2" access="W" description="Data signal of edge_list_ch_9" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_9" access="W" description="Bit 63 to 32 of edge_list_ch_9"/>
+                    </fields>
+                </register>
+                <register offset="0x94" name="edge_list_ch_10_1" access="W" description="Data signal of edge_list_ch_10" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_10" access="W" description="Bit 31 to 0 of edge_list_ch_10"/>
+                    </fields>
+                </register>
+                <register offset="0x98" name="edge_list_ch_10_2" access="W" description="Data signal of edge_list_ch_10" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_10" access="W" description="Bit 63 to 32 of edge_list_ch_10"/>
+                    </fields>
+                </register>
+                <register offset="0xa0" name="edge_list_ch_11_1" access="W" description="Data signal of edge_list_ch_11" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_11" access="W" description="Bit 31 to 0 of edge_list_ch_11"/>
+                    </fields>
+                </register>
+                <register offset="0xa4" name="edge_list_ch_11_2" access="W" description="Data signal of edge_list_ch_11" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_11" access="W" description="Bit 63 to 32 of edge_list_ch_11"/>
+                    </fields>
+                </register>
+                <register offset="0xac" name="edge_list_ch_12_1" access="W" description="Data signal of edge_list_ch_12" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_12" access="W" description="Bit 31 to 0 of edge_list_ch_12"/>
+                    </fields>
+                </register>
+                <register offset="0xb0" name="edge_list_ch_12_2" access="W" description="Data signal of edge_list_ch_12" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_12" access="W" description="Bit 63 to 32 of edge_list_ch_12"/>
+                    </fields>
+                </register>
+                <register offset="0xb8" name="edge_list_ch_13_1" access="W" description="Data signal of edge_list_ch_13" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_13" access="W" description="Bit 31 to 0 of edge_list_ch_13"/>
+                    </fields>
+                </register>
+                <register offset="0xbc" name="edge_list_ch_13_2" access="W" description="Data signal of edge_list_ch_13" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_13" access="W" description="Bit 63 to 32 of edge_list_ch_13"/>
+                    </fields>
+                </register>
+                <register offset="0xc4" name="edge_list_ch_14_1" access="W" description="Data signal of edge_list_ch_14" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_14" access="W" description="Bit 31 to 0 of edge_list_ch_14"/>
+                    </fields>
+                </register>
+                <register offset="0xc8" name="edge_list_ch_14_2" access="W" description="Data signal of edge_list_ch_14" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_14" access="W" description="Bit 63 to 32 of edge_list_ch_14"/>
+                    </fields>
+                </register>
+                <register offset="0xd0" name="edge_list_ch_15_1" access="W" description="Data signal of edge_list_ch_15" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_15" access="W" description="Bit 31 to 0 of edge_list_ch_15"/>
+                    </fields>
+                </register>
+                <register offset="0xd4" name="edge_list_ch_15_2" access="W" description="Data signal of edge_list_ch_15" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_15" access="W" description="Bit 63 to 32 of edge_list_ch_15"/>
+                    </fields>
+                </register>
+                <register offset="0xdc" name="edge_list_ch_16_1" access="W" description="Data signal of edge_list_ch_16" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_16" access="W" description="Bit 31 to 0 of edge_list_ch_16"/>
+                    </fields>
+                </register>
+                <register offset="0xe0" name="edge_list_ch_16_2" access="W" description="Data signal of edge_list_ch_16" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_16" access="W" description="Bit 63 to 32 of edge_list_ch_16"/>
+                    </fields>
+                </register>
+                <register offset="0xe8" name="edge_list_ch_17_1" access="W" description="Data signal of edge_list_ch_17" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_17" access="W" description="Bit 31 to 0 of edge_list_ch_17"/>
+                    </fields>
+                </register>
+                <register offset="0xec" name="edge_list_ch_17_2" access="W" description="Data signal of edge_list_ch_17" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_17" access="W" description="Bit 63 to 32 of edge_list_ch_17"/>
+                    </fields>
+                </register>
+                <register offset="0xf4" name="edge_list_ch_18_1" access="W" description="Data signal of edge_list_ch_18" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_18" access="W" description="Bit 31 to 0 of edge_list_ch_18"/>
+                    </fields>
+                </register>
+                <register offset="0xf8" name="edge_list_ch_18_2" access="W" description="Data signal of edge_list_ch_18" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_18" access="W" description="Bit 63 to 32 of edge_list_ch_18"/>
+                    </fields>
+                </register>
+                <register offset="0x100" name="edge_list_ch_19_1" access="W" description="Data signal of edge_list_ch_19" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_19" access="W" description="Bit 31 to 0 of edge_list_ch_19"/>
+                    </fields>
+                </register>
+                <register offset="0x104" name="edge_list_ch_19_2" access="W" description="Data signal of edge_list_ch_19" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_19" access="W" description="Bit 63 to 32 of edge_list_ch_19"/>
+                    </fields>
+                </register>
+                <register offset="0x10c" name="edge_list_ch_20_1" access="W" description="Data signal of edge_list_ch_20" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_20" access="W" description="Bit 31 to 0 of edge_list_ch_20"/>
+                    </fields>
+                </register>
+                <register offset="0x110" name="edge_list_ch_20_2" access="W" description="Data signal of edge_list_ch_20" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_20" access="W" description="Bit 63 to 32 of edge_list_ch_20"/>
+                    </fields>
+                </register>
+                <register offset="0x118" name="edge_list_ch_21_1" access="W" description="Data signal of edge_list_ch_21" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_21" access="W" description="Bit 31 to 0 of edge_list_ch_21"/>
+                    </fields>
+                </register>
+                <register offset="0x11c" name="edge_list_ch_21_2" access="W" description="Data signal of edge_list_ch_21" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_21" access="W" description="Bit 63 to 32 of edge_list_ch_21"/>
+                    </fields>
+                </register>
+                <register offset="0x124" name="edge_list_ch_22_1" access="W" description="Data signal of edge_list_ch_22" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_22" access="W" description="Bit 31 to 0 of edge_list_ch_22"/>
+                    </fields>
+                </register>
+                <register offset="0x128" name="edge_list_ch_22_2" access="W" description="Data signal of edge_list_ch_22" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_22" access="W" description="Bit 63 to 32 of edge_list_ch_22"/>
+                    </fields>
+                </register>
+                <register offset="0x130" name="edge_list_ch_23_1" access="W" description="Data signal of edge_list_ch_23" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_23" access="W" description="Bit 31 to 0 of edge_list_ch_23"/>
+                    </fields>
+                </register>
+                <register offset="0x134" name="edge_list_ch_23_2" access="W" description="Data signal of edge_list_ch_23" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_23" access="W" description="Bit 63 to 32 of edge_list_ch_23"/>
+                    </fields>
+                </register>
+                <register offset="0x13c" name="edge_list_ch_24_1" access="W" description="Data signal of edge_list_ch_24" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_24" access="W" description="Bit 31 to 0 of edge_list_ch_24"/>
+                    </fields>
+                </register>
+                <register offset="0x140" name="edge_list_ch_24_2" access="W" description="Data signal of edge_list_ch_24" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_24" access="W" description="Bit 63 to 32 of edge_list_ch_24"/>
+                    </fields>
+                </register>
+                <register offset="0x148" name="edge_list_ch_25_1" access="W" description="Data signal of edge_list_ch_25" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_25" access="W" description="Bit 31 to 0 of edge_list_ch_25"/>
+                    </fields>
+                </register>
+                <register offset="0x14c" name="edge_list_ch_25_2" access="W" description="Data signal of edge_list_ch_25" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_25" access="W" description="Bit 63 to 32 of edge_list_ch_25"/>
+                    </fields>
+                </register>
+                <register offset="0x154" name="edge_list_ch_26_1" access="W" description="Data signal of edge_list_ch_26" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_26" access="W" description="Bit 31 to 0 of edge_list_ch_26"/>
+                    </fields>
+                </register>
+                <register offset="0x158" name="edge_list_ch_26_2" access="W" description="Data signal of edge_list_ch_26" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_26" access="W" description="Bit 63 to 32 of edge_list_ch_26"/>
+                    </fields>
+                </register>
+                <register offset="0x160" name="edge_list_ch_27_1" access="W" description="Data signal of edge_list_ch_27" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_27" access="W" description="Bit 31 to 0 of edge_list_ch_27"/>
+                    </fields>
+                </register>
+                <register offset="0x164" name="edge_list_ch_27_2" access="W" description="Data signal of edge_list_ch_27" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_27" access="W" description="Bit 63 to 32 of edge_list_ch_27"/>
+                    </fields>
+                </register>
+                <register offset="0x16c" name="edge_list_ch_28_1" access="W" description="Data signal of edge_list_ch_28" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_28" access="W" description="Bit 31 to 0 of edge_list_ch_28"/>
+                    </fields>
+                </register>
+                <register offset="0x170" name="edge_list_ch_28_2" access="W" description="Data signal of edge_list_ch_28" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_28" access="W" description="Bit 63 to 32 of edge_list_ch_28"/>
+                    </fields>
+                </register>
+                <register offset="0x178" name="edge_list_ch_29_1" access="W" description="Data signal of edge_list_ch_29" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_29" access="W" description="Bit 31 to 0 of edge_list_ch_29"/>
+                    </fields>
+                </register>
+                <register offset="0x17c" name="edge_list_ch_29_2" access="W" description="Data signal of edge_list_ch_29" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_29" access="W" description="Bit 63 to 32 of edge_list_ch_29"/>
+                    </fields>
+                </register>
+                <register offset="0x184" name="edge_list_ch_30_1" access="W" description="Data signal of edge_list_ch_30" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_30" access="W" description="Bit 31 to 0 of edge_list_ch_30"/>
+                    </fields>
+                </register>
+                <register offset="0x188" name="edge_list_ch_30_2" access="W" description="Data signal of edge_list_ch_30" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_30" access="W" description="Bit 63 to 32 of edge_list_ch_30"/>
+                    </fields>
+                </register>
+                <register offset="0x190" name="edge_list_ch_31_1" access="W" description="Data signal of edge_list_ch_31" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_31" access="W" description="Bit 31 to 0 of edge_list_ch_31"/>
+                    </fields>
+                </register>
+                <register offset="0x194" name="edge_list_ch_31_2" access="W" description="Data signal of edge_list_ch_31" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_31" access="W" description="Bit 63 to 32 of edge_list_ch_31"/>
+                    </fields>
+                </register>
+                <register offset="0x19c" name="edge_list_ch_32_1" access="W" description="Data signal of edge_list_ch_32" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_32" access="W" description="Bit 31 to 0 of edge_list_ch_32"/>
+                    </fields>
+                </register>
+                <register offset="0x1a0" name="edge_list_ch_32_2" access="W" description="Data signal of edge_list_ch_32" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_32" access="W" description="Bit 63 to 32 of edge_list_ch_32"/>
+                    </fields>
+                </register>
+                <register offset="0x1a8" name="edge_list_ch_33_1" access="W" description="Data signal of edge_list_ch_33" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_33" access="W" description="Bit 31 to 0 of edge_list_ch_33"/>
+                    </fields>
+                </register>
+                <register offset="0x1ac" name="edge_list_ch_33_2" access="W" description="Data signal of edge_list_ch_33" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_33" access="W" description="Bit 63 to 32 of edge_list_ch_33"/>
+                    </fields>
+                </register>
+                <register offset="0x1b4" name="edge_list_ch_34_1" access="W" description="Data signal of edge_list_ch_34" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_34" access="W" description="Bit 31 to 0 of edge_list_ch_34"/>
+                    </fields>
+                </register>
+                <register offset="0x1b8" name="edge_list_ch_34_2" access="W" description="Data signal of edge_list_ch_34" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_34" access="W" description="Bit 63 to 32 of edge_list_ch_34"/>
+                    </fields>
+                </register>
+                <register offset="0x1c0" name="edge_list_ch_35_1" access="W" description="Data signal of edge_list_ch_35" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_35" access="W" description="Bit 31 to 0 of edge_list_ch_35"/>
+                    </fields>
+                </register>
+                <register offset="0x1c4" name="edge_list_ch_35_2" access="W" description="Data signal of edge_list_ch_35" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_35" access="W" description="Bit 63 to 32 of edge_list_ch_35"/>
+                    </fields>
+                </register>
+                <register offset="0x1cc" name="edge_list_ch_36_1" access="W" description="Data signal of edge_list_ch_36" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_36" access="W" description="Bit 31 to 0 of edge_list_ch_36"/>
+                    </fields>
+                </register>
+                <register offset="0x1d0" name="edge_list_ch_36_2" access="W" description="Data signal of edge_list_ch_36" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_36" access="W" description="Bit 63 to 32 of edge_list_ch_36"/>
+                    </fields>
+                </register>
+                <register offset="0x1d8" name="edge_list_ch_37_1" access="W" description="Data signal of edge_list_ch_37" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_37" access="W" description="Bit 31 to 0 of edge_list_ch_37"/>
+                    </fields>
+                </register>
+                <register offset="0x1dc" name="edge_list_ch_37_2" access="W" description="Data signal of edge_list_ch_37" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_37" access="W" description="Bit 63 to 32 of edge_list_ch_37"/>
+                    </fields>
+                </register>
+                <register offset="0x1e4" name="edge_list_ch_38_1" access="W" description="Data signal of edge_list_ch_38" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_38" access="W" description="Bit 31 to 0 of edge_list_ch_38"/>
+                    </fields>
+                </register>
+                <register offset="0x1e8" name="edge_list_ch_38_2" access="W" description="Data signal of edge_list_ch_38" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_38" access="W" description="Bit 63 to 32 of edge_list_ch_38"/>
+                    </fields>
+                </register>
+                <register offset="0x1f0" name="edge_list_ch_39_1" access="W" description="Data signal of edge_list_ch_39" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_39" access="W" description="Bit 31 to 0 of edge_list_ch_39"/>
+                    </fields>
+                </register>
+                <register offset="0x1f4" name="edge_list_ch_39_2" access="W" description="Data signal of edge_list_ch_39" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_39" access="W" description="Bit 63 to 32 of edge_list_ch_39"/>
+                    </fields>
+                </register>
+                <register offset="0x1fc" name="edge_list_ch_40_1" access="W" description="Data signal of edge_list_ch_40" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_40" access="W" description="Bit 31 to 0 of edge_list_ch_40"/>
+                    </fields>
+                </register>
+                <register offset="0x200" name="edge_list_ch_40_2" access="W" description="Data signal of edge_list_ch_40" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_40" access="W" description="Bit 63 to 32 of edge_list_ch_40"/>
+                    </fields>
+                </register>
+                <register offset="0x208" name="edge_list_ch_41_1" access="W" description="Data signal of edge_list_ch_41" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_41" access="W" description="Bit 31 to 0 of edge_list_ch_41"/>
+                    </fields>
+                </register>
+                <register offset="0x20c" name="edge_list_ch_41_2" access="W" description="Data signal of edge_list_ch_41" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_41" access="W" description="Bit 63 to 32 of edge_list_ch_41"/>
+                    </fields>
+                </register>
+                <register offset="0x214" name="edge_list_ch_42_1" access="W" description="Data signal of edge_list_ch_42" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_42" access="W" description="Bit 31 to 0 of edge_list_ch_42"/>
+                    </fields>
+                </register>
+                <register offset="0x218" name="edge_list_ch_42_2" access="W" description="Data signal of edge_list_ch_42" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_42" access="W" description="Bit 63 to 32 of edge_list_ch_42"/>
+                    </fields>
+                </register>
+                <register offset="0x220" name="edge_list_ch_43_1" access="W" description="Data signal of edge_list_ch_43" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_43" access="W" description="Bit 31 to 0 of edge_list_ch_43"/>
+                    </fields>
+                </register>
+                <register offset="0x224" name="edge_list_ch_43_2" access="W" description="Data signal of edge_list_ch_43" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_43" access="W" description="Bit 63 to 32 of edge_list_ch_43"/>
+                    </fields>
+                </register>
+                <register offset="0x22c" name="edge_list_ch_44_1" access="W" description="Data signal of edge_list_ch_44" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_44" access="W" description="Bit 31 to 0 of edge_list_ch_44"/>
+                    </fields>
+                </register>
+                <register offset="0x230" name="edge_list_ch_44_2" access="W" description="Data signal of edge_list_ch_44" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_44" access="W" description="Bit 63 to 32 of edge_list_ch_44"/>
+                    </fields>
+                </register>
+                <register offset="0x238" name="edge_list_ch_45_1" access="W" description="Data signal of edge_list_ch_45" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_45" access="W" description="Bit 31 to 0 of edge_list_ch_45"/>
+                    </fields>
+                </register>
+                <register offset="0x23c" name="edge_list_ch_45_2" access="W" description="Data signal of edge_list_ch_45" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_45" access="W" description="Bit 63 to 32 of edge_list_ch_45"/>
+                    </fields>
+                </register>
+                <register offset="0x244" name="edge_list_ch_46_1" access="W" description="Data signal of edge_list_ch_46" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_46" access="W" description="Bit 31 to 0 of edge_list_ch_46"/>
+                    </fields>
+                </register>
+                <register offset="0x248" name="edge_list_ch_46_2" access="W" description="Data signal of edge_list_ch_46" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_46" access="W" description="Bit 63 to 32 of edge_list_ch_46"/>
+                    </fields>
+                </register>
+                <register offset="0x250" name="edge_list_ch_47_1" access="W" description="Data signal of edge_list_ch_47" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_47" access="W" description="Bit 31 to 0 of edge_list_ch_47"/>
+                    </fields>
+                </register>
+                <register offset="0x254" name="edge_list_ch_47_2" access="W" description="Data signal of edge_list_ch_47" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_47" access="W" description="Bit 63 to 32 of edge_list_ch_47"/>
+                    </fields>
+                </register>
+                <register offset="0x25c" name="edge_list_ch_48_1" access="W" description="Data signal of edge_list_ch_48" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_48" access="W" description="Bit 31 to 0 of edge_list_ch_48"/>
+                    </fields>
+                </register>
+                <register offset="0x260" name="edge_list_ch_48_2" access="W" description="Data signal of edge_list_ch_48" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_48" access="W" description="Bit 63 to 32 of edge_list_ch_48"/>
+                    </fields>
+                </register>
+                <register offset="0x268" name="edge_list_ch_49_1" access="W" description="Data signal of edge_list_ch_49" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_49" access="W" description="Bit 31 to 0 of edge_list_ch_49"/>
+                    </fields>
+                </register>
+                <register offset="0x26c" name="edge_list_ch_49_2" access="W" description="Data signal of edge_list_ch_49" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_49" access="W" description="Bit 63 to 32 of edge_list_ch_49"/>
+                    </fields>
+                </register>
+                <register offset="0x274" name="edge_list_ch_50_1" access="W" description="Data signal of edge_list_ch_50" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_50" access="W" description="Bit 31 to 0 of edge_list_ch_50"/>
+                    </fields>
+                </register>
+                <register offset="0x278" name="edge_list_ch_50_2" access="W" description="Data signal of edge_list_ch_50" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_50" access="W" description="Bit 63 to 32 of edge_list_ch_50"/>
+                    </fields>
+                </register>
+                <register offset="0x280" name="edge_list_ch_51_1" access="W" description="Data signal of edge_list_ch_51" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_51" access="W" description="Bit 31 to 0 of edge_list_ch_51"/>
+                    </fields>
+                </register>
+                <register offset="0x284" name="edge_list_ch_51_2" access="W" description="Data signal of edge_list_ch_51" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_51" access="W" description="Bit 63 to 32 of edge_list_ch_51"/>
+                    </fields>
+                </register>
+                <register offset="0x28c" name="edge_list_ch_52_1" access="W" description="Data signal of edge_list_ch_52" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_52" access="W" description="Bit 31 to 0 of edge_list_ch_52"/>
+                    </fields>
+                </register>
+                <register offset="0x290" name="edge_list_ch_52_2" access="W" description="Data signal of edge_list_ch_52" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_52" access="W" description="Bit 63 to 32 of edge_list_ch_52"/>
+                    </fields>
+                </register>
+                <register offset="0x298" name="edge_list_ch_53_1" access="W" description="Data signal of edge_list_ch_53" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_53" access="W" description="Bit 31 to 0 of edge_list_ch_53"/>
+                    </fields>
+                </register>
+                <register offset="0x29c" name="edge_list_ch_53_2" access="W" description="Data signal of edge_list_ch_53" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_53" access="W" description="Bit 63 to 32 of edge_list_ch_53"/>
+                    </fields>
+                </register>
+                <register offset="0x2a4" name="edge_list_ch_54_1" access="W" description="Data signal of edge_list_ch_54" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_54" access="W" description="Bit 31 to 0 of edge_list_ch_54"/>
+                    </fields>
+                </register>
+                <register offset="0x2a8" name="edge_list_ch_54_2" access="W" description="Data signal of edge_list_ch_54" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_54" access="W" description="Bit 63 to 32 of edge_list_ch_54"/>
+                    </fields>
+                </register>
+                <register offset="0x2b0" name="edge_list_ch_55_1" access="W" description="Data signal of edge_list_ch_55" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_55" access="W" description="Bit 31 to 0 of edge_list_ch_55"/>
+                    </fields>
+                </register>
+                <register offset="0x2b4" name="edge_list_ch_55_2" access="W" description="Data signal of edge_list_ch_55" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="edge_list_ch_55" access="W" description="Bit 63 to 32 of edge_list_ch_55"/>
+                    </fields>
+                </register>
+                <register offset="0x2bc" name="vec_X_1" access="W" description="Data signal of vec_X" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_X" access="W" description="Bit 31 to 0 of vec_X"/>
+                    </fields>
+                </register>
+                <register offset="0x2c0" name="vec_X_2" access="W" description="Data signal of vec_X" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_X" access="W" description="Bit 63 to 32 of vec_X"/>
+                    </fields>
+                </register>
+                <register offset="0x2c8" name="vec_Y_1" access="W" description="Data signal of vec_Y" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_Y" access="W" description="Bit 31 to 0 of vec_Y"/>
+                    </fields>
+                </register>
+                <register offset="0x2cc" name="vec_Y_2" access="W" description="Data signal of vec_Y" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_Y" access="W" description="Bit 63 to 32 of vec_Y"/>
+                    </fields>
+                </register>
+                <register offset="0x2d4" name="vec_Y_out_1" access="W" description="Data signal of vec_Y_out" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_Y_out" access="W" description="Bit 31 to 0 of vec_Y_out"/>
+                    </fields>
+                </register>
+                <register offset="0x2d8" name="vec_Y_out_2" access="W" description="Data signal of vec_Y_out" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="vec_Y_out" access="W" description="Bit 63 to 32 of vec_Y_out"/>
+                    </fields>
+                </register>
+                <register offset="0x2e0" name="NUM_ITE" access="W" description="Data signal of NUM_ITE" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="NUM_ITE" access="W" description="Bit 31 to 0 of NUM_ITE"/>
+                    </fields>
+                </register>
+                <register offset="0x2e8" name="NUM_A_LEN" access="W" description="Data signal of NUM_A_LEN" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="NUM_A_LEN" access="W" description="Bit 31 to 0 of NUM_A_LEN"/>
+                    </fields>
+                </register>
+                <register offset="0x2f0" name="M" access="W" description="Data signal of M" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="M" access="W" description="Bit 31 to 0 of M"/>
+                    </fields>
+                </register>
+                <register offset="0x2f8" name="K" access="W" description="Data signal of K" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="K" access="W" description="Bit 31 to 0 of K"/>
+                    </fields>
+                </register>
+                <register offset="0x300" name="P_N" access="W" description="Data signal of P_N" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="P_N" access="W" description="Bit 31 to 0 of P_N"/>
+                    </fields>
+                </register>
+                <register offset="0x308" name="alpha_u" access="W" description="Data signal of alpha_u" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="alpha_u" access="W" description="Bit 31 to 0 of alpha_u"/>
+                    </fields>
+                </register>
+                <register offset="0x310" name="beta_u" access="W" description="Data signal of beta_u" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="beta_u" access="W" description="Bit 31 to 0 of beta_u"/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="edge_list_ptr"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="28" argName="edge_list_ch_0"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="40" argName="edge_list_ch_1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="52" argName="edge_list_ch_2"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="64" argName="edge_list_ch_3"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="76" argName="edge_list_ch_4"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="88" argName="edge_list_ch_5"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="100" argName="edge_list_ch_6"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="112" argName="edge_list_ch_7"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="124" argName="edge_list_ch_8"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="136" argName="edge_list_ch_9"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="148" argName="edge_list_ch_10"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="160" argName="edge_list_ch_11"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="172" argName="edge_list_ch_12"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="184" argName="edge_list_ch_13"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="196" argName="edge_list_ch_14"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="208" argName="edge_list_ch_15"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="220" argName="edge_list_ch_16"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="232" argName="edge_list_ch_17"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="244" argName="edge_list_ch_18"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="256" argName="edge_list_ch_19"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="268" argName="edge_list_ch_20"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="280" argName="edge_list_ch_21"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="292" argName="edge_list_ch_22"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="304" argName="edge_list_ch_23"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="316" argName="edge_list_ch_24"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="328" argName="edge_list_ch_25"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="340" argName="edge_list_ch_26"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="352" argName="edge_list_ch_27"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="364" argName="edge_list_ch_28"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="376" argName="edge_list_ch_29"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="388" argName="edge_list_ch_30"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="400" argName="edge_list_ch_31"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="412" argName="edge_list_ch_32"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="424" argName="edge_list_ch_33"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="436" argName="edge_list_ch_34"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="448" argName="edge_list_ch_35"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="460" argName="edge_list_ch_36"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="472" argName="edge_list_ch_37"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="484" argName="edge_list_ch_38"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="496" argName="edge_list_ch_39"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="508" argName="edge_list_ch_40"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="520" argName="edge_list_ch_41"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="532" argName="edge_list_ch_42"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="544" argName="edge_list_ch_43"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="556" argName="edge_list_ch_44"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="568" argName="edge_list_ch_45"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="580" argName="edge_list_ch_46"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="592" argName="edge_list_ch_47"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="604" argName="edge_list_ch_48"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="616" argName="edge_list_ch_49"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="628" argName="edge_list_ch_50"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="640" argName="edge_list_ch_51"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="652" argName="edge_list_ch_52"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="664" argName="edge_list_ch_53"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="676" argName="edge_list_ch_54"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="688" argName="edge_list_ch_55"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="700" argName="vec_X"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="712" argName="vec_Y"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="724" argName="vec_Y_out"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="736" argName="NUM_ITE"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="744" argName="NUM_A_LEN"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="752" argName="M"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="760" argName="K"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="768" argName="P_N"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="776" argName="alpha_u"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="784" argName="beta_u"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="S_AXILITE Interfaces">
+                <table isCollapsed="0">
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_control">32, 10, 16, 0, , , , , </column>
+                </table>
+            </item>
+            <item name="S_AXILITE Registers">
+                <table isCollapsed="0">
+                    <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
+                    <column name="s_axi_control">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT</column>
+                    <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
+                    <column name="s_axi_control">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
+                    <column name="s_axi_control">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
+                    <column name="s_axi_control">edge_list_ptr_1, 0x10, 32, W, Data signal of edge_list_ptr, </column>
+                    <column name="s_axi_control">edge_list_ptr_2, 0x14, 32, W, Data signal of edge_list_ptr, </column>
+                    <column name="s_axi_control">edge_list_ch_0_1, 0x1c, 32, W, Data signal of edge_list_ch_0, </column>
+                    <column name="s_axi_control">edge_list_ch_0_2, 0x20, 32, W, Data signal of edge_list_ch_0, </column>
+                    <column name="s_axi_control">edge_list_ch_1_1, 0x28, 32, W, Data signal of edge_list_ch_1, </column>
+                    <column name="s_axi_control">edge_list_ch_1_2, 0x2c, 32, W, Data signal of edge_list_ch_1, </column>
+                    <column name="s_axi_control">edge_list_ch_2_1, 0x34, 32, W, Data signal of edge_list_ch_2, </column>
+                    <column name="s_axi_control">edge_list_ch_2_2, 0x38, 32, W, Data signal of edge_list_ch_2, </column>
+                    <column name="s_axi_control">edge_list_ch_3_1, 0x40, 32, W, Data signal of edge_list_ch_3, </column>
+                    <column name="s_axi_control">edge_list_ch_3_2, 0x44, 32, W, Data signal of edge_list_ch_3, </column>
+                    <column name="s_axi_control">edge_list_ch_4_1, 0x4c, 32, W, Data signal of edge_list_ch_4, </column>
+                    <column name="s_axi_control">edge_list_ch_4_2, 0x50, 32, W, Data signal of edge_list_ch_4, </column>
+                    <column name="s_axi_control">edge_list_ch_5_1, 0x58, 32, W, Data signal of edge_list_ch_5, </column>
+                    <column name="s_axi_control">edge_list_ch_5_2, 0x5c, 32, W, Data signal of edge_list_ch_5, </column>
+                    <column name="s_axi_control">edge_list_ch_6_1, 0x64, 32, W, Data signal of edge_list_ch_6, </column>
+                    <column name="s_axi_control">edge_list_ch_6_2, 0x68, 32, W, Data signal of edge_list_ch_6, </column>
+                    <column name="s_axi_control">edge_list_ch_7_1, 0x70, 32, W, Data signal of edge_list_ch_7, </column>
+                    <column name="s_axi_control">edge_list_ch_7_2, 0x74, 32, W, Data signal of edge_list_ch_7, </column>
+                    <column name="s_axi_control">edge_list_ch_8_1, 0x7c, 32, W, Data signal of edge_list_ch_8, </column>
+                    <column name="s_axi_control">edge_list_ch_8_2, 0x80, 32, W, Data signal of edge_list_ch_8, </column>
+                    <column name="s_axi_control">edge_list_ch_9_1, 0x88, 32, W, Data signal of edge_list_ch_9, </column>
+                    <column name="s_axi_control">edge_list_ch_9_2, 0x8c, 32, W, Data signal of edge_list_ch_9, </column>
+                    <column name="s_axi_control">edge_list_ch_10_1, 0x94, 32, W, Data signal of edge_list_ch_10, </column>
+                    <column name="s_axi_control">edge_list_ch_10_2, 0x98, 32, W, Data signal of edge_list_ch_10, </column>
+                    <column name="s_axi_control">edge_list_ch_11_1, 0xa0, 32, W, Data signal of edge_list_ch_11, </column>
+                    <column name="s_axi_control">edge_list_ch_11_2, 0xa4, 32, W, Data signal of edge_list_ch_11, </column>
+                    <column name="s_axi_control">edge_list_ch_12_1, 0xac, 32, W, Data signal of edge_list_ch_12, </column>
+                    <column name="s_axi_control">edge_list_ch_12_2, 0xb0, 32, W, Data signal of edge_list_ch_12, </column>
+                    <column name="s_axi_control">edge_list_ch_13_1, 0xb8, 32, W, Data signal of edge_list_ch_13, </column>
+                    <column name="s_axi_control">edge_list_ch_13_2, 0xbc, 32, W, Data signal of edge_list_ch_13, </column>
+                    <column name="s_axi_control">edge_list_ch_14_1, 0xc4, 32, W, Data signal of edge_list_ch_14, </column>
+                    <column name="s_axi_control">edge_list_ch_14_2, 0xc8, 32, W, Data signal of edge_list_ch_14, </column>
+                    <column name="s_axi_control">edge_list_ch_15_1, 0xd0, 32, W, Data signal of edge_list_ch_15, </column>
+                    <column name="s_axi_control">edge_list_ch_15_2, 0xd4, 32, W, Data signal of edge_list_ch_15, </column>
+                    <column name="s_axi_control">edge_list_ch_16_1, 0xdc, 32, W, Data signal of edge_list_ch_16, </column>
+                    <column name="s_axi_control">edge_list_ch_16_2, 0xe0, 32, W, Data signal of edge_list_ch_16, </column>
+                    <column name="s_axi_control">edge_list_ch_17_1, 0xe8, 32, W, Data signal of edge_list_ch_17, </column>
+                    <column name="s_axi_control">edge_list_ch_17_2, 0xec, 32, W, Data signal of edge_list_ch_17, </column>
+                    <column name="s_axi_control">edge_list_ch_18_1, 0xf4, 32, W, Data signal of edge_list_ch_18, </column>
+                    <column name="s_axi_control">edge_list_ch_18_2, 0xf8, 32, W, Data signal of edge_list_ch_18, </column>
+                    <column name="s_axi_control">edge_list_ch_19_1, 0x100, 32, W, Data signal of edge_list_ch_19, </column>
+                    <column name="s_axi_control">edge_list_ch_19_2, 0x104, 32, W, Data signal of edge_list_ch_19, </column>
+                    <column name="s_axi_control">edge_list_ch_20_1, 0x10c, 32, W, Data signal of edge_list_ch_20, </column>
+                    <column name="s_axi_control">edge_list_ch_20_2, 0x110, 32, W, Data signal of edge_list_ch_20, </column>
+                    <column name="s_axi_control">edge_list_ch_21_1, 0x118, 32, W, Data signal of edge_list_ch_21, </column>
+                    <column name="s_axi_control">edge_list_ch_21_2, 0x11c, 32, W, Data signal of edge_list_ch_21, </column>
+                    <column name="s_axi_control">edge_list_ch_22_1, 0x124, 32, W, Data signal of edge_list_ch_22, </column>
+                    <column name="s_axi_control">edge_list_ch_22_2, 0x128, 32, W, Data signal of edge_list_ch_22, </column>
+                    <column name="s_axi_control">edge_list_ch_23_1, 0x130, 32, W, Data signal of edge_list_ch_23, </column>
+                    <column name="s_axi_control">edge_list_ch_23_2, 0x134, 32, W, Data signal of edge_list_ch_23, </column>
+                    <column name="s_axi_control">edge_list_ch_24_1, 0x13c, 32, W, Data signal of edge_list_ch_24, </column>
+                    <column name="s_axi_control">edge_list_ch_24_2, 0x140, 32, W, Data signal of edge_list_ch_24, </column>
+                    <column name="s_axi_control">edge_list_ch_25_1, 0x148, 32, W, Data signal of edge_list_ch_25, </column>
+                    <column name="s_axi_control">edge_list_ch_25_2, 0x14c, 32, W, Data signal of edge_list_ch_25, </column>
+                    <column name="s_axi_control">edge_list_ch_26_1, 0x154, 32, W, Data signal of edge_list_ch_26, </column>
+                    <column name="s_axi_control">edge_list_ch_26_2, 0x158, 32, W, Data signal of edge_list_ch_26, </column>
+                    <column name="s_axi_control">edge_list_ch_27_1, 0x160, 32, W, Data signal of edge_list_ch_27, </column>
+                    <column name="s_axi_control">edge_list_ch_27_2, 0x164, 32, W, Data signal of edge_list_ch_27, </column>
+                    <column name="s_axi_control">edge_list_ch_28_1, 0x16c, 32, W, Data signal of edge_list_ch_28, </column>
+                    <column name="s_axi_control">edge_list_ch_28_2, 0x170, 32, W, Data signal of edge_list_ch_28, </column>
+                    <column name="s_axi_control">edge_list_ch_29_1, 0x178, 32, W, Data signal of edge_list_ch_29, </column>
+                    <column name="s_axi_control">edge_list_ch_29_2, 0x17c, 32, W, Data signal of edge_list_ch_29, </column>
+                    <column name="s_axi_control">edge_list_ch_30_1, 0x184, 32, W, Data signal of edge_list_ch_30, </column>
+                    <column name="s_axi_control">edge_list_ch_30_2, 0x188, 32, W, Data signal of edge_list_ch_30, </column>
+                    <column name="s_axi_control">edge_list_ch_31_1, 0x190, 32, W, Data signal of edge_list_ch_31, </column>
+                    <column name="s_axi_control">edge_list_ch_31_2, 0x194, 32, W, Data signal of edge_list_ch_31, </column>
+                    <column name="s_axi_control">edge_list_ch_32_1, 0x19c, 32, W, Data signal of edge_list_ch_32, </column>
+                    <column name="s_axi_control">edge_list_ch_32_2, 0x1a0, 32, W, Data signal of edge_list_ch_32, </column>
+                    <column name="s_axi_control">edge_list_ch_33_1, 0x1a8, 32, W, Data signal of edge_list_ch_33, </column>
+                    <column name="s_axi_control">edge_list_ch_33_2, 0x1ac, 32, W, Data signal of edge_list_ch_33, </column>
+                    <column name="s_axi_control">edge_list_ch_34_1, 0x1b4, 32, W, Data signal of edge_list_ch_34, </column>
+                    <column name="s_axi_control">edge_list_ch_34_2, 0x1b8, 32, W, Data signal of edge_list_ch_34, </column>
+                    <column name="s_axi_control">edge_list_ch_35_1, 0x1c0, 32, W, Data signal of edge_list_ch_35, </column>
+                    <column name="s_axi_control">edge_list_ch_35_2, 0x1c4, 32, W, Data signal of edge_list_ch_35, </column>
+                    <column name="s_axi_control">edge_list_ch_36_1, 0x1cc, 32, W, Data signal of edge_list_ch_36, </column>
+                    <column name="s_axi_control">edge_list_ch_36_2, 0x1d0, 32, W, Data signal of edge_list_ch_36, </column>
+                    <column name="s_axi_control">edge_list_ch_37_1, 0x1d8, 32, W, Data signal of edge_list_ch_37, </column>
+                    <column name="s_axi_control">edge_list_ch_37_2, 0x1dc, 32, W, Data signal of edge_list_ch_37, </column>
+                    <column name="s_axi_control">edge_list_ch_38_1, 0x1e4, 32, W, Data signal of edge_list_ch_38, </column>
+                    <column name="s_axi_control">edge_list_ch_38_2, 0x1e8, 32, W, Data signal of edge_list_ch_38, </column>
+                    <column name="s_axi_control">edge_list_ch_39_1, 0x1f0, 32, W, Data signal of edge_list_ch_39, </column>
+                    <column name="s_axi_control">edge_list_ch_39_2, 0x1f4, 32, W, Data signal of edge_list_ch_39, </column>
+                    <column name="s_axi_control">edge_list_ch_40_1, 0x1fc, 32, W, Data signal of edge_list_ch_40, </column>
+                    <column name="s_axi_control">edge_list_ch_40_2, 0x200, 32, W, Data signal of edge_list_ch_40, </column>
+                    <column name="s_axi_control">edge_list_ch_41_1, 0x208, 32, W, Data signal of edge_list_ch_41, </column>
+                    <column name="s_axi_control">edge_list_ch_41_2, 0x20c, 32, W, Data signal of edge_list_ch_41, </column>
+                    <column name="s_axi_control">edge_list_ch_42_1, 0x214, 32, W, Data signal of edge_list_ch_42, </column>
+                    <column name="s_axi_control">edge_list_ch_42_2, 0x218, 32, W, Data signal of edge_list_ch_42, </column>
+                    <column name="s_axi_control">edge_list_ch_43_1, 0x220, 32, W, Data signal of edge_list_ch_43, </column>
+                    <column name="s_axi_control">edge_list_ch_43_2, 0x224, 32, W, Data signal of edge_list_ch_43, </column>
+                    <column name="s_axi_control">edge_list_ch_44_1, 0x22c, 32, W, Data signal of edge_list_ch_44, </column>
+                    <column name="s_axi_control">edge_list_ch_44_2, 0x230, 32, W, Data signal of edge_list_ch_44, </column>
+                    <column name="s_axi_control">edge_list_ch_45_1, 0x238, 32, W, Data signal of edge_list_ch_45, </column>
+                    <column name="s_axi_control">edge_list_ch_45_2, 0x23c, 32, W, Data signal of edge_list_ch_45, </column>
+                    <column name="s_axi_control">edge_list_ch_46_1, 0x244, 32, W, Data signal of edge_list_ch_46, </column>
+                    <column name="s_axi_control">edge_list_ch_46_2, 0x248, 32, W, Data signal of edge_list_ch_46, </column>
+                    <column name="s_axi_control">edge_list_ch_47_1, 0x250, 32, W, Data signal of edge_list_ch_47, </column>
+                    <column name="s_axi_control">edge_list_ch_47_2, 0x254, 32, W, Data signal of edge_list_ch_47, </column>
+                    <column name="s_axi_control">edge_list_ch_48_1, 0x25c, 32, W, Data signal of edge_list_ch_48, </column>
+                    <column name="s_axi_control">edge_list_ch_48_2, 0x260, 32, W, Data signal of edge_list_ch_48, </column>
+                    <column name="s_axi_control">edge_list_ch_49_1, 0x268, 32, W, Data signal of edge_list_ch_49, </column>
+                    <column name="s_axi_control">edge_list_ch_49_2, 0x26c, 32, W, Data signal of edge_list_ch_49, </column>
+                    <column name="s_axi_control">edge_list_ch_50_1, 0x274, 32, W, Data signal of edge_list_ch_50, </column>
+                    <column name="s_axi_control">edge_list_ch_50_2, 0x278, 32, W, Data signal of edge_list_ch_50, </column>
+                    <column name="s_axi_control">edge_list_ch_51_1, 0x280, 32, W, Data signal of edge_list_ch_51, </column>
+                    <column name="s_axi_control">edge_list_ch_51_2, 0x284, 32, W, Data signal of edge_list_ch_51, </column>
+                    <column name="s_axi_control">edge_list_ch_52_1, 0x28c, 32, W, Data signal of edge_list_ch_52, </column>
+                    <column name="s_axi_control">edge_list_ch_52_2, 0x290, 32, W, Data signal of edge_list_ch_52, </column>
+                    <column name="s_axi_control">edge_list_ch_53_1, 0x298, 32, W, Data signal of edge_list_ch_53, </column>
+                    <column name="s_axi_control">edge_list_ch_53_2, 0x29c, 32, W, Data signal of edge_list_ch_53, </column>
+                    <column name="s_axi_control">edge_list_ch_54_1, 0x2a4, 32, W, Data signal of edge_list_ch_54, </column>
+                    <column name="s_axi_control">edge_list_ch_54_2, 0x2a8, 32, W, Data signal of edge_list_ch_54, </column>
+                    <column name="s_axi_control">edge_list_ch_55_1, 0x2b0, 32, W, Data signal of edge_list_ch_55, </column>
+                    <column name="s_axi_control">edge_list_ch_55_2, 0x2b4, 32, W, Data signal of edge_list_ch_55, </column>
+                    <column name="s_axi_control">vec_X_1, 0x2bc, 32, W, Data signal of vec_X, </column>
+                    <column name="s_axi_control">vec_X_2, 0x2c0, 32, W, Data signal of vec_X, </column>
+                    <column name="s_axi_control">vec_Y_1, 0x2c8, 32, W, Data signal of vec_Y, </column>
+                    <column name="s_axi_control">vec_Y_2, 0x2cc, 32, W, Data signal of vec_Y, </column>
+                    <column name="s_axi_control">vec_Y_out_1, 0x2d4, 32, W, Data signal of vec_Y_out, </column>
+                    <column name="s_axi_control">vec_Y_out_2, 0x2d8, 32, W, Data signal of vec_Y_out, </column>
+                    <column name="s_axi_control">NUM_ITE, 0x2e0, 32, W, Data signal of NUM_ITE, </column>
+                    <column name="s_axi_control">NUM_A_LEN, 0x2e8, 32, W, Data signal of NUM_A_LEN, </column>
+                    <column name="s_axi_control">M, 0x2f0, 32, W, Data signal of M, </column>
+                    <column name="s_axi_control">K, 0x2f8, 32, W, Data signal of K, </column>
+                    <column name="s_axi_control">P_N, 0x300, 32, W, Data signal of P_N, </column>
+                    <column name="s_axi_control">alpha_u, 0x308, 32, W, Data signal of alpha_u, </column>
+                    <column name="s_axi_control">beta_u, 0x310, 32, W, Data signal of beta_u, </column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst_n">reset, ap_rst_n, </column>
+                    <column name="interrupt">interrupt, interrupt, </column>
+                    <column name="ap_ctrl">ap_ctrl_hs, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="edge_list_ptr">in, long unsigned int</column>
+                    <column name="edge_list_ch_0">in, long unsigned int</column>
+                    <column name="edge_list_ch_1">in, long unsigned int</column>
+                    <column name="edge_list_ch_2">in, long unsigned int</column>
+                    <column name="edge_list_ch_3">in, long unsigned int</column>
+                    <column name="edge_list_ch_4">in, long unsigned int</column>
+                    <column name="edge_list_ch_5">in, long unsigned int</column>
+                    <column name="edge_list_ch_6">in, long unsigned int</column>
+                    <column name="edge_list_ch_7">in, long unsigned int</column>
+                    <column name="edge_list_ch_8">in, long unsigned int</column>
+                    <column name="edge_list_ch_9">in, long unsigned int</column>
+                    <column name="edge_list_ch_10">in, long unsigned int</column>
+                    <column name="edge_list_ch_11">in, long unsigned int</column>
+                    <column name="edge_list_ch_12">in, long unsigned int</column>
+                    <column name="edge_list_ch_13">in, long unsigned int</column>
+                    <column name="edge_list_ch_14">in, long unsigned int</column>
+                    <column name="edge_list_ch_15">in, long unsigned int</column>
+                    <column name="edge_list_ch_16">in, long unsigned int</column>
+                    <column name="edge_list_ch_17">in, long unsigned int</column>
+                    <column name="edge_list_ch_18">in, long unsigned int</column>
+                    <column name="edge_list_ch_19">in, long unsigned int</column>
+                    <column name="edge_list_ch_20">in, long unsigned int</column>
+                    <column name="edge_list_ch_21">in, long unsigned int</column>
+                    <column name="edge_list_ch_22">in, long unsigned int</column>
+                    <column name="edge_list_ch_23">in, long unsigned int</column>
+                    <column name="edge_list_ch_24">in, long unsigned int</column>
+                    <column name="edge_list_ch_25">in, long unsigned int</column>
+                    <column name="edge_list_ch_26">in, long unsigned int</column>
+                    <column name="edge_list_ch_27">in, long unsigned int</column>
+                    <column name="edge_list_ch_28">in, long unsigned int</column>
+                    <column name="edge_list_ch_29">in, long unsigned int</column>
+                    <column name="edge_list_ch_30">in, long unsigned int</column>
+                    <column name="edge_list_ch_31">in, long unsigned int</column>
+                    <column name="edge_list_ch_32">in, long unsigned int</column>
+                    <column name="edge_list_ch_33">in, long unsigned int</column>
+                    <column name="edge_list_ch_34">in, long unsigned int</column>
+                    <column name="edge_list_ch_35">in, long unsigned int</column>
+                    <column name="edge_list_ch_36">in, long unsigned int</column>
+                    <column name="edge_list_ch_37">in, long unsigned int</column>
+                    <column name="edge_list_ch_38">in, long unsigned int</column>
+                    <column name="edge_list_ch_39">in, long unsigned int</column>
+                    <column name="edge_list_ch_40">in, long unsigned int</column>
+                    <column name="edge_list_ch_41">in, long unsigned int</column>
+                    <column name="edge_list_ch_42">in, long unsigned int</column>
+                    <column name="edge_list_ch_43">in, long unsigned int</column>
+                    <column name="edge_list_ch_44">in, long unsigned int</column>
+                    <column name="edge_list_ch_45">in, long unsigned int</column>
+                    <column name="edge_list_ch_46">in, long unsigned int</column>
+                    <column name="edge_list_ch_47">in, long unsigned int</column>
+                    <column name="edge_list_ch_48">in, long unsigned int</column>
+                    <column name="edge_list_ch_49">in, long unsigned int</column>
+                    <column name="edge_list_ch_50">in, long unsigned int</column>
+                    <column name="edge_list_ch_51">in, long unsigned int</column>
+                    <column name="edge_list_ch_52">in, long unsigned int</column>
+                    <column name="edge_list_ch_53">in, long unsigned int</column>
+                    <column name="edge_list_ch_54">in, long unsigned int</column>
+                    <column name="edge_list_ch_55">in, long unsigned int</column>
+                    <column name="vec_X">in, long unsigned int</column>
+                    <column name="vec_Y">in, long unsigned int</column>
+                    <column name="vec_Y_out">in, long unsigned int</column>
+                    <column name="NUM_ITE">in, int const </column>
+                    <column name="NUM_A_LEN">in, int const </column>
+                    <column name="M">in, int const </column>
+                    <column name="K">in, int const </column>
+                    <column name="P_N">in, int const </column>
+                    <column name="alpha_u">in, int const </column>
+                    <column name="beta_u">in, int const </column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="4">Argument, HW Interface, HW Type, HW Info</keys>
+                    <column name="edge_list_ptr">s_axi_control, register, name=edge_list_ptr_1 offset=0x10 range=32, </column>
+                    <column name="edge_list_ptr">s_axi_control, register, name=edge_list_ptr_2 offset=0x14 range=32, </column>
+                    <column name="edge_list_ch_0">s_axi_control, register, name=edge_list_ch_0_1 offset=0x1c range=32, </column>
+                    <column name="edge_list_ch_0">s_axi_control, register, name=edge_list_ch_0_2 offset=0x20 range=32, </column>
+                    <column name="edge_list_ch_1">s_axi_control, register, name=edge_list_ch_1_1 offset=0x28 range=32, </column>
+                    <column name="edge_list_ch_1">s_axi_control, register, name=edge_list_ch_1_2 offset=0x2c range=32, </column>
+                    <column name="edge_list_ch_2">s_axi_control, register, name=edge_list_ch_2_1 offset=0x34 range=32, </column>
+                    <column name="edge_list_ch_2">s_axi_control, register, name=edge_list_ch_2_2 offset=0x38 range=32, </column>
+                    <column name="edge_list_ch_3">s_axi_control, register, name=edge_list_ch_3_1 offset=0x40 range=32, </column>
+                    <column name="edge_list_ch_3">s_axi_control, register, name=edge_list_ch_3_2 offset=0x44 range=32, </column>
+                    <column name="edge_list_ch_4">s_axi_control, register, name=edge_list_ch_4_1 offset=0x4c range=32, </column>
+                    <column name="edge_list_ch_4">s_axi_control, register, name=edge_list_ch_4_2 offset=0x50 range=32, </column>
+                    <column name="edge_list_ch_5">s_axi_control, register, name=edge_list_ch_5_1 offset=0x58 range=32, </column>
+                    <column name="edge_list_ch_5">s_axi_control, register, name=edge_list_ch_5_2 offset=0x5c range=32, </column>
+                    <column name="edge_list_ch_6">s_axi_control, register, name=edge_list_ch_6_1 offset=0x64 range=32, </column>
+                    <column name="edge_list_ch_6">s_axi_control, register, name=edge_list_ch_6_2 offset=0x68 range=32, </column>
+                    <column name="edge_list_ch_7">s_axi_control, register, name=edge_list_ch_7_1 offset=0x70 range=32, </column>
+                    <column name="edge_list_ch_7">s_axi_control, register, name=edge_list_ch_7_2 offset=0x74 range=32, </column>
+                    <column name="edge_list_ch_8">s_axi_control, register, name=edge_list_ch_8_1 offset=0x7c range=32, </column>
+                    <column name="edge_list_ch_8">s_axi_control, register, name=edge_list_ch_8_2 offset=0x80 range=32, </column>
+                    <column name="edge_list_ch_9">s_axi_control, register, name=edge_list_ch_9_1 offset=0x88 range=32, </column>
+                    <column name="edge_list_ch_9">s_axi_control, register, name=edge_list_ch_9_2 offset=0x8c range=32, </column>
+                    <column name="edge_list_ch_10">s_axi_control, register, name=edge_list_ch_10_1 offset=0x94 range=32, </column>
+                    <column name="edge_list_ch_10">s_axi_control, register, name=edge_list_ch_10_2 offset=0x98 range=32, </column>
+                    <column name="edge_list_ch_11">s_axi_control, register, name=edge_list_ch_11_1 offset=0xa0 range=32, </column>
+                    <column name="edge_list_ch_11">s_axi_control, register, name=edge_list_ch_11_2 offset=0xa4 range=32, </column>
+                    <column name="edge_list_ch_12">s_axi_control, register, name=edge_list_ch_12_1 offset=0xac range=32, </column>
+                    <column name="edge_list_ch_12">s_axi_control, register, name=edge_list_ch_12_2 offset=0xb0 range=32, </column>
+                    <column name="edge_list_ch_13">s_axi_control, register, name=edge_list_ch_13_1 offset=0xb8 range=32, </column>
+                    <column name="edge_list_ch_13">s_axi_control, register, name=edge_list_ch_13_2 offset=0xbc range=32, </column>
+                    <column name="edge_list_ch_14">s_axi_control, register, name=edge_list_ch_14_1 offset=0xc4 range=32, </column>
+                    <column name="edge_list_ch_14">s_axi_control, register, name=edge_list_ch_14_2 offset=0xc8 range=32, </column>
+                    <column name="edge_list_ch_15">s_axi_control, register, name=edge_list_ch_15_1 offset=0xd0 range=32, </column>
+                    <column name="edge_list_ch_15">s_axi_control, register, name=edge_list_ch_15_2 offset=0xd4 range=32, </column>
+                    <column name="edge_list_ch_16">s_axi_control, register, name=edge_list_ch_16_1 offset=0xdc range=32, </column>
+                    <column name="edge_list_ch_16">s_axi_control, register, name=edge_list_ch_16_2 offset=0xe0 range=32, </column>
+                    <column name="edge_list_ch_17">s_axi_control, register, name=edge_list_ch_17_1 offset=0xe8 range=32, </column>
+                    <column name="edge_list_ch_17">s_axi_control, register, name=edge_list_ch_17_2 offset=0xec range=32, </column>
+                    <column name="edge_list_ch_18">s_axi_control, register, name=edge_list_ch_18_1 offset=0xf4 range=32, </column>
+                    <column name="edge_list_ch_18">s_axi_control, register, name=edge_list_ch_18_2 offset=0xf8 range=32, </column>
+                    <column name="edge_list_ch_19">s_axi_control, register, name=edge_list_ch_19_1 offset=0x100 range=32, </column>
+                    <column name="edge_list_ch_19">s_axi_control, register, name=edge_list_ch_19_2 offset=0x104 range=32, </column>
+                    <column name="edge_list_ch_20">s_axi_control, register, name=edge_list_ch_20_1 offset=0x10c range=32, </column>
+                    <column name="edge_list_ch_20">s_axi_control, register, name=edge_list_ch_20_2 offset=0x110 range=32, </column>
+                    <column name="edge_list_ch_21">s_axi_control, register, name=edge_list_ch_21_1 offset=0x118 range=32, </column>
+                    <column name="edge_list_ch_21">s_axi_control, register, name=edge_list_ch_21_2 offset=0x11c range=32, </column>
+                    <column name="edge_list_ch_22">s_axi_control, register, name=edge_list_ch_22_1 offset=0x124 range=32, </column>
+                    <column name="edge_list_ch_22">s_axi_control, register, name=edge_list_ch_22_2 offset=0x128 range=32, </column>
+                    <column name="edge_list_ch_23">s_axi_control, register, name=edge_list_ch_23_1 offset=0x130 range=32, </column>
+                    <column name="edge_list_ch_23">s_axi_control, register, name=edge_list_ch_23_2 offset=0x134 range=32, </column>
+                    <column name="edge_list_ch_24">s_axi_control, register, name=edge_list_ch_24_1 offset=0x13c range=32, </column>
+                    <column name="edge_list_ch_24">s_axi_control, register, name=edge_list_ch_24_2 offset=0x140 range=32, </column>
+                    <column name="edge_list_ch_25">s_axi_control, register, name=edge_list_ch_25_1 offset=0x148 range=32, </column>
+                    <column name="edge_list_ch_25">s_axi_control, register, name=edge_list_ch_25_2 offset=0x14c range=32, </column>
+                    <column name="edge_list_ch_26">s_axi_control, register, name=edge_list_ch_26_1 offset=0x154 range=32, </column>
+                    <column name="edge_list_ch_26">s_axi_control, register, name=edge_list_ch_26_2 offset=0x158 range=32, </column>
+                    <column name="edge_list_ch_27">s_axi_control, register, name=edge_list_ch_27_1 offset=0x160 range=32, </column>
+                    <column name="edge_list_ch_27">s_axi_control, register, name=edge_list_ch_27_2 offset=0x164 range=32, </column>
+                    <column name="edge_list_ch_28">s_axi_control, register, name=edge_list_ch_28_1 offset=0x16c range=32, </column>
+                    <column name="edge_list_ch_28">s_axi_control, register, name=edge_list_ch_28_2 offset=0x170 range=32, </column>
+                    <column name="edge_list_ch_29">s_axi_control, register, name=edge_list_ch_29_1 offset=0x178 range=32, </column>
+                    <column name="edge_list_ch_29">s_axi_control, register, name=edge_list_ch_29_2 offset=0x17c range=32, </column>
+                    <column name="edge_list_ch_30">s_axi_control, register, name=edge_list_ch_30_1 offset=0x184 range=32, </column>
+                    <column name="edge_list_ch_30">s_axi_control, register, name=edge_list_ch_30_2 offset=0x188 range=32, </column>
+                    <column name="edge_list_ch_31">s_axi_control, register, name=edge_list_ch_31_1 offset=0x190 range=32, </column>
+                    <column name="edge_list_ch_31">s_axi_control, register, name=edge_list_ch_31_2 offset=0x194 range=32, </column>
+                    <column name="edge_list_ch_32">s_axi_control, register, name=edge_list_ch_32_1 offset=0x19c range=32, </column>
+                    <column name="edge_list_ch_32">s_axi_control, register, name=edge_list_ch_32_2 offset=0x1a0 range=32, </column>
+                    <column name="edge_list_ch_33">s_axi_control, register, name=edge_list_ch_33_1 offset=0x1a8 range=32, </column>
+                    <column name="edge_list_ch_33">s_axi_control, register, name=edge_list_ch_33_2 offset=0x1ac range=32, </column>
+                    <column name="edge_list_ch_34">s_axi_control, register, name=edge_list_ch_34_1 offset=0x1b4 range=32, </column>
+                    <column name="edge_list_ch_34">s_axi_control, register, name=edge_list_ch_34_2 offset=0x1b8 range=32, </column>
+                    <column name="edge_list_ch_35">s_axi_control, register, name=edge_list_ch_35_1 offset=0x1c0 range=32, </column>
+                    <column name="edge_list_ch_35">s_axi_control, register, name=edge_list_ch_35_2 offset=0x1c4 range=32, </column>
+                    <column name="edge_list_ch_36">s_axi_control, register, name=edge_list_ch_36_1 offset=0x1cc range=32, </column>
+                    <column name="edge_list_ch_36">s_axi_control, register, name=edge_list_ch_36_2 offset=0x1d0 range=32, </column>
+                    <column name="edge_list_ch_37">s_axi_control, register, name=edge_list_ch_37_1 offset=0x1d8 range=32, </column>
+                    <column name="edge_list_ch_37">s_axi_control, register, name=edge_list_ch_37_2 offset=0x1dc range=32, </column>
+                    <column name="edge_list_ch_38">s_axi_control, register, name=edge_list_ch_38_1 offset=0x1e4 range=32, </column>
+                    <column name="edge_list_ch_38">s_axi_control, register, name=edge_list_ch_38_2 offset=0x1e8 range=32, </column>
+                    <column name="edge_list_ch_39">s_axi_control, register, name=edge_list_ch_39_1 offset=0x1f0 range=32, </column>
+                    <column name="edge_list_ch_39">s_axi_control, register, name=edge_list_ch_39_2 offset=0x1f4 range=32, </column>
+                    <column name="edge_list_ch_40">s_axi_control, register, name=edge_list_ch_40_1 offset=0x1fc range=32, </column>
+                    <column name="edge_list_ch_40">s_axi_control, register, name=edge_list_ch_40_2 offset=0x200 range=32, </column>
+                    <column name="edge_list_ch_41">s_axi_control, register, name=edge_list_ch_41_1 offset=0x208 range=32, </column>
+                    <column name="edge_list_ch_41">s_axi_control, register, name=edge_list_ch_41_2 offset=0x20c range=32, </column>
+                    <column name="edge_list_ch_42">s_axi_control, register, name=edge_list_ch_42_1 offset=0x214 range=32, </column>
+                    <column name="edge_list_ch_42">s_axi_control, register, name=edge_list_ch_42_2 offset=0x218 range=32, </column>
+                    <column name="edge_list_ch_43">s_axi_control, register, name=edge_list_ch_43_1 offset=0x220 range=32, </column>
+                    <column name="edge_list_ch_43">s_axi_control, register, name=edge_list_ch_43_2 offset=0x224 range=32, </column>
+                    <column name="edge_list_ch_44">s_axi_control, register, name=edge_list_ch_44_1 offset=0x22c range=32, </column>
+                    <column name="edge_list_ch_44">s_axi_control, register, name=edge_list_ch_44_2 offset=0x230 range=32, </column>
+                    <column name="edge_list_ch_45">s_axi_control, register, name=edge_list_ch_45_1 offset=0x238 range=32, </column>
+                    <column name="edge_list_ch_45">s_axi_control, register, name=edge_list_ch_45_2 offset=0x23c range=32, </column>
+                    <column name="edge_list_ch_46">s_axi_control, register, name=edge_list_ch_46_1 offset=0x244 range=32, </column>
+                    <column name="edge_list_ch_46">s_axi_control, register, name=edge_list_ch_46_2 offset=0x248 range=32, </column>
+                    <column name="edge_list_ch_47">s_axi_control, register, name=edge_list_ch_47_1 offset=0x250 range=32, </column>
+                    <column name="edge_list_ch_47">s_axi_control, register, name=edge_list_ch_47_2 offset=0x254 range=32, </column>
+                    <column name="edge_list_ch_48">s_axi_control, register, name=edge_list_ch_48_1 offset=0x25c range=32, </column>
+                    <column name="edge_list_ch_48">s_axi_control, register, name=edge_list_ch_48_2 offset=0x260 range=32, </column>
+                    <column name="edge_list_ch_49">s_axi_control, register, name=edge_list_ch_49_1 offset=0x268 range=32, </column>
+                    <column name="edge_list_ch_49">s_axi_control, register, name=edge_list_ch_49_2 offset=0x26c range=32, </column>
+                    <column name="edge_list_ch_50">s_axi_control, register, name=edge_list_ch_50_1 offset=0x274 range=32, </column>
+                    <column name="edge_list_ch_50">s_axi_control, register, name=edge_list_ch_50_2 offset=0x278 range=32, </column>
+                    <column name="edge_list_ch_51">s_axi_control, register, name=edge_list_ch_51_1 offset=0x280 range=32, </column>
+                    <column name="edge_list_ch_51">s_axi_control, register, name=edge_list_ch_51_2 offset=0x284 range=32, </column>
+                    <column name="edge_list_ch_52">s_axi_control, register, name=edge_list_ch_52_1 offset=0x28c range=32, </column>
+                    <column name="edge_list_ch_52">s_axi_control, register, name=edge_list_ch_52_2 offset=0x290 range=32, </column>
+                    <column name="edge_list_ch_53">s_axi_control, register, name=edge_list_ch_53_1 offset=0x298 range=32, </column>
+                    <column name="edge_list_ch_53">s_axi_control, register, name=edge_list_ch_53_2 offset=0x29c range=32, </column>
+                    <column name="edge_list_ch_54">s_axi_control, register, name=edge_list_ch_54_1 offset=0x2a4 range=32, </column>
+                    <column name="edge_list_ch_54">s_axi_control, register, name=edge_list_ch_54_2 offset=0x2a8 range=32, </column>
+                    <column name="edge_list_ch_55">s_axi_control, register, name=edge_list_ch_55_1 offset=0x2b0 range=32, </column>
+                    <column name="edge_list_ch_55">s_axi_control, register, name=edge_list_ch_55_2 offset=0x2b4 range=32, </column>
+                    <column name="vec_X">s_axi_control, register, name=vec_X_1 offset=0x2bc range=32, </column>
+                    <column name="vec_X">s_axi_control, register, name=vec_X_2 offset=0x2c0 range=32, </column>
+                    <column name="vec_Y">s_axi_control, register, name=vec_Y_1 offset=0x2c8 range=32, </column>
+                    <column name="vec_Y">s_axi_control, register, name=vec_Y_2 offset=0x2cc range=32, </column>
+                    <column name="vec_Y_out">s_axi_control, register, name=vec_Y_out_1 offset=0x2d4 range=32, </column>
+                    <column name="vec_Y_out">s_axi_control, register, name=vec_Y_out_2 offset=0x2d8 range=32, </column>
+                    <column name="NUM_ITE">s_axi_control, register, name=NUM_ITE offset=0x2e0 range=32, </column>
+                    <column name="NUM_A_LEN">s_axi_control, register, name=NUM_A_LEN offset=0x2e8 range=32, </column>
+                    <column name="M">s_axi_control, register, name=M offset=0x2f0 range=32, </column>
+                    <column name="K">s_axi_control, register, name=K offset=0x2f8 range=32, </column>
+                    <column name="P_N">s_axi_control, register, name=P_N offset=0x300 range=32, </column>
+                    <column name="alpha_u">s_axi_control, register, name=alpha_u offset=0x308 range=32, </column>
+                    <column name="beta_u">s_axi_control, register, name=beta_u offset=0x310 range=32, </column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
+    </ReportBurst>
+    <PragmaReport>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:53" status="valid" parentFunction="async_read" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:96" status="valid" parentFunction="pucore_ymtx" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:161" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ptr bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:165" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_0 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:166" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_1 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:167" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_2 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:168" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_3 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:169" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_4 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:170" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_5 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:171" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_6 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:172" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_7 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:173" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_8 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:174" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_9 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:175" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_10 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:176" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_11 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:177" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_12 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:178" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_13 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:179" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_14 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:180" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_15 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:181" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_16 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:182" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_17 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:183" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_18 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:184" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_19 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:185" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_20 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:186" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_21 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:187" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_22 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:188" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_23 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:189" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_24 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:190" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_25 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:191" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_26 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:192" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_27 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:193" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_28 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:194" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_29 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:195" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_30 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:196" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_31 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:197" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_32 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:198" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_33 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:199" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_34 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:200" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_35 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:201" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_36 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:202" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_37 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:203" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_38 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:204" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_39 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:205" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_40 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:206" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_41 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:207" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_42 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:208" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_43 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:209" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_44 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:210" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_45 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:211" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_46 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:212" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_47 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:213" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_48 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:214" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_49 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:215" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_50 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:216" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_51 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:217" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_52 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:218" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_53 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:219" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_54 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:220" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = edge_list_ch_55 bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:278" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = vec_X bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:282" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = vec_Y bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:286" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = vec_Y_out bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:290" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = NUM_ITE bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:293" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = NUM_A_LEN bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:296" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = M bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:299" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = K bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:302" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = P_N bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:305" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = alpha_u bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:308" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = beta_u bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/Serpens/build/generated/cpp/Serpens.cpp:312" status="valid" parentFunction="serpens" variable="" isDirective="0" options="s_axilite port = return bundle = control"/>
+    </PragmaReport>
+</profile>

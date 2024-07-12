@@ -1,0 +1,13 @@
+I0711 18:27:10.129 tapa.util:184] logging level set to INFO
+I0711 18:27:10.129 tapa.tapac:407] Executing all steps of tapac
+I0711 18:27:10.129 tapa.tapac:521] running translated command: `tapa --work-dir=generated analyze --input=../src/serpens.cpp --top=Serpens synth --part-num=xcu280-fsvh2892-2L-e --clock-period=3.33 link pack --output=generated/Serpens.xo`
+I0711 18:27:10.130 tapa.util:184] logging level set to INFO
+I0711 18:27:10.130 tapa.util:184] logging level set to INFO
+I0711 18:27:10.130 tapa.tapa:54] tapa version: 0.0.20240301.1
+I0711 18:27:10.130 tapa.tapa:54] tapa version: 0.0.20240301.1
+I0711 18:27:10.130 tapa.tapa:58] Python recursion limit set to 3000
+I0711 18:27:10.130 tapa.tapa:58] Python recursion limit set to 3000
+I0711 18:27:10.147 tapa.steps.analyze:248] Running tapacc command: /usr/bin/tapacc generated/flatten/flatten-eec8df8e-serpens.cpp -top Serpens -- -std=c++17 -I /home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src -stdlib=libc++ -isystem /usr/lib/llvm-17/include/c++/v1/ -isystem /usr/include/clang/17/include/ -isystem /usr/lib/clang/17/include/
+I0711 18:27:10.147 tapa.steps.analyze:248] Running tapacc command: /usr/bin/tapacc generated/flatten/flatten-eec8df8e-serpens.cpp -top Serpens -- -std=c++17 -I /home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src -stdlib=libc++ -isystem /usr/lib/llvm-17/include/c++/v1/ -isystem /usr/include/clang/17/include/ -isystem /usr/lib/clang/17/include/
+E0711 18:27:10.722 tapa.steps.analyze:179] command ('/usr/bin/tapacc', 'generated/flatten/flatten-eec8df8e-serpens.cpp', '-top', 'Serpens', '--', '-std=c++17', '-I', '/home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src', '-stdlib=libc++', '-isystem', '/usr/lib/llvm-17/include/c++/v1/', '-isystem', '/usr/include/clang/17/include/', '-isystem', '/usr/lib/clang/17/include/') failed with exit code 1
+E0711 18:27:10.722 tapa.steps.analyze:179] command ('/usr/bin/tapacc', 'generated/flatten/flatten-eec8df8e-serpens.cpp', '-top', 'Serpens', '--', '-std=c++17', '-I', '/home/ylxiao/.local/lib/python3.10/site-packages/tapa/../../../src', '-stdlib=libc++', '-isystem', '/usr/lib/llvm-17/include/c++/v1/', '-isystem', '/usr/include/clang/17/include/', '-isystem', '/usr/lib/clang/17/include/') failed with exit code 1

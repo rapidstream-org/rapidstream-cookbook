@@ -26,8 +26,8 @@ if {$BOARD_PART == "dummy"} {
 import_files ${SRC_DIR}/hdl
 import_files ${SRC_DIR}/hls/solution/syn/verilog
 import_ip [glob ${SRC_DIR}/xci/ip/*/*.xci]
-#source ${SRC_DIR}/hls/solution/syn/verilog/kernel3_fadd_32ns_32ns_32_10_full_dsp_1_ip.tcl
-#source ${SRC_DIR}/hls/solution/syn/verilog/kernel3_fmul_32ns_32ns_32_5_max_dsp_1_ip.tcl
+source ${SRC_DIR}/hls/solution/syn/verilog/kernel3_fadd_32ns_32ns_32_10_full_dsp_1_ip.tcl
+source ${SRC_DIR}/hls/solution/syn/verilog/kernel3_fmul_32ns_32ns_32_5_max_dsp_1_ip.tcl
 upgrade_ip -quiet [get_ips *]
 import_files ${SRC_DIR}/hdl/gnd_driver.v
 #generate_target synthesis [ get_files *.xci ]
