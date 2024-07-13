@@ -1,0 +1,78 @@
+schema: v0.0.20210922
+name: Knn
+performance:
+  source: hls
+  clock_period: '3.807'
+  critical_path:
+    para_partial_sort:
+      source: hls
+      clock_period: '3.807'
+area:
+  source: hls
+  total:
+    BRAM_18K: 0
+    DSP: 2160
+    FF: 907811
+    LUT: 1035810
+    URAM: 0
+  breakdown:
+    compute_KNN:
+      count: 15
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 112
+          FF: 16524
+          LUT: 12154
+          URAM: 0
+    load_KNN:
+      count: 15
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1172
+          LUT: 572
+          URAM: 0
+    merge_dual_streams:
+      count: 233
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 686
+          LUT: 1062
+          URAM: 0
+    merge_trio_streams:
+      count: 2
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1113
+          LUT: 1628
+          URAM: 0
+    merge_trio_streams_FINAL:
+      count: 1
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 1481
+          LUT: 2082
+          URAM: 0
+    para_partial_sort:
+      count: 240
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 2
+          FF: 1990
+          LUT: 2458
+          URAM: 0

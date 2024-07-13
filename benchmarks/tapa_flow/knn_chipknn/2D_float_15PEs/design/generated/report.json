@@ -1,0 +1,104 @@
+{
+    "area": {
+        "breakdown": {
+            "compute_KNN": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 112,
+                        "FF": 16524,
+                        "LUT": 12154,
+                        "URAM": 0
+                    }
+                },
+                "count": 15
+            },
+            "load_KNN": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1172,
+                        "LUT": 572,
+                        "URAM": 0
+                    }
+                },
+                "count": 15
+            },
+            "merge_dual_streams": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 686,
+                        "LUT": 1062,
+                        "URAM": 0
+                    }
+                },
+                "count": 233
+            },
+            "merge_trio_streams": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1113,
+                        "LUT": 1628,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "merge_trio_streams_FINAL": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1481,
+                        "LUT": 2082,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "para_partial_sort": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 2,
+                        "FF": 1990,
+                        "LUT": 2458,
+                        "URAM": 0
+                    }
+                },
+                "count": 240
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 0,
+            "DSP": 2160,
+            "FF": 907811,
+            "LUT": 1035810,
+            "URAM": 0
+        }
+    },
+    "name": "Knn",
+    "performance": {
+        "clock_period": "3.807",
+        "critical_path": {
+            "para_partial_sort": {
+                "clock_period": "3.807",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}
