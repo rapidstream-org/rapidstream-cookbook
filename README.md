@@ -167,11 +167,53 @@ Recipes
             <td><strong>Sources</strong></td>
             <td><strong>Purpose</strong></td>
         </tr>
-            <td><a href="./benchmarks/sextans_sparse_matrix_multiplication">Sextans</a></td>
+            <td><a href="benchmarks/tapa_flow/serpens">Serpens</a></td>
+            <td><a href="https://dl.acm.org/doi/abs/10.1145/3489517.3530420">Song <i>et al.</i><br/>(FPGA '22)</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
+        </tr>
+        </tr>
+            <td><a href="benchmarks/tapa_flow/sextans">Sextans</a></td>
             <td><a href="https://dl.acm.org/doi/abs/10.1145/3490422.3502357">Song <i>et al.</i><br/>(FPGA '22)</a></td>
             <td>Vitis U250 XDMA</td>
             <td>TAPA HLS</td>
             <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
+        </tr>
+        </tr>
+            <td><a href="benchmarks/tapa_flow/callipepla">Callipepla</a></td>
+            <td><a href="https://dl.acm.org/doi/abs/10.1145/3543622.3573182">Song <i>et al.</i><br/>(FPGA '22)</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
+        </tr>
+        </tr>
+            <td><a href="benchmarks/tapa_flow/bloomFilter">Bloom Filter</a></td>
+            <td><a href="https://www.sfu.ca/~zhenman/">Simon Fraser University</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for Bloom Filter.</td>
+        </tr>
+        </tr>
+            <td><a href="benchmarks/tapa_flow/stencil_sasa">Stencil Application</a></td>
+            <td><a href="https://www.sfu.ca/~zhenman/">Simon Fraser University</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for Stencil Application.</td>
+        </tr>
+        </tr>
+            <td><a href="benchmarks/tapa_flow/knn_chipknn">KNN</a></td>
+            <td><a href="https://www.sfu.ca/~zhenman/">Simon Fraser University</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for K-Nearest-Neighbor.</td>
+        </tr>
+        </tr>
+            <td><a href="benchmarks/tapa_flow/orcDecoder">ORC Decoder</a></td>
+            <td><a href="https://www.sfu.ca/~zhenman/">Simon Fraser University</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>Accelerator for ORC Decoder.</td>
         </tr>
         <tr>
             <td><a href="./benchmarks/autosa_cnn">Convolutional neural network</a></td>
