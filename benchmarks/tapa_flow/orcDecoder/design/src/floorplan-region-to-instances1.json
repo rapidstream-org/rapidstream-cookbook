@@ -1,0 +1,46 @@
+{
+    "CR_X0Y0_To_CR_X3Y3": [
+        "TASK_VERTEX_load_0"
+    ],
+    "CR_X0Y4_To_CR_X3Y7": [
+        "TASK_VERTEX_PA_meta_proc_0",
+        "TASK_VERTEX_compute_delta_2",
+        "TASK_VERTEX_compute_delta_3",
+        "TASK_VERTEX_data_Sender_0"
+    ],
+    "CR_X0Y8_To_CR_X3Y11": [
+        "TASK_VERTEX_compute_delta_0",
+        "TASK_VERTEX_compute_delta_1"
+    ],
+    "CR_X4Y0_To_CR_X7Y3": [
+        "TASK_VERTEX_mmap2s_0",
+        "ASYNC_MMAP_VERTEX_input_port__m_axi",
+        "TASK_VERTEX_Meta_Writer_0",
+        "ASYNC_MMAP_VERTEX_output_port4_Track__m_axi",
+        "TASK_VERTEX_store_all_0",
+        "ASYNC_MMAP_VERTEX_output_port0_32b_8b__m_axi",
+        "ASYNC_MMAP_VERTEX_output_port1_16b_8b__m_axi",
+        "ASYNC_MMAP_VERTEX_output_port2_16b_8b__m_axi",
+        "ASYNC_MMAP_VERTEX_output_port3_8b__m_axi"
+    ],
+    "CR_X4Y4_To_CR_X7Y7": [
+        "TASK_VERTEX_Meta_Aligner_0",
+        "TASK_VERTEX_Data_Aligner_0",
+        "TASK_VERTEX_PA_sum_out_2",
+        "TASK_VERTEX_PA_sum_out_3",
+        "TASK_VERTEX_compSR_0",
+        "TASK_VERTEX_delta_Fsum_0",
+        "TASK_VERTEX_delta_sumNC_all_1",
+        "TASK_VERTEX_delta_sumNC_in_1",
+        "TASK_VERTEX_delta_sum_0out_0",
+        "TASK_VERTEX_delta_sum_0out_1",
+        "TASK_VERTEX_delta_sum_1out_0"
+    ],
+    "CR_X4Y8_To_CR_X7Y11": [
+        "TASK_VERTEX_PA_sum_out_1",
+        "TASK_VERTEX_PA_sum_out_0",
+        "TASK_VERTEX_delta_sumNC_all_0",
+        "TASK_VERTEX_delta_sumNC_in_0",
+        "TASK_VERTEX_delta_sum_2out_0"
+    ]
+}

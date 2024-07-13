@@ -5,8 +5,7 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 <img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/1b565657-df33-41f9-f29e-0d539743e700/128" width="64px" alt="RapidStream Logo" />
 
-# TAPA Flow: Bloom Filter
-
+# TAPA Flow: ORC Decoder
 
 ## Introduction
 
@@ -22,19 +21,19 @@ In this recipe, we demonstrate how to use RapidStream to optimize TAPA projects.
 ### Step 1 (Done): Generate the Xilinx Object File (`.xo`)
 
 
-We utilize TAPA to generate the `.xo` file. If you have not installed TAPA, we've already compiled the C++ source to `.xo` using TAPA. The original C++ source files are located in [design/src](design/src). The generated `.xo` file can be found at [design/generated/multistream_MurmurHash3.xo](design/generated/multistream_MurmurHash3.xo). To compile C++ to `.xo` using TAPA, we use the script [design/run_tapa.sh](design/run_tapa.sh), with the detailed commands shown below. For your convenience, we have also backed up all the generated metadata by TAPA in the [design/generated](design/generated/) directory.
+We utilize TAPA to generate the `.xo` file. If you have not installed TAPA, we've already compiled the C++ source to `.xo` using TAPA. The original C++ source files are located in [design/src](design/src). The generated `.xo` file can be found at [design/generated/data_decoding.xo](design/generated/data_decoding.xo). To compile C++ to `.xo` using TAPA, we use the script [design/run_tapa.sh](design/run_tapa.sh), with the detailed commands shown below. For your convenience, we have also backed up all the generated metadata by TAPA in the [design/generated](design/generated/) directory.
 
 ```bash
 WORK_DIR=generated
 tapac \
   --work-dir ${WORK_DIR} \
-  --top workload \
+  --top data_decoding \
   --part-num xcu280-fsvh2892-2L-e \
   --clock-period 3.33 \
-  -o ${WORK_DIR}/generated/multistream_MurmurHash3.xo \
+  -o ${WORK_DIR}/data_decoding.xo \
   --connectivity config/link_config.ini \
-  src/multistream_MurmurHash3.cpp \
-  2>&1 | tee ${WORK_DIR}/tapa.log
+  src/data_decoder.cpp \
+  2>&1 | tee tapa.log
 ```
 
 ### Step 2: Use Rapidstream to Optimize `.xo` Design
@@ -55,11 +54,12 @@ The Python snippet below shows how we initiate rapidstream instance to set up th
 ```Python
 from rapidstream import get_u280_vitis_device_factory, RapidStreamTAPA
 import os
+
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 INI_PATH = f"{CURR_DIR}/design/config/link_config.ini"
 VITIS_PLATFORM = "xilinx_u280_gen3x16_xdma_1_202211_1"
-XO_PATH = f"{CURR_DIR}/design/generated/multistream_MurmurHash3.xo"
-kernel_name="workload"
+XO_PATH = f"{CURR_DIR}/design/generated/data_decoding.xo"
+kernel_name = "data_decoding"
 factory = get_u280_vitis_device_factory(VITIS_PLATFORM)
 rs = RapidStreamTAPA(f"{CURR_DIR}/build")
 rs.set_virtual_device(factory.generate_virtual_device())
@@ -75,19 +75,26 @@ The HBM AXI port connection is described in [design/config/link_config.ini](desi
 
 ```bash
 [connectivity]
-sp=workload.input_bv:HBM[0]
-sp=workload.key_in:HBM[1]
-sp=workload.out_bits:HBM[2]
+sp=data_decoding.input_port:HBM[0:1]
+sp=data_decoding.output_port0_32b_8b:HBM[16:17]
+sp=data_decoding.output_port1_16b_8b:HBM[18:19]
+sp=data_decoding.output_port2_16b_8b:HBM[20:21]
+sp=data_decoding.output_port3_8b:HBM[22:23]
+sp=data_decoding.output_port4_Track:HBM[24:25]
 ```
 
 As a result, it is necessary to assign the kernel ports to the appropriate slots. The Python code below demonstrates this process. For comprehensive linking details, please refer to the [design/config/link_config.ini](design/config/link_config.ini) file.
 
  ```Python
+# Bind ports to HBM 16-31
 right_slot = "SLOT_X1Y0:SLOT_X1Y0"
 left_slot = "SLOT_X0Y0:SLOT_X0Y0"
-rs.assign_port_to_region(".*input_bv.*", left_slot)
-rs.assign_port_to_region(".*key_in.*", left_slot)
-rs.assign_port_to_region(".*out_bits.*", left_slot)
+rs.assign_port_to_region(".*input_port.*", left_slot)
+rs.assign_port_to_region(".*output_port0_32b_8b.*", right_slot)
+rs.assign_port_to_region(".*output_port1_16b_8b.*", right_slot)
+rs.assign_port_to_region(".*output_port2_16b_8b.*", right_slot)
+rs.assign_port_to_region(".*output_port3_8b.*", right_slot)
+rs.assign_port_to_region(".*output_port4_Track.*", right_slot)
 rs.assign_port_to_region("s_axi_control_.*", left_slot)
 rs.assign_port_to_region("ap_clk", left_slot)
 rs.assign_port_to_region("ap_rst_n", left_slot)

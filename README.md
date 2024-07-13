@@ -259,7 +259,7 @@ Error Message:
 ```bash
 ...
   File "/home/vagrantxiao24/.rapidstream/opt/python3.10/lib/python3.10/subprocess.py", line 1863, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
+    raise child_exception_type(errno_num, err_msg,  err_filename)
 FileNotFoundError: [Errno 2] No such file or directory: 'vivado'
 make: *** [Makefile:24: rs_opt] Error 1
 ```

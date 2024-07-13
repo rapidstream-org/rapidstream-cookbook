@@ -7,7 +7,6 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 # Vivado Flow Support
 
-
 Vivado is a leading FPGA development tool in the industry, and RapidStream offers various sophisticated methods to enhance the Vivado development flow. In this tutorial, we will guide you through the different ways RapidStream optimizes Vivado-compatible projects.
 
 # Feature Tutorials

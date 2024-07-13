@@ -1,0 +1,247 @@
+{
+    "area": {
+        "breakdown": {
+            "Data_Aligner": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6514,
+                        "LUT": 663,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "Meta_Aligner": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 455,
+                        "LUT": 531,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "Meta_Writer": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 38,
+                        "LUT": 172,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "PA_meta_proc": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1307,
+                        "LUT": 7200,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "PA_sum_out": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 522,
+                        "LUT": 737,
+                        "URAM": 0
+                    }
+                },
+                "count": 4
+            },
+            "compSR": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 126,
+                        "LUT": 1110,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "compute_delta": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 2,
+                        "FF": 19090,
+                        "LUT": 94356,
+                        "URAM": 0
+                    }
+                },
+                "count": 4
+            },
+            "data_Sender": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 21164,
+                        "LUT": 35439,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "delta_Fsum": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 6224,
+                        "LUT": 2865,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "delta_sumNC_all": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 2576,
+                        "LUT": 1473,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "delta_sumNC_in": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 2576,
+                        "LUT": 1491,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "delta_sum_0out": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1035,
+                        "LUT": 742,
+                        "URAM": 0
+                    }
+                },
+                "count": 2
+            },
+            "delta_sum_1out": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1035,
+                        "LUT": 760,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "delta_sum_2out": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 1035,
+                        "LUT": 778,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "load": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 4,
+                        "FF": 37820,
+                        "LUT": 50820,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "mmap2s": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 624,
+                        "LUT": 404,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            },
+            "store_all": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 134,
+                        "LUT": 520,
+                        "URAM": 0
+                    }
+                },
+                "count": 1
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 0,
+            "DSP": 12,
+            "FF": 167830,
+            "LUT": 489982,
+            "URAM": 0
+        }
+    },
+    "name": "data_decoding",
+    "performance": {
+        "clock_period": "3.321",
+        "critical_path": {
+            "PA_meta_proc": {
+                "clock_period": "3.321",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

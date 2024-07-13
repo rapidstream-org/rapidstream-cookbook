@@ -5,7 +5,7 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 <img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/1b565657-df33-41f9-f29e-0d539743e700/128" width="64px" alt="RapidStream Logo" />
 
-# TAPA Flow
+# TAPA Flow: Bloom Filter
 
 ## Introduction
 
