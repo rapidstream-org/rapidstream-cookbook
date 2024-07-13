@@ -1,0 +1,38 @@
+schema: v0.0.20210922
+name: unikernel
+performance:
+  source: hls
+  clock_period: '2.431'
+  critical_path:
+    inter_kernel:
+      source: hls
+      clock_period: '2.431'
+area:
+  source: hls
+  total:
+    BRAM_18K: 360
+    DSP: 3096
+    FF: 767306
+    LUT: 350012
+    URAM: 0
+  breakdown:
+    SEIDEL2D:
+      count: 12
+      area:
+        source: hls
+        total:
+          BRAM_18K: 30
+          DSP: 257
+          FF: 63212
+          LUT: 28016
+          URAM: 0
+    inter_kernel:
+      count: 12
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 1
+          FF: 584
+          LUT: 887
+          URAM: 0

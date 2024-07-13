@@ -1,0 +1,41 @@
+schema: v0.0.20210922
+name: unikernel
+performance:
+  source: hls
+  clock_period: '2.431'
+  critical_path:
+    JACOBI3D:
+      source: hls
+      clock_period: '2.431'
+    inter_kernel:
+      source: hls
+      clock_period: '2.431'
+area:
+  source: hls
+  total:
+    BRAM_18K: 450
+    DSP: 3600
+    FF: 920054
+    LUT: 420014
+    URAM: 0
+  breakdown:
+    JACOBI3D:
+      count: 15
+      area:
+        source: hls
+        total:
+          BRAM_18K: 30
+          DSP: 240
+          FF: 60808
+          LUT: 26892
+          URAM: 0
+    inter_kernel:
+      count: 15
+      area:
+        source: hls
+        total:
+          BRAM_18K: 0
+          DSP: 0
+          FF: 384
+          LUT: 846
+          URAM: 0

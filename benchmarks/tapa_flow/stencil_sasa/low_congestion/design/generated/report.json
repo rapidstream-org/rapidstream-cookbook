@@ -1,0 +1,52 @@
+{
+    "area": {
+        "breakdown": {
+            "SEIDEL2D": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 30,
+                        "DSP": 257,
+                        "FF": 63212,
+                        "LUT": 28016,
+                        "URAM": 0
+                    }
+                },
+                "count": 12
+            },
+            "inter_kernel": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 1,
+                        "FF": 584,
+                        "LUT": 887,
+                        "URAM": 0
+                    }
+                },
+                "count": 12
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 360,
+            "DSP": 3096,
+            "FF": 767306,
+            "LUT": 350012,
+            "URAM": 0
+        }
+    },
+    "name": "unikernel",
+    "performance": {
+        "clock_period": "2.431",
+        "critical_path": {
+            "inter_kernel": {
+                "clock_period": "2.431",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

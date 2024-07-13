@@ -1,0 +1,56 @@
+{
+    "area": {
+        "breakdown": {
+            "JACOBI3D": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 30,
+                        "DSP": 240,
+                        "FF": 60808,
+                        "LUT": 26892,
+                        "URAM": 0
+                    }
+                },
+                "count": 15
+            },
+            "inter_kernel": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 384,
+                        "LUT": 846,
+                        "URAM": 0
+                    }
+                },
+                "count": 15
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 450,
+            "DSP": 3600,
+            "FF": 920054,
+            "LUT": 420014,
+            "URAM": 0
+        }
+    },
+    "name": "unikernel",
+    "performance": {
+        "clock_period": "2.431",
+        "critical_path": {
+            "JACOBI3D": {
+                "clock_period": "2.431",
+                "source": "hls"
+            },
+            "inter_kernel": {
+                "clock_period": "2.431",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}

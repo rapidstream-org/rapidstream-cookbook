@@ -1,0 +1,56 @@
+{
+    "area": {
+        "breakdown": {
+            "HEAT3D": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 480,
+                        "FF": 85918,
+                        "LUT": 40261,
+                        "URAM": 0
+                    }
+                },
+                "count": 12
+            },
+            "inter_kernel": {
+                "area": {
+                    "source": "hls",
+                    "total": {
+                        "BRAM_18K": 0,
+                        "DSP": 0,
+                        "FF": 384,
+                        "LUT": 846,
+                        "URAM": 0
+                    }
+                },
+                "count": 12
+            }
+        },
+        "source": "hls",
+        "total": {
+            "BRAM_18K": 0,
+            "DSP": 5760,
+            "FF": 1037378,
+            "LUT": 496460,
+            "URAM": 0
+        }
+    },
+    "name": "unikernel",
+    "performance": {
+        "clock_period": "2.431",
+        "critical_path": {
+            "HEAT3D": {
+                "clock_period": "2.431",
+                "source": "hls"
+            },
+            "inter_kernel": {
+                "clock_period": "2.431",
+                "source": "hls"
+            }
+        },
+        "source": "hls"
+    },
+    "schema": "v0.0.20210922"
+}
