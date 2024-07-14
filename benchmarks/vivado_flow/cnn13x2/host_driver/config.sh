@@ -13,7 +13,8 @@ tool_path=/tools/dma_ip_drivers/XDMA/linux-kernel/tools
 
 AP_DONE="0x00000002"
 last_word="0x00000000"
- Poll until ap_done bit is set
+
+# Poll until ap_done bit is set
 while (( !(last_word & AP_DONE) )); do
     echo -e "\nKernel is still running..."
     # Read the register
