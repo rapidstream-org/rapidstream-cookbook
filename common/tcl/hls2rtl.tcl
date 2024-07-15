@@ -10,7 +10,7 @@ set GEN_XO     "[lindex $argv 3]"
 
 set SOURCE_FILE_INDEX 4
 
-open_project build/${TOP}
+open_project ${TOP}
 set_top ${TOP}
 foreach src_file [lrange $argv ${SOURCE_FILE_INDEX} end] {
     add_files "${src_file}"
