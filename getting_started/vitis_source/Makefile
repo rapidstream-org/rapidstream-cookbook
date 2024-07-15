@@ -1,17 +1,19 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-PLATFORM := xilinx_u280_gen3x16_xdma_1_202211_1
-KERNEL_NAME=VecAdd
-SRC_DIR=design
-TARGET=hw
-TEMP_DIR=build
-KERNEL_XO=$(TEMP_DIR)/$(KERNEL_NAME).xo
-KERNEL_XCLBIN=$(TEMP_DIR)/$(KERNEL_NAME).xclbin
-INCLUDE=-I $(XILINX_HLS)/include
-CFLAGS=$(INCLUDE) $(OPT_LEVEL)
-CXX=g++
-HOST=app.exe
+ROOT_DIR      := $(shell git rev-parse --show-toplevel)
+PLATFORM      := xilinx_u280_gen3x16_xdma_1_202211_1
+GRP_UTIL      := $(ROOT_DIR)/common/util/get_group.py
+KERNEL_NAME   := VecAdd
+SRC_DIR       := design
+TARGET        := hw
+TEMP_DIR      := $(CURDIR)/build
+KERNEL_XO     := $(TEMP_DIR)/$(KERNEL_NAME).xo
+KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
+INCLUDE       := -I $(XILINX_HLS)/include
+CFLAGS        := $(INCLUDE) $(OPT_LEVEL)
+CXX           := g++
+HOST          := app.exe
 
 all:rs_opt
 
@@ -55,6 +57,9 @@ csim:$(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 	$(CXX) $(CFLAGS) $^ -o main.exe
 	./main.exe
 
+show_groups:
+	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
+	-o $(TEMP_DIR)/module_types.csv
 
 
 clean:

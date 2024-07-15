@@ -22,6 +22,7 @@ In this recipe, we illustrate how to create a Vitis objective file (`.xo`) using
 
 These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `VecAdd.xo` file, but the same flow applies to object files generated through other methods.
 
+
 ## Tutorial
 
 ### Step 1: C++ Simulation
@@ -162,8 +163,36 @@ find ./build/dse/ -name *.xo
 
 If everything is successful, you should at least get one optimized `.xo` file located in `./build/dse/candidate_0/exported/VecAdd.xo`.
 
+### Step 6: Check the Group Module Report
 
-### Step 6: Use Vitis --link with the Optimized `.xo` File
+
+RapidStream mandates a clear distinction between communication and computation within user designs.
+
+- In `Group modules`, users are tasked solely with defining inter-submodule communication. For those familiar with Vivado IP Integrator flow, crafting a Group module mirrors the process of connecting IPs in IPI. RapidStream subsequently integrates appropriate pipeline registers into these Group modules.
+
+- In `Leaf modules`, users retain the flexibility to implement diverse computational patterns, as RapidStream leaves these Leaf modules unchanged.
+
+For further details, please consult the [code style](https://docs.rapidstream-da.com/required-coding-style/) section in our Documentation.
+
+To generate a report on group types, execute the commands below or `run make show_groups`:
+
+```bash
+rapidstream ../../common/util/get_group.py \
+	-i build/passes/0-imported.json \
+	-o build/module_types.csv
+```
+
+The module types for your design can be found in `build/module_types.csv`. Below, we list the four Group modules. In this design, `VecAdd` serves as a Group module, while the other three modules are added by RapidStream.
+
+| Module Name                      | Group Type     |
+|:--------------------------------:|:--------------:|
+| VecAdd                           | grouped_module |
+|__rs_ap_ctrl_start_ready_pipeline | grouped_module |
+|__rs_ff_pipeline                  | grouped_module |
+|__rs_hs_pipeline                  | grouped_module |
+
+
+### Step 7: Use Vitis --link with the Optimized `.xo` File
 
 With the optimized `.xo` file generated, you can use `v++ -link` to generate the `.xclbin` file. Run the following command or run `make`:
 
