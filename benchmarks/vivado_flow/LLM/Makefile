@@ -4,14 +4,15 @@
 
 PLATFORM             := vu9p
 REPO_ROOT            := $(shell git rev-parse --show-toplevel)
+GRP_UTIL             := $(REPO_ROOT)/common/util/get_group.py
 HLSXX                := vitis_hls
-HLS_SRC_DIR          := design
+HLS_SRC_DIR          := $(CURDIR)/design
 HLS_KERNEL           := bert_all
 HLS_SRC_FILES        := $(foreach n, $(shell seq 1 3 ), $(HLS_SRC_DIR)/bert_region_$(n).cpp)
 HLS_SRC_FILES        += $(foreach n, $(shell seq 1 3 ), $(HLS_SRC_DIR)/bert_region_$(n).h)
 HLS_SRC_FILES        += $(HLS_SRC_DIR)/bert_all.cpp $(HLS_SRC_DIR)/kernel.h
 
-TEMP_DIR             := build
+TEMP_DIR             := $(CURDIR)/build
 KERNEL_HLS_SOL       := $(TEMP_DIR)/$(HLS_KERNEL)/solution/syn/report/$(HLS_KERNEL)_csynth.rpt
 RS_TARGET            := $(TEMP_DIR)/run/dse/candidate_0/exported/design/$(HLS_KERNEL).v
 KERNEL_CLK_PERIOD_NS := 3
@@ -69,7 +70,7 @@ hls: $(KERNEL_HLS_SOL)
 
 $(KERNEL_HLS_SOL): $(HLS_SRC_FILES)
 	mkdir -p $(TEMP_DIR)
-	$(HLSXX) $(HLS2RTL_TCL) \
+	cd $(TEMP_DIR) && $(HLSXX) $(HLS2RTL_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_$(HLS_KERNEL).log \
 	-tclargs \
 	$(PART) \
@@ -77,6 +78,10 @@ $(KERNEL_HLS_SOL): $(HLS_SRC_FILES)
 	$(HLS_KERNEL) \
 	$(GEN_XO) \
 	$^
+
+show_groups:
+	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/run/passes/0-imported.json \
+	-o $(TEMP_DIR)/module_types.csv
 
 clean:
 	rm -rf $(TEMP_DIR) *.log

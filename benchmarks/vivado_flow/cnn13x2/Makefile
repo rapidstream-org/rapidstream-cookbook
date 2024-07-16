@@ -1,7 +1,8 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-
+ROOT_DIR             := $(shell git rev-parse --show-toplevel)
+GRP_UTIL             := $(ROOT_DIR)/common/util/get_group.py
 PLATFORM             := xilinx_u50_gen3x16_xdma_5_202210_1
 REPO_ROOT            := $(shell git rev-parse --show-toplevel)
 HLSXX                := vitis_hls
@@ -63,14 +64,12 @@ $(BD_BIT_TARGET):$(CURDIR)/design/grouped_modules.json
 	mkdir -p $(TEMP_DIR)/bd
 	cd $(TEMP_DIR)/bd && $(VXX) $(CURDIR)/tcl/bd20222/impl.tcl -tclargs $(PART) $(BOARD) $(CURDIR)/tcl/bd20222/gen_design_u50.tcl $(shell dirname $<)
 
-run:
-	sudo bash /tools/dma_ip_drivers/XDMA/linux-kernel/tests/load_driver.sh
-	rm -rf data/recv*.bin
-	rm -rf data/dout*.bin
-	sudo bash ./run_test.sh
-
 download_bit:tcl/download.tcl
 	$(MAKE) -C host_driver $@ BIT=$(BIT)
+
+show_groups:
+	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/run/passes/0-imported.json \
+	-o $(TEMP_DIR)/module_types.csv
 
 run:
 	$(MAKE) -C host_driver $@

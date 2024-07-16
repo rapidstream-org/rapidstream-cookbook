@@ -1,22 +1,24 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-PLATFORM := xilinx_u50_gen3x16_xdma_5_202210_1
-HLSXX                := vitis_hls
-HLS_SRC_DIR          := design
-HLS_KERNEL           := bert_all
-HLS_SRC_FILES        := $(foreach n, $(shell seq 1 3 ), $(HLS_SRC_DIR)/bert_region_$(n).cpp)
-HLS_SRC_FILES        += $(foreach n, $(shell seq 1 3 ), $(HLS_SRC_DIR)/bert_region_$(n).h)
-HLS_SRC_FILES        += $(HLS_SRC_DIR)/bert_all.cpp $(HLS_SRC_DIR)/kernel.h
+ROOT_DIR      := $(shell git rev-parse --show-toplevel)
+GRP_UTIL      := $(ROOT_DIR)/common/util/get_group.py
+PLATFORM      := xilinx_u50_gen3x16_xdma_5_202210_1
+KERNEL_NAME   := bert_all
+HLSXX         := vitis_hls
+HLS_SRC_DIR   := $(CURDIR)/design
+HLS_SRC_FILES := $(foreach n, $(shell seq 1 3 ), $(HLS_SRC_DIR)/bert_region_$(n).cpp)
+HLS_SRC_FILES += $(foreach n, $(shell seq 1 3 ), $(HLS_SRC_DIR)/bert_region_$(n).h)
+HLS_SRC_FILES += $(HLS_SRC_DIR)/bert_all.cpp $(HLS_SRC_DIR)/kernel.h
 
-TEMP_DIR             := build
-KERNEL_XO            := $(TEMP_DIR)/$(HLS_KERNEL).xo
-KERNEL_XCLBIN        := $(TEMP_DIR)/$(HLS_KERNEL).xclbin
-RS_XCLBIN            := $(TEMP_DIR)/dse/candidate_0/design.xclbin
-KERNEL_CLK_PERIOD_NS := 3
-TARGET               := hw
-HLS2RTL_TCL		     := ../../../common/tcl/hls2rtl.tcl
-GEN_XO               := 1
+TEMP_DIR      := $(CURDIR)/build
+KERNEL_XO     := $(TEMP_DIR)/$(KERNEL_NAME).xo
+KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
+RS_XCLBIN     := $(TEMP_DIR)/dse/candidate_0/design.xclbin
+CLK_PERIOD_NS := 3
+TARGET        := hw
+HLS2RTL_TCL	  := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
+GEN_XO        := 1
 
 ifeq ($(PLATFORM), xilinx_u50_gen3x16_xdma_5_202210_1)
 PART := xcu50-fsvh2104-2-e
@@ -25,7 +27,7 @@ LINK_FILE := link_config_hbm.ini
 else ifeq ($(PLATFORM), xilinx_u55c_gen3x16_xdma_3_202210_1)
 PART := xcu55c-fsvh2892-2L-e
 RUN_FILE := run_u55c.py
-LINK_FILE := linsk_config_hbm.ini
+LINK_FILE := link_config_hbm.ini
 else ifeq ($(PLATFORM), xilinx_u280_gen3x16_xdma_1_202211_1)
 PART := xcu280-fsvh2892-2L-e
 RUN_FILE := run_u280.py
@@ -48,8 +50,8 @@ hw: $(KERNEL_XCLBIN)
 $(KERNEL_XCLBIN): $(KERNEL_XO)
 	v++ -l -t ${TARGET} \
 	--platform $(PLATFORM) \
-	--kernel $(HLS_KERNEL) \
-	--connectivity.nk $(HLS_KERNEL):1:$(HLS_KERNEL) \
+	--kernel $(KERNEL_NAME) \
+	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
 	--config $(HLS_SRC_DIR)/$(LINK_FILE) \
 	--temp_dir $(TEMP_DIR) \
 	-o $@ \
@@ -59,12 +61,12 @@ xo: $(KERNEL_XO)
 
 $(KERNEL_XO): $(HLS_SRC_FILES)
 	mkdir -p $(TEMP_DIR)
-	$(HLSXX) $(HLS2RTL_TCL) \
-	-l $(TEMP_DIR)/vitis_hls_$(HLS_KERNEL).log \
+	cd $(TEMP_DIR) && $(HLSXX) $(HLS2RTL_TCL) \
+	-l $(TEMP_DIR)/vitis_hls_$(KERNEL_NAME).log \
 	-tclargs \
 	$(PART) \
-	$(KERNEL_CLK_PERIOD_NS) \
-	$(HLS_KERNEL) \
+	$(CLK_PERIOD_NS) \
+	$(KERNEL_NAME) \
 	$(GEN_XO) \
 	$^
 
@@ -75,6 +77,10 @@ $(HOST): $(SRC_DIR)/host.cpp
 		-I${XILINX_XRT}/include/ \
 		-I${XILINX_VIVADO}/include/ \
 		-L${XILINX_XRT}/lib/ -lOpenCL -lpthread -lrt -lstdc++
+show_groups:
+	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
+	-o $(TEMP_DIR)/module_types.csv
+
 
 
 clean:
