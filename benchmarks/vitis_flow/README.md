@@ -60,5 +60,16 @@ These tutorials target various FPGA devices. The table below lists the tutorials
             <td>Vitis HLS</td>
             <td>An HLS accelerator for the convolutional neural network kernel.</td>
         </tr>
+        <tr>
+            <td><a href="LLM">LLM</a></td>
+            <td><a href="https://github.com/UCLA-VAST/AutoBridge">AutoBridge</a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> U50 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> U55c </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html"> U280 </a><br>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> U250 </a>
+            </td>
+            <td>Vitis HLS</td>
+            <td>A model-specific spatial acceleration for Large Language Model (LLM) inference on FPGAs.</td>
+        </tr>
     </tbody>
 </table>
