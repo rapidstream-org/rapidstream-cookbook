@@ -4,15 +4,15 @@
 ROOT_DIR             := $(shell git rev-parse --show-toplevel)
 PART_NUM             := xcu50-fsvh2104-2-e
 HLSXX                := vitis_hls
-HLS_SRC_DIR          := design/hls
+HLS_SRC_DIR          := $(CURDIR)/design/hls
 HLS_KERNELS          := kernel_add read_mem write_mem
-TEMP_DIR             := build
+TEMP_DIR             := $(CURDIR)/build
 HLS_DIR_TARGETS      := $(foreach n, $(HLS_KERNELS), $(TEMP_DIR)/$(n)/solution/syn/verilog)
 DCP_TARGET           := $(TEMP_DIR)/dse/candidate_0/route.dcp
 KERNEL_CLK_PERIOD_NS := 4
 TARGET               := hw
 HLS_TCL              := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
-GRP_UTIL      := $(ROOT_DIR)/common/util/get_group.py
+GRP_UTIL             := $(ROOT_DIR)/common/util/get_group.py
 
 all:$(DCP_TARGET)
 
@@ -23,7 +23,7 @@ hls:$(HLS_DIR_TARGETS)
 
 $(HLS_DIR_TARGETS):$(TEMP_DIR)/%/solution/syn/verilog:$(HLS_SRC_DIR)/VecAdd.cpp
 	mkdir -p $(TEMP_DIR)
-	$(HLSXX)  $(HLS_TCL) \
+	cd $(TEMP_DIR) && $(HLSXX)  $(HLS_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_$*.log \
 	-tclargs \
 	$(PART_NUM) \

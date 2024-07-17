@@ -109,7 +109,8 @@ Recipes
             <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> U50 </a><br>
                 <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> U55c </a><br>
                 <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u280.html"> U280 </a><br>
-                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> U250 </a></td>
+                <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u250.html"> U250 </a>
+            </td>
             <td>Vitis HLS</td>
             <td>A model-specific spatial acceleration for Large Language Model (LLM) inference on FPGAs.</td>
         </tr>

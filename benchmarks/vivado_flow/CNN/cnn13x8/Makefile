@@ -2,6 +2,7 @@
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
 
+ROOT_DIR       := $(shell git rev-parse --show-toplevel)
 PLATFORM       := xilinx_u50_gen3x16_xdma_5_202210_1
 KERNEL_NAME    := kernel3
 SRC_DIR        := $(CURDIR)/design
@@ -10,7 +11,7 @@ HLS_SOL        := $(TEMP_DIR)/$(KERNEL_NAME)/solution/syn/report/$(KERNEL_NAME)_
 INCLUDE        := -I $(XILINX_HLS)/include
 CFLAGS         := $(INCLUDE) $(OPT_LEVEL)
 CXX            := g++
-COMMON_DIR     := $(CURDIR)/../../../../common
+COMMON_DIR     := $(ROOT_DIR)/common
 HLS2RTL_TCL    := $(COMMON_DIR)/tcl/hls2rtl.tcl
 RTL2SHELL_TCL  := $(COMMON_DIR)/tcl/rtl2shell.tcl
 RTL2CL_TCL     := $(COMMON_DIR)/tcl/rtl2cl.tcl
@@ -72,7 +73,7 @@ hls:$(HLS_SOL)
 
 $(HLS_SOL): $(SRC_DIR)/$(KERNEL_NAME).cpp $(SRC_DIR)/$(KERNEL_NAME).h
 	mkdir -p $(TEMP_DIR)
-	vitis_hls $(HLS2RTL_TCL) \
+	cd $(TEMP_DIR) && vitis_hls $(HLS2RTL_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_kernel3.log \
 	-tclargs \
 	$(PART) \

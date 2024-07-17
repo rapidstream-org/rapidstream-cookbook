@@ -24,7 +24,7 @@ For a project, Xilinx-designed IPs are known for their reliability and high freq
 
 At this moment, Rapidstream mainly accepts text-based input sources as shown below.
 
-<img src="../../../getting_started/img/rapidstream_input.png" width="480px" alt="RapidStream Logo" />
+<img src="../../../getting_started/img/rapidstream_input.png" width="640px" alt="RapidStream Logo" />
 
 
 Design modules can be represented by `.v`, `.tcl`, or `.xci` (Xilinx Compiled IP) files. Interface information can be described within the Verilog code as outlined in [getting_started/mixed_sources](../../../getting_started/mixed_sources). Alternatively, if your modules are compiled using `vitis_hls`, you can provide `.rpt` or `.xml` files.

@@ -1,21 +1,24 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-PLATFORM := xilinx_u250_gen3x16_xdma_4_1_202210_1
-PART := xcu250-figd2104-2L-e
-RUN_FILE := run.py
-LINK_FILE := link_config.ini
-KERNEL_NAME=kernel3
-SRC_DIR := design
-TARGET := hw
-TEMP_DIR := build
-KERNEL_XO := $(TEMP_DIR)/$(KERNEL_NAME).xo
+
+ROOT_DIR      := $(shell git rev-parse --show-toplevel)
+GRP_UTIL      := $(ROOT_DIR)/common/util/get_group.py
+PLATFORM      := xilinx_u250_gen3x16_xdma_4_1_202210_1
+PART          := xcu250-figd2104-2L-e
+RUN_FILE      := run.py
+LINK_FILE     := link_config.ini
+KERNEL_NAME   := kernel3
+SRC_DIR       := $(CURDIR)/design
+TARGET        := hw
+TEMP_DIR      := $(CURDIR)/build
+KERNEL_XO     := $(TEMP_DIR)/$(KERNEL_NAME).xo
 KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
-INCLUDE=-I $(XILINX_HLS)/include
-CFLAGS := $(INCLUDE) $(OPT_LEVEL)
-CXX := g++
-HOST := app.exe
-HLS2XO_TCL=../../../../common/tcl/hls2rtl.tcl
+INCLUDE       := -I $(XILINX_HLS)/include
+CFLAGS        := $(INCLUDE) $(OPT_LEVEL)
+CXX           := g++
+HOST          := app.exe
+HLS2XO_TCL    := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
 CLK_PERIOD_NS := 4
 
 
@@ -45,7 +48,7 @@ xo:$(KERNEL_XO)
 $(KERNEL_XO): $(SRC_DIR)/$(KERNEL_NAME).cpp $(SRC_DIR)/$(KERNEL_NAME).h
 ifeq ($(TARGET), hw)
 	mkdir -p $(TEMP_DIR)
-	vitis_hls $(HLS2XO_TCL) \
+	cd $(TEMP_DIR) && vitis_hls $(HLS2XO_TCL) \
 	-l $(TEMP_DIR)/vitis_hls_$(KERNEL_NAME).log \
 	-tclargs $(PART) $(CLK_PERIOD_NS) $(KERNEL_NAME) 1 \
 	$^
@@ -70,6 +73,11 @@ $(HOST): $(SRC_DIR)/host.cpp $(SRC_DIR)/kernel3.h
 csim:$(SRC_DIR)/main.cpp $(SRC_DIR)/$(KERNEL_NAME).cpp
 	$(CXX) $(CFLAGS) $^ -o main.exe
 	./main.exe
+
+show_groups:
+	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
+	-o $(TEMP_DIR)/module_types.csv
+
 
 
 
