@@ -135,11 +135,11 @@ Recipes
             <td><a href="./benchmarks/vivado_flow/CNN">CNN</a></td>
             <td><a href="https://github.com/UCLA-VAST/AutoBridge">AutoBridge</a></td>
             <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> RapidShell (U50) </a><br>
-            <td>Vitis HLS</td>
+            <td>Vitis HLS, Manual Verilog</td>
             <td>An HLS accelerator for the convolutional neural network kernel.</td>
         </tr>
         <tr>
-            <td><a href="./benchmarks/vitis_flow/cnn13x2">LLM</a></td>
+            <td><a href="benchmarks/vivado_flow/LLM">LLM</a></td>
             <td><a href="https://dl.acm.org/doi/10.1145/3656177">Chen <i>et al.</i><br/>(TRETS)</a></a></td>
             <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> VCK190 </a><br>
                 <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u55c.html"> VHK158 </a><br>
@@ -148,6 +148,13 @@ Recipes
             <td> Vitis HLS, Manual Verilog
             </td>
             <td>A model-specific spatial acceleration for Large Language Model (LLM) inference on FPGAs.</td>
+        </tr>
+        <tr>
+            <td><a href="./benchmarks/vivado_flow/cnn13x2">cnn13x2</a></td>
+            <td><a href="https://github.com/UCLA-VAST/AutoBridge">AutoBridge</a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> RapidShell (U50) </a><br>
+            <td>Vitis HLS, Manual Verilog</td>
+            <td>Pure text Vivado source project for RTL developers.</td>
         </tr>
     </tbody>
 </table>
@@ -216,10 +223,10 @@ Recipes
             <td>Accelerator for ORC Decoder.</td>
         </tr>
         <tr>
-            <td><a href="./benchmarks/autosa_cnn">Convolutional neural network</a></td>
+            <td><a href="benchmarks/tapa_flow/autosa_cnn">Convolutional neural network</a></td>
             <td><a href="https://dl.acm.org/doi/10.1145/3431920.3439292">Wang <i>et al.</i><br/>(FPGA '21)</a></td>
             <td>Vitis U250 XDMA</td>
-            <td>Vitis HLS</td>
+            <td>TAPA HLS</td>
             <td>Systolic array accelerator for a convolutional neural network layer.</td>
         </tr>
     </tbody>
