@@ -16,8 +16,14 @@ CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
 CXX              := g++
 HOST             := app.exe
 RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/VecAdd.xo
+TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+SUCCESS          := "Build Successful"
+SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
 
 all: $(RS_KERNEL_XCLBIN)
+	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT)
+	echo $(SUCCESS)
+
 
 $(RS_KERNEL_XCLBIN): $(RS_TARGET)
 	v++ -l -t ${TARGET} \

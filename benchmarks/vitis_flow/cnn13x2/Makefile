@@ -2,21 +2,23 @@
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
 
-ROOT_DIR      := $(shell git rev-parse --show-toplevel)
-GRP_UTIL      := $(ROOT_DIR)/common/util/get_group.py
-PLATFORM      := xilinx_u50_gen3x16_xdma_5_202210_1
-KERNEL_NAME   := kernel3
-SRC_DIR       := $(CURDIR)/design
-TARGET        := hw
-TEMP_DIR      := $(CURDIR)/build
-KERNEL_XO     := $(TEMP_DIR)/$(KERNEL_NAME).xo
-KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
-INCLUDE       := -I $(XILINX_HLS)/include
-CFLAGS        := $(INCLUDE) $(OPT_LEVEL)
-CXX           := g++
-HOST          := app.exe
-HLS2XO_TCL    := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
-CLK_PERIOD_NS := 4
+ROOT_DIR         := $(shell git rev-parse --show-toplevel)
+GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
+PLATFORM         := xilinx_u50_gen3x16_xdma_5_202210_1
+KERNEL_NAME      := kernel3
+SRC_DIR          := $(CURDIR)/design
+TARGET           := hw
+TEMP_DIR         := $(CURDIR)/build
+KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
+KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
+RS_KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME)_rs.xclbin
+INCLUDE          := -I $(XILINX_HLS)/include
+CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
+CXX              := g++
+HOST             := app.exe
+HLS2XO_TCL       := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
+CLK_PERIOD_NS    := 4
+RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/$(KERNEL_NAME).xo
 
 ifeq ($(PLATFORM), xilinx_u50_gen3x16_xdma_5_202210_1)
 PART := xcu50-fsvh2104-2-e
@@ -38,14 +40,26 @@ else
     $(error PLATFORM not supported)
 endif
 
-all:rs_opt
+all: $(RS_KERNEL_XCLBIN)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
 	XCL_EMULATION_MODE=sw_emu ./app.exe $<
 
 hw: $(KERNEL_XCLBIN) $(HOST)
 
-rs_opt:$(KERNEL_XO)
+$(RS_KERNEL_XCLBIN): $(RS_TARGET)
+	v++ -l -t ${TARGET} \
+	--platform $(PLATFORM) \
+	--kernel $(KERNEL_NAME) \
+	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
+	--config $(SRC_DIR)/$(LINK_FILE) \
+	--temp_dir $(TEMP_DIR) \
+	-o $@ \
+	$^
+
+rs_opt:$(RS_TARGET)
+
+$(RS_TARGET): $(KERNEL_XO)
 	rapidstream $(RUN_FILE)
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
