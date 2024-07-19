@@ -13,8 +13,12 @@ KERNEL_CLK_PERIOD_NS := 4
 TARGET               := hw
 HLS_TCL              := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
 GRP_UTIL             := $(ROOT_DIR)/common/util/get_group.py
+SUCCESS              := "Build Successful"
+SLACK_GETTER         := $(ROOT_DIR)/common/util/get_slack.py
 
-all:$(DCP_TARGET)
+all: $(DCP_TARGET)
+	rapidstream $(SLACK_GETTER) -i $(dir $<)/timing_summary.rpt
+	echo $(SUCCESS)
 
 $(DCP_TARGET):$(HLS_DIR_TARGETS)
 	rapidstream ./run.py
@@ -47,9 +51,6 @@ csim:$(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 show_groups:
 	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
 	-o $(TEMP_DIR)/module_types.csv
-
-
-
 
 clean:
 	rm -rf $(TEMP_DIR) *.log

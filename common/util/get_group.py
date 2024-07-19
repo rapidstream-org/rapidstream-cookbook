@@ -6,8 +6,6 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 import argparse
 import json
 from typing import Any
-# ARCH_PATH = './src/arch/yboard.txt'
-# MAX_ROW = 3
 
 
 def parse_json(input_file: str) -> Any:

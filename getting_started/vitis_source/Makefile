@@ -1,28 +1,37 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-ROOT_DIR      := $(shell git rev-parse --show-toplevel)
-PLATFORM      := xilinx_u280_gen3x16_xdma_1_202211_1
-GRP_UTIL      := $(ROOT_DIR)/common/util/get_group.py
-KERNEL_NAME   := VecAdd
-SRC_DIR       := design
-TARGET        := hw
-TEMP_DIR      := $(CURDIR)/build
-KERNEL_XO     := $(TEMP_DIR)/$(KERNEL_NAME).xo
-KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
-INCLUDE       := -I $(XILINX_HLS)/include
-CFLAGS        := $(INCLUDE) $(OPT_LEVEL)
-CXX           := g++
-HOST          := app.exe
+ROOT_DIR         := $(shell git rev-parse --show-toplevel)
+PLATFORM         := xilinx_u280_gen3x16_xdma_1_202211_1
+GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
+KERNEL_NAME      := VecAdd
+SRC_DIR          := design
+TARGET           := hw
+TEMP_DIR         := $(CURDIR)/build
+KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
+KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
+RS_KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME)_rs.xclbin
+INCLUDE          := -I $(XILINX_HLS)/include
+CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
+CXX              := g++
+HOST             := app.exe
+RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/VecAdd.xo
 
-all:rs_opt
+all: $(RS_KERNEL_XCLBIN)
 
-sw_emu: $(KERNEL_XCLBIN) $(HOST)
-	XCL_EMULATION_MODE=sw_emu ./app.exe $<
+$(RS_KERNEL_XCLBIN): $(RS_TARGET)
+	v++ -l -t ${TARGET} \
+	--platform $(PLATFORM) \
+	--kernel $(KERNEL_NAME) \
+	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
+	--config $(SRC_DIR)/link_config.ini \
+	--temp_dir $(TEMP_DIR) \
+	-o $@ \
+	$^
 
-hw: $(KERNEL_XCLBIN) $(HOST)
+rs_opt:$(RS_TARGET)
 
-rs_opt:$(KERNEL_XO)
+$(RS_TARGET): $(KERNEL_XO)
 	rapidstream ./run.py
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
@@ -34,6 +43,11 @@ $(KERNEL_XCLBIN): $(KERNEL_XO)
 	--temp_dir $(TEMP_DIR) \
 	-o $@ \
 	$^
+
+sw_emu: $(KERNEL_XCLBIN) $(HOST)
+	XCL_EMULATION_MODE=sw_emu ./app.exe $<
+
+hw: $(KERNEL_XCLBIN) $(HOST)
 
 xo:$(KERNEL_XO)
 
