@@ -157,6 +157,13 @@ Recipes
             <td>Vitis HLS, Manual Verilog</td>
             <td>Pure text Vivado source project for RTL developers.</td>
         </tr>
+        <tr>
+            <td><a href="benchmarks/vivado_flow/pld">PLD</a></td>
+            <td><a href="https://dl.acm.org/doi/abs/10.1145/3503222.3507740">Xiao <i>et al.</i><br/>(ASPLOS '22)</a></td>
+            <td align="center"> <a href="https://www.xilinx.com/products/boards-and-kits/alveo/u50.html"> RapidShell (U50) </a><br>
+            <td>Vitis HLS, Manual Verilog</td>
+            <td>Pure text Vivado source project for RTL developers.</td>
+        </tr>
     </tbody>
 </table>
 
