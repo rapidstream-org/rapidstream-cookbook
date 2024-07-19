@@ -51132,7 +51132,7 @@ valid3214.exit:63 %shufbuf_valid_191 = phi i1 %shufbuf_valid_127, void %valid321
 
 <Node id="1605" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-valid3214.exit:64 %icmp_ln421 = icmp_eq  i32 %next_output_idx_2, i32 512
+valid3214.exit:64 %icmp_ln421 = icmp_eq  i32 %next_output_idx_2, i32 4194304
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln421"/></StgValue>

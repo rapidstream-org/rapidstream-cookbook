@@ -23,6 +23,11 @@ BIT_TARGET           := $(TEMP_DIR)/prj/prj.runs/impl_1/design_1_wrapper.bit
 GEN_XO               := 0
 VXX                  := vivado -mode batch -source
 
+BUILD_LOG        := $(TEMP_DIR)/build.json
+SUCCESS          := "Build Successful"
+TIMING_RPT       := $(TEMP_DIR)/prj/prj.runs/impl_1/design_1_wrapper_timing_summary_routed.rpt
+SLACK_GETTER     := $(REPO_ROOT)/common/util/get_slack.py
+
 ifeq ($(PLATFORM), vhk158)
 PART      := xcvh1582-vsva3697-2MP-e-S
 BOARD     := xilinx.com:vhk158:part0:1.1
@@ -57,11 +62,14 @@ else
     $(error PLATFORM not supported)
 endif
 
-all:$(BIT_TARGET)
-	echo "TESTS PASS!"
+all: $(BIT_TARGET)
+	rapidstream $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	echo $(SUCCESS)
 
 $(BIT_TARGET):$(RS_TARGET)
 	cd $(TEMP_DIR) && $(VXX) $(IMPL_RS_TCL) -tclargs $(PART) $(BOARD) $(BD_TCL)
+
+rs_opt: $(RS_TARGET)
 
 $(RS_TARGET):$(KERNEL_HLS_SOL)
 	rapidstream $(RUN_FILE)

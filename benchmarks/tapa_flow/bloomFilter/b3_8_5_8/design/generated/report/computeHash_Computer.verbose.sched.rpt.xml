@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'computeHash_Computer'" level="0">
-<item name = "Date">Fri Jul 12 15:09:46 2024
+<item name = "Date">Mon Jul 22 13:45:05 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">project</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">527, 527, 1.755 us, 1.755 us, 528, 528, no</column>
+<column name="">4194319, 4194319, 13.967 ms, 13.967 ms, 4194320, 4194320, no</column>
 </table>
 </item>
 <item name = "Detail">

@@ -11,7 +11,7 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 Rapidsteam is fully compatible with AMD Vitis by taking Vitis object files (`.xo`) as input, performing optimization and generating optimized `.xo` files as output. Therefore, users can use `v++ -link` to continue their Vitis development flow.
 
-<img src="../img/rapidsteram_xo.png" width="600" alt="RapidStream Flow">
+<img src="../../common/img/rapidsteram_xo.png" width="600" alt="rapidstream_xo.png">
 
 In this recipe, we illustrate how to create a Vitis objective file (`.xo`) using Vitis, then optimize the `.xo` file with Rapidstream, and finally utilize the optimized output in the ongoing Vitis development process.
 

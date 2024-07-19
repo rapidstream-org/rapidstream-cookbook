@@ -158,9 +158,9 @@ while.cond:1 %specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="15" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="15" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:2 %tmp = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %num_writes_TOTAL_1, i32 9, i32 31
+while.cond:2 %tmp = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %num_writes_TOTAL_1, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -173,9 +173,9 @@ while.cond:2 %tmp = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %nu
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="16" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:3 %icmp_ln324 = icmp_slt  i23 %tmp, i23 1
+while.cond:3 %icmp_ln324 = icmp_slt  i10 %tmp, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln324"/></StgValue>

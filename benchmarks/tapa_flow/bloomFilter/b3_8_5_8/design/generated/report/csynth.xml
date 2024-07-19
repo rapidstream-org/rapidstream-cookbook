@@ -540,12 +540,12 @@
         <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
     </ReportBurst>
     <PragmaReport>
-        <Pragma type="inline" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:144" status="valid" parentFunction="murmurhash3_x86_32" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:152" status="valid" parentFunction="murmurhash3_x86_32" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:324" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = input_bv bundle = control"/>
-        <Pragma type="interface" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:328" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = key_in bundle = control"/>
-        <Pragma type="interface" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:332" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = out_bits bundle = control"/>
-        <Pragma type="interface" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:336" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = UNUSED_DUMMY bundle = control"/>
-        <Pragma type="interface" location="../../home/ylxiao/workspace/3-8-5-8/generated/cpp/workload.cpp:340" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = return bundle = control"/>
+        <Pragma type="inline" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:144" status="valid" parentFunction="murmurhash3_x86_32" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:152" status="valid" parentFunction="murmurhash3_x86_32" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:324" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = input_bv bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:328" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = key_in bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:332" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = out_bits bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:336" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = UNUSED_DUMMY bundle = control"/>
+        <Pragma type="interface" location="../../home/ylxiao/workspace/rapidstream-cookbook/benchmarks/tapa_flow/bloomFilter/b3_8_5_8/design/generated/cpp/workload.cpp:340" status="valid" parentFunction="workload" variable="" isDirective="0" options="s_axilite port = return bundle = control"/>
     </PragmaReport>
 </profile>

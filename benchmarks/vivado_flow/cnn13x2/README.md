@@ -14,7 +14,7 @@ Although AMD Vitis is widely used for its support of high-level languages, Vivad
 
 At this moment, Rapidstream mainly accepts text-based input sources as shown below.
 
-<img src="../../../getting_started/img/rapidstream_input.png" width="1024px" alt="RapidStream Logo" />
+<img src="../../../common/img/rapidstream_input.png" width="1024px" alt="rapidstream_input" />
 
 
 Design modules can be represented by `.v`, `.tcl`, or `.xci` (Xilinx Compiled IP) files. Interface information can be described within the Verilog code as outlined in [getting_started/mixed_sources](../../../getting_started/mixed_sources). Alternatively, if your modules are compiled using `vitis_hls`, you can provide `.rpt` or `.xml` files.

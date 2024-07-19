@@ -20,15 +20,6 @@ show_groups:
 	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
 	-o $(TEMP_DIR)/module_types.csv
 
-
-
-
-show_groups:
-	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
-	-o $(TEMP_DIR)/module_types.csv
-
-
-
 clean:
 	rm -rf $(TEMP_DIR) *.log
 	rm -rf .Xil .run

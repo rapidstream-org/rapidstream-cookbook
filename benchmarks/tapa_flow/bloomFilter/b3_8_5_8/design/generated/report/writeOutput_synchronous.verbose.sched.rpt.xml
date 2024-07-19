@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'writeOutput_synchronous'" level="0">
-<item name = "Date">Fri Jul 12 15:09:49 2024
+<item name = "Date">Mon Jul 22 13:45:31 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">project</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">43, 43, 0.143 us, 0.143 us, 44, 44, no</column>
+<column name="">262155, 262155, 0.873 ms, 0.873 ms, 262156, 262156, no</column>
 </table>
 </item>
 <item name = "Detail">

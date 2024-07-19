@@ -35,6 +35,5 @@ rs.add_flatten_targets([kernel_name])
 rs.add_clock("ap_clk", kernel_clk_ns)
 
 rs.assign_port_to_region(".*", "SLOT_X0Y0:SLOT_X0Y0")
-rs.assign_cell_to_region(".*k3.*", "SLOT_X0Y1:SLOT_X0Y1")
 
 rs.run_dse(skip_impl=True)

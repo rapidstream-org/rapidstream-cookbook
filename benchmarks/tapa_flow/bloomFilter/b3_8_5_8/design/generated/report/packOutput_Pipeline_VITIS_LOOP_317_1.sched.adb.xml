@@ -38,7 +38,7 @@ newFuncRoot:0 %p_Val2_s = alloca i32 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="4" bw="10" op_0_bw="32">
+<Node id="4" bw="23" op_0_bw="32">
 <![CDATA[
 newFuncRoot:1 %i = alloca i32 1
 
@@ -83,9 +83,9 @@ newFuncRoot:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="7" bw="0" op_0_bw="10" op_1_bw="10">
+<Node id="7" bw="0" op_0_bw="23" op_1_bw="23">
 <![CDATA[
-newFuncRoot:4 %store_ln0 = store i10 0, i10 %i
+newFuncRoot:4 %store_ln0 = store i23 0, i23 %i
 
 ]]></Node>
 <StgValue><ssdm name="store_ln0"/></StgValue>
@@ -113,9 +113,9 @@ newFuncRoot:5 %br_ln0 = br void %for.body
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="10" bw="10" op_0_bw="10" op_1_bw="0">
+<Node id="10" bw="23" op_0_bw="23" op_1_bw="0">
 <![CDATA[
-for.body:0 %i_1 = load i10 %i
+for.body:0 %i_1 = load i23 %i
 
 ]]></Node>
 <StgValue><ssdm name="i_1"/></StgValue>
@@ -143,9 +143,9 @@ for.body:1 %specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 429
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="1" op_0_bw="10" op_1_bw="10">
+<Node id="12" bw="1" op_0_bw="23" op_1_bw="23">
 <![CDATA[
-for.body:2 %icmp_ln317 = icmp_eq  i10 %i_1, i10 512
+for.body:2 %icmp_ln317 = icmp_eq  i23 %i_1, i23 4194304
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln317"/></StgValue>
@@ -160,7 +160,7 @@ for.body:2 %icmp_ln317 = icmp_eq  i10 %i_1, i10 512
 
 <Node id="13" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-for.body:3 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 512, i64 512, i64 512
+for.body:3 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 4194304, i64 4194304, i64 4194304
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -173,9 +173,9 @@ for.body:3 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 512, 
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="10" op_0_bw="10" op_1_bw="10">
+<Node id="14" bw="23" op_0_bw="23" op_1_bw="23">
 <![CDATA[
-for.body:4 %i_2 = add i10 %i_1, i10 1
+for.body:4 %i_2 = add i23 %i_1, i23 1
 
 ]]></Node>
 <StgValue><ssdm name="i_2"/></StgValue>
@@ -204,9 +204,9 @@ for.body:5 %br_ln317 = br i1 %icmp_ln317, void %for.body.split, void %for.end.ex
 </and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="5" op_0_bw="10">
+<Node id="18" bw="5" op_0_bw="23">
 <![CDATA[
-for.body.split:1 %pk_idx = trunc i10 %i_1
+for.body.split:1 %pk_idx = trunc i23 %i_1
 
 ]]></Node>
 <StgValue><ssdm name="pk_idx"/></StgValue>
@@ -252,9 +252,9 @@ for.body.split:8 %br_ln321 = br i1 %icmp_ln321, void %for.body.split.for.inc_cri
 </and_exp></or_exp>
 </condition>
 
-<Node id="35" bw="0" op_0_bw="10" op_1_bw="10" op_2_bw="0" op_3_bw="0">
+<Node id="35" bw="0" op_0_bw="23" op_1_bw="23" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-for.inc:0 %store_ln317 = store i10 %i_2, i10 %i
+for.inc:0 %store_ln317 = store i23 %i_2, i23 %i
 
 ]]></Node>
 <StgValue><ssdm name="store_ln317"/></StgValue>

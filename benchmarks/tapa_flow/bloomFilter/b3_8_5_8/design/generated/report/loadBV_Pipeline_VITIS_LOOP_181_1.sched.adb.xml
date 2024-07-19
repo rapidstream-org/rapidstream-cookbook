@@ -188,9 +188,9 @@ for.cond:0 %i_resp_1 = load i32 %i_resp
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="28" op_0_bw="28" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="19" bw="15" op_0_bw="15" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-for.cond:2 %tmp = partselect i28 @_ssdm_op_PartSelect.i28.i32.i32.i32, i32 %i_resp_1, i32 4, i32 31
+for.cond:2 %tmp = partselect i15 @_ssdm_op_PartSelect.i15.i32.i32.i32, i32 %i_resp_1, i32 17, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -203,9 +203,9 @@ for.cond:2 %tmp = partselect i28 @_ssdm_op_PartSelect.i28.i32.i32.i32, i32 %i_re
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="1" op_0_bw="28" op_1_bw="28">
+<Node id="20" bw="1" op_0_bw="15" op_1_bw="15">
 <![CDATA[
-for.cond:3 %icmp_ln182 = icmp_slt  i28 %tmp, i28 1
+for.cond:3 %icmp_ln182 = icmp_slt  i15 %tmp, i15 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln182"/></StgValue>
@@ -451,9 +451,9 @@ for.body:1 %specloopname_ln185 = specloopname void @_ssdm_op_SpecLoopName, void 
 </and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="28" op_0_bw="28" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="25" bw="15" op_0_bw="15" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-for.body:2 %tmp_1 = partselect i28 @_ssdm_op_PartSelect.i28.i32.i32.i32, i32 %i_req_1, i32 4, i32 31
+for.body:2 %tmp_1 = partselect i15 @_ssdm_op_PartSelect.i15.i32.i32.i32, i32 %i_req_1, i32 17, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_1"/></StgValue>
@@ -467,9 +467,9 @@ for.body:2 %tmp_1 = partselect i28 @_ssdm_op_PartSelect.i28.i32.i32.i32, i32 %i_
 </and_exp></or_exp>
 </condition>
 
-<Node id="26" bw="1" op_0_bw="28" op_1_bw="28">
+<Node id="26" bw="1" op_0_bw="15" op_1_bw="15">
 <![CDATA[
-for.body:3 %icmp_ln185 = icmp_slt  i28 %tmp_1, i28 1
+for.body:3 %icmp_ln185 = icmp_slt  i15 %tmp_1, i15 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln185"/></StgValue>

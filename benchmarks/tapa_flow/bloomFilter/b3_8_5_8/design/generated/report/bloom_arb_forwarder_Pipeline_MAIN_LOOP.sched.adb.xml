@@ -353,9 +353,9 @@ newFuncRoot:21 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="111" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="111" bw="19" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-newFuncRoot:22 %zext_ln146_7_read = read i6 @_ssdm_op_Read.ap_auto.i6, i6 %zext_ln146_7
+newFuncRoot:22 %zext_ln146_7_read = read i19 @_ssdm_op_Read.ap_auto.i19, i19 %zext_ln146_7
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_7_read"/></StgValue>
@@ -398,9 +398,9 @@ newFuncRoot:24 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="114" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="114" bw="19" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-newFuncRoot:25 %zext_ln146_5_read = read i6 @_ssdm_op_Read.ap_auto.i6, i6 %zext_ln146_5
+newFuncRoot:25 %zext_ln146_5_read = read i19 @_ssdm_op_Read.ap_auto.i19, i19 %zext_ln146_5
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_5_read"/></StgValue>
@@ -443,9 +443,9 @@ newFuncRoot:27 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="117" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="117" bw="19" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-newFuncRoot:28 %zext_ln146_3_read = read i6 @_ssdm_op_Read.ap_auto.i6, i6 %zext_ln146_3
+newFuncRoot:28 %zext_ln146_3_read = read i19 @_ssdm_op_Read.ap_auto.i19, i19 %zext_ln146_3
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_3_read"/></StgValue>
@@ -488,9 +488,9 @@ newFuncRoot:30 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="120" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="120" bw="19" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-newFuncRoot:31 %zext_ln146_1_read = read i6 @_ssdm_op_Read.ap_auto.i6, i6 %zext_ln146_1
+newFuncRoot:31 %zext_ln146_1_read = read i19 @_ssdm_op_Read.ap_auto.i19, i19 %zext_ln146_1
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_1_read"/></StgValue>
@@ -518,9 +518,9 @@ newFuncRoot:32 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="122" bw="6" op_0_bw="6" op_1_bw="6">
+<Node id="122" bw="19" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-newFuncRoot:33 %zext_ln146_read = read i6 @_ssdm_op_Read.ap_auto.i6, i6 %zext_ln146
+newFuncRoot:33 %zext_ln146_read = read i19 @_ssdm_op_Read.ap_auto.i19, i19 %zext_ln146
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_read"/></StgValue>
@@ -548,9 +548,9 @@ newFuncRoot:34 %zext_ln392_cast = zext i3 %zext_ln392_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="124" bw="32" op_0_bw="6">
+<Node id="124" bw="32" op_0_bw="19">
 <![CDATA[
-newFuncRoot:35 %zext_ln146_7_cast = zext i6 %zext_ln146_7_read
+newFuncRoot:35 %zext_ln146_7_cast = zext i19 %zext_ln146_7_read
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_7_cast"/></StgValue>
@@ -578,9 +578,9 @@ newFuncRoot:36 %zext_ln146_6_cast = zext i2 %zext_ln146_6_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="126" bw="32" op_0_bw="6">
+<Node id="126" bw="32" op_0_bw="19">
 <![CDATA[
-newFuncRoot:37 %zext_ln146_5_cast = zext i6 %zext_ln146_5_read
+newFuncRoot:37 %zext_ln146_5_cast = zext i19 %zext_ln146_5_read
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_5_cast"/></StgValue>
@@ -608,9 +608,9 @@ newFuncRoot:38 %zext_ln146_4_cast = zext i2 %zext_ln146_4_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="128" bw="32" op_0_bw="6">
+<Node id="128" bw="32" op_0_bw="19">
 <![CDATA[
-newFuncRoot:39 %zext_ln146_3_cast = zext i6 %zext_ln146_3_read
+newFuncRoot:39 %zext_ln146_3_cast = zext i19 %zext_ln146_3_read
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_3_cast"/></StgValue>
@@ -638,9 +638,9 @@ newFuncRoot:40 %zext_ln146_2_cast = zext i1 %zext_ln146_2_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="130" bw="32" op_0_bw="6">
+<Node id="130" bw="32" op_0_bw="19">
 <![CDATA[
-newFuncRoot:41 %zext_ln146_1_cast = zext i6 %zext_ln146_1_read
+newFuncRoot:41 %zext_ln146_1_cast = zext i19 %zext_ln146_1_read
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_1_cast"/></StgValue>
@@ -653,9 +653,9 @@ newFuncRoot:41 %zext_ln146_1_cast = zext i6 %zext_ln146_1_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="131" bw="32" op_0_bw="6">
+<Node id="131" bw="32" op_0_bw="19">
 <![CDATA[
-newFuncRoot:42 %zext_ln146_cast = zext i6 %zext_ln146_read
+newFuncRoot:42 %zext_ln146_cast = zext i19 %zext_ln146_read
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln146_cast"/></StgValue>
@@ -1753,7 +1753,7 @@ while.cond:5 %p_load = load i32 %empty_16
 
 <Node id="205" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-while.cond:6 %icmp_ln399 = icmp_slt  i32 %total_num_reads_11, i32 2560
+while.cond:6 %icmp_ln399 = icmp_slt  i32 %total_num_reads_11, i32 20971520
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln399"/></StgValue>
@@ -1766,9 +1766,9 @@ while.cond:6 %icmp_ln399 = icmp_slt  i32 %total_num_reads_11, i32 2560
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="206" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="206" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:7 %tmp_6 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %p_load122, i32 9, i32 31
+while.cond:7 %tmp_6 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %p_load122, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_6"/></StgValue>
@@ -1781,9 +1781,9 @@ while.cond:7 %tmp_6 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="207" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="207" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:8 %icmp_ln400 = icmp_slt  i23 %tmp_6, i23 1
+while.cond:8 %icmp_ln400 = icmp_slt  i10 %tmp_6, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln400"/></StgValue>
@@ -1796,9 +1796,9 @@ while.cond:8 %icmp_ln400 = icmp_slt  i23 %tmp_6, i23 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="208" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="208" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:9 %tmp_8 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %p_load121, i32 9, i32 31
+while.cond:9 %tmp_8 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %p_load121, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_8"/></StgValue>
@@ -1811,9 +1811,9 @@ while.cond:9 %tmp_8 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="209" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="209" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:10 %icmp_ln401 = icmp_slt  i23 %tmp_8, i23 1
+while.cond:10 %icmp_ln401 = icmp_slt  i10 %tmp_8, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln401"/></StgValue>
@@ -1826,9 +1826,9 @@ while.cond:10 %icmp_ln401 = icmp_slt  i23 %tmp_8, i23 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="210" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="210" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:11 %tmp_10 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %p_load120, i32 9, i32 31
+while.cond:11 %tmp_10 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %p_load120, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_10"/></StgValue>
@@ -1841,9 +1841,9 @@ while.cond:11 %tmp_10 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="211" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="211" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:12 %icmp_ln402 = icmp_slt  i23 %tmp_10, i23 1
+while.cond:12 %icmp_ln402 = icmp_slt  i10 %tmp_10, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln402"/></StgValue>
@@ -1856,9 +1856,9 @@ while.cond:12 %icmp_ln402 = icmp_slt  i23 %tmp_10, i23 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="212" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="212" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:13 %tmp_12 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %p_load119, i32 9, i32 31
+while.cond:13 %tmp_12 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %p_load119, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_12"/></StgValue>
@@ -1871,9 +1871,9 @@ while.cond:13 %tmp_12 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="213" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="213" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:14 %icmp_ln403 = icmp_slt  i23 %tmp_12, i23 1
+while.cond:14 %icmp_ln403 = icmp_slt  i10 %tmp_12, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln403"/></StgValue>
@@ -1886,9 +1886,9 @@ while.cond:14 %icmp_ln403 = icmp_slt  i23 %tmp_12, i23 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="214" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="214" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:15 %tmp_16 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %p_load, i32 9, i32 31
+while.cond:15 %tmp_16 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %p_load, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_16"/></StgValue>
@@ -1901,9 +1901,9 @@ while.cond:15 %tmp_16 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="215" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="215" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:16 %icmp_ln404 = icmp_slt  i23 %tmp_16, i23 1
+while.cond:16 %icmp_ln404 = icmp_slt  i10 %tmp_16, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln404"/></StgValue>
@@ -2125,7 +2125,7 @@ if.then189:0 %hash_stream_0_read = read i33 @_ssdm_op_Read.ap_fifo.volatile.i33P
 </and_exp></or_exp>
 </condition>
 
-<Node id="232" bw="6" op_0_bw="33">
+<Node id="232" bw="19" op_0_bw="33">
 <![CDATA[
 if.then189:1 %ret_V = trunc i33 %hash_stream_0_read
 
@@ -2143,9 +2143,9 @@ if.then189:1 %ret_V = trunc i33 %hash_stream_0_read
 </and_exp></or_exp>
 </condition>
 
-<Node id="233" bw="32" op_0_bw="6">
+<Node id="233" bw="32" op_0_bw="19">
 <![CDATA[
-if.then189:2 %zext_ln1514 = zext i6 %ret_V
+if.then189:2 %zext_ln1514 = zext i19 %ret_V
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln1514"/></StgValue>
@@ -2161,9 +2161,9 @@ if.then189:2 %zext_ln1514 = zext i6 %ret_V
 </and_exp></or_exp>
 </condition>
 
-<Node id="234" bw="26" op_0_bw="26" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<Node id="234" bw="13" op_0_bw="13" op_1_bw="33" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-if.then189:3 %trunc_ln = partselect i26 @_ssdm_op_PartSelect.i26.i33.i32.i32, i33 %hash_stream_0_read, i32 6, i32 31
+if.then189:3 %trunc_ln = partselect i13 @_ssdm_op_PartSelect.i13.i33.i32.i32, i33 %hash_stream_0_read, i32 19, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="trunc_ln"/></StgValue>
@@ -2269,9 +2269,9 @@ if.then189:8 %store_ln433 = store i1 1, i1 %bloom_arb_forwarder_int_int_istream_
 </and_exp></or_exp>
 </condition>
 
-<Node id="240" bw="0" op_0_bw="6" op_1_bw="6">
+<Node id="240" bw="0" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-if.then189:9 %store_ln434 = store i6 %ret_V, i6 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_9
+if.then189:9 %store_ln434 = store i19 %ret_V, i19 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_9
 
 ]]></Node>
 <StgValue><ssdm name="store_ln434"/></StgValue>
@@ -2305,9 +2305,9 @@ if.then189:10 %store_ln434 = store i24 %cur_metadata_iidx_V, i24 %bloom_arb_forw
 </and_exp></or_exp>
 </condition>
 
-<Node id="242" bw="0" op_0_bw="26" op_1_bw="26">
+<Node id="242" bw="0" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-if.then189:11 %store_ln435 = store i26 %trunc_ln, i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24
+if.then189:11 %store_ln435 = store i13 %trunc_ln, i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24
 
 ]]></Node>
 <StgValue><ssdm name="store_ln435"/></StgValue>
@@ -2509,7 +2509,7 @@ if.then189.1:0 %hash_stream_1_read = read i33 @_ssdm_op_Read.ap_fifo.volatile.i3
 </and_exp></or_exp>
 </condition>
 
-<Node id="257" bw="6" op_0_bw="33">
+<Node id="257" bw="19" op_0_bw="33">
 <![CDATA[
 if.then189.1:1 %ret_V_1 = trunc i33 %hash_stream_1_read
 
@@ -2527,9 +2527,9 @@ if.then189.1:1 %ret_V_1 = trunc i33 %hash_stream_1_read
 </and_exp></or_exp>
 </condition>
 
-<Node id="258" bw="32" op_0_bw="6">
+<Node id="258" bw="32" op_0_bw="19">
 <![CDATA[
-if.then189.1:2 %zext_ln1514_1 = zext i6 %ret_V_1
+if.then189.1:2 %zext_ln1514_1 = zext i19 %ret_V_1
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln1514_1"/></StgValue>
@@ -2545,9 +2545,9 @@ if.then189.1:2 %zext_ln1514_1 = zext i6 %ret_V_1
 </and_exp></or_exp>
 </condition>
 
-<Node id="259" bw="26" op_0_bw="26" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<Node id="259" bw="13" op_0_bw="13" op_1_bw="33" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-if.then189.1:3 %trunc_ln424_1 = partselect i26 @_ssdm_op_PartSelect.i26.i33.i32.i32, i33 %hash_stream_1_read, i32 6, i32 31
+if.then189.1:3 %trunc_ln424_1 = partselect i13 @_ssdm_op_PartSelect.i13.i33.i32.i32, i33 %hash_stream_1_read, i32 19, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="trunc_ln424_1"/></StgValue>
@@ -2653,9 +2653,9 @@ if.then189.1:8 %store_ln433 = store i1 1, i1 %bloom_arb_forwarder_int_int_istrea
 </and_exp></or_exp>
 </condition>
 
-<Node id="265" bw="0" op_0_bw="6" op_1_bw="6">
+<Node id="265" bw="0" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-if.then189.1:9 %store_ln434 = store i6 %ret_V_1, i6 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_10
+if.then189.1:9 %store_ln434 = store i19 %ret_V_1, i19 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_10
 
 ]]></Node>
 <StgValue><ssdm name="store_ln434"/></StgValue>
@@ -2707,9 +2707,9 @@ if.then189.1:11 %store_ln434 = store i1 1, i1 %bloom_arb_forwarder_int_int_istre
 </and_exp></or_exp>
 </condition>
 
-<Node id="268" bw="0" op_0_bw="26" op_1_bw="26">
+<Node id="268" bw="0" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-if.then189.1:12 %store_ln435 = store i26 %trunc_ln424_1, i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25
+if.then189.1:12 %store_ln435 = store i13 %trunc_ln424_1, i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25
 
 ]]></Node>
 <StgValue><ssdm name="store_ln435"/></StgValue>
@@ -2945,7 +2945,7 @@ if.then189.2:0 %hash_stream_2_read = read i33 @_ssdm_op_Read.ap_fifo.volatile.i3
 </and_exp></or_exp>
 </condition>
 
-<Node id="285" bw="6" op_0_bw="33">
+<Node id="285" bw="19" op_0_bw="33">
 <![CDATA[
 if.then189.2:1 %ret_V_2 = trunc i33 %hash_stream_2_read
 
@@ -2963,9 +2963,9 @@ if.then189.2:1 %ret_V_2 = trunc i33 %hash_stream_2_read
 </and_exp></or_exp>
 </condition>
 
-<Node id="286" bw="32" op_0_bw="6">
+<Node id="286" bw="32" op_0_bw="19">
 <![CDATA[
-if.then189.2:2 %zext_ln1514_2 = zext i6 %ret_V_2
+if.then189.2:2 %zext_ln1514_2 = zext i19 %ret_V_2
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln1514_2"/></StgValue>
@@ -2981,9 +2981,9 @@ if.then189.2:2 %zext_ln1514_2 = zext i6 %ret_V_2
 </and_exp></or_exp>
 </condition>
 
-<Node id="287" bw="26" op_0_bw="26" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<Node id="287" bw="13" op_0_bw="13" op_1_bw="33" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-if.then189.2:3 %trunc_ln424_2 = partselect i26 @_ssdm_op_PartSelect.i26.i33.i32.i32, i33 %hash_stream_2_read, i32 6, i32 31
+if.then189.2:3 %trunc_ln424_2 = partselect i13 @_ssdm_op_PartSelect.i13.i33.i32.i32, i33 %hash_stream_2_read, i32 19, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="trunc_ln424_2"/></StgValue>
@@ -3089,9 +3089,9 @@ if.then189.2:8 %store_ln433 = store i1 1, i1 %bloom_arb_forwarder_int_int_istrea
 </and_exp></or_exp>
 </condition>
 
-<Node id="293" bw="0" op_0_bw="6" op_1_bw="6">
+<Node id="293" bw="0" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-if.then189.2:9 %store_ln434 = store i6 %ret_V_2, i6 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_11
+if.then189.2:9 %store_ln434 = store i19 %ret_V_2, i19 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_11
 
 ]]></Node>
 <StgValue><ssdm name="store_ln434"/></StgValue>
@@ -3143,9 +3143,9 @@ if.then189.2:11 %store_ln434 = store i2 2, i2 %bloom_arb_forwarder_int_int_istre
 </and_exp></or_exp>
 </condition>
 
-<Node id="296" bw="0" op_0_bw="26" op_1_bw="26">
+<Node id="296" bw="0" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-if.then189.2:12 %store_ln435 = store i26 %trunc_ln424_2, i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26
+if.then189.2:12 %store_ln435 = store i13 %trunc_ln424_2, i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26
 
 ]]></Node>
 <StgValue><ssdm name="store_ln435"/></StgValue>
@@ -3381,7 +3381,7 @@ if.then189.3:0 %hash_stream_3_read = read i33 @_ssdm_op_Read.ap_fifo.volatile.i3
 </and_exp></or_exp>
 </condition>
 
-<Node id="313" bw="6" op_0_bw="33">
+<Node id="313" bw="19" op_0_bw="33">
 <![CDATA[
 if.then189.3:1 %ret_V_3 = trunc i33 %hash_stream_3_read
 
@@ -3399,9 +3399,9 @@ if.then189.3:1 %ret_V_3 = trunc i33 %hash_stream_3_read
 </and_exp></or_exp>
 </condition>
 
-<Node id="314" bw="32" op_0_bw="6">
+<Node id="314" bw="32" op_0_bw="19">
 <![CDATA[
-if.then189.3:2 %zext_ln1514_3 = zext i6 %ret_V_3
+if.then189.3:2 %zext_ln1514_3 = zext i19 %ret_V_3
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln1514_3"/></StgValue>
@@ -3417,9 +3417,9 @@ if.then189.3:2 %zext_ln1514_3 = zext i6 %ret_V_3
 </and_exp></or_exp>
 </condition>
 
-<Node id="315" bw="26" op_0_bw="26" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<Node id="315" bw="13" op_0_bw="13" op_1_bw="33" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-if.then189.3:3 %trunc_ln424_3 = partselect i26 @_ssdm_op_PartSelect.i26.i33.i32.i32, i33 %hash_stream_3_read, i32 6, i32 31
+if.then189.3:3 %trunc_ln424_3 = partselect i13 @_ssdm_op_PartSelect.i13.i33.i32.i32, i33 %hash_stream_3_read, i32 19, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="trunc_ln424_3"/></StgValue>
@@ -3525,9 +3525,9 @@ if.then189.3:8 %store_ln433 = store i1 1, i1 %bloom_arb_forwarder_int_int_istrea
 </and_exp></or_exp>
 </condition>
 
-<Node id="321" bw="0" op_0_bw="6" op_1_bw="6">
+<Node id="321" bw="0" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-if.then189.3:9 %store_ln434 = store i6 %ret_V_3, i6 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_12
+if.then189.3:9 %store_ln434 = store i19 %ret_V_3, i19 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_12
 
 ]]></Node>
 <StgValue><ssdm name="store_ln434"/></StgValue>
@@ -3579,9 +3579,9 @@ if.then189.3:11 %store_ln434 = store i2 3, i2 %bloom_arb_forwarder_int_int_istre
 </and_exp></or_exp>
 </condition>
 
-<Node id="324" bw="0" op_0_bw="26" op_1_bw="26">
+<Node id="324" bw="0" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-if.then189.3:12 %store_ln435 = store i26 %trunc_ln424_3, i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27
+if.then189.3:12 %store_ln435 = store i13 %trunc_ln424_3, i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27
 
 ]]></Node>
 <StgValue><ssdm name="store_ln435"/></StgValue>
@@ -3817,7 +3817,7 @@ if.then189.4:0 %hash_stream_4_read = read i33 @_ssdm_op_Read.ap_fifo.volatile.i3
 </and_exp></or_exp>
 </condition>
 
-<Node id="341" bw="6" op_0_bw="33">
+<Node id="341" bw="19" op_0_bw="33">
 <![CDATA[
 if.then189.4:1 %ret_V_4 = trunc i33 %hash_stream_4_read
 
@@ -3835,9 +3835,9 @@ if.then189.4:1 %ret_V_4 = trunc i33 %hash_stream_4_read
 </and_exp></or_exp>
 </condition>
 
-<Node id="342" bw="32" op_0_bw="6">
+<Node id="342" bw="32" op_0_bw="19">
 <![CDATA[
-if.then189.4:2 %zext_ln1514_4 = zext i6 %ret_V_4
+if.then189.4:2 %zext_ln1514_4 = zext i19 %ret_V_4
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln1514_4"/></StgValue>
@@ -3853,9 +3853,9 @@ if.then189.4:2 %zext_ln1514_4 = zext i6 %ret_V_4
 </and_exp></or_exp>
 </condition>
 
-<Node id="343" bw="26" op_0_bw="26" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<Node id="343" bw="13" op_0_bw="13" op_1_bw="33" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-if.then189.4:3 %trunc_ln424_4 = partselect i26 @_ssdm_op_PartSelect.i26.i33.i32.i32, i33 %hash_stream_4_read, i32 6, i32 31
+if.then189.4:3 %trunc_ln424_4 = partselect i13 @_ssdm_op_PartSelect.i13.i33.i32.i32, i33 %hash_stream_4_read, i32 19, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="trunc_ln424_4"/></StgValue>
@@ -3961,9 +3961,9 @@ if.then189.4:8 %store_ln433 = store i1 1, i1 %bloom_arb_forwarder_int_int_istrea
 </and_exp></or_exp>
 </condition>
 
-<Node id="349" bw="0" op_0_bw="6" op_1_bw="6">
+<Node id="349" bw="0" op_0_bw="19" op_1_bw="19">
 <![CDATA[
-if.then189.4:9 %store_ln434 = store i6 %ret_V_4, i6 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_13
+if.then189.4:9 %store_ln434 = store i19 %ret_V_4, i19 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_13
 
 ]]></Node>
 <StgValue><ssdm name="store_ln434"/></StgValue>
@@ -4015,9 +4015,9 @@ if.then189.4:11 %store_ln434 = store i3 4, i3 %bloom_arb_forwarder_int_int_istre
 </and_exp></or_exp>
 </condition>
 
-<Node id="352" bw="0" op_0_bw="26" op_1_bw="26">
+<Node id="352" bw="0" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-if.then189.4:12 %store_ln435 = store i26 %trunc_ln424_4, i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28
+if.then189.4:12 %store_ln435 = store i13 %trunc_ln424_4, i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28
 
 ]]></Node>
 <StgValue><ssdm name="store_ln435"/></StgValue>
@@ -4183,9 +4183,9 @@ for.body221:4 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_H
 </and_exp></or_exp>
 </condition>
 
-<Node id="363" bw="26" op_0_bw="26" op_1_bw="0">
+<Node id="363" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-for.body221:5 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load = load i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24
+for.body221:5 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load = load i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24
 
 ]]></Node>
 <StgValue><ssdm name="bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load"/></StgValue>
@@ -4199,9 +4199,9 @@ for.body221:5 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_H
 </and_exp></or_exp>
 </condition>
 
-<Node id="364" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="364" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221:6 %icmp_ln449 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 0
+for.body221:6 %icmp_ln449 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 0
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449"/></StgValue>
@@ -4401,9 +4401,9 @@ for.inc247:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HA
 </and_exp></or_exp>
 </condition>
 
-<Node id="379" bw="26" op_0_bw="26" op_1_bw="0">
+<Node id="379" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-for.inc247:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load = load i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25
+for.inc247:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load = load i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25
 
 ]]></Node>
 <StgValue><ssdm name="bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load"/></StgValue>
@@ -4417,9 +4417,9 @@ for.inc247:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HA
 </and_exp></or_exp>
 </condition>
 
-<Node id="380" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="380" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247:3 %icmp_ln449_1 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 0
+for.inc247:3 %icmp_ln449_1 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 0
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_1"/></StgValue>
@@ -4602,9 +4602,9 @@ for.inc247.122:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="394" bw="26" op_0_bw="26" op_1_bw="0">
+<Node id="394" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-for.inc247.122:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load = load i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26
+for.inc247.122:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load = load i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26
 
 ]]></Node>
 <StgValue><ssdm name="bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load"/></StgValue>
@@ -4618,9 +4618,9 @@ for.inc247.122:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="395" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="395" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.122:3 %icmp_ln449_2 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 0
+for.inc247.122:3 %icmp_ln449_2 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 0
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_2"/></StgValue>
@@ -4803,9 +4803,9 @@ for.inc247.239:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="409" bw="26" op_0_bw="26" op_1_bw="0">
+<Node id="409" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-for.inc247.239:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load = load i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27
+for.inc247.239:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load = load i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27
 
 ]]></Node>
 <StgValue><ssdm name="bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load"/></StgValue>
@@ -4819,9 +4819,9 @@ for.inc247.239:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="410" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="410" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.239:3 %icmp_ln449_3 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 0
+for.inc247.239:3 %icmp_ln449_3 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 0
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_3"/></StgValue>
@@ -5004,9 +5004,9 @@ for.inc247.356:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="424" bw="26" op_0_bw="26" op_1_bw="0">
+<Node id="424" bw="13" op_0_bw="13" op_1_bw="0">
 <![CDATA[
-for.inc247.356:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load = load i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28
+for.inc247.356:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load = load i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28
 
 ]]></Node>
 <StgValue><ssdm name="bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load"/></StgValue>
@@ -5020,9 +5020,9 @@ for.inc247.356:2 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="425" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="425" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.356:3 %icmp_ln449_4 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 0
+for.inc247.356:3 %icmp_ln449_4 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 0
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_4"/></StgValue>
@@ -5205,9 +5205,9 @@ for.body221.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="439" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="439" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.1:2 %icmp_ln449_5 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 1
+for.body221.1:2 %icmp_ln449_5 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_5"/></StgValue>
@@ -5407,9 +5407,9 @@ for.inc247.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="454" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="454" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.1:2 %icmp_ln449_6 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 1
+for.inc247.1:2 %icmp_ln449_6 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_6"/></StgValue>
@@ -5592,9 +5592,9 @@ for.inc247.1.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="468" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="468" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.1.1:2 %icmp_ln449_7 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 1
+for.inc247.1.1:2 %icmp_ln449_7 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_7"/></StgValue>
@@ -5777,9 +5777,9 @@ for.inc247.1.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="482" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="482" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.1.2:2 %icmp_ln449_8 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 1
+for.inc247.1.2:2 %icmp_ln449_8 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_8"/></StgValue>
@@ -5962,9 +5962,9 @@ for.inc247.1.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="496" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="496" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.1.3:2 %icmp_ln449_9 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 1
+for.inc247.1.3:2 %icmp_ln449_9 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_9"/></StgValue>
@@ -6147,9 +6147,9 @@ for.body221.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="510" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="510" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.2:2 %icmp_ln449_10 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 2
+for.body221.2:2 %icmp_ln449_10 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 2
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_10"/></StgValue>
@@ -6349,9 +6349,9 @@ for.inc247.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="525" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="525" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.2:2 %icmp_ln449_11 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 2
+for.inc247.2:2 %icmp_ln449_11 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 2
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_11"/></StgValue>
@@ -6534,9 +6534,9 @@ for.inc247.2.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="539" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="539" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.2.1:2 %icmp_ln449_12 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 2
+for.inc247.2.1:2 %icmp_ln449_12 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 2
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_12"/></StgValue>
@@ -6719,9 +6719,9 @@ for.inc247.2.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="553" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="553" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.2.2:2 %icmp_ln449_13 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 2
+for.inc247.2.2:2 %icmp_ln449_13 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 2
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_13"/></StgValue>
@@ -6904,9 +6904,9 @@ for.inc247.2.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="567" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="567" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.2.3:2 %icmp_ln449_14 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 2
+for.inc247.2.3:2 %icmp_ln449_14 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 2
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_14"/></StgValue>
@@ -7089,9 +7089,9 @@ for.body221.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="581" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="581" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.3:2 %icmp_ln449_15 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 3
+for.body221.3:2 %icmp_ln449_15 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 3
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_15"/></StgValue>
@@ -7291,9 +7291,9 @@ for.inc247.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="596" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="596" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.3:2 %icmp_ln449_16 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 3
+for.inc247.3:2 %icmp_ln449_16 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 3
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_16"/></StgValue>
@@ -7476,9 +7476,9 @@ for.inc247.3.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="610" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="610" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.3.1:2 %icmp_ln449_17 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 3
+for.inc247.3.1:2 %icmp_ln449_17 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 3
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_17"/></StgValue>
@@ -7661,9 +7661,9 @@ for.inc247.3.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="624" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="624" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.3.2:2 %icmp_ln449_18 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 3
+for.inc247.3.2:2 %icmp_ln449_18 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 3
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_18"/></StgValue>
@@ -7846,9 +7846,9 @@ for.inc247.3.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="638" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="638" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.3.3:2 %icmp_ln449_19 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 3
+for.inc247.3.3:2 %icmp_ln449_19 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 3
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_19"/></StgValue>
@@ -8031,9 +8031,9 @@ for.body221.4:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="652" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="652" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.4:2 %icmp_ln449_20 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 4
+for.body221.4:2 %icmp_ln449_20 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 4
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_20"/></StgValue>
@@ -8233,9 +8233,9 @@ for.inc247.4:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="667" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="667" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.4:2 %icmp_ln449_21 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 4
+for.inc247.4:2 %icmp_ln449_21 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 4
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_21"/></StgValue>
@@ -8418,9 +8418,9 @@ for.inc247.4.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="681" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="681" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.4.1:2 %icmp_ln449_22 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 4
+for.inc247.4.1:2 %icmp_ln449_22 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 4
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_22"/></StgValue>
@@ -8603,9 +8603,9 @@ for.inc247.4.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="695" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="695" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.4.2:2 %icmp_ln449_23 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 4
+for.inc247.4.2:2 %icmp_ln449_23 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 4
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_23"/></StgValue>
@@ -8788,9 +8788,9 @@ for.inc247.4.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="709" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="709" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.4.3:2 %icmp_ln449_24 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 4
+for.inc247.4.3:2 %icmp_ln449_24 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 4
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_24"/></StgValue>
@@ -8973,9 +8973,9 @@ for.body221.5:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="723" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="723" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.5:2 %icmp_ln449_25 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 5
+for.body221.5:2 %icmp_ln449_25 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 5
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_25"/></StgValue>
@@ -9175,9 +9175,9 @@ for.inc247.5:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="738" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="738" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.5:2 %icmp_ln449_26 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 5
+for.inc247.5:2 %icmp_ln449_26 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 5
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_26"/></StgValue>
@@ -9360,9 +9360,9 @@ for.inc247.5.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="752" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="752" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.5.1:2 %icmp_ln449_27 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 5
+for.inc247.5.1:2 %icmp_ln449_27 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 5
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_27"/></StgValue>
@@ -9545,9 +9545,9 @@ for.inc247.5.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="766" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="766" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.5.2:2 %icmp_ln449_28 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 5
+for.inc247.5.2:2 %icmp_ln449_28 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 5
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_28"/></StgValue>
@@ -9730,9 +9730,9 @@ for.inc247.5.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="780" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="780" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.5.3:2 %icmp_ln449_29 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 5
+for.inc247.5.3:2 %icmp_ln449_29 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 5
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_29"/></StgValue>
@@ -9915,9 +9915,9 @@ for.body221.6:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="794" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="794" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.6:2 %icmp_ln449_30 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 6
+for.body221.6:2 %icmp_ln449_30 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 6
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_30"/></StgValue>
@@ -10117,9 +10117,9 @@ for.inc247.6:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="809" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="809" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.6:2 %icmp_ln449_31 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 6
+for.inc247.6:2 %icmp_ln449_31 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 6
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_31"/></StgValue>
@@ -10302,9 +10302,9 @@ for.inc247.6.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="823" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="823" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.6.1:2 %icmp_ln449_32 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 6
+for.inc247.6.1:2 %icmp_ln449_32 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 6
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_32"/></StgValue>
@@ -10487,9 +10487,9 @@ for.inc247.6.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="837" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="837" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.6.2:2 %icmp_ln449_33 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 6
+for.inc247.6.2:2 %icmp_ln449_33 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 6
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_33"/></StgValue>
@@ -10672,9 +10672,9 @@ for.inc247.6.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="851" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="851" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.6.3:2 %icmp_ln449_34 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 6
+for.inc247.6.3:2 %icmp_ln449_34 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 6
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_34"/></StgValue>
@@ -10857,9 +10857,9 @@ for.body221.7:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED
 </and_exp></or_exp>
 </condition>
 
-<Node id="865" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="865" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.body221.7:2 %icmp_ln449_35 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i26 7
+for.body221.7:2 %icmp_ln449_35 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_24_load, i13 7
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_35"/></StgValue>
@@ -11059,9 +11059,9 @@ for.inc247.7:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_
 </and_exp></or_exp>
 </condition>
 
-<Node id="880" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="880" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.7:2 %icmp_ln449_36 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i26 7
+for.inc247.7:2 %icmp_ln449_36 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_25_load, i13 7
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_36"/></StgValue>
@@ -11244,9 +11244,9 @@ for.inc247.7.1:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="894" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="894" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.7.1:2 %icmp_ln449_37 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i26 7
+for.inc247.7.1:2 %icmp_ln449_37 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_26_load, i13 7
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_37"/></StgValue>
@@ -11429,9 +11429,9 @@ for.inc247.7.2:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="908" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="908" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.7.2:2 %icmp_ln449_38 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i26 7
+for.inc247.7.2:2 %icmp_ln449_38 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_27_load, i13 7
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_38"/></StgValue>
@@ -11614,9 +11614,9 @@ for.inc247.7.3:1 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKE
 </and_exp></or_exp>
 </condition>
 
-<Node id="922" bw="1" op_0_bw="26" op_1_bw="26">
+<Node id="922" bw="1" op_0_bw="13" op_1_bw="13">
 <![CDATA[
-for.inc247.7.3:2 %icmp_ln449_39 = icmp_eq  i26 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i26 7
+for.inc247.7.3:2 %icmp_ln449_39 = icmp_eq  i13 %bloom_arb_forwarder_int_int_istream_ap_uint_32_5_ostream_PACKED_HASH_DTYPE_40_xbar_28_load, i13 7
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln449_39"/></StgValue>

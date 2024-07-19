@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'queryResult_per_hash_Pipeline_LOAD_BV_VALUES'" level="0">
-<item name = "Date">Fri Jul 12 15:09:50 2024
+<item name = "Date">Mon Jul 22 13:45:35 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">project</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.33 ns, 2.411 ns, 0.90 ns</column>
+<column name="ap_clk">3.33 ns, 1.792 ns, 0.90 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">19, 19, 63.270 ns, 63.270 ns, 19, 19, no</column>
+<column name="">131075, 131075, 0.436 ms, 0.436 ms, 131075, 131075, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- LOAD_BV_VALUES">17, 17, 3, 1, 1, 16, yes</column>
+<column name="- LOAD_BV_VALUES">131073, 131073, 3, 1, 1, 131072, yes</column>
 </table>
 </item>
 </section>

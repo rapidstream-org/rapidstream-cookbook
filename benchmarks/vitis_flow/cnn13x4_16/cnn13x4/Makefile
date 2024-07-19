@@ -22,9 +22,14 @@ HOST             := app.exe
 HLS2XO_TCL       := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
 CLK_PERIOD_NS    := 4
 RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/$(KERNEL_NAME).xo
-
+SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+SUCCESS          := "Build Successful"
+TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+BUILD_LOG        := $(TEMP_DIR)/build.json
 
 all: $(RS_KERNEL_XCLBIN)
+	rapidstream $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	echo $(SUCCESS)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
 	XCL_EMULATION_MODE=sw_emu ./app.exe $<

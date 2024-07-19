@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'loadKey'" level="0">
-<item name = "Date">Fri Jul 12 15:09:48 2024
+<item name = "Date">Mon Jul 22 13:45:06 2024
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">project</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.33 ns, 1.972 ns, 0.90 ns</column>
+<column name="ap_clk">3.33 ns, 1.829 ns, 0.90 ns</column>
 </table>
 </item>
 </section>

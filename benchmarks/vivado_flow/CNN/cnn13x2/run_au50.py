@@ -20,16 +20,16 @@ CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 kernel_clk_mhz = 300
 hbm_clk_mhz = 300
-temp_dir = "build"
+temp_dir = f"{CURR_DIR}/build"
 kernel_name = "kernel3"
 card = "au50"
 
-hdl_src_dir = f"{CURR_DIR}/{temp_dir}/hdl"
-ipi_prj_name = (
-    f"{CURR_DIR}/{temp_dir}/{kernel_name}_{card}_{kernel_clk_mhz}_{hbm_clk_mhz}M_cl_prj"
+hdl_src_dir = f"{temp_dir}/hdl"
+ipi_prj_name = f"{temp_dir}/{kernel_name}_{card}_{kernel_clk_mhz}_{hbm_clk_mhz}M_cl_prj"
+txt_prj_name = (
+    f"{temp_dir}/{kernel_name}_{card}_{kernel_clk_mhz}_{hbm_clk_mhz}M_cl_txt_prj"
 )
-txt_prj_name = f"{CURR_DIR}/{temp_dir}/{kernel_name}_{card}_{kernel_clk_mhz}_{hbm_clk_mhz}M_cl_txt_prj"
-hls_dir = f"{CURR_DIR}/{temp_dir}/{kernel_name}/solution"
+hls_dir = f"{temp_dir}/{kernel_name}/solution"
 
 verilog_input_dirs: list[str] = [
     hdl_src_dir,

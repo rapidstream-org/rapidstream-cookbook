@@ -3064,7 +3064,7 @@ while.cond:62 %add_ln475 = add i32 %add_ln475_3, i32 %inc61630_lcssa54_load
 
 <Node id="292" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-while.cond:63 %icmp_ln477 = icmp_slt  i32 %add_ln475, i32 2560
+while.cond:63 %icmp_ln477 = icmp_slt  i32 %add_ln475, i32 20971520
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln477"/></StgValue>

@@ -61,10 +61,10 @@ entry:14 %empty = nbreadreq i1 @_ssdm_op_NbReadReq.ap_fifo.i33P0A, i33 %key_stre
 
 <Node id="22" bw="1" op_0_bw="1" op_1_bw="33" op_2_bw="32">
 <![CDATA[
-entry:15 %empty_12 = nbreadreq i1 @_ssdm_op_NbReadReq.ap_fifo.i33P0A, i33 %key_stream_peek, i32 1
+entry:15 %empty_10 = nbreadreq i1 @_ssdm_op_NbReadReq.ap_fifo.i33P0A, i33 %key_stream_peek, i32 1
 
 ]]></Node>
-<StgValue><ssdm name="empty_12"/></StgValue>
+<StgValue><ssdm name="empty_10"/></StgValue>
 </operation>
 
 <operation id="7" st_id="1" stage="1" lat="1">
@@ -76,10 +76,10 @@ entry:15 %empty_12 = nbreadreq i1 @_ssdm_op_NbReadReq.ap_fifo.i33P0A, i33 %key_s
 
 <Node id="23" bw="1" op_0_bw="1" op_1_bw="33" op_2_bw="32">
 <![CDATA[
-entry:16 %empty_13 = nbwritereq i1 @_ssdm_op_NbWriteReq.ap_fifo.i33P0A, i33 %hash_stream, i32 1
+entry:16 %empty_11 = nbwritereq i1 @_ssdm_op_NbWriteReq.ap_fifo.i33P0A, i33 %hash_stream, i32 1
 
 ]]></Node>
-<StgValue><ssdm name="empty_13"/></StgValue>
+<StgValue><ssdm name="empty_11"/></StgValue>
 </operation>
 </state>
 
@@ -94,10 +94,10 @@ entry:16 %empty_13 = nbwritereq i1 @_ssdm_op_NbWriteReq.ap_fifo.i33P0A, i33 %has
 
 <Node id="24" bw="32" op_0_bw="32" op_1_bw="0" op_2_bw="0" op_3_bw="0" op_4_bw="0">
 <![CDATA[
-entry:17 %empty_14 = wait i32 @_ssdm_op_Wait
+entry:17 %empty_12 = wait i32 @_ssdm_op_Wait
 
 ]]></Node>
-<StgValue><ssdm name="empty_14"/></StgValue>
+<StgValue><ssdm name="empty_12"/></StgValue>
 </operation>
 
 <operation id="9" st_id="2" stage="2" lat="2">

@@ -19,11 +19,11 @@ RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/VecAdd.xo
 TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
 SUCCESS          := "Build Successful"
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+BUILD_LOG        := $(TEMP_DIR)/build.json
 
 all: $(RS_KERNEL_XCLBIN)
-	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT)
+	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
 	echo $(SUCCESS)
-
 
 $(RS_KERNEL_XCLBIN): $(RS_TARGET)
 	v++ -l -t ${TARGET} \

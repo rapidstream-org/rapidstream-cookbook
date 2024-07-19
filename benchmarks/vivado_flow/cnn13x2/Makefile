@@ -23,6 +23,11 @@ VIVADO_BIT_TARGET    := $(TEMP_DIR)/prj_vivado/prj_vivado.runs/impl_1/design_1_w
 SLOTS_BIT_TARGET     := $(TEMP_DIR)/slot/prj_slot/prj_slot.runs/impl_1/design_1_wrapper.bit
 BD_BIT_TARGET        := $(TEMP_DIR)/bd/prj_bd/prj_bd.runs/impl_1/design_1_wrapper.bit
 
+BUILD_LOG        := $(TEMP_DIR)/build.json
+SUCCESS          := "Build Successful"
+TIMING_RPT       := $(TEMP_DIR)/prj/prj.runs/impl_1/design_1_wrapper_timing_summary_routed.rpt
+SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+
 # Do not generate XO file
 GEN_XO               := 0
 VXX                  := vivado -mode batch -source
@@ -35,9 +40,11 @@ BD_TCL               := $(CURDIR)/tcl/gen_design_u50.tcl
 
 BIT                  := $(BIT_TARGET)
 
-all:$(BIT_TARGET)
+all: $(BIT_TARGET)
+	rapidstream $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	echo $(SUCCESS)
 
-$(BIT_TARGET):$(RS_TARGET)
+$(BIT_TARGET): $(RS_TARGET)
 	mkdir -p $(TEMP_DIR)
 	cd $(TEMP_DIR) && $(VXX) $(IMPL_TCL) -tclargs $(PART) $(BOARD) $(shell dirname $<)
 

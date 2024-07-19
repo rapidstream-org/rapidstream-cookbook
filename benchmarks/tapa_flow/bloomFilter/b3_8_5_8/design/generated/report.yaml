@@ -10,11 +10,11 @@ performance:
 area:
   source: hls
   total:
-    BRAM_18K: 12
-    DSP: 420
-    FF: 189355
-    LUT: 533801
-    URAM: 12
+    BRAM_18K: 192
+    DSP: 450
+    FF: 193183
+    LUT: 536043
+    URAM: 48
   breakdown:
     bloom_aggregate_SPLIT:
       count: 10
@@ -24,7 +24,7 @@ area:
           BRAM_18K: 0
           DSP: 0
           FF: 41
-          LUT: 209
+          LUT: 204
           URAM: 0
     bloom_arb_forwarder:
       count: 6
@@ -33,8 +33,8 @@ area:
         total:
           BRAM_18K: 0
           DSP: 0
-          FF: 935
-          LUT: 5078
+          FF: 1065
+          LUT: 4853
           URAM: 0
     bloom_arbiter_ratemonitor:
       count: 6
@@ -62,9 +62,9 @@ area:
         source: hls
         total:
           BRAM_18K: 0
-          DSP: 14
-          FF: 1034
-          LUT: 515
+          DSP: 15
+          FF: 1126
+          LUT: 601
           URAM: 0
     computeHash_Feeder:
       count: 10
@@ -74,7 +74,7 @@ area:
           BRAM_18K: 0
           DSP: 0
           FF: 138
-          LUT: 635
+          LUT: 625
           URAM: 0
     loadBV:
       count: 1
@@ -84,7 +84,7 @@ area:
           BRAM_18K: 0
           DSP: 0
           FF: 170
-          LUT: 297
+          LUT: 285
           URAM: 0
     loadKey:
       count: 1
@@ -94,7 +94,7 @@ area:
           BRAM_18K: 0
           DSP: 0
           FF: 394
-          LUT: 419
+          LUT: 409
           URAM: 0
     packOutput:
       count: 10
@@ -103,19 +103,19 @@ area:
         total:
           BRAM_18K: 0
           DSP: 0
-          FF: 55
-          LUT: 146
+          FF: 68
+          LUT: 164
           URAM: 0
     queryResult_per_hash:
       count: 3
       area:
         source: hls
         total:
-          BRAM_18K: 4
+          BRAM_18K: 64
           DSP: 0
-          FF: 784
-          LUT: 3449
-          URAM: 4
+          FF: 828
+          LUT: 3778
+          URAM: 16
     shuffle_TtoS_per_hash:
       count: 6
       area:
@@ -143,6 +143,6 @@ area:
         total:
           BRAM_18K: 0
           DSP: 0
-          FF: 6011
-          LUT: 11050
+          FF: 6037
+          LUT: 11067
           URAM: 0

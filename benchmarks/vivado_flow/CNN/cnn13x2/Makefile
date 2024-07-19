@@ -20,8 +20,11 @@ KERNEL_CLK_MHZ := 300
 SHELL_CLK_MHZ  := 300
 GEN_XO         := 0
 VXX            := vivado -mode batch -source
-RS_DCP         := $(TEMP_DIR)/run/dse/candidate_0/route.dcp
-
+RS_DCP         := $(TEMP_DIR)/run/dse/candidate_0/exported/impl/route.dcp
+TIMING_RPT     := $(TEMP_DIR)/run/dse/candidate_0/exported/impl/timing_summary.rpt
+SUCCESS        := "Build Successful"
+SLACK_GETTER   := $(ROOT_DIR)/common/util/get_slack.py
+BUILD_LOG      := $(TEMP_DIR)/build.json
 
 ifeq ($(PLATFORM), xilinx_u50_gen3x16_xdma_5_202210_1)
 PART      := xcu50-fsvh2104-2-e
@@ -35,7 +38,9 @@ endif
 SHELL_DCP  := $(TEMP_DIR)/shell_$(CARD)_$(KERNEL_CLK_MHZ)_$(SHELL_CLK_MHZ)M_prj/shell.dcp
 CL_IPI_PRJ := $(TEMP_DIR)/$(KERNEL_NAME)_$(CARD)_$(KERNEL_CLK_MHZ)_$(SHELL_CLK_MHZ)M_cl_prj/$(KERNEL_NAME)_$(CARD)_cl_prj.xpr
 
-all:$(RS_DCP)
+all: $(RS_DCP)
+	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	echo $(SUCCESS)
 
 $(RS_DCP):$(CL_IPI_PRJ) $(SHELL_DCP)
 	rapidstream $(RUN_FILE)

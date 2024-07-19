@@ -296,9 +296,9 @@ while.cond:5 %total_num_writes_4 = load i32 %total_num_writes
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="24" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-while.cond:6 %tmp = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %total_num_reads_1, i32 9, i32 31
+while.cond:6 %tmp = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %total_num_reads_1, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -311,9 +311,9 @@ while.cond:6 %tmp = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %to
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="25" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-while.cond:7 %icmp_ln222 = icmp_slt  i23 %tmp, i23 1
+while.cond:7 %icmp_ln222 = icmp_slt  i10 %tmp, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln222"/></StgValue>
@@ -328,7 +328,7 @@ while.cond:7 %icmp_ln222 = icmp_slt  i23 %tmp, i23 1
 
 <Node id="26" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-while.cond:8 %icmp_ln223 = icmp_slt  i32 %total_num_writes_4, i32 1536
+while.cond:8 %icmp_ln223 = icmp_slt  i32 %total_num_writes_4, i32 12582912
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln223"/></StgValue>
@@ -404,9 +404,9 @@ for.body16:1 %specloopname_ln226 = specloopname void @_ssdm_op_SpecLoopName, voi
 </and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="23" op_0_bw="23" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<Node id="32" bw="10" op_0_bw="10" op_1_bw="32" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-for.body16:2 %tmp_1 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %input_idx_1, i32 9, i32 31
+for.body16:2 %tmp_1 = partselect i10 @_ssdm_op_PartSelect.i10.i32.i32.i32, i32 %input_idx_1, i32 22, i32 31
 
 ]]></Node>
 <StgValue><ssdm name="tmp_1"/></StgValue>
@@ -420,9 +420,9 @@ for.body16:2 %tmp_1 = partselect i23 @_ssdm_op_PartSelect.i23.i32.i32.i32, i32 %
 </and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="23" op_1_bw="23">
+<Node id="33" bw="1" op_0_bw="10" op_1_bw="10">
 <![CDATA[
-for.body16:3 %icmp_ln234 = icmp_slt  i23 %tmp_1, i23 1
+for.body16:3 %icmp_ln234 = icmp_slt  i10 %tmp_1, i10 1
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln234"/></StgValue>

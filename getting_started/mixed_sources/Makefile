@@ -15,9 +15,10 @@ HLS_TCL              := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
 GRP_UTIL             := $(ROOT_DIR)/common/util/get_group.py
 SUCCESS              := "Build Successful"
 SLACK_GETTER         := $(ROOT_DIR)/common/util/get_slack.py
+BUILD_LOG            := $(TEMP_DIR)/build.json
 
 all: $(DCP_TARGET)
-	rapidstream $(SLACK_GETTER) -i $(dir $<)/timing_summary.rpt
+	rapidstream $(SLACK_GETTER) -i $(dir $<)/timing_summary.rpt -o $(BUILD_LOG)
 	echo $(SUCCESS)
 
 $(DCP_TARGET):$(HLS_DIR_TARGETS)
