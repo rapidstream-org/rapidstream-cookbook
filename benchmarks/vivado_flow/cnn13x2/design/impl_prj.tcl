@@ -30,12 +30,28 @@ source ${SRC_DIR}/hls/solution/syn/verilog/kernel3_fadd_32ns_32ns_32_10_full_dsp
 source ${SRC_DIR}/hls/solution/syn/verilog/kernel3_fmul_32ns_32ns_32_5_max_dsp_1_ip.tcl
 upgrade_ip -quiet [get_ips *]
 import_files ${SRC_DIR}/hdl/gnd_driver.v
-#generate_target synthesis [ get_files *.xci ]
+
+foreach xci [get_files *.xci] {
+    generate_target -quiet synthesis [ get_files $xci ]
+}
+
 add_files -fileset constrs_1 -norecurse ${SRC_DIR}/xdc/only_pins_au50.xdc
 
 set_property top design_1_wrapper [current_fileset]
 
 launch_runs synth_1 -jobs [getEnvInt "VIVADO_SYNTH_JOBS" 16]
 wait_on_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs [getEnvInt "VIVADO_IMPL_JOBS" 16]
-wait_on_run impl_1
+
+open_run synth_1
+write_checkpoint -force synth_1.dcp
+
+opt_design
+place_design
+phys_opt_design
+write_checkpoint -force place.dcp
+
+route_design
+phys_opt_design
+write_checkpoint -force route.dcp
+
+write_bitstream -force design_1_wrapper.bit

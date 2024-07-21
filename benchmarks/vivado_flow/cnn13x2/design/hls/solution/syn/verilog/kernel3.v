@@ -9,7 +9,7 @@
 
 (* CORE_GENERATION_INFO="kernel3_kernel3,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu50-fsvh2104-2-e,HLS_INPUT_CLOCK=3.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=2.564000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=428,HLS_SYN_DSP=0,HLS_SYN_FF=245312,HLS_SYN_LUT=165880,HLS_VERSION=2022_2}" *)
 
-module kernel3 (
+(* DONT_TOUCH = "yes" *) module kernel3 (
         s_axi_control_AWVALID,
         s_axi_control_AWREADY,
         s_axi_control_AWADDR,
