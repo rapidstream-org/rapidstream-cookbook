@@ -447,3 +447,5 @@ _x.*/
 
 .ipcache/
 *.bit
+bazel-*
+MODULE.bazel*
