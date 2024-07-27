@@ -20,8 +20,8 @@ KERNEL_CLK_MHZ := 300
 SHELL_CLK_MHZ  := 300
 GEN_XO         := 0
 VXX            := vivado -mode batch -source
-RS_DCP         := $(TEMP_DIR)/run/dse/candidate_0/exported/impl/route.dcp
-TIMING_RPT     := $(TEMP_DIR)/run/dse/candidate_0/exported/impl/timing_summary.rpt
+RS_DCP         := $(TEMP_DIR)/run/dse/candidate_0/route.dcp
+TIMING_RPT     := $(TEMP_DIR)/run/dse/candidate_0//timing_summary.rpt
 SUCCESS        := "Build Successful"
 SLACK_GETTER   := $(ROOT_DIR)/common/util/get_slack.py
 BUILD_LOG      := $(TEMP_DIR)/build.json
@@ -41,6 +41,7 @@ CL_IPI_PRJ := $(TEMP_DIR)/$(KERNEL_NAME)_$(CARD)_$(KERNEL_CLK_MHZ)_$(SHELL_CLK_M
 all: $(RS_DCP)
 	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
 	echo $(SUCCESS)
+
 
 $(RS_DCP):$(CL_IPI_PRJ) $(SHELL_DCP)
 	rapidstream $(RUN_FILE)
