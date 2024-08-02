@@ -60,6 +60,9 @@ rs.assign_port_to_region(".*", left_slot)
 rs.assign_cell_to_region(".*add_kernel.*", "SLOT_X0Y1:SLOT_X0Y1")
 rs.assign_cell_to_region(".*read_mem.*", "SLOT_X0Y0:SLOT_X0Y0")
 rs.assign_cell_to_region(".*write_mem.*", "SLOT_X1Y1:SLOT_X1Y1")
+# rs.add_feedforward_rule("VecAdd_fsm", "mem_in1", "ap_clk", "ap_rst_n")
+# rs.add_feedforward_rule("VecAdd_fsm", "mem_in2", "ap_clk", "ap_rst_n")
+# rs.add_feedforward_rule("VecAdd_fsm", "mem_out", "ap_clk", "ap_rst_n")
 
 # Xustomize the placement strategy:
 rs.set_placement_strategy("EarlyBlockPlacement")

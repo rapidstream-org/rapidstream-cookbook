@@ -1,4 +1,14 @@
 #include "kernel3.h"
+#include <stdio.h>
+
+void print_512(A_t16 din) {
+  // Print out the data 64-bit hex per line
+  for (int i = 0; i < 8; i++) {
+    printf("%08x%08x\n", (unsigned int)din(63 + i * 64, 32 + i * 64),
+           (unsigned int)din(31 + i * 64, 0 + i * 64));
+  }
+}
+
 /* Module Definition */
 void A_IO_L3_in(A_t16 *A, hls::stream<A_t8> &fifo_A_local_out){
 #pragma HLS INLINE OFF
@@ -10,6 +20,11 @@ void A_IO_L3_in(A_t16 *A, hls::stream<A_t8> &fifo_A_local_out){
       A_t16 mem_data;
       A_t8 fifo_data;
       mem_data = A[i];
+#ifdef dump_hex_a
+    // Print out the all the data for port A as 64-bit hex per line
+    print_512(mem_data);
+#endif
+
       for (ap_uint<2> p = 0; p < 2; p++) {
         fifo_data = mem_data(255, 0);
         mem_data = mem_data >> 256;
@@ -253,6 +268,11 @@ void B_IO_L3_in(B_t16 *B, hls::stream<B_t8> &fifo_B_local_out){
       B_t16 mem_data;
       B_t8 fifo_data;
       mem_data = B[i];
+#ifdef dump_hex_b
+    // Print out the all the data for port B as 64-bit hex per line
+    print_512(mem_data);
+#endif
+
       for (ap_uint<2> p = 0; p < 2; p++) {
         fifo_data = mem_data(255, 0);
         mem_data = mem_data >> 256;
@@ -867,7 +887,13 @@ void C_drain_IO_L3_out(C_t16 *C, hls::stream<C_t2> &fifo_C_drain_local_in){
       }
       mem_data = (mem_data_split[7], mem_data_split[6], mem_data_split[5], mem_data_split[4], mem_data_split[3], mem_data_split[2], mem_data_split[1], mem_data_split[0]);
       C[i] = mem_data;
+#ifdef dump_hex_c
+    // Print out the all the data for port C as 64-bit hex per line
+    print_512(mem_data);
+#endif
     }
+
+
 }
 /* Module Definition */
 

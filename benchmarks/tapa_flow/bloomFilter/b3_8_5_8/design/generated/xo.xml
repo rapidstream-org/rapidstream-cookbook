@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root VersionMajor="7" VersionMinor="1" SoftwareVersionMajor="2022" SoftwareVersionMinor="2" IpCache="no">
+  <IpCaches/>
+  <Kernels>
+    <Kernel Name="workload" Dir="workload" IP="ip_repo/haoda_xrtl_workload_1_0" TopIpDir="." ProjectID="4fb5795f28604ef689ca3757def62e8d" Debug="no" Hls="no" Pdi="no" ShimSoln="no" SwEmu="no" Domain="">
+      <SupportedFlows>
+        <SupportedFlow>HW_EMU</SupportedFlow>
+        <SupportedFlow>SYSTEM</SupportedFlow>
+      </SupportedFlows>
+    </Kernel>
+  </Kernels>
+</Root>
