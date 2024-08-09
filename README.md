@@ -202,6 +202,13 @@ Recipes
             <td>TAPA HLS</td>
             <td>Accelerator for general-purpose sparse-matrix dense-matrix multiplication.</td>
         </tr>
+        <tr>
+            <td><a href="benchmarks/tapa_flow/digit_recognizer">KNN Digit Recognition</a></td>
+            <td><a href="https://github.com/icgrp/hipr">Xiao <i>et al.</i><br/>(FPL '22)</a></td>
+            <td>Vitis U280 XDMA</td>
+            <td>TAPA HLS</td>
+            <td>K-Nearest Neighbours for Digit Recognition.</td>
+        </tr>
         </tr>
             <td><a href="benchmarks/tapa_flow/bloomFilter">Bloom Filter</a></td>
             <td><a href="https://www.sfu.ca/~zhenman/">Simon Fraser University</a></td>
