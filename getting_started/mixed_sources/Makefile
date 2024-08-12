@@ -18,7 +18,7 @@ SLACK_GETTER         := $(ROOT_DIR)/common/util/get_slack.py
 BUILD_LOG            := $(TEMP_DIR)/build.json
 
 all: $(DCP_TARGET)
-	rapidstream $(SLACK_GETTER) -i $(dir $<)/timing_summary.rpt -o $(BUILD_LOG)
+	rapidstream $(SLACK_GETTER) -i $(dir $<)/timing_summary.rpt -o $(BUILD_LOG) -p 2 -c ap_clk
 	echo $(SUCCESS)
 
 $(DCP_TARGET):$(HLS_DIR_TARGETS)

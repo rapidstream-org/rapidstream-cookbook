@@ -45,7 +45,7 @@ else
 endif
 
 all: $(RS_KERNEL_XCLBIN)
-	rapidstream $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	rapidstream $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
