@@ -9,7 +9,7 @@ import os
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 INI_PATH = f"{CURR_DIR}/design/link_config.ini"
 VITIS_PLATFORM = "xilinx_u280_gen3x16_xdma_1_202211_1"
-KERNEL_NAME = "VecAdd"
+KERNEL_NAME = "digit_recognizer"
 XO_PATH = f"{CURR_DIR}/design/{KERNEL_NAME}.xo"
 
 
@@ -29,13 +29,19 @@ factory = get_u280_vitis_device_factory(VITIS_PLATFORM)
 factory.reduce_slot_area(1, 0, lut=5000 * 16, ff=6500 * 16)
 factory.reduce_slot_area(0, 0, lut=5000 * 13, ff=6500 * 13)
 
+# Block X0Y1, X1Y1, X0Y2, X1Y2 from users.
+factory.reduce_slot_area(0, 1, lut=216000)
+factory.reduce_slot_area(1, 1, lut=147000)
+factory.reduce_slot_area(0, 2, lut=216000)
+factory.reduce_slot_area(1, 2, lut=164000)
+
 # For this U280 platform, the right most DSP column on the boundary between
 # dynamic/static region is not usable. So we need to adjust the DSP count
 # to reflect the actual available DSPs.
 print("Reducing DSP of (1, 1) to make it less congested")
 factory.reduce_slot_area(1, 1, dsp=100)
 
-rs = RapidStreamTAPA(f"{CURR_DIR}/build")
+rs = RapidStreamTAPA(f"{CURR_DIR}/build/{os.path.basename(__file__)}")
 
 rs.set_virtual_device(factory.generate_virtual_device())
 rs.add_xo_file(XO_PATH)
@@ -57,12 +63,6 @@ left_slot = "SLOT_X0Y0:SLOT_X0Y0"
 # sp=workload.out_bits:HBM[2]
 
 rs.assign_port_to_region(".*", left_slot)
-rs.assign_cell_to_region(".*add_kernel.*", "SLOT_X0Y1:SLOT_X0Y1")
-rs.assign_cell_to_region(".*read_mem.*", "SLOT_X0Y0:SLOT_X0Y0")
-rs.assign_cell_to_region(".*write_mem.*", "SLOT_X1Y2:SLOT_X1Y2")
-# rs.add_feedforward_rule("VecAdd_fsm", "mem_in1", "ap_clk", "ap_rst_n")
-# rs.add_feedforward_rule("VecAdd_fsm", "mem_in2", "ap_clk", "ap_rst_n")
-# rs.add_feedforward_rule("VecAdd_fsm", "mem_out", "ap_clk", "ap_rst_n")
 
 # Xustomize the placement strategy:
 rs.set_placement_strategy("EarlyBlockPlacement")

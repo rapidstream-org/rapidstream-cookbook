@@ -11,19 +11,20 @@ TARGET           := hw
 TEMP_DIR         := $(CURDIR)/build
 KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
 KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
-RS_KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME)_rs.xclbin
+RS_KERNEL_XCLBIN := $(TEMP_DIR)/dse/candidate_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).xclbin
 INCLUDE          := -I $(XILINX_HLS)/include
 CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
 CXX              := g++
 HOST             := app.exe
 RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/VecAdd.xo
-TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+TIMING_RPT       := $(TEMP_DIR)/dse/candidate_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).temp/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
 SUCCESS          := "Build Successful"
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
 BUILD_LOG        := $(TEMP_DIR)/build.json
 
-all: $(RS_KERNEL_XCLBIN)
-	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+all:
+	# $(RS_KERNEL_XCLBIN)
+	rapidstream	$(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 $(RS_KERNEL_XCLBIN):$(SRC_DIR)/$(KERNEL_NAME).xo
