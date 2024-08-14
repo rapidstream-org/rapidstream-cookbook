@@ -15,19 +15,8 @@ XO_PATH = f"{CURR_DIR}/design/{KERNEL_NAME}.xo"
 
 factory = get_u280_vitis_device_factory(VITIS_PLATFORM)
 
-# Reserve resource for the HBM Memory Sub-System.
-# The HMSS is not part of the user kernel so the partition optimization process
-# is unaware of its existence. We need to manually reserve resources for it.
-# For 512-bit HBM channels, each HBM channel uses approximately the following resources:
-# AREA_PER_HBM_CHANNEL = {
-#     "LUT": 5000,
-#     "FF": 6500,
-#     "BRAM": 0,
-#     "URAM": 0,
-#     "DSP": 0,
-# }
-factory.reduce_slot_area(1, 0, lut=5000 * 16, ff=6500 * 16)
-factory.reduce_slot_area(0, 0, lut=5000 * 13, ff=6500 * 13)
+factory.reduce_slot_area(0, 0, lut=190000)
+factory.reduce_slot_area(1, 0, lut=138000)
 
 # Block X0Y1, X1Y1, X0Y2, X1Y2 from users.
 factory.reduce_slot_area(0, 1, lut=216000)

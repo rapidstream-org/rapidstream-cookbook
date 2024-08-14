@@ -28,4 +28,5 @@ MODE=""
 
 #single_make_test "${START_DIR}/tapa_source"     "run.py" "${MODE}"
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run.py" "${MODE}"
-single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py" "${MODE}"
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py" "${MODE}"
+single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" "${MODE}"
