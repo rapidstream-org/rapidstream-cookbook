@@ -19,17 +19,16 @@ single_make_test(){
 	cd -
 }
 
-
 GIT_ROOT=$(git rev-parse --show-toplevel)
 START_DIR="${GIT_ROOT}/getting_started"
 TAPA_DIR="${GIT_ROOT}/benchmarks/tapa_flow"
 #MODE="clean_test"
 MODE=""
 
-#single_make_test "${START_DIR}/tapa_source"     "run.py" "${MODE}"
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run.py" "${MODE}"
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py" "${MODE}"
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" "${MODE}"
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_top_bottom.py" "${MODE}"
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y2.py" "${MODE}"
+single_make_test "${START_DIR}/tapa_source"     "run.py" "${MODE}"
+single_make_test "${TAPA_DIR}/digit_recognizer" "run.py" "${MODE}"
+single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py" "${MODE}"
+single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" "${MODE}"
+single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_top_bottom.py" "${MODE}"
+single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y2.py" "${MODE}"
 single_make_test "${TAPA_DIR}/sextans" "run.py" "${MODE}"
