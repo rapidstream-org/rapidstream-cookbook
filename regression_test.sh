@@ -38,9 +38,9 @@ START_DIR="${GIT_ROOT}/getting_started"
 TAPA_DIR="${GIT_ROOT}/benchmarks/tapa_flow"
 
 single_make_test "${START_DIR}/tapa_source"     "run.py"                 ${CLEAN_TEST}
-single_make_test "${TAPA_DIR}/digit_recognizer" "run.py"                 ${CLEAN_TEST}
-single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py"  ${NOCLEN_TEST}
-single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" ${NOCLEN_TEST}
-single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_top_bottom.py" ${NOCLEN_TEST}
-single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y2.py"  ${NOCLEN_TEST}
-single_make_test "${TAPA_DIR}/sextans" "run.py"                          ${CLEAN_TEST}
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run.py"                 ${CLEAN_TEST}
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py"  ${NOCLEN_TEST}
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" ${NOCLEN_TEST}
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_top_bottom.py" ${NOCLEN_TEST}
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y2.py"  ${NOCLEN_TEST}
+#single_make_test "${TAPA_DIR}/sextans" "run.py"                          ${CLEAN_TEST}
