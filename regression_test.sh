@@ -6,41 +6,51 @@
 
 # TORUN:
 # 1. Source Vivado 2023.2 settings64.sh before running this script.
-# 2. Replace "RS_ROOT" with the path to the rapidstream repo root.
+# 2. Replace "RSXX" with the path to the rapidstream repo root.
 # 3. sh ./regression_test.sh
-# 4. Check the "build.json" file in the corresponding directory to see if the test passed.
+# 4. Check the "build.json" file in the corresponding directory to see if the test is passed.
 
 
-# repidstream repo root
-RS_ROOT="/home/vagrantxiao24/ws_222/rapidstream_worktree/rapidstream_local"
+# Rapidstream command path
+#RSXX="rapidstream"
+RSXX="cd /home/vagrantxiao24/ws_222/rapidstream_worktree/rapidstream && poetry run python"
 CLEAN_TEST="clean_test"
-NOCLEN_TEST="no_clean_test"
+NOCLEAN_TEST="no_clean_test"
 
 single_make_test(){
 	app=$1
-	script=$2
-	MODE=$3
+	rs_script=${app}/$2
+	mode=$3
 	echo "Testing ${app}"
 	cd ${app}
-	if [ "${MODE}" = "clean_test" ]; then
+	if [ "${mode}" = "${CLEAN_TEST}" ]; then
 		echo "Will clean metadata for ${app}"
 		make clean
 	fi
-	#make all
-	cd -
-	cd ${RS_ROOT}
-	poetry run python ${app}/${script}
+	make RSXX="${RSXX}" RS_SCRIPT=${rs_script} all
 	cd -
 }
 
+cd rapidstream-cookbook
 GIT_ROOT=$(git rev-parse --show-toplevel)
 START_DIR="${GIT_ROOT}/getting_started"
 TAPA_DIR="${GIT_ROOT}/benchmarks/tapa_flow"
+VITIS_DIR="${GIT_ROOT}/benchmarks/vitis_flow"
 
-single_make_test "${START_DIR}/tapa_source"     "run.py"                 ${CLEAN_TEST}
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run.py"                 ${CLEAN_TEST}
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py"  ${NOCLEN_TEST}
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" ${NOCLEN_TEST}
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_top_bottom.py" ${NOCLEN_TEST}
-#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y2.py"  ${NOCLEN_TEST}
-#single_make_test "${TAPA_DIR}/sextans" "run.py"                          ${CLEAN_TEST}
+
+#single_make_test "${START_DIR}/mixed_sources" "run.py" ${CLEAN_TEST} &
+#single_make_test "${START_DIR}/vitis_source" "run.py" ${CLEAN_TEST} &
+#single_make_test "${START_DIR}/tapa_source" "run.py" ${CLEAN_TEST}
+
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run.py" ${CLEAN_TEST} &
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py"  ${NOCLEAN_TEST} &
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_right_left.py" ${NOCLEAN_TEST} &
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_top_bottom.py" ${NOCLEAN_TEST} &
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y2.py"  ${NOCLEAN_TEST}
+
+#single_make_test "${TAPA_DIR}/sextans" "run.py"  ${CLEAN_TEST} &
+#single_make_test "${VITIS_DIR}/LLM" "run_u280.py"  ${CLEAN_TEST}
+
+#single_make_test "${VITIS_DIR}/cnn13x2" "run_u50.py"  ${CLEAN_TEST} &
+#single_make_test "${VITIS_DIR}/cnn13x4_16/cnn13x4" "run.py"  ${CLEAN_TEST} &
+single_make_test "${VITIS_DIR}/cnn13x4_16/cnn13x6" "run.py"  ${CLEAN_TEST}

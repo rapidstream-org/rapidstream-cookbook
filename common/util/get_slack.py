@@ -31,15 +31,17 @@ def get_target_clk_slack(lines: list[str], target_clk: str) -> str | None:
     # Grab the slack value
     for idx, line in enumerate(lines):
         # current line
-        matched1 = re.match(rf"^From Clock:\s*{target_clk}", line)
-        # next line
-        matched2 = re.match(rf"^To Clock:\s*{target_clk}", lines[idx + 1])
-        if matched1 and matched2:
-            matched3 = re.search(
-                r"Worst Slack\s*([\d.]+)ns", lines[idx + slack_line_offset]
-            )
-            if matched3:
-                return str(matched3.group(1))
+        if re.match(rf"^From Clock:\s*{target_clk}", line):
+            # Next line should be "To Clock"
+            matched1 = re.match(rf"^To Clock:\s*{target_clk}", lines[idx + 1])
+            # Previous line should not contain async_default""
+            matched2 = re.match(r"Path Group.*async_default", lines[idx - 1])
+            if matched1 and not matched2:
+                matched3 = re.search(
+                    r"Worst Slack\s*([-\d.]+)ns", lines[idx + slack_line_offset]
+                )
+                if matched3:
+                    return str(matched3.group(1))
 
     return None
 
@@ -100,7 +102,6 @@ if __name__ == "__main__":
     results: dict[str, str | None] = {}
 
     if search_dir != "." and input_file != ".":
-        print(f"{search_dir}/**/{input_file}")
         timing_rpts = glob(f"{search_dir}/**/{input_file}", recursive=True)
         for timing_rpt in timing_rpts:
             update_slack(timing_rpt, results, clk_name, clk_ns)

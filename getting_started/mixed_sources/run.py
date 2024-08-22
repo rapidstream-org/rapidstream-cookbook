@@ -15,7 +15,7 @@ import os
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # We create a RapidStream Pro project called "build":
-rs = RapidStreamHLS(f"{CURR_DIR}/build")
+rs = RapidStreamHLS(f"{CURR_DIR}/build/{os.path.basename(__file__)}")
 
 # To optimize the design layout, the resource information is needed.
 #   * We pre-defined the most common options: U50, U250, U280, VCK190, etc.
@@ -30,9 +30,11 @@ rs.add_vlog_dir(f"{CURR_DIR}/design/rtl")
 # Add the HLS design files:
 #  * The HLS-generated Verilog files can be imported directly.
 #  * The HLS report directory is needed to extract the interface information.
-rs.add_hls_solution(f"{CURR_DIR}/build/kernel_add/solution")
-rs.add_hls_solution(f"{CURR_DIR}/build/read_mem/solution")
-rs.add_hls_solution(f"{CURR_DIR}/build/write_mem/solution")
+rs.add_hls_solution(
+    f"{CURR_DIR}/build/{os.path.basename(__file__)}/kernel_add/solution"
+)
+rs.add_hls_solution(f"{CURR_DIR}/build/{os.path.basename(__file__)}/read_mem/solution")
+rs.add_hls_solution(f"{CURR_DIR}/build/{os.path.basename(__file__)}/write_mem/solution")
 
 
 # Add the IP files:

@@ -33,7 +33,7 @@ using namespace std;
 #include "const/buf28.h"
 
 extern "C" {
-void bert_all(
+void bert_all1(
     io_pack_float *inp_addr_0,
     io_pack_float *inp_addr_1,
     io_pack_float *inp_addr_2,
@@ -170,7 +170,7 @@ void k4(
 
 
 extern "C" {
-void bert_all1(
+void bert_all(
     io_pack_float *inp_addr_0,
     io_pack_float *inp_addr_1,
     io_pack_float *inp_addr_2,

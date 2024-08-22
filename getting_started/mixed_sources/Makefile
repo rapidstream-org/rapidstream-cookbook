@@ -6,7 +6,8 @@ PART_NUM             := xcu50-fsvh2104-2-e
 HLSXX                := vitis_hls
 HLS_SRC_DIR          := $(CURDIR)/design/hls
 HLS_KERNELS          := kernel_add read_mem write_mem
-TEMP_DIR             := $(CURDIR)/build
+RS_SCRIPT            := $(CURDIR)/run.py
+TEMP_DIR             := $(CURDIR)/build/$(notdir $(RS_SCRIPT))
 HLS_DIR_TARGETS      := $(foreach n, $(HLS_KERNELS), $(TEMP_DIR)/$(n)/solution/syn/verilog)
 DCP_TARGET           := $(TEMP_DIR)/dse/candidate_0/route.dcp
 KERNEL_CLK_PERIOD_NS := 4
@@ -16,13 +17,14 @@ GRP_UTIL             := $(ROOT_DIR)/common/util/get_group.py
 SUCCESS              := "Build Successful"
 SLACK_GETTER         := $(ROOT_DIR)/common/util/get_slack.py
 BUILD_LOG            := $(TEMP_DIR)/build.json
+RSXX                 := rapidstream
 
 all: $(DCP_TARGET)
-	rapidstream $(SLACK_GETTER) -i $(dir $<)/timing_summary.rpt -o $(BUILD_LOG) -p 2 -c ap_clk
+	$(RSXX) $(SLACK_GETTER) -d $(dir $<) -i timing_summary.rpt -o $(BUILD_LOG) -p 2 -c ap_clk
 	echo $(SUCCESS)
 
 $(DCP_TARGET):$(HLS_DIR_TARGETS)
-	rapidstream ./run.py
+	$(RSXX) $(RS_SCRIPT)
 
 hls:$(HLS_DIR_TARGETS)
 

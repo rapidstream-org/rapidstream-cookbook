@@ -6,12 +6,12 @@ ROOT_DIR         := $(shell git rev-parse --show-toplevel)
 GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
 PLATFORM         := xilinx_u250_gen3x16_xdma_4_1_202210_1
 PART             := xcu250-figd2104-2L-e
-RUN_FILE         := run.py
 LINK_FILE        := link_config.ini
 KERNEL_NAME      := kernel3
 SRC_DIR          := $(CURDIR)/design
 TARGET           := hw
-TEMP_DIR         := $(CURDIR)/build
+RS_SCRIPT        := $(CURDIR)/run.py
+TEMP_DIR         := $(CURDIR)/build/$(notdir $(RS_SCRIPT))
 KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
 KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
 RS_KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME)_rs.xclbin
@@ -22,13 +22,14 @@ HOST             := app.exe
 HLS2XO_TCL       := $(ROOT_DIR)/common/tcl/hls2rtl.tcl
 CLK_PERIOD_NS    := 4
 RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/$(KERNEL_NAME).xo
-SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
 TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
-BUILD_LOG        := $(TEMP_DIR)/build.json
+SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+RSXX             := rapidstream
 
 all: $(RS_KERNEL_XCLBIN)
-	rapidstream $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	$(RSXX) $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
@@ -49,7 +50,7 @@ $(RS_KERNEL_XCLBIN): $(RS_TARGET)
 rs_opt:$(RS_TARGET)
 
 $(RS_TARGET): $(KERNEL_XO)
-	rapidstream $(RUN_FILE)
+	$(RSXX) $(RS_SCRIPT)
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
 	v++ -l -t ${TARGET} \

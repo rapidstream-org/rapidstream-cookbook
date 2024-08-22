@@ -34,7 +34,7 @@ factory.reduce_slot_area(0, 0, lut=8000 * 15, ff=6500 * 13, bram_18k=400, dsp=10
 print("Reducing DSP of (1, 1) to make it less congested")
 factory.reduce_slot_area(1, 1, dsp=100)
 
-rs = RapidStreamTAPA(f"{CURR_DIR}/build")
+rs = RapidStreamTAPA(f"{CURR_DIR}/build/{os.path.basename(__file__)}")
 
 rs.set_virtual_device(factory.generate_virtual_device())
 rs.add_xo_file(XO_PATH)
