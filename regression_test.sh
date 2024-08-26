@@ -41,6 +41,7 @@ VITIS_DIR="${GIT_ROOT}/benchmarks/vitis_flow"
 #single_make_test "${START_DIR}/mixed_sources" "run.py" ${CLEAN_TEST} &
 #single_make_test "${START_DIR}/vitis_source" "run.py" ${CLEAN_TEST} &
 #single_make_test "${START_DIR}/tapa_source" "run.py" ${CLEAN_TEST}
+single_make_test "${TAPA_DIR}/bloomFilter/b3_8_5_8" "run.py" ${CLEAN_TEST}
 
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run.py" ${CLEAN_TEST} &
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run_u280_x0y0_x1y0.py"  ${NOCLEAN_TEST} &
