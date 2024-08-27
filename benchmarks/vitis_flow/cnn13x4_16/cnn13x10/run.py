@@ -37,4 +37,4 @@ rs.add_clock("ap_clk", period_ns=3)
 rs.assign_port_to_region(".*", "SLOT_X1Y0:SLOT_X1Y0")
 
 # Start the RapidStream optimization process:
-rs.run_dse(skip_impl=True)
+rs.run_dse(skip_impl=False)

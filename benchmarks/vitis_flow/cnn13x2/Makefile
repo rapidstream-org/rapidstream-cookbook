@@ -8,11 +8,11 @@ PLATFORM         := xilinx_u50_gen3x16_xdma_5_202210_1
 KERNEL_NAME      := kernel3
 SRC_DIR          := $(CURDIR)/design
 TARGET           := hw
-RS_SCRIPT        := $(CURDIR)/run.py
+RS_SCRIPT        := $(CURDIR)/run_u50.py
 TEMP_DIR         := $(CURDIR)/build/$(notdir $(RS_SCRIPT))
 KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
 KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
-RS_KERNEL_XCLBIN := $(TEMP_DIR)/$(KERNEL_NAME)_rs.xclbin
+RS_KERNEL_XCLBIN := $(TEMP_DIR)/dse/candidate_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).xclbin
 INCLUDE          := -I $(XILINX_HLS)/include
 CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
 CXX              := g++
@@ -22,7 +22,7 @@ CLK_PERIOD_NS    := 4
 RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/$(KERNEL_NAME).xo
 BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
-TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
 RSXX             := rapidstream
 
@@ -47,7 +47,7 @@ else
 endif
 
 all: $(RS_KERNEL_XCLBIN)
-	$(RSXX) $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
+	$(RSXX) $(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
@@ -62,6 +62,7 @@ $(RS_KERNEL_XCLBIN): $(RS_TARGET)
 	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
 	--config $(SRC_DIR)/$(LINK_FILE) \
 	--temp_dir $(TEMP_DIR) \
+	--save-temps \
 	-o $@ \
 	$^
 
