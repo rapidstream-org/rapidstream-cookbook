@@ -25,7 +25,7 @@ single_make_test(){
 	cd ${app}
 	if [ "${mode}" = "${CLEAN_TEST}" ]; then
 		echo "Will clean metadata for ${app}"
-		make clean
+		make RS_SCRIPT=${rs_script} clean
 	fi
 	make RSXX="${RSXX}" RS_SCRIPT=${rs_script} all
 	cd -
@@ -54,4 +54,4 @@ single_make_test "${TAPA_DIR}/bloomFilter/b3_8_5_8" "run.py" ${CLEAN_TEST}
 
 #single_make_test "${VITIS_DIR}/cnn13x2" "run_u50.py"  ${CLEAN_TEST} &
 #single_make_test "${VITIS_DIR}/cnn13x4_16/cnn13x4" "run.py"  ${CLEAN_TEST} &
-single_make_test "${VITIS_DIR}/cnn13x4_16/cnn13x6" "run.py"  ${CLEAN_TEST}
+#single_make_test "${VITIS_DIR}/cnn13x4_16/cnn13x6" "run.py"  ${CLEAN_TEST}

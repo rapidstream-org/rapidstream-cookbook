@@ -22,7 +22,7 @@ GEN_XO           := 1
 
 BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
-TIMING_RPT       := $(TEMP_DIR)/dse/candidate_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).temp/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
 RSXX             := rapidstream
 
@@ -47,7 +47,7 @@ else
 endif
 
 all: $(RS_XCLBIN)
-	$(RSXX) $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG)
+	$(RSXX) $(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)   -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 $(RS_XCLBIN):$(KERNEL_XO)
