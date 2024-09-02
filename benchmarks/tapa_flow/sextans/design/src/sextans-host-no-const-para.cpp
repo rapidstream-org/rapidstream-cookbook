@@ -9,7 +9,7 @@
 #include <tapa.h>
 
 #include "mmio.h"
-#include "sextans.h"
+#include "sextans-no-const-para.h"
 #include "sparse_helper.h"
 
 using std::cout;
@@ -240,15 +240,15 @@ int main(int argc, char **argv) {
                    tapa::read_only_mmaps<unsigned long, NUM_CH_SPARSE>(sparse_A_fpga_vec).reinterpret<ap_uint<512>>(),
                    tapa::read_only_mmaps<float, NUM_CH_B>(mat_B_fpga_vec).reinterpret<float_v16>(),
                    tapa::read_only_mmaps<float, NUM_CH_C>(mat_C_fpga_in).reinterpret<float_v16>(),
-                   tapa::write_only_mmaps<float, NUM_CH_C>(mat_C_fpga_vec).reinterpret<float_v16>(),
-                   MAX_SIZE_edge_LIST_PTR,
-                   MAX_LEN_edge_PTR,
-                   M,
-                   K,
-                   para_N,
-                   alpha_int,
-                   beta_int
+                   tapa::write_only_mmaps<float, NUM_CH_C>(mat_C_fpga_vec).reinterpret<float_v16>()
                    );
+    cout << "MAX_SIZE_edge_LIST_PTR " << MAX_SIZE_edge_LIST_PTR << endl;
+    cout << "MAX_LEN_edge_PTR " << MAX_LEN_edge_PTR << endl;
+    cout << "M " << M << endl;
+    cout << "K " << K << endl;
+    cout << "para_N " << para_N << endl;
+    cout << "alpha_int " << alpha_int << endl;
+    cout << "beta_int " << beta_int << endl;
     time_taken *= (1e-9/rp_time);
     printf("Kernel time is %f ms\n", time_taken*1000);
 
