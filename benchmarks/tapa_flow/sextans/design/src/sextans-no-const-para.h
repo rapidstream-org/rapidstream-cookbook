@@ -21,8 +21,6 @@ void Sextans(tapa::mmap<int> edge_list_ptr,
              tapa::mmaps<ap_uint<512>, NUM_CH_SPARSE> edge_list_ch,
              tapa::mmaps<float_v16, NUM_CH_B> mat_B_ch,
              tapa::mmaps<float_v16, NUM_CH_C> mat_C_ch_in,
-             tapa::mmaps<float_v16, NUM_CH_C> mat_C_ch,
-             const int NUM_ITE, const int NUM_A_LEN, const int M, const int K,
-             const int P_N, const int alpha_u, int beta_u);
+             tapa::mmaps<float_v16, NUM_CH_C> mat_C_ch);
 
 #endif  // SEXTANS_H
