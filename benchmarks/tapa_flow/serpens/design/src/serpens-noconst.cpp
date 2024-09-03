@@ -5,7 +5,7 @@
 
 #include <tapa.h>
 
-#include "serpens.h"
+#include "serpens-noconst.h"
 
 //#include <iostream>
 //using namespace std;
@@ -16,6 +16,14 @@ const int NUM_CH_SPARSE_div_8 = NUM_CH_SPARSE / 8;
 const int NUM_CH_SPARSE_mult_16 = NUM_CH_SPARSE * 16;
 const int NUM_CH_SPARSE_mult_2 = NUM_CH_SPARSE * 2;
 const int WINDOW_SIZE_div_16 = WINDOW_SIZE >> 4;
+
+#define NUM_ITE 1
+#define NUM_A_LEN 1139
+#define M 4704
+#define K 4704
+#define P_N 1
+#define alpha_u 1062836634
+#define beta_u -1073490166
 
 using float_v8 = tapa::vec_t<float, 8>;
 using float_v2 = tapa::vec_t<float, 2>;
@@ -45,21 +53,17 @@ inline void async_read(tapa::async_mmap<T> & A,
     }
 }
 
-void read_edge_list_ptr(const int num_ite,
-                        const int M,
-                        const int P_N,
-                        const int K,
-                        tapa::async_mmap<int> & edge_list_ptr,
+void read_edge_list_ptr(tapa::async_mmap<int> & edge_list_ptr,
                         tapa::ostream<int> & PE_inst
                         ) {
     const int rp_time = (P_N == 0)? 1 : P_N;
 
-    PE_inst.write(num_ite);
+    PE_inst.write(NUM_ITE);
     PE_inst.write(M);
     PE_inst.write(rp_time);
     PE_inst.write(K);
 
-    const int num_ite_plus1 = num_ite + 1;
+    const int num_ite_plus1 = NUM_ITE + 1;
 l_rp:
     for(int rp = 0; rp < rp_time; rp++) {
 #pragma HLS loop_flatten off
@@ -76,9 +80,7 @@ l_rp:
     }
 }
 
-void read_X(const int P_N,
-            const int K,
-            tapa::async_mmap<float_v16> & vec_X,
+void read_X(tapa::async_mmap<float_v16> & vec_X,
             tapa::ostream<float_v16> & fifo_X
             ) {
     const int rp_time = (P_N == 0)? 1 : P_N;
@@ -100,9 +102,7 @@ l_rp:
     }
 }
 
-void read_A(const int P_N,
-            const int A_len,
-            tapa::async_mmap<ap_uint<512>> & A,
+void read_A(tapa::async_mmap<ap_uint<512>> & A,
             tapa::ostream<ap_uint<512>> & fifo_A
             ) {
     const int rp_time = (P_N == 0)? 1 : P_N;
@@ -111,12 +111,12 @@ l_rp:
 #pragma HLS loop_flatten off
 #pragma HLS loop_tripcount min=1 max=16
     rd_A:
-        for(int i_req = 0, i_resp = 0; i_resp < A_len;) {
+        for(int i_req = 0, i_resp = 0; i_resp < NUM_A_LEN;) {
 #pragma HLS loop_tripcount min=1 max=10000
 #pragma HLS pipeline II=1
             async_read(A,
                        fifo_A,
-                       A_len,
+                       NUM_A_LEN,
                        i_req, i_resp);
         }
     }
@@ -131,18 +131,18 @@ void PEG_Xvec(tapa::istream<int> & fifo_inst_in,
               tapa::ostream<int> & fifo_inst_out_to_Yvec,
               tapa::ostream<MultXVec> & fifo_aXvec
               ) {
-    const int NUM_ITE = fifo_inst_in.read();
-    const int M = fifo_inst_in.read();
+    const int local_NUM_ITE = fifo_inst_in.read();
+    const int local_M = fifo_inst_in.read();
     const int rp_time = fifo_inst_in.read();
-    const int K = fifo_inst_in.read();
+    const int local_K = fifo_inst_in.read();
 
-    fifo_inst_out.write(NUM_ITE);
-    fifo_inst_out.write(M);
+    fifo_inst_out.write(local_NUM_ITE);
+    fifo_inst_out.write(local_M);
     fifo_inst_out.write(rp_time);
-    fifo_inst_out.write(K);
+    fifo_inst_out.write(local_K);
 
-    fifo_inst_out_to_Yvec.write(NUM_ITE);
-    fifo_inst_out_to_Yvec.write(M);
+    fifo_inst_out_to_Yvec.write(local_NUM_ITE);
+    fifo_inst_out_to_Yvec.write(local_M);
     fifo_inst_out_to_Yvec.write(rp_time);
 
 l_rp:
@@ -151,7 +151,7 @@ l_rp:
 #pragma HLS loop_tripcount min=1 max=16
 
         float local_X[4][WINDOW_SIZE];
-#pragma HLS bind_storage variable=local_X latency=2
+#pragma HLS bind_storage variable=local_X type=RAM_2P impl=BRAM latency=2
 #pragma HLS array_partition variable=local_X complete dim=1
 #pragma HLS array_partition variable=local_X cyclic factor=X_PARTITION_FACTOR dim=2
 
@@ -160,12 +160,12 @@ l_rp:
         fifo_inst_out_to_Yvec.write(start_32);
 
     main:
-        for (int i = 0; i < NUM_ITE; ++i) {
+        for (int i = 0; i < local_NUM_ITE; ++i) {
 #pragma HLS loop_tripcount min=1 max=49
 
             // fill onchip X
         read_X:
-            for (int j = 0; (j < WINDOW_SIZE_div_16) & (j < ((K + 15) >> 4) - i * WINDOW_SIZE_div_16); ) {
+            for (int j = 0; (j < WINDOW_SIZE_div_16) & (j < ((local_K + 15) >> 4) - i * WINDOW_SIZE_div_16); ) {
 #pragma HLS loop_tripcount min=1 max=512
 #pragma HLS pipeline II = 1
                 if (!fifo_X_in.empty() & !fifo_X_out.full()) {
@@ -245,12 +245,12 @@ void PEG_Yvec(tapa::istream<int> & fifo_inst_in,
               tapa::istream<MultXVec> & fifo_aXvec,
               tapa::ostream<float_v2> & fifo_Y_out
               ) {
-    const int NUM_ITE = fifo_inst_in.read();
-    const int M = fifo_inst_in.read();
+    const int local_NUM_ITE = fifo_inst_in.read();
+    const int local_M = fifo_inst_in.read();
     const int rp_time = fifo_inst_in.read();
 
-    const int num_v_init = (M + NUM_CH_SPARSE_mult_16 - 1) / NUM_CH_SPARSE_mult_16;
-    const int num_v_out = (M + NUM_CH_SPARSE_mult_2 - 1) / NUM_CH_SPARSE_mult_2;
+    const int num_v_init = (local_M + NUM_CH_SPARSE_mult_16 - 1) / NUM_CH_SPARSE_mult_16;
+    const int num_v_out = (local_M + NUM_CH_SPARSE_mult_2 - 1) / NUM_CH_SPARSE_mult_2;
 
     ap_uint<64> local_C[8][URAM_DEPTH];
 #pragma HLS bind_storage variable=local_C type=RAM_2P impl=URAM latency=1
@@ -274,7 +274,7 @@ l_rp:
         auto start_32 = fifo_inst_in.read();
 
     main:
-        for (int i = 0; i < NUM_ITE; ++i) {
+        for (int i = 0; i < local_NUM_ITE; ++i) {
 #pragma HLS loop_tripcount min=1 max=49
 
             // computation
@@ -319,9 +319,7 @@ l_rp:
     }
 }
 
-void Arbiter_Y(const int P_N,
-               const int M,
-               tapa::istreams<float_v2, NUM_CH_SPARSE_div_8> & fifo_in,
+void Arbiter_Y(tapa::istreams<float_v2, NUM_CH_SPARSE_div_8> & fifo_in,
                tapa::ostream<float_v2> & fifo_out
                ) {
     const int rp_time = (P_N == 0)? 1 : P_N;
@@ -368,10 +366,7 @@ void Merger_Y(tapa::istreams<float_v2, 8> & fifo_in,
     }
 }
 
-void FloatvMultConst(const int P_N,
-                     const int M,
-                     const int alpha_u,
-                     tapa::istream<float_v16> & fifo_in,
+void FloatvMultConst_alpha(tapa::istream<float_v16> & fifo_in,
                      tapa::ostream<float_v16> & fifo_out
                      ) {
     const float alpha_f = tapa::bit_cast<float>(alpha_u);
@@ -390,9 +385,26 @@ cc:
     }
 }
 
-void read_Y(const int P_N,
-            const int M,
-            tapa::async_mmap<float_v16> & Y,
+void FloatvMultConst_beta(tapa::istream<float_v16> & fifo_in,
+                     tapa::ostream<float_v16> & fifo_out
+                     ) {
+    const float alpha_f = tapa::bit_cast<float>(beta_u);
+    const int rp_time = (P_N == 0)? 1 : P_N;
+    const int num_ite_Y = ((M + 15) >> 4) * rp_time;
+cc:
+    for (int i = 0; i < num_ite_Y;) {
+#pragma HLS pipeline II=1
+        float_v16 tmp;
+        bool read_ready = fifo_in.try_read(tmp);
+        if (read_ready) {
+            float_v16 c_out = tmp * alpha_f;
+            fifo_out.write(c_out);
+            ++i;
+        }
+    }
+}
+
+void read_Y(tapa::async_mmap<float_v16> & Y,
             tapa::ostream<float_v16> & fifo_Y
             ) {
     const int rp_time = (P_N == 0)? 1 : P_N;
@@ -431,9 +443,7 @@ cc:
     }
 }
 
-void write_Y(const int P_N,
-             const int M,
-             tapa::istream<float_v16> & fifo_Y,
+void write_Y(tapa::istream<float_v16> & fifo_Y,
              tapa::async_mmap<float_v16> & Y_out
              ) {
     const int rp_time = (P_N == 0)? 1 : P_N;
@@ -487,15 +497,7 @@ void Serpens(tapa::mmap<int> edge_list_ptr,
 
              tapa::mmap<float_v16> vec_Y,
 
-             tapa::mmap<float_v16> vec_Y_out,
-
-             const int NUM_ITE,
-             const int NUM_A_LEN,
-             const int M,
-             const int K,
-             const int P_N,
-             const int alpha_u,
-             const int beta_u
+             tapa::mmap<float_v16> vec_Y_out
              ) {
     tapa::streams<int, NUM_CH_SPARSE + 1, FIFO_DEPTH> PE_inst("PE_inst");
 
@@ -525,24 +527,16 @@ void Serpens(tapa::mmap<int> edge_list_ptr,
 
     tapa::task()
         .invoke(read_edge_list_ptr,
-                NUM_ITE,
-                M,
-                P_N,
-                K,
                 edge_list_ptr,
                 PE_inst
                 )
 
         .invoke<tapa::join>(read_X,
-                            P_N,
-                            K,
                             vec_X,
                             fifo_X_pe
                             )
 
         .invoke<tapa::join, NUM_CH_SPARSE>(read_A,
-                                           P_N,
-                                           NUM_A_LEN,
                                            edge_list_ch,
                                            fifo_A
                                            )
@@ -568,8 +562,6 @@ void Serpens(tapa::mmap<int> edge_list_ptr,
                                            )
 
         .invoke<tapa::join, 8>(Arbiter_Y,
-                               P_N,
-                               M,
                                fifo_Y_pe,
                                fifo_Y_pe_abd
                                )
@@ -579,25 +571,17 @@ void Serpens(tapa::mmap<int> edge_list_ptr,
                               fifo_Y_AX
                               )
 
-        .invoke<tapa::join>(FloatvMultConst,
-                            P_N,
-                            M,
-                            alpha_u,
+        .invoke<tapa::join>(FloatvMultConst_alpha,
                             fifo_Y_AX,
                             fifo_Y_alpha_AX
                             )
 
         .invoke<tapa::join>(read_Y,
-                            P_N,
-                            M,
                             vec_Y,
                             fifo_Y_in
                             )
 
-        .invoke<tapa::join>(FloatvMultConst,
-                            P_N,
-                            M,
-                            beta_u,
+        .invoke<tapa::join>(FloatvMultConst_beta,
                             fifo_Y_in,
                             fifo_Y_in_beta
                             )
@@ -609,8 +593,6 @@ void Serpens(tapa::mmap<int> edge_list_ptr,
                               )
 
         .invoke<tapa::join>(write_Y,
-                            P_N,
-                            M,
                             fifo_Y_out,
                             vec_Y_out
                             )
