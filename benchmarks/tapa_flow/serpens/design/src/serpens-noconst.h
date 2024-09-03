@@ -18,8 +18,6 @@ void Serpens(tapa::mmap<int> edge_list_ptr,
              tapa::mmaps<ap_uint<512>, NUM_CH_SPARSE> edge_list_ch,
              tapa::mmap<float_v16> vec_X,
              tapa::mmap<float_v16> vec_Y,
-             tapa::mmap<float_v16> vec_Y_out,
-             const int NUM_ITE, const int NUM_A_LEN, const int M, const int K,
-             const int P_N, const int alpha_u, const int beta_u);
+             tapa::mmap<float_v16> vec_Y_out);
 
 #endif  // SEEPENS_H

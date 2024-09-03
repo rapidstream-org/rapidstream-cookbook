@@ -9,7 +9,7 @@
 #include <tapa.h>
 
 #include "mmio.h"
-#include "serpens.h"
+#include "serpens-noconst.h"
 #include "sparse_helper.h"
 
 using std::cout;
@@ -198,15 +198,15 @@ int main(int argc, char **argv) {
                    tapa::read_only_mmaps<unsigned long, NUM_CH_SPARSE>(sparse_A_fpga_vec).reinterpret<ap_uint<512>>(),
                    tapa::read_only_mmap<float>(vec_X_fpga).reinterpret<float_v16>(),
                    tapa::read_only_mmap<float>(vec_Y_fpga).reinterpret<float_v16>(),
-                   tapa::write_only_mmap<float>(vec_Y_out_fpga).reinterpret<float_v16>(),
-                   MAX_SIZE_edge_LIST_PTR,
-                   MAX_LEN_edge_PTR,
-                   M,
-                   K,
-                   rp_time,
-                   alpha_int,
-                   beta_int
+                   tapa::write_only_mmap<float>(vec_Y_out_fpga).reinterpret<float_v16>()
                    );
+    cout << "MAX_SIZE_edge_LIST_PTR " << MAX_SIZE_edge_LIST_PTR << "\n";
+    cout << "MAX_LEN_edge_PTR " << MAX_LEN_edge_PTR << "\n";
+    cout << "M " << M << "\n";
+    cout << "K " << K << "\n";
+    cout << "rp_time " << rp_time << "\n";
+    cout << "alpha_int " << alpha_int << "\n";
+    cout << "beta_int " << beta_int << "\n";
     time_taken *= (1e-9/rp_time); // total time in second
     printf("Kernel time is %f ms\n", time_taken*1000);
 
