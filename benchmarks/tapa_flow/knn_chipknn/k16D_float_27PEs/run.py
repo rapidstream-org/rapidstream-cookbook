@@ -34,7 +34,7 @@ factory.reduce_slot_area(0, 0, lut=5000 * 13, ff=6500 * 13)
 print("Reducing DSP of (1, 1) to make it less congested")
 factory.reduce_slot_area(1, 1, dsp=100)
 
-rs = RapidStreamTAPA(f"{CURR_DIR}/build")
+rs = RapidStreamTAPA(f"{CURR_DIR}/build/{os.path.basename(__file__)}")
 
 rs.set_virtual_device(factory.generate_virtual_device())
 rs.add_xo_file(XO_PATH)
@@ -50,79 +50,26 @@ rs.add_flatten_targets([kernel_name])
 right_slot = "SLOT_X1Y0:SLOT_X1Y0"
 left_slot = "SLOT_X0Y0:SLOT_X0Y0"
 # The config file binds the following argument to HBM 0 - 15
-# sp=Knn.in_0:HBM[0]
-# sp=Knn.in_1:HBM[1]
-# sp=Knn.in_2:HBM[2]
-# sp=Knn.in_3:HBM[3]
-# sp=Knn.in_4:HBM[4]
-# sp=Knn.in_5:HBM[5]
-# sp=Knn.in_6:HBM[6]
-# sp=Knn.in_7:HBM[7]
-# sp=Knn.in_8:HBM[8]
-# sp=Knn.in_9:HBM[9]
-# sp=Knn.in_10:HBM[10]
-# sp=Knn.in_11:HBM[11]
-# sp=Knn.in_12:HBM[12]
-# sp=Knn.in_13:HBM[13]
-# sp=Knn.in_14:HBM[14]
-# sp=Knn.in_15:HBM[15]
+# sp=Knn_1.in_0:HBM[0]
+# sp=Knn_1.in_1:HBM[1]
+# sp=Knn_1.in_2:HBM[2]
+# sp=Knn_1.in_3:HBM[3]
+# sp=Knn_1.in_4:HBM[4]
+# sp=Knn_1.in_5:HBM[5]
+# sp=Knn_1.in_6:HBM[6]
+# sp=Knn_1.in_7:HBM[7]
+# sp=Knn_1.in_8:HBM[8]
+# sp=Knn_1.in_9:HBM[9]
+# sp=Knn_1.in_10:HBM[10]
+# sp=Knn_1.in_11:HBM[11]
+# sp=Knn_1.in_12:HBM[12]
+# sp=Knn_1.in_13:HBM[13]
+# sp=Knn_1.in_14:HBM[14]
+# sp=Knn_1.final_out_dist:HBM[14]
+# sp=Knn_1.final_out_id:HBM[14]
 
-left_args = [
-    "in_0",
-    "in_1",
-    "in_2",
-    "in_3",
-    "in_4",
-    "in_5",
-    "in_6",
-    "in_7",
-    "in_8",
-    "in_9",
-    "in_10",
-    "in_11",
-    "in_12",
-    "in_13",
-    "in_14",
-    "in_15",
-]
-
-for arg in left_args:
-    rs.assign_port_to_region(f"m_axi_{arg}_.*", left_slot)
-
-# The config file binds the following argument to HBM 16 - 31
-# sp=Knn.in_16:HBM[16]
-# sp=Knn.in_17:HBM[17]
-# sp=Knn.in_18:HBM[18]
-# sp=Knn.in_19:HBM[19]
-# sp=Knn.in_20:HBM[20]
-# sp=Knn.in_21:HBM[21]
-# sp=Knn.in_22:HBM[22]
-# sp=Knn.in_23:HBM[23]
-# sp=Knn.in_24:HBM[24]
-# sp=Knn.in_25:HBM[25]
-# sp=Knn.in_26:HBM[26]
-# sp=Knn.final_out_dist:HBM[26]
-# sp=Knn.final_out_id:HBM[26]
-
-right_args = [
-    "in_16",
-    "in_17",
-    "in_18",
-    "in_19",
-    "in_20",
-    "in_21",
-    "in_22",
-    "in_23",
-    "in_24",
-    "in_25",
-    "in_26",
-    "final_out_dist",
-    "final_out_id",
-]
-
-for arg in right_args:
-    rs.assign_port_to_region(f"m_axi_{arg}_.*", right_slot)
-
+rs.assign_port_to_region(".*in_.*", left_slot)
+rs.assign_port_to_region(".*final_out.*", left_slot)
 
 # Constrain the remaining control ports.
 # All ports must be constrained to a specific slot:
