@@ -13,3 +13,5 @@ tapac \
   --write-only-args vec_res \
   src/callipepla.cpp \
   2>&1 | tee tapa.log
+
+# change `src/callipepla.cpp` to `src_noconst/callipepla.cpp` to generate the design without aggressively passing constants through handshake interfaces.

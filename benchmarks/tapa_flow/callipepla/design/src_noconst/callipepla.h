@@ -21,10 +21,7 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
                 tapa::mmap<double_v8> vec_Ap,
                 tapa::mmaps<double_v8, 2> vec_r,
                 tapa::mmap<double_v8> vec_digA,
-                tapa::mmap<double> vec_res,
-                const int NUM_ITE, const int NUM_A_LEN, const int M,
-                const int rp_time,
-                const double th_termination
+                tapa::mmap<double> vec_res
                 );
 
 #endif  // CALLIPEPLA_H

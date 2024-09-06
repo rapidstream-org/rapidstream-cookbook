@@ -13,6 +13,12 @@ const int NUM_CH_SPARSE_div_8 = NUM_CH_SPARSE / 8;
 const int NUM_CH_SPARSE_mult_8 = NUM_CH_SPARSE * 8;
 const int WINDOW_SIZE_div_8 = WINDOW_SIZE / 8;
 
+#define NUM_ITE 1
+#define NUM_A_LEN 29
+#define M 14
+#define rp_time 16
+#define th_termination (1e-12)
+
 struct MultXVec {
     tapa::vec_t<ap_uint<18>, 8> row;
     double_v8 axv;
@@ -259,22 +265,19 @@ spin:
 }
 
 
-void read_edge_list_ptr(const int num_ite,
-                        const int M,
-                        const int rp_time, //P_N,
-                        tapa::async_mmap<int> & edge_list_ptr,
+void read_edge_list_ptr(tapa::async_mmap<int> & edge_list_ptr,
                         tapa::ostream<int> & PE_inst,
                         tapa::istream<bool> & q_gbc,
                         tapa::ostream<bool> & q_gbc_out
                         ) {
     //const int rp_time = (P_N == 0)? 1 : P_N;
 
-    PE_inst.write(num_ite);
+    PE_inst.write(NUM_ITE);
     PE_inst.write(M);
     PE_inst.write(rp_time);
     //PE_inst.write(K);
 
-    const int num_ite_plus1 = num_ite + 1;
+    const int num_ite_plus1 = NUM_ITE + 1;
     bool term_flag = false;
 
 l_rp:
@@ -299,33 +302,7 @@ l_rp:
     //cout << "### exit read_edge_list_ptr" << endl;
 }
 
-void read_vec(const int rp_time, //P_N
-              const int M, //K,
-              tapa::async_mmap<double_v8> & vec_X,
-              tapa::ostream<double_v8> & fifo_X
-              ) {
-    //const int rp_time = (P_N == 0)? 1 : P_N;
-    const int num_ite_X = (M + 7) >> 3;
-
-l_rp:
-    for(int rp = 0; rp < rp_time; rp++) {
-#pragma HLS loop_flatten off
-#pragma HLS loop_tripcount min=1 max=16
-    rd_X:
-        for(int i_req = 0, i_resp = 0; i_resp < num_ite_X;) {
-#pragma HLS loop_tripcount min=1 max=500000
-#pragma HLS pipeline II=1
-            async_read(vec_X,
-                       fifo_X,
-                       num_ite_X,
-                       i_req, i_resp);
-        }
-    }
-}
-
-void read_A(const int rp_time, //P_N,
-            const int A_len,
-            tapa::async_mmap<ap_uint<512>> & A,
+void read_A(tapa::async_mmap<ap_uint<512>> & A,
             tapa::ostream<ap_uint<512>> & fifo_A,
             tapa::istream<bool> & q_gbc,
             tapa::ostream<bool> & q_gbc_out
@@ -337,12 +314,12 @@ l_rp:
 #pragma HLS loop_flatten off
 #pragma HLS loop_tripcount min=1 max=16
     rd_A:
-        for(int i_req = 0, i_resp = 0; i_resp < A_len;) {
+        for(int i_req = 0, i_resp = 0; i_resp < NUM_A_LEN;) {
 #pragma HLS loop_tripcount min=1 max=10000
 #pragma HLS pipeline II=1
             async_read(A,
                        fifo_A,
-                       A_len,
+                       NUM_A_LEN,
                        i_req, i_resp);
         }
 
@@ -366,24 +343,24 @@ void PEG_Xvec(tapa::istream<int> & fifo_inst_in,
               tapa::ostream<bool> & q_gbc_out,
               tapa::ostream<bool> & q_gbc_out_Y
               ) {
-    const int NUM_ITE = fifo_inst_in.read();
-    const int M = fifo_inst_in.read();
-    const int rp_time = fifo_inst_in.read();
+    const int local_NUM_ITE = fifo_inst_in.read();
+    const int local_M = fifo_inst_in.read();
+    const int local_rp_time = fifo_inst_in.read();
     //const int K = fifo_inst_in.read();
 
-    fifo_inst_out.write(NUM_ITE);
-    fifo_inst_out.write(M);
-    fifo_inst_out.write(rp_time);
+    fifo_inst_out.write(local_NUM_ITE);
+    fifo_inst_out.write(local_M);
+    fifo_inst_out.write(local_rp_time);
     //fifo_inst_out.write(K);
 
-    fifo_inst_out_to_Yvec.write(NUM_ITE);
-    fifo_inst_out_to_Yvec.write(M);
-    fifo_inst_out_to_Yvec.write(rp_time);
+    fifo_inst_out_to_Yvec.write(local_NUM_ITE);
+    fifo_inst_out_to_Yvec.write(local_M);
+    fifo_inst_out_to_Yvec.write(local_rp_time);
 
     bool term_flag = false;
 
 l_rp:
-    for(int rp = -1; !term_flag & (rp < rp_time); rp++) {
+    for(int rp = -1; !term_flag & (rp < local_rp_time); rp++) {
 #pragma HLS loop_flatten off
 #pragma HLS loop_tripcount min=1 max=16
 
@@ -397,12 +374,12 @@ l_rp:
         fifo_inst_out_to_Yvec.write(start_32);
 
     main:
-        for (int i = 0; i < NUM_ITE; ++i) {
+        for (int i = 0; i < local_NUM_ITE; ++i) {
 #pragma HLS loop_tripcount min=1 max=49
 
             // fill onchip X
         read_X:
-            for (int j = 0; (j < WINDOW_SIZE_div_8) & (j < ((M + 7) >> 3) - i * WINDOW_SIZE_div_8); ) {
+            for (int j = 0; (j < WINDOW_SIZE_div_8) & (j < ((local_M + 7) >> 3) - i * WINDOW_SIZE_div_8); ) {
 #pragma HLS loop_tripcount min=1 max=512
 #pragma HLS pipeline II = 1
                 if (!fifo_X_in.empty() & !fifo_X_out.full()) {
@@ -463,12 +440,12 @@ void PEG_Yvec(tapa::istream<int> & fifo_inst_in,
               tapa::ostream<double> & fifo_Y_out,
               tapa::istream<bool> & q_gbc
               ) {
-    const int NUM_ITE = fifo_inst_in.read();
-    const int M = fifo_inst_in.read();
-    const int rp_time = fifo_inst_in.read();
+    const int local_NUM_ITE = fifo_inst_in.read();
+    const int local_M = fifo_inst_in.read();
+    const int local_rp_time = fifo_inst_in.read();
 
-    const int num_v_init = (M + NUM_CH_SPARSE_mult_8 - 1) / NUM_CH_SPARSE_mult_8;
-    const int num_v_out = (M + NUM_CH_SPARSE - 1) / NUM_CH_SPARSE;
+    const int num_v_init = (local_M + NUM_CH_SPARSE_mult_8 - 1) / NUM_CH_SPARSE_mult_8;
+    const int num_v_out = (local_M + NUM_CH_SPARSE - 1) / NUM_CH_SPARSE;
 
     bool term_flag = false;
 
@@ -477,7 +454,7 @@ void PEG_Yvec(tapa::istream<int> & fifo_inst_in,
 #pragma HLS array_partition complete variable=local_C dim=1
 
 l_rp:
-    for(int rp = -1; !term_flag & (rp < rp_time); rp++) {
+    for(int rp = -1; !term_flag & (rp < local_rp_time); rp++) {
 #pragma HLS loop_flatten off
 #pragma HLS loop_tripcount min=1 max=16
 
@@ -494,7 +471,7 @@ l_rp:
         auto start_32 = fifo_inst_in.read();
 
     main:
-        for (int i = 0; i < NUM_ITE; ++i) {
+        for (int i = 0; i < local_NUM_ITE; ++i) {
 #pragma HLS loop_tripcount min=1 max=49
 
             // computation
@@ -536,9 +513,7 @@ l_rp:
     //cout << "#### exit PEG_Yvec\n";
 }
 
-void Arbiter_Y(const int rp_time, //P_N,
-               const int M,
-               tapa::istreams<double, NUM_CH_SPARSE_div_8> & fifo_in, // 2 = 16 / 8
+void Arbiter_Y(tapa::istreams<double, NUM_CH_SPARSE_div_8> & fifo_in, // 2 = 16 / 8
                tapa::ostream<double> & fifo_out,
                tapa::istream<bool> & q_gbc,
                tapa::ostream<bool> & q_gbc_out
@@ -618,8 +593,6 @@ void black_hole_bool(tapa::istream<bool> & fifo_in) {
 
 void ctrl_P(tapa::istreams<double_v8, 2> & qm_din,
             tapa::ostreams<double_v8, 2> & qm_dout,
-            const int rp_time, //P_N
-            const int M, //K,
             tapa::ostreams<InstRdWr, 2> & q_inst,
             tapa::ostream<double_v8> & q_spmv,
             tapa::ostream<double_v8> & q_dotp,
@@ -707,8 +680,6 @@ l_rp:
 void ctrl_AP(tapa::istream<double_v8> & qm_din,
              tapa::ostream<double_v8> & qm_dout,
 
-             const int rp_time,
-             const int M,
              tapa::ostream<InstRdWr> & q_inst,
 
              tapa::ostream<double_v8> & q_updr,
@@ -770,8 +741,6 @@ l_rp:
 void ctrl_X(tapa::istreams<double_v8, 2> & qm_din,
             tapa::ostreams<double_v8, 2> & qm_dout,
 
-            const int rp_time,
-            const int M,
             tapa::ostreams<InstRdWr, 2> & q_inst,
 
             tapa::ostream<double_v8> & q_oldx,
@@ -823,8 +792,6 @@ l_rp:
 void ctrl_R(tapa::istreams<double_v8, 2> & qm_din,
             tapa::ostreams<double_v8, 2> & qm_dout,
 
-            const int rp_time,
-            const int M,
             tapa::ostreams<InstRdWr, 2> & q_inst,
 
             tapa::ostream<double_v8> & qr_to_pe,
@@ -885,8 +852,6 @@ l_rp:
 }
 
 void read_digA(tapa::async_mmap<double_v8> & vec_mem,
-               const int rp_time, //P_N
-               const int M, //K,
                tapa::ostream<double_v8> & q_dout,
                tapa::istream<bool> & q_gbc,
                tapa::ostream<bool> & q_gbc_out
@@ -923,9 +888,7 @@ l_rp:
 /*  computation modules  */
 
 //M2: alpha = rzold / (p' * Ap)
-void dot_alpha(const int rp_time,
-               const int M,
-               //const unsigned long rz0,
+void dot_alpha(//const unsigned long rz0,
                tapa::istream<double> & qrz,
                tapa::istream<double_v8> & q1,
                tapa::istream<double_v8> & q2,
@@ -1009,10 +972,7 @@ rp:
 }
 
 //M end: res = r' * r
-void dot_res(const int rp_time,
-             const int M,
-             const double th_termination,
-             tapa::istream<double_v8> & q1,
+void dot_res(tapa::istream<double_v8> & q1,
              tapa::ostream<ResTerm> & q2,
              tapa::ostream<bool> & q_termination
              ) {
@@ -1076,9 +1036,7 @@ rp:
 }
 
 //M6: rznew = r' * z
-void dot_rznew(const int rp_time,
-               const int M,
-               tapa::istream<double_v8> & qr,
+void dot_rznew(tapa::istream<double_v8> & qr,
                tapa::istream<double_v8> & qz,
                tapa::ostream<double_v8> & qr_out,
                tapa::ostreams<double, 2> & qrz,
@@ -1149,9 +1107,7 @@ rp:
 }
 
 //M3: x = x + alpha * p
-void updt_x(const int rp_time,
-            const int M,
-            tapa::istream<double> & qalpha,
+void updt_x(tapa::istream<double> & qalpha,
             tapa::istream<double_v8> & qx,
             tapa::istream<double_v8> & qp,
             tapa::ostream<double_v8> & qout,
@@ -1186,9 +1142,7 @@ l_rp:
 }
 
 //M7: p = z + (rznew/rzold) * p
-void updt_p(const int rp_time,
-            const int M,
-            //const unsigned long rz0,
+void updt_p(//const unsigned long rz0,
             tapa::istream<double> & qrznew,
             tapa::istream<double_v8> & qz,
             tapa::istream<double_v8> & qp,
@@ -1234,9 +1188,7 @@ l_rp:
 }
 
 //M4: r = r - alpha * Ap
-void updt_r(const int rp_time,
-            const int M,
-            tapa::istream<double> & qalpha,
+void updt_r(tapa::istream<double> & qalpha,
             tapa::istream<double_v8> & qr,
             tapa::istream<double_v8> & qap,
             tapa::ostream<double_v8> & qout,
@@ -1279,9 +1231,7 @@ l_rp:
 }
 
 //M5: z = diagA \ r
-void left_div(const int rp_time,
-              const int M,
-              tapa::istream<double_v8> & qr,
+void left_div(tapa::istream<double_v8> & qr,
               tapa::istream<double_v8> & qdiagA,
 
               tapa::ostreams<double_v8, 2> & qz,
@@ -1339,8 +1289,7 @@ rp:
     //cout << "@@@ exit left_div\n";
 }
 
-void wr_r(const int rp_time,
-          tapa::async_mmap<double> & vec_r,
+void wr_r(tapa::async_mmap<double> & vec_r,
           tapa::istream<ResTerm> & q_din
           ) {
     int wr_count = rp_time + 1;
@@ -1387,9 +1336,7 @@ cc:
     }
 }
 
-void vecp_mux(const int rp_time,
-              const int M,
-              tapa::istream<bool> & q_gbc,
+void vecp_mux(tapa::istream<bool> & q_gbc,
 
               tapa::istream<double_v8> & q_in1,
               tapa::istream<double_v8> & q_in2,
@@ -1431,13 +1378,7 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
                 tapa::mmap<double_v8> vec_digA,
 
-                tapa::mmap<double> vec_res,
-
-                const int NUM_ITE,
-                const int NUM_A_LEN,
-                const int M,
-                const int rp_time,
-                const double th_termination
+                tapa::mmap<double> vec_res
                 ) {
 
     // fifos for spmv
@@ -1589,9 +1530,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
                               )
 
         .invoke<tapa::join>(read_edge_list_ptr,
-                NUM_ITE,
-                M,
-                rp_time,
                 edge_list_ptr,
                 PE_inst,
                 tsignal_edgepointer,
@@ -1610,8 +1548,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
         .invoke<tapa::join>(ctrl_P,
                             fifo_din_P,
                             fifo_dout_P,
-                            rp_time,
-                            M,
                             fifo_mi_P,
                             fifo_P_from_mem,
                             fifo_P_dot,
@@ -1624,8 +1560,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
                             )
         //p mux
         .invoke<tapa::join>(vecp_mux,
-                            rp_time,
-                            M,
                             tsignal_mux,
                             fifo_P_from_mem,
                             fifo_P_to_mux,
@@ -1633,8 +1567,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
                             )
 
         .invoke<tapa::join, NUM_CH_SPARSE>(read_A,
-                                           rp_time,
-                                           NUM_A_LEN,
                                            edge_list_ch,
                                            fifo_A,
                                            tsignal_rdA,
@@ -1670,8 +1602,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
                                            )
 
         .invoke<tapa::join, 8>(Arbiter_Y,
-                               rp_time,
-                               M,
                                fifo_Y_pe,
                                fifo_Y_pe_abd,
                                tsignal_aby,
@@ -1697,8 +1627,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
         .invoke<tapa::join>(ctrl_R,
                             fifo_din_R,
                             fifo_dout_R,
-                            rp_time,
-                            M,
                             fifo_mi_R,
                             fifo_R,
                             fifo_R_tomem,
@@ -1710,8 +1638,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
     //digA
         .invoke<tapa::join>(read_digA,
                             vec_digA,
-                            rp_time,
-                            M,
                             fifo_dA,
                             tsignal_ctrldigA,
                             tsignal_ctrlR
@@ -1729,8 +1655,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
         .invoke<tapa::join>(ctrl_X,
                             fifo_din_X,
                             fifo_dout_X,
-                            rp_time,
-                            M,
                             fifo_mi_X,
                             fifo_X,
                             fifo_X_updated,
@@ -1750,8 +1674,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
         .invoke<tapa::join>(ctrl_AP,
                             fifo_din_AP,
                             fifo_dout_AP,
-                            rp_time,
-                            M,
                             fifo_mi_AP,
                             fifo_AP,
                             fifo_AP_M1,
@@ -1764,8 +1686,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M2: alpha = rzold / (p' * Ap)
         .invoke<tapa::join>(dot_alpha,
-                            rp_time,
-                            M,
                             //rz0,
                             fifo_rz,
                             fifo_P_dot,
@@ -1777,8 +1697,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M3: x = x + alpha * p
         .invoke<tapa::join>(updt_x,
-                            rp_time,
-                            M,
                             fifo_alpha,
                             fifo_X,
                             fifo_P_updtx,
@@ -1788,8 +1706,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M4: r = r - alpha * Ap
         .invoke<tapa::join>(updt_r,
-                            rp_time,
-                            M,
                             fifo_alpha,
                             fifo_R,
                             fifo_AP,
@@ -1800,8 +1716,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M5: z = diagA \ r
         .invoke<tapa::join>(left_div,
-                            rp_time,
-                            M,
                             fifo_R_updtd_m5,
                             fifo_dA,
                             fifo_Z,
@@ -1813,8 +1727,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M6: rznew = r' * z
         .invoke<tapa::join>(dot_rznew,
-                            rp_time,
-                            M,
                             fifo_R_updtd_m6,
                             fifo_Z,
                             fifo_R_updtd_rr,
@@ -1826,8 +1738,6 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M7: p = z + (rznew/rzold) * p
         .invoke<tapa::join>(updt_p,
-                            rp_time,
-                            M,
                             //rz0,
                             fifo_rz,
                             fifo_Z,
@@ -1845,16 +1755,12 @@ void Callipepla(tapa::mmap<int> edge_list_ptr,
 
     //M residual
         .invoke<tapa::join>(dot_res,
-                            rp_time,
-                            M,
-                            th_termination,
                             fifo_R_updtd_rr,
                             fifo_RR,
                             tsignal_res
                             )
 
         .invoke<tapa::join>(wr_r,
-                            rp_time,
                             vec_res,
                             fifo_RR
                             )

@@ -247,14 +247,13 @@ int main(int argc, char **argv) {
 
                    tapa::read_only_mmap<double>(diag_A_fpga).reinterpret<double_v8>(),
 
-                   tapa::write_only_mmap<double>(vec_RES_fpga),
-
-                   MAX_SIZE_edge_LIST_PTR,
-                   MAX_LEN_edge_PTR,
-                   M,
-                   num_ites,
-                   th_termination
+                   tapa::write_only_mmap<double>(vec_RES_fpga)
                    );
+    cout << "MAX_SIZE_edge_LIST_PTR " << MAX_SIZE_edge_LIST_PTR << endl;
+    cout << "MAX_LEN_edge_PTR " << MAX_LEN_edge_PTR << endl;
+    cout << "M " << M << endl;
+    cout << "num_ites " << num_ites << endl;
+    cout << "th_termination " << th_termination << endl;
     int ite_kernel;
     for (ite_kernel = num_ites;
          (ite_kernel > 0) && (vec_RES_fpga[ite_kernel] < 1e-305);
