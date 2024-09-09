@@ -1,0 +1,17 @@
+{
+    "dse_range_max": 0.8,
+    "dse_range_min": 0.7,
+    "partition_strategy": "flat",
+    "port_pre_assignments": {
+        ".*input_port.*": "SLOT_X0Y0:SLOT_X0Y0",
+        ".*output_port0_32b_8b.*": "SLOT_X1Y0:SLOT_X1Y0",
+        ".*output_port1_16b_8b.*": "SLOT_X1Y0:SLOT_X1Y0",
+        ".*output_port2_16b_8b.*": "SLOT_X1Y0:SLOT_X1Y0",
+        ".*output_port3_8b.*": "SLOT_X1Y0:SLOT_X1Y0",
+        ".*output_port4_Track.*": "SLOT_X1Y0:SLOT_X1Y0",
+        "ap_clk": "CLK_RST",
+        "ap_rst_n": "CLK_RST",
+        "interrupt": "CLK_RST",
+        "s_axi_control_.*": "S_AXI_CONTROL"
+    }
+}

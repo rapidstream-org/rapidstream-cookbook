@@ -48,16 +48,18 @@ VITIS_DIR="${GIT_ROOT}/benchmarks/vitis_flow"
 #single_make_test "${TAPA_DIR}/bloomFilter/b5_8_5_8" "run.py" ${CLEAN_TEST}
 #single_make_test "${TAPA_DIR}/bloomFilter/b7_8_4_16" "run.py" ${CLEAN_TEST}
 
-#single_make_test "${TAPA_DIR}/knn_chipknn/k2D_float_15PEs" "run.py" ${CLEAN_TEST}
 #single_make_test "${TAPA_DIR}/knn_chipknn/k16D_float_27PEs" "run.py" ${CLEAN_TEST}
 #single_make_test "${TAPA_DIR}/knn_chipknn/k64D_8bit_30PEs" "run.py" ${CLEAN_TEST}
-#single_make_test "${TAPA_DIR}/knn_chipknn/k2D_float_8PEs" "ab_config.json" ${CLEAN_TEST}
+#single_make_test "${TAPA_DIR}/knn_chipknn/k2D_float_8PEs" "run.py" ${CLEAN_TEST}
+#single_make_test "${TAPA_DIR}/knn_chipknn/k2D_float_15PEs" "run.py" ${CLEAN_TEST}
+
+single_make_test "${TAPA_DIR}/orcDecoder" "run.py" ${CLEAN_TEST}
 
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run_u55c.py" ${CLEAN_TEST}
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run_u55c_x0y0_x1y0.py"  ${CLEAN_TEST}
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run_u55c_x0y0_x1y2.py"  ${CLEAN_TEST}
 #single_make_test "${TAPA_DIR}/digit_recognizer" "run_u55c_top_bottom.py" ${CLEAN_TEST}
-single_make_test "${TAPA_DIR}/digit_recognizer" "run_u55c_right_left.py" ${CLEAN_TEST}
+#single_make_test "${TAPA_DIR}/digit_recognizer" "run_u55c_right_left.py" ${CLEAN_TEST}
 
 #single_make_test "${TAPA_DIR}/sextans" "run.py"  ${CLEAN_TEST} &
 #single_make_test "${VITIS_DIR}/LLM" "run_u280.py"  ${CLEAN_TEST}
