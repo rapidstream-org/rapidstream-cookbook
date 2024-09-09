@@ -28,9 +28,9 @@ $(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
 	mkdir -p $(TEMP_DIR)
 	cd $(RSPATH) && $(RSXX)-tapaopt \
     --work-dir $(TEMP_DIR) \
-    --tapa-xo-path  $< \
-    --device-config  $(DEVICE_CONFIG) \
-    --autobridge-config  $(AB_CONFIG)
+    --tapa-xo-path $< \
+    --device-config $(DEVICE_CONFIG) \
+    --floorplan-config $(AB_CONFIG)
 
 $(DEVICE_CONFIG):$(AB_CONFIG)
 	mkdir -p $(TEMP_DIR)

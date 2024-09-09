@@ -1,4 +1,4 @@
-#! /bin/bash
+
 
 WORK_DIR=run
 mkdir -p "${WORK_DIR}"

@@ -1081,7 +1081,7 @@ void Knn(
         .invoke( merge_dual_streams, -1, 2, -1, L0_out_dist[2], L0_out_id[2], L0_out_dist[3], L0_out_id[3], L1_out_dist[1], L1_out_id[1] )
         .invoke( merge_dual_streams, -1, 4, -1, L0_out_dist[4], L0_out_id[4], L0_out_dist[5], L0_out_id[5], L1_out_dist[2], L1_out_id[2] )
         .invoke( merge_dual_streams, -1, 6, -1, L0_out_dist[6], L0_out_id[6], L0_out_dist[7], L0_out_id[7], L1_out_dist[3], L1_out_id[3] )
-       
+
         .invoke( merge_dual_streams, -1, 0, 0, L1_out_dist[0], L1_out_id[0], L1_out_dist[1], L1_out_id[1], L2_out_dist[0], L2_out_id[0] )
         .invoke( merge_dual_streams, -1, 2, 0, L1_out_dist[2], L1_out_id[2], L1_out_dist[3], L1_out_id[3], L2_out_dist[1], L2_out_id[1] )
 

@@ -34,7 +34,7 @@ factory.reduce_slot_area(0, 0, lut=5000 * 13, ff=6500 * 13)
 print("Reducing DSP of (1, 1) to make it less congested")
 factory.reduce_slot_area(1, 1, dsp=100)
 
-rs = RapidStreamTAPA(f"{CURR_DIR}/build")
+rs = RapidStreamTAPA(f"{CURR_DIR}/build/{os.path.basename(__file__)}")
 
 rs.set_virtual_device(factory.generate_virtual_device())
 rs.add_xo_file(XO_PATH)
@@ -54,60 +54,73 @@ left_slot = "SLOT_X0Y0:SLOT_X0Y0"
 # sp=unikernel.out_0:HBM[1]
 # sp=unikernel.in_1:HBM[2]
 # sp=unikernel.out_1:HBM[3]
-# sp=unikernel.in_3:HBM[4]
-# sp=unikernel.out_3:HBM[5]
-# sp=unikernel.in_6:HBM[6]
-# sp=unikernel.out_6:HBM[7]
-# sp=unikernel.in_9:HBM[8]
-# sp=unikernel.out_9:HBM[9]
-# sp=unikernel.in_11:HBM[10]
-# sp=unikernel.out_11:HBM[11]
-# sp=unikernel.in_2:HBM[12]
-# sp=unikernel.out_2:HBM[13]
+# sp=unikernel.in_2:HBM[4]
+# sp=unikernel.out_2:HBM[5]
+# sp=unikernel.in_3:HBM[6]
+# sp=unikernel.out_3:HBM[7]
+# sp=unikernel.in_4:HBM[8]
+# sp=unikernel.out_4:HBM[9]
+# sp=unikernel.in_5:HBM[10]
+# sp=unikernel.out_5:HBM[11]
+# sp=unikernel.in_6:HBM[12]
+# sp=unikernel.out_6:HBM[13]
+# sp=unikernel.in_7:HBM[14]
+# sp=unikernel.out_7:HBM[15]
+
 
 left_args = [
     "in_0",
     "out_0",
     "in_1",
     "out_1",
-    "in_3",
-    "out_3",
-    "in_6",
-    "out_6",
-    "in_9",
-    "out_9",
-    "in_11",
-    "out_11",
     "in_2",
     "out_2",
+    "in_3",
+    "out_3",
+    "in_4",
+    "out_4",
+    "in_5",
+    "out_5",
+    "in_6",
+    "out_6",
+    "in_7",
+    "out_7",
 ]
 
 for arg in left_args:
     rs.assign_port_to_region(f"m_axi_{arg}_.*", left_slot)
 
 # The config file binds the following argument to HBM 16 - 31
-# sp=unikernel.in_4:HBM[18]
-# sp=unikernel.out_4:HBM[19]
-# sp=unikernel.in_5:HBM[20]
-# sp=unikernel.out_5:HBM[21]
-# sp=unikernel.in_7:HBM[22]
-# sp=unikernel.out_7:HBM[23]
-# sp=unikernel.in_8:HBM[24]
-# sp=unikernel.out_8:HBM[25]
-# sp=unikernel.in_10:HBM[26]
-# sp=unikernel.out_10:HBM[27]
+# sp=unikernel.in_8:HBM[17]
+# sp=unikernel.out_8:HBM[18]
+# sp=unikernel.in_9:HBM[19]
+# sp=unikernel.out_9:HBM[20]
+# sp=unikernel.in_10:HBM[21]
+# sp=unikernel.out_10:HBM[22]
+# sp=unikernel.in_11:HBM[23]
+# sp=unikernel.out_11:HBM[24]
+# sp=unikernel.in_12:HBM[25]
+# sp=unikernel.out_12:HBM[26]
+# sp=unikernel.in_13:HBM[27]
+# sp=unikernel.out_13:HBM[28]
+# sp=unikernel.in_14:HBM[29]
+# sp=unikernel.out_14:HBM[30]
 
 right_args = [
-    "in_4",
-    "out_4",
-    "in_5",
-    "out_5",
-    "in_7",
-    "out_7",
     "in_8",
     "out_8",
+    "in_9",
+    "out_9",
     "in_10",
     "out_10",
+    "in_11",
+    "out_11",
+    "in_12",
+    "out_12",
+    "in_13",
+    "out_13",
+    "in_14",
+    "out_14",
 ]
 
 for arg in right_args:

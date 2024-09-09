@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
   }
   int64_t kernel_time_ns = tapa::invoke(
       vadd_bw,
-      FLAGS_bitstream, 
+      FLAGS_bitstream,
       tapa::read_only_mmap<const bit512>(rmem0),
       tapa::read_only_mmap<const bit512>(rmem1),
       tapa::read_only_mmap<const bit512>(rmem2),
