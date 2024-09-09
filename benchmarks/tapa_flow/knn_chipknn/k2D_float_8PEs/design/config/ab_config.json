@@ -1,0 +1,13 @@
+{
+    "dse_range_min": 0.7,
+    "dse_range_max": 0.8,
+    "partition_strategy": "flat",
+    "port_pre_assignments": {
+        ".*in_.*"          : "HBM[0]",
+        ".*final_out.*"    : "HBM[0]",
+        "s_axi_control_.*": "S_AXI_CONTROL",
+        "ap_clk": "CLK_RST",
+        "ap_rst_n": "CLK_RST",
+        "interrupt": "CLK_RST"
+    }
+}
