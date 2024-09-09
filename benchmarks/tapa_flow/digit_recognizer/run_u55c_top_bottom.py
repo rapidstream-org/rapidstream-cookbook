@@ -3,18 +3,19 @@ Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All ri
 The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 """
 
-from rapidstream import DeviceFactory, RapidStreamTAPA
+from rapidstream import DeviceFactory
 import os
+from pathlib import Path
 
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
-INI_PATH = f"{CURR_DIR}/design/link_config.ini"
-VITIS_PLATFORM = "xilinx_u280_gen3x16_xdma_1_202211_1"
+CURR_FILE = os.path.basename(__file__)
+VITIS_PLATFORM = "xilinx_u55c_gen3x16_xdma_3_202210_1"
 KERNEL_NAME = "digit_recognizer"
 XO_PATH = f"{CURR_DIR}/design/{KERNEL_NAME}.xo"
 
 
 # copied from impl.xdc inside the platform package
-U280_LOWER2SLOTS = [
+U55C_LOWER2SLOTS = [
     "-add {SLICE_X206Y0:SLICE_X232Y59 SLICE_X176Y60:SLICE_X196Y239 SLICE_X117Y180:SLICE_X145Y239}",  # noqa
     "-add {DSP48E2_X25Y18:DSP48E2_X28Y89 DSP48E2_X16Y66:DSP48E2_X19Y89 DSP48E2_X30Y0:DSP48E2_X31Y17}",  # noqa
     "-add {LAGUNA_X24Y0:LAGUNA_X27Y119 LAGUNA_X16Y0:LAGUNA_X19Y119}",
@@ -32,55 +33,22 @@ U280_LOWER2SLOTS = [
 ]
 
 
-factory = DeviceFactory(row=1, col=2, part_num="xcu280-fsvh2892-2L-e", board_name=None)
+factory = DeviceFactory(row=2, col=1, part_num="xcu55c-fsvh2892-2L-e", board_name=None)
 factory.set_user_pblock_name("pblock_dynamic_region")
 factory.set_slot_pblock(
-    0, 0, U280_LOWER2SLOTS + ["-remove CLOCKREGION_X4Y0:CLOCKREGION_X7Y7"]
+    0, 0, U55C_LOWER2SLOTS + ["-remove CLOCKREGION_X0Y4:CLOCKREGION_X7Y7"]
 )
 factory.set_slot_pblock(
-    1, 0, U280_LOWER2SLOTS + ["-remove CLOCKREGION_X0Y0:CLOCKREGION_X3Y7"]
+    0, 1, U55C_LOWER2SLOTS + ["-remove CLOCKREGION_X0Y0:CLOCKREGION_X7Y3"]
 )
 factory.extract_slot_resources()
-factory.reduce_slot_area(0, 0, lut=407000)
-factory.reduce_slot_area(1, 0, lut=285000)
+factory.reduce_slot_area(0, 0, lut=358000)
+factory.reduce_slot_area(0, 1, lut=334800)
 factory.set_slot_capacity(0, 0, north=11520)
 
 # For this U280 platform, the right most DSP column on the boundary between
 # dynamic/static region is not usable. So we need to adjust the DSP count
 # to reflect the actual available DSPs.
 print("Reducing DSP of (1, 1) to make it less congested")
-factory.reduce_slot_area(1, 0, dsp=100)
-
-rs = RapidStreamTAPA(f"{CURR_DIR}/build/{os.path.basename(__file__)}")
-
-rs.set_virtual_device(factory.generate_virtual_device())
-rs.add_xo_file(XO_PATH)
-rs.set_vitis_platform(VITIS_PLATFORM)
-rs.set_vitis_connectivity_config(INI_PATH)
-
-rs.set_top_module_name(KERNEL_NAME)
-rs.add_clock("ap_clk", 3.33)
-
-rs.add_flatten_targets([KERNEL_NAME])
-
-# Bind ports to HBM 16-31
-right_slot = "SLOT_X1Y0:SLOT_X1Y0"
-left_slot = "SLOT_X0Y0:SLOT_X0Y0"
-# The config file binds the following argument to HBM 0 - 15
-# Thus we need to constrain them to the left side of SLR 0
-# sp=workload.input_bv:HBM[0]
-# sp=workload.key_in:HBM[1]
-# sp=workload.out_bits:HBM[2]
-
-rs.assign_port_to_region(".*", left_slot)
-
-# Xustomize the placement strategy:
-rs.set_placement_strategy("EarlyBlockPlacement")
-
-# Allow two parallel Vitis implementation
-rs.run_dse(
-    max_workers=2,
-    max_dse_limit=0.85,
-    min_dse_limit=0.75,
-    partition_strategy="flat",
-)
+factory.reduce_slot_area(0, 1, dsp=100)
+factory.generate_virtual_device(Path(f"{CURR_DIR}/build/{CURR_FILE}/device.json"))

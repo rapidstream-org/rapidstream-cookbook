@@ -2,63 +2,51 @@
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
-PLATFORM         := xilinx_u280_gen3x16_xdma_1_202211_1
-PART_NUM         := xcu280-fsvh2892-2L-e
-GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
-RS_SCRIPT        := run.py
 KERNEL_NAME      := digit_recognizer
-SRC_DIR          := $(CURDIR)/design
-TARGET           := hw
+RS_SCRIPT        := $(CURDIR)/run_u55c.py
+AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/ab_config.json
+IMPL_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/impl_config.json
+LINK_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/link_config.ini
+PLATFORM         := xilinx_u55c_gen3x16_xdma_3_202210_1
+GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
 TEMP_DIR         := $(CURDIR)/build/$(notdir $(RS_SCRIPT))
-KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
-KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
-RS_KERNEL_XCLBIN := $(TEMP_DIR)/dse/candidate_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).xclbin
-INCLUDE          := -I $(XILINX_HLS)/include
-CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
-CXX              := g++
-HOST             := app.exe
-RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/$(KERNEL_NAME).xo
-TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
-SUCCESS          := "Build Successful"
-SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+RS_TARGET        := $(TEMP_DIR)/dse/solution_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).xclbin
+TAPA_XO          := $(CURDIR)/design/digit_recognizer.xo
 BUILD_LOG        := $(TEMP_DIR)/build.json
-RSXX             := python3
+SUCCESS          := "Build Successful"
+TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
+SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+RSPATH           := $(CURDIR)
+RSXX             := rapidstream
+RSPYTHON         := rapidstream
+DEVICE_CONFIG    := $(TEMP_DIR)/device.json
 
-all: $(RS_KERNEL_XCLBIN)
-	$(RSXX)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-	echo $(SUCCESS)
 
-$(RS_KERNEL_XCLBIN):$(SRC_DIR)/$(KERNEL_NAME).xo
+all: $(RS_TARGET)
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
+	@echo $(SUCCESS)
+
+$(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
 	mkdir -p $(TEMP_DIR)
-	$(RSXX) $(RS_SCRIPT)
+	cd $(RSPATH) && $(RSXX)-tapaopt \
+    --work-dir $(TEMP_DIR) \
+    --tapa-xo-path $< \
+    --device-config $(DEVICE_CONFIG) \
+    --floorplan-config $(AB_CONFIG) \
+	--single-reg \
+    --run-impl \
+    --implementation-config $(IMPL_CONFIG) \
+    --connectivity-ini $(LINK_CONFIG)
 
-
-sw_emu: $(KERNEL_XCLBIN) $(HOST)
-	XCL_EMULATION_MODE=sw_emu ./app.exe $<
-
-xo:$(KERNEL_XO)
-
-$(KERNEL_XO): $(SRC_DIR)/$(KERNEL_NAME).cpp
-	tapac -o $@ $< \
-	--part-num $(PART_NUM) \
-	--clock-period 3.33 \
-	--top $(KERNEL_NAME) \
-	--work-dir $(TEMP_DIR)
-
-csim:$(SRC_DIR)/*.cpp
+$(DEVICE_CONFIG):$(AB_CONFIG)
 	mkdir -p $(TEMP_DIR)
-	$(CXX) $(INCLUDE) -o $(TEMP_DIR)/main.exe -O2 $^ -ltapa -lfrt -lglog -lgflags -lOpenCL
-	$(TEMP_DIR)/main.exe
+	cd $(RSPATH) && $(RSPYTHON) $(RS_SCRIPT)
 
 show_groups:
 	rapidstream $(GRP_UTIL) -i $(TEMP_DIR)/passes/0-imported.json \
 	-o $(TEMP_DIR)/module_types.csv
 
-m=$(shell date)
 
-git:clean
-	git add .
-	git commit -m "$(m)"
 
 clean:
 	rm -rf $(TEMP_DIR) *.log

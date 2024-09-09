@@ -449,3 +449,4 @@ _x.*/
 *.bit
 bazel-*
 MODULE.bazel*
+work.out

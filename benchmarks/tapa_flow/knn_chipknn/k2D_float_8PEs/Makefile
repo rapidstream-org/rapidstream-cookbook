@@ -21,7 +21,7 @@ DEVICE_CONFIG    := $(TEMP_DIR)/device.json
 DEVICE_GEN       := $(CURDIR)/gen_device.py
 
 all: $(RS_TARGET)
-	$(RSXX)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
 	@echo $(SUCCESS)
 
 $(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
@@ -30,7 +30,11 @@ $(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
     --work-dir $(TEMP_DIR) \
     --tapa-xo-path $< \
     --device-config $(DEVICE_CONFIG) \
-    --floorplan-config $(AB_CONFIG)
+    --floorplan-config $(AB_CONFIG) \
+	--single-reg \
+    --run-impl \
+    --implementation-config $(CURDIR)/design/config/impl_config.json \
+    --connectivity-ini $(CURDIR)/design/config/link_config.ini
 
 $(DEVICE_CONFIG):$(AB_CONFIG)
 	mkdir -p $(TEMP_DIR)
