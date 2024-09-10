@@ -52,9 +52,9 @@ def update_slack(
     """Update the slack values in the results dictionary."""
 
     # Get the candidate num
-    matched = re.search(r"candidate_([\d.]+)", timing_rpt)
+    matched = re.search(r"solution_([\d.]+)", timing_rpt)
     if matched:
-        freq_key = f"candidate_{str(matched.group(1))}"
+        freq_key = f"solution_{str(matched.group(1))}"
     else:
         freq_key = timing_rpt
 
