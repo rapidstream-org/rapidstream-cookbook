@@ -26,8 +26,13 @@ factory = get_u55c_vitis_device_factory(VITIS_PLATFORM)
 #     "URAM": 0,
 #     "DSP": 0,
 # }
-factory.reduce_slot_area(1, 0, lut=5000 * 16, ff=6500 * 16)
-factory.reduce_slot_area(0, 0, lut=5000 * 13, ff=6500 * 13)
+factory.reduce_slot_area(0, 0, lut=150800)
+factory.reduce_slot_area(0, 1, lut=146960)
+factory.reduce_slot_area(0, 2, lut=146960)
+factory.reduce_slot_area(1, 0, lut=128000)
+factory.reduce_slot_area(1, 1, lut=107840)
+factory.reduce_slot_area(1, 2, lut=115120)
+
 
 # For this U280 platform, the right most DSP column on the boundary between
 # dynamic/static region is not usable. So we need to adjust the DSP count
