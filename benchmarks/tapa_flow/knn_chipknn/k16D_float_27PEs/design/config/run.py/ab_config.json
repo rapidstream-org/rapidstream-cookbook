@@ -3,7 +3,6 @@
     "dse_range_min": 0.7,
     "partition_strategy": "flat",
     "port_pre_assignments": {
-        ".*final_out.*": "HBM[16]",
         ".*final_out_dist_.*": "HBM[16]",
         ".*final_out_id_.*": "HBM[16]",
         ".*in_0_.*": "HBM[0]",

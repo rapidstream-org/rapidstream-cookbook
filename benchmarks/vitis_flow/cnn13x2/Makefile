@@ -1,11 +1,10 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
-GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
-PLATFORM         := xilinx_u50_gen3x16_xdma_5_202210_1
 KERNEL_NAME      := kernel3
+PLATFORM         := xilinx_u50_gen3x16_xdma_5_202210_1
+GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
 SRC_DIR          := $(CURDIR)/design
 TARGET           := hw
 RS_SCRIPT        := $(CURDIR)/run_u50.py
@@ -24,7 +23,9 @@ BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
 TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+RSPATH           := $(CURDIR)
 RSXX             := rapidstream
+RSPYTHON         := rapidstream
 
 ifeq ($(notdir $(RS_SCRIPT)), run_u50.py)
 PART := xcu50-fsvh2104-2-e
@@ -47,7 +48,7 @@ else
 endif
 
 all: $(RS_KERNEL_XCLBIN)
-	$(RSXX) $(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
@@ -69,7 +70,7 @@ $(RS_KERNEL_XCLBIN): $(RS_TARGET)
 rs_opt:$(RS_TARGET)
 
 $(RS_TARGET): $(KERNEL_XO)
-	$(RSXX) $(RS_SCRIPT)
+	cd $(RSPATH) && $(RSPYTHON) $(RS_SCRIPT)
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
 	v++ -l -t ${TARGET} \

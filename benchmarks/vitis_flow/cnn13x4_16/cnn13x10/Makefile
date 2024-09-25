@@ -1,13 +1,12 @@
 # Copyright (c) 2024 RapidStream Design Automation, Inc. and contributors.  All rights reserved.
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
-
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
-GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
+KERNEL_NAME      := kernel3
 PLATFORM         := xilinx_u250_gen3x16_xdma_4_1_202210_1
+GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
 PART             := xcu250-figd2104-2L-e
 LINK_FILE        := link_config.ini
-KERNEL_NAME      := kernel3
 SRC_DIR          := $(CURDIR)/design
 TARGET           := hw
 RS_SCRIPT        := $(CURDIR)/run.py
@@ -24,12 +23,14 @@ CLK_PERIOD_NS    := 4
 RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/$(KERNEL_NAME).xo
 BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
-TIMING_RPT       := $(TEMP_DIR)/reports/link/imp/impl_1_hw_bb_locked_timing_summary_routed.rpt
+TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+RSPATH           := $(CURDIR)
 RSXX             := rapidstream
+RSPYTHON         := rapidstream
 
 all: $(RS_KERNEL_XCLBIN)
-	$(RSXX) $(SLACK_GETTER) -i $(TIMING_RPT) -o $(BUILD_LOG) -c clk_kernel_00_unbuffered_net -p 3.333
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
 sw_emu: $(KERNEL_XCLBIN) $(HOST)
@@ -44,13 +45,14 @@ $(RS_KERNEL_XCLBIN): $(RS_TARGET)
 	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
 	--config $(SRC_DIR)/$(LINK_FILE) \
 	--temp_dir $(TEMP_DIR) \
+	--save-temps \
 	-o $@ \
 	$^
 
 rs_opt:$(RS_TARGET)
 
 $(RS_TARGET): $(KERNEL_XO)
-	$(RSXX) $(RS_SCRIPT)
+	cd $(RSPATH) && $(RSPYTHON) $(RS_SCRIPT)
 
 $(KERNEL_XCLBIN): $(KERNEL_XO)
 	v++ -l -t ${TARGET} \
