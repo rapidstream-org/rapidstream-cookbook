@@ -1,0 +1,15 @@
+{
+    "dse_range_max": 0.8,
+    "dse_range_min": 0.7,
+    "partition_strategy": "flat",
+    "port_pre_assignments": {
+        ".*ch_0_.*": "SLOT_X0Y0:SLOT_X0Y0",
+        ".*ch_1_.*": "SLOT_X0Y0:SLOT_X0Y0",
+        ".*ch_2_.*": "SLOT_X0Y0:SLOT_X0Y0",
+        ".*ch_3_.*": "SLOT_X0Y0:SLOT_X0Y0",
+        "ap_clk": "SLOT_X0Y0:SLOT_X0Y0",
+        "ap_rst_n": "SLOT_X0Y0:SLOT_X0Y0",
+        "interrupt": "SLOT_X0Y0:SLOT_X0Y0",
+        "s_axi_control_.*": "SLOT_X0Y0:SLOT_X0Y0"
+    }
+}
