@@ -44,8 +44,42 @@ factory.set_user_pblock_name("pblock_dynamic_region")
 
 factory.set_slot_pblock(0, 0, ["-add CLOCKREGION_X0Y1:CLOCKREGION_X4Y2"])
 factory.set_slot_pblock(1, 0, ["-add CLOCKREGION_X5Y1:CLOCKREGION_X9Y2"])
-factory.set_slot_pblock(0, 1, ["-add CLOCKREGION_X0Y3:CLOCKREGION_X4Y4"])
-factory.set_slot_pblock(1, 1, ["-add CLOCKREGION_X5Y3:CLOCKREGION_X9Y4"])
+
+
+factory.set_slot_pblock(
+    0,
+    1,
+    [
+        "-add SLICE_X0Y188:SLICE_X187Y327",
+        "-add DSP58_CPLX_X0Y94:DSP58_CPLX_X2Y163",
+        "-add DSP_X0Y94:DSP_X5Y163",
+        "-add IRI_QUAD_X0Y780:IRI_QUAD_X116Y1339",
+        "-add NOC_NMU512_X0Y4:NOC_NMU512_X1Y6",
+        "-add NOC_NSU512_X0Y4:NOC_NSU512_X1Y6",
+        "-add RAMB18_X0Y96:RAMB18_X5Y165",
+        "-add RAMB36_X0Y48:RAMB36_X5Y82",
+        "-add URAM288_X0Y48:URAM288_X2Y82",
+        "-add URAM_CAS_DLY_X0Y2:URAM_CAS_DLY_X2Y2",
+    ],
+)
+
+
+factory.set_slot_pblock(
+    1,
+    1,
+    [
+        "SLICE_X188Y188:SLICE_X359Y327",
+        "DSP58_CPLX_X3Y94:DSP58_CPLX_X5Y163",
+        "DSP_X6Y94:DSP_X11Y163",
+        "IRI_QUAD_X117Y780:IRI_QUAD_X224Y1339",
+        "NOC_NMU512_X2Y4:NOC_NMU512_X3Y6",
+        "NOC_NSU512_X2Y4:NOC_NSU512_X3Y6",
+        "RAMB18_X6Y96:RAMB18_X11Y165",
+        "RAMB36_X6Y48:RAMB36_X11Y82",
+        "URAM288_X3Y48:URAM288_X5Y82",
+        "URAM_CAS_DLY_X3Y2:URAM_CAS_DLY_X5Y2",
+    ],
+)
 
 
 # Vitis uses 4395 nets from SLR0 to SLR1
@@ -55,6 +89,22 @@ factory.set_slot_pblock(1, 1, ["-add CLOCKREGION_X5Y3:CLOCKREGION_X9Y4"])
 # Vitis uses 4185 nets from SLR1 to SLR2
 # factory.set_slot_capacity(1, 1, south=11520 - 4185)
 
+# set hbm tags
+factory.set_slot_tags(
+    0,
+    0,
+    [f"NMU512_X{x}Y{y}" for x in range(0, 2) for y in range(0, 4)]
+    + ["S_AXI_CONTROL", "CLK_RST"],
+)
+factory.set_slot_tags(
+    1, 0, [f"NMU512_X{x}Y{y}" for x in range(2, 4) for y in range(0, 4)]
+)
+factory.set_slot_tags(
+    0, 1, [f"NMU512_X{x}Y{y}" for x in range(0, 2) for y in range(4, 7)]
+)
+factory.set_slot_tags(
+    1, 1, [f"NMU512_X{x}Y{y}" for x in range(2, 4) for y in range(4, 7)]
+)
 
 factory.extract_slot_resources()
 

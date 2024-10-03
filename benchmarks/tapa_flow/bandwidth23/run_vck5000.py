@@ -29,14 +29,11 @@ for x in range(2):
     factory.set_slot_capacity(x, 1, north=11520)
 
     factory.set_slot_capacity(x, 1, south=11520)
-    # factory.set_slot_capacity(x, 2, south=11520)
 
 # Set W/E capacity
 for y in range(2):
     factory.set_slot_capacity(0, y, east=40320)
     factory.set_slot_capacity(1, y, west=40320)
-# factory.set_slot_capacity(0, 2, east=41178)
-# factory.set_slot_capacity(1, 2, west=41178)
 
 
 factory.set_platform_name(VITIS_PLATFORM)

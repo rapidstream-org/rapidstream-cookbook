@@ -5,38 +5,73 @@ The contributor(s) of this file has/have agreed to the RapidStream Contributor L
 
 <img src="https://imagedelivery.net/AU8IzMTGgpVmEBfwPILIgw/1b565657-df33-41f9-f29e-0d539743e700/128" width="64px" alt="RapidStream Logo" />
 
-# TAPA Flow: ORC Decoder
+# TAPA Flow: Bandwidth23
 
 ## Introduction
 
+The AMD Versal device introduces a revolutionary hardware architecture for FPGA developers.
+One standout feature is the distributed NoC AXI master/slave ports spread across the entire chip,
+which is especially beneficial for kernels requiring numerous ports. For instance, in Alveo devices,
+utilizing HBM bandwidth at the chip's base requires routing 32 AXI ports, each 512 bits wide, close
+to the HBM—posing significant implementation challenges. With the Versal architecture, however,
+these 32 AXI ports can be distributed across different regions of the chip, alleviating local routing congestion.
 
-In this recipe, we demonstrate how to use RapidStream to optimize TAPA projects. The basic steps include:
+Nevertheless, routing these ports across the chip introduces the challenge of connecting them
+with long wires. To optimize the effectiveness of the NoC architecture, RapidStream can be employed
+to automatically insert pipeline registers between distributed logic. This approach not only achieves
+high bandwidth through multiple AXI ports but also mitigates the local routing congestion seen in
+previous architectures like the Alveo device.
 
-- Compile the HLS C++ code into a Vitis-compatible .xo file using TAPA.
-- Optimize the .xo file with RapidStream to obtain an optimized .xo file.
-- Use Vitis to compile the optimized .xo file into an .xclbin file for FPGA deployment.
+
+In this recipe, we demonstrate how to leverage RapidStream to optimize a TAPA project that
+includes a kernel with 23 AXI ports, each 512 bits wide. The process involves the following key steps:
+
+- Compile the TAPA C++ code into a Vitis-compatible `.xo` file using TAPA.
+- Optimize the generated `.xo` file with RapidStream to produce an enhanced `.xo` file.
+- Use Vitis to compile the optimized `.xo` file into an .xclbin file for FPGA deployment.
 
 ## Tutorial
 
-### Step 1 (Done): Generate the Xilinx Object File (`.xo`)
+### Step 1 : Generate the Xilinx Object File (`.xo`)
 
 
-We utilize TAPA to generate the `.xo` file. If you have not installed TAPA, we've already compiled the C++ source to `.xo` using TAPA. The original C++ source files are located in design/src. The generated `.xo` file can be found at design/generated/data_decoding.xo. To compile C++ to `.xo` using TAPA, we use the script [design/run_tapa.sh](design/run_tapa.sh), with the detailed commands shown below. For your convenience, we have also backed up all the generated metadata by TAPA in the design/generated directory.
+We utilize [Rapidstream-TAPA](https://github.com/rapidstream-org/rapidstream-tapa) to generate the `.xo` file.
+The original C++ source files are located in design/src. To compile C++ to `.xo` using TAPA, we use the commands shown below.
+For your convenience, you can also execute `make xo` command in the terminal supported by our [Makefile](Makefile).
+
+We use [Rapidstream-TAPA](https://github.com/rapidstream-org/rapidstream-tapa)  to generate the `.xo` file,
+with the original C++ source files located in the [design](./design) directory. To compile the C++ code
+into a `.xo` file using TAPA, follow the commands provided below. For convenience,
+you can also execute the `make xo` command in the terminal, as supported by our Makefile.
 
 ```bash
-WORK_DIR=generated
-tapac \
-  --work-dir ${WORK_DIR} \
-  --top data_decoding \
-  --part-num xcu280-fsvh2892-2L-e \
-  --clock-period 3.33 \
-  -o ${WORK_DIR}/data_decoding.xo \
-  --connectivity config/link_config.ini \
-  src/data_decoder.cpp \
-  2>&1 | tee tapa.log
+mkdir -p build/run_vck5000.py
+cd build/run_vck5000.py && tapa compile \
+--top bandwidth23 \
+--part-num xcvc1902-vsvd1760-2MP-e-S \
+--clock-period 3.33 \
+-o bandwidth23.xo \
+-f design/bandwidth23.cpp \
+2>&1 | tee tapa.log
 ```
 
+### Step 2: Define Virtual Device
+
+The VCK5000 device is equipped with 4x7 NMU512 and NSU512 ports across the chip (only NMU512 ports are shown). For our design, we focus solely on the FPGA fabric and not the AI Engine. We define four slots for the virtual device, each containing either six or eight NMU512 ports to connect internal logic to the DDR SRAM at the base. A Python-based script, [run_vck5000.py](./run_vck5000.py), is provided as a reference for defining the virtual device using the RapidStream API.
+
+
+<img src="../../../common/img/vck5000_virtual_device.jpg" width="800px" alt="VCK5000 Device"/>
+
+You can run the `run_vck5000.py` script by invoking RapidStream as shown below, or simply type `make device` in the terminal. This will generate a `device.json` file, which outlines all the device features, including slot resources, slot locations, and more.
+
+
+```bash
+rapidstream run_vck5000.py
+```
+
+
 ### Step 2: Use Rapidstream to Optimize `.xo` Design
+
 
 The RapidStream flow conducts design space exploration and generates solutions  by taking all TAPA-generated `.xo` file as the input.
 The RapidStream flow for TAPA requires the following key inputs:
@@ -101,7 +136,7 @@ rs.assign_port_to_region("ap_rst_n", left_slot)
 rs.assign_port_to_region("interrupt", left_slot)
 ```
 
-For the complete detail, please refore to [./run.py](./run.py) file. Call the rapidstream by launching the command below or `make all`.
+For the complete detail, please refore to [./run_vck5000.py](./run_vck5000.py) file. Call the rapidstream by launching the command below or `make all`.
 
 ```bash
 rapidstream run.py

@@ -3,13 +3,13 @@
     "dse_range_min": 0.7,
     "partition_strategy": "flat",
     "port_pre_assignments": {
-        ".*ch_0_.*": "SLOT_X0Y0:SLOT_X0Y0",
-        ".*ch_1_.*": "SLOT_X0Y0:SLOT_X0Y0",
-        ".*ch_2_.*": "SLOT_X0Y0:SLOT_X0Y0",
-        ".*ch_3_.*": "SLOT_X0Y0:SLOT_X0Y0",
-        "ap_clk": "SLOT_X0Y0:SLOT_X0Y0",
-        "ap_rst_n": "SLOT_X0Y0:SLOT_X0Y0",
-        "interrupt": "SLOT_X0Y0:SLOT_X0Y0",
-        "s_axi_control_.*": "SLOT_X0Y0:SLOT_X0Y0"
+        ".*ch_0_.*": "NMU512_X0Y0",
+        ".*ch_1_.*": "NMU512_X2Y0",
+        ".*ch_2_.*": "NMU512_X0Y4",
+        ".*ch_3_.*": "NMU512_X2Y4",
+        "ap_clk": "CLK_RST",
+        "ap_rst_n": "CLK_RST",
+        "interrupt": "S_AXI_CONTROL",
+        "s_axi_control_.*": "S_AXI_CONTROL"
     }
 }
