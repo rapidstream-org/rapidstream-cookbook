@@ -103,6 +103,7 @@ if __name__ == "__main__":
 
     if search_dir != "." and input_file != ".":
         timing_rpts = glob(f"{search_dir}/**/{input_file}", recursive=True)
+        print(f"{len(timing_rpts)} solutions found!")
         for timing_rpt in timing_rpts:
             update_slack(timing_rpt, results, clk_name, clk_ns)
             if output_file != ".":

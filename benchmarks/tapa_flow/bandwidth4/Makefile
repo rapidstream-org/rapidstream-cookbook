@@ -18,7 +18,7 @@ RS_XO            := $(SOLUTION_DIR)/updated.xo
 RS_TARGET        := $(SOLUTION_DIR)/$(KERNEL_NAME)_$(PLATFORM).xsa
 BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
-TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
+TIMING_RPT       := impl_1_$(PLATFORM)_bb_locked_timing_summary_routed.rpt
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
 RSPATH           := $(CURDIR)
 RSXX             := rapidstream
@@ -39,11 +39,8 @@ RS_SYN           := $(VIVADO_PRJ_DIR)/prj.runs/my_rm_synth_1/ulp_inst_0.dcp
 
 
 all:$(RS_TARGET)
-	@echo $<
-
-#$(RS_TARGET)
-#cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-#@echo $(SUCCESS)
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
+	@echo $(SUCCESS)
 
 $(RS_TARGET):$(RS_SYN)
 	cd $(SOLUTION_DIR) && v++ ${DEBUG} \
