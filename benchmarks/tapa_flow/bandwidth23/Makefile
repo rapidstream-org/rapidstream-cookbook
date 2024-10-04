@@ -3,7 +3,7 @@
 
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
 KERNEL_NAME      := bandwidth23
-RS_SCRIPT        := $(CURDIR)/run.py
+RS_SCRIPT        := $(CURDIR)/run_vck5000.py
 SRC_DIR		     := $(CURDIR)/design
 AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/ab_config.json
 IMPL_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/impl_config.json
@@ -18,7 +18,7 @@ RS_XO            := $(SOLUTION_DIR)/updated.xo
 RS_TARGET        := $(SOLUTION_DIR)/$(KERNEL_NAME)_$(PLATFORM).xsa
 BUILD_LOG        := $(TEMP_DIR)/build.json
 SUCCESS          := "Build Successful"
-TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
+TIMING_RPT       := impl_1_$(PLATFORM)_bb_locked_timing_summary_routed.rpt
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
 RSPATH           := $(CURDIR)
 RSXX             := rapidstream
@@ -39,11 +39,10 @@ RS_SYN           := $(VIVADO_PRJ_DIR)/prj.runs/my_rm_synth_1/ulp_inst_0.dcp
 
 
 all:$(RS_TARGET)
-	@echo $<
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
+	@echo $(SUCCESS)
 
-#$(RS_TARGET)
-#cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-#@echo $(SUCCESS)
+rs_xclbin: $(RS_TARGET)
 
 $(RS_TARGET):$(RS_SYN)
 	cd $(SOLUTION_DIR) && v++ ${DEBUG} \
@@ -97,9 +96,10 @@ $(RS_FIX_NOC_TCL): $(RS_XO)
 	--clock.defaultFreqHz $(TARGET_FREQUENCY)000000
 	cp $(FIX_NOC_TCL) $@
 
+rs_xo:$(RS_XO)
 
 #   --run-impl
-$(RS_XO):$(KERNEL_XO) $(DEVICE_CONFIG)
+$(RS_XO):$(KERNEL_XO) $(DEVICE_CONFIG) $(AB_CONFIG)
 	mkdir -p $(TEMP_DIR)
 	cd $(RSPATH) && $(RSXX)-tapaopt \
     --work-dir $(TEMP_DIR) \
@@ -111,7 +111,7 @@ $(RS_XO):$(KERNEL_XO) $(DEVICE_CONFIG)
 
 device:$(DEVICE_CONFIG)
 
-$(DEVICE_CONFIG):$(AB_CONFIG)
+$(DEVICE_CONFIG):$(RS_SCRIPT)
 	mkdir -p $(TEMP_DIR)
 	cd $(RSPATH) && $(RSPYTHON) $(RS_SCRIPT)
 

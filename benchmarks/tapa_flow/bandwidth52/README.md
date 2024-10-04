@@ -57,7 +57,7 @@ cd build/run_vck5000.py && tapa compile \
 
 ### Step 2: Define Virtual Device
 
-The VCK5000 device is equipped with 4x7 NMU512 and NSU512 ports across the chip (only NMU512 ports are shown). For our design, we focus solely on the FPGA fabric and not the AI Engine. We define four slots for the virtual device, each containing either six or eight NMU512 ports to connect internal logic to the DDR SRAM at the base. A Python-based script, [run_vck5000.py](./run_vck5000.py), is provided as a reference for defining the virtual device using the RapidStream API.
+The VCK5000 device is equipped with 4x7 NMU512 and NSU512 ports across the chip (only NMU512 ports are shown). For our design, we focus solely on the FPGA fabric and not the AI Engine. We define four slots for the virtual device, each containing either six or eight NMU512 ports to connect internal logic to the DDR SRAM at the base. A Python-based script, [run_vhk158.py](./run_vhk158.py), is provided as a reference for defining the virtual device using the RapidStream API.
 
 
 <img src="../../../common/img/vck5000_virtual_device.jpg" width="800px" alt="VCK5000 Device"/>
@@ -76,9 +76,9 @@ The RapidStream flow for TAPA requires the following key inputs:
 
 - **tapa-xo-path**: The path to the tapa-generated `xo` file (bandwidth23.xo).
 - **device-config**: The virtual device (`device.json`) generated in previous step 2 by calling rapidstream APIs based on platform.
-- **floorplan-config**: The configure file ([ab_config.json](design/config/run_vck5000.py/ab_config.json)) to guide integrated Autobridge to floorplan the design.
-- **implementation-config**: The configure file ([impl_config.json](design/config/run_vck5000.py/impl_config.json)) to guide Vitis to implement the design (e.g., kernek clock, vitis_platform and etc.).
-- **connectivity-ini**: The link configure file ([link_config.ini](design/config/run_vck5000.py/link_config.ini)) to specify how the kernel interfaces are connected the memory controller. This is
+- **floorplan-config**: The configure file ([ab_config.json](design/config/run_vhk158.py/ab_config.json)) to guide integrated Autobridge to floorplan the design.
+- **implementation-config**: The configure file ([impl_config.json](design/config/run_vhk158.py/impl_config.json)) to guide Vitis to implement the design (e.g., kernek clock, vitis_platform and etc.).
+- **connectivity-ini**: The link configure file ([link_config.ini](design/config/run_vhk158.py/link_config.ini)) to specify how the kernel interfaces are connected the memory controller. This is
 the same for vitis link configure file.
 
 We encapulate the rapidstream command for TAPA as `rapidstream-tapaop` for invoking.
@@ -99,11 +99,11 @@ Vitis connects connect kernel interfaces automatically to the AXI slave ports of
 Next, it can map the AXI slave ports of memory controller to the physical Network Master Units across
 the chip according to bandwidth requirements. However, our flooplan is based fixed mapping between
 kernel interfaces and MNU512. Therefore, we need to fix the kernel interfaces to the designated
-MNU512 ports according to the configure file ([ab_config.json](design/config/run_vck5000.py/ab_config.json)).
+MNU512 ports according to the configure file ([ab_config.json](design/config/run_vhk158.py/ab_config.json)).
 
 To make this hack work, we will call `v++` twice. For the first time, we use `--to_step vpl.synth`
 option to generate post-RTL-synthesis design. Next, we use a manual-crafted
-`.tcl` file ([fix_noc.tcl](design/config/run_vck5000.py/fix_noc.tcl)) to map AXI slave interfaces
+`.tcl` file ([fix_noc.tcl](design/config/run_vhk158.py/fix_noc.tcl)) to map AXI slave interfaces
 of the memory controller to fixed NOC MNUt512 locations and re-synthesize the design. Finally,
 we call `v++` second time by using `--from_step vpl.impl` option to reserve the NoC mapping
 constraints to implement the whole design.
@@ -114,24 +114,3 @@ You can execute `make rs_xclbin` to complete the process.
 
 After the design is successfully implemented in previous step, you can check the timing slack my
 executing `make all`. The `build.json` file can be found in the work directory `build/run_vck5000.py/build.json`.
-We can see the slack is 0.186 ns for 3.333 ns constraint.
-
-### Step 5: Implement Baseline with Vitis
-
-We can call `Vitis` directly to implement the design on VCK5000 by execute `make hw`. After implementation, you
-you will see the slack is 0.158 ns for 3.333 ns constraint.
-
-### Step 6: Compasison between Vitis and Rapidstream.
-
-The image below shows the implementation comparison between Vitis and Rapidstream optimized design.
-
-
-<img src="../../../common/img/vck5000_vitis_rs.jpg" width="800px" alt="Impl Comparison"/>
-
-
-The table below shows the slack comparisons.
-
-| Implementation Type | Clock Constraint / ns| Timing Slack / ns | Max Frequency / MHz |
-|:-------------------:|:--------------------:|:-----------------:|:-------------------:|
-| Vitis               | 3.333                | 0.158             | 314.96              |
-| Rapidstream         | 3.333                | 0.186             | 317.63              |

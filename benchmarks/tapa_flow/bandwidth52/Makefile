@@ -2,15 +2,15 @@
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
-KERNEL_NAME      := bandwidth4
-RS_SCRIPT        := $(CURDIR)/run.py
+KERNEL_NAME      := bandwidth52
+RS_SCRIPT        := $(CURDIR)/run_vhk158.py
 SRC_DIR		     := $(CURDIR)/design
 AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/ab_config.json
 IMPL_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/impl_config.json
 LINK_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/link_config.ini
 FIX_NOC_TCL      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/fix_noc.tcl
-PLATFORM         := xilinx_vck5000_gen4x8_qdma_2_202220_1
-PART_NUM         := xcvc1902-vsvd1760-2MP-e-S
+PLATFORM         := base_pfm_vhk1581
+PART_NUM         := xcvh1582-vsva3697-2MP-e-S
 GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
 TEMP_DIR         := $(CURDIR)/build/$(notdir $(RS_SCRIPT))
 SOLUTION_DIR     := $(TEMP_DIR)/dse/solution_0
@@ -42,6 +42,8 @@ all:$(RS_TARGET)
 	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
 	@echo $(SUCCESS)
 
+rs_xclbin: $(RS_TARGET)
+
 $(RS_TARGET):$(RS_SYN)
 	cd $(SOLUTION_DIR) && v++ ${DEBUG} \
 	--link \
@@ -64,7 +66,7 @@ $(RS_TARGET):$(RS_SYN)
 	--config $(LINK_CONFIG) \
 	--remote_ip_cache /var/tmp/remote_ip_cache \
 	--output $(RS_TARGET) \
-	--clock.defaultFreqHz $(TARGET_FREQUENCY)000000
+	--clock.default_freqhz $(TARGET_FREQUENCY)000000
 
 $(RS_SYN): $(RS_FIX_NOC_TCL)
 	cd $(VIVADO_PRJ_DIR) && vivado -mode batch -source $(RS_FIX_NOC_TCL) -tclargs $(VIVADO_PRJ_DIR)
@@ -91,12 +93,13 @@ $(RS_FIX_NOC_TCL): $(RS_XO)
 	--config $(LINK_CONFIG) \
 	--remote_ip_cache /var/tmp/remote_ip_cache \
 	--output $(RS_TARGET) \
-	--clock.defaultFreqHz $(TARGET_FREQUENCY)000000
+	--clock.default_freqhz $(TARGET_FREQUENCY)000000
 	cp $(FIX_NOC_TCL) $@
 
+rs_xo:$(RS_XO)
 
 #   --run-impl
-$(RS_XO):$(KERNEL_XO) $(DEVICE_CONFIG)
+$(RS_XO):$(KERNEL_XO) $(DEVICE_CONFIG) $(AB_CONFIG)
 	mkdir -p $(TEMP_DIR)
 	cd $(RSPATH) && $(RSXX)-tapaopt \
     --work-dir $(TEMP_DIR) \
@@ -108,7 +111,7 @@ $(RS_XO):$(KERNEL_XO) $(DEVICE_CONFIG)
 
 device:$(DEVICE_CONFIG)
 
-$(DEVICE_CONFIG):$(AB_CONFIG)
+$(DEVICE_CONFIG):$(RS_SCRIPT)
 	mkdir -p $(TEMP_DIR)
 	cd $(RSPATH) && $(RSPYTHON) $(RS_SCRIPT)
 
@@ -136,8 +139,8 @@ $(KERNEL_XSA): $(KERNEL_XO)
 	--config $(LINK_CONFIG) \
 	--save-temps \
 	--temp_dir $(TEMP_DIR) \
-	--clock.defaultFreqHz $(TARGET_FREQUENCY)000000 \
-	--vivado.synth.jobs 16 \
+	--clock.default_freqhz $(TARGET_FREQUENCY)000000 \
+	--vivado.synth.jobs 1 \
 	$< -o $@
 
 xo: $(KERNEL_XO)

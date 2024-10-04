@@ -1,0 +1,7 @@
+{
+    "max_workers": 2,
+    "port_to_clock_period": {
+        "ap_clk": 3.33
+    },
+    "vitis_platform": "xilinx_vck5000_gen4x8_qdma_2_202220_1"
+}
