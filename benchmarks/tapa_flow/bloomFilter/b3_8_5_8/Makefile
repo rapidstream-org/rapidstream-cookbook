@@ -24,7 +24,6 @@ DEVICE_GEN       := $(CURDIR)/gen_device.py
 
 all: $(RS_TARGET)
 	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-	@echo $(SUCCESS)
 
 $(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
 	mkdir -p $(TEMP_DIR)

@@ -39,8 +39,7 @@ RS_SYN           := $(VIVADO_PRJ_DIR)/prj.runs/synth_1/ext_platform_wrapper.dcp
 
 
 all:$(RS_TARGET)
-	cd $(RSPATH) && python3	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clkout3_primitive -p 3.333
-	#cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clkout3_primitive -p 3.333
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clkout3_primitive -p 3.333
 
 rs_xclbin: $(RS_TARGET)
 

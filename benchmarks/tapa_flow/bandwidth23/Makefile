@@ -39,8 +39,7 @@ RS_SYN           := $(VIVADO_PRJ_DIR)/prj.runs/my_rm_synth_1/ulp_inst_0.dcp
 
 
 all:$(RS_TARGET)
-	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-	@echo $(SUCCESS)
+	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clkwiz_aclk_kernel_00_clk_out1 -p 3.333
 
 rs_xclbin: $(RS_TARGET)
 

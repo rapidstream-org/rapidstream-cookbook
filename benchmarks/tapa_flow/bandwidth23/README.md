@@ -30,9 +30,27 @@ includes a kernel with 23 AXI ports, each 512 bits wide. The process involves th
 - Optimize the generated `.xo` file with RapidStream to produce an enhanced `.xo` file.
 - Use Vitis to compile the optimized `.xo` file into an .xclbin file for FPGA deployment.
 
+:warning: **Note**: We use `Vitis 2022.2` and `xilinx_vck5000_gen4x8_qdma_2_202220_1` for this tutorial.
+
+
 ## Tutorial
 
-### Step 1 : Generate the Xilinx Object File (`.xo`)
+### Step 0 (optional): Run C++ Simulation
+
+We use [Rapidstream-TAPA](https://github.com/rapidstream-org/rapidstream-tapa) to compile the tapa C++
+code to a `.exe` file. Execute `make csim` in the terminal to perform C simulation, you will see similar
+results as below.
+
+```bash
+source /opt/tools/xilinx/Vitis/2022.2/settings64.sh
+make csim
+...
+I20241007 14:49:55.675232 1178163 task.h:66] running software simulation with TAPA library
+kernel time: 4.2962 s
+PASS!
+```
+
+### Step 1: Generate the Xilinx Object File (`.xo`)
 
 We use [Rapidstream-TAPA](https://github.com/rapidstream-org/rapidstream-tapa)  to generate the `.xo` file,
 with the original C++ source files located in the [design](./design) directory. To compile the C++ code
@@ -110,6 +128,15 @@ You can execute `make rs_xclbin` to complete the process.
 After the design is successfully implemented in previous step, you can check the timing slack my
 executing `make all`. The `build.json` file can be found in the work directory `build/run_vck5000.py/build.json`.
 We can see the slack is 0.186 ns for 3.333 ns constraint.
+
+```json
+{
+    "solution_0_global_slack": "0.186",
+    "solution_0_target_clk_slack": "0.186",
+    "solution_0_target_clk": "3.333ns",
+    "solution_0_frequency_achieved": "317.76 MHz"
+}
+```
 
 ### Step 6: Implement Baseline with Vitis
 
