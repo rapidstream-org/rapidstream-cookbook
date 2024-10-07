@@ -34,11 +34,6 @@ includes a kernel with 23 AXI ports, each 512 bits wide. The process involves th
 
 ### Step 1 : Generate the Xilinx Object File (`.xo`)
 
-
-We utilize [Rapidstream-TAPA](https://github.com/rapidstream-org/rapidstream-tapa) to generate the `.xo` file.
-The original C++ source files are located in design/src. To compile C++ to `.xo` using TAPA, we use the commands shown below.
-For your convenience, you can also execute `make xo` command in the terminal supported by our [Makefile](Makefile).
-
 We use [Rapidstream-TAPA](https://github.com/rapidstream-org/rapidstream-tapa)  to generate the `.xo` file,
 with the original C++ source files located in the [design](./design) directory. To compile the C++ code
 into a `.xo` file using TAPA, follow the commands provided below. For convenience,
@@ -104,24 +99,24 @@ MNU512 ports according to the configure file ([ab_config.json](design/config/run
 To make this hack work, we will call `v++` twice. For the first time, we use `--to_step vpl.synth`
 option to generate post-RTL-synthesis design. Next, we use a manual-crafted
 `.tcl` file ([fix_noc.tcl](design/config/run_vck5000.py/fix_noc.tcl)) to map AXI slave interfaces
-of the memory controller to fixed NOC MNUt512 locations and re-synthesize the design. Finally,
+of the memory controller to fixed NOC NMU512 locations and re-synthesize the design. Finally,
 we call `v++` second time by using `--from_step vpl.impl` option to reserve the NoC mapping
 constraints to implement the whole design.
 
 You can execute `make rs_xclbin` to complete the process.
 
-### Step 4: Check Timing Report
+### Step 5: Check Timing Report
 
 After the design is successfully implemented in previous step, you can check the timing slack my
 executing `make all`. The `build.json` file can be found in the work directory `build/run_vck5000.py/build.json`.
 We can see the slack is 0.186 ns for 3.333 ns constraint.
 
-### Step 5: Implement Baseline with Vitis
+### Step 6: Implement Baseline with Vitis
 
 We can call `Vitis` directly to implement the design on VCK5000 by execute `make hw`. After implementation, you
 you will see the slack is 0.158 ns for 3.333 ns constraint.
 
-### Step 6: Compasison between Vitis and Rapidstream.
+### Step 7: Compasison between Vitis and Rapidstream.
 
 The image below shows the implementation comparison between Vitis and Rapidstream optimized design.
 
