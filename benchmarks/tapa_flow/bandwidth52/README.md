@@ -137,9 +137,10 @@ After the implementation, you'll notice a slack of -0.288 ns against the 3.333 n
 
 ### Step 7: Compasison between Vitis and Rapidstream.
 
-Upon examining the post-route `ext_platform_wrapper_routed.dcp`, we observe that the critical path is
-constrained by the cross-SLR long path. In contrast, RapidStream can confine the critical path within
-a localized area, improving efficiency.
+Upon reviewing the post-route `ext_platform_wrapper_routed.dcp`, we have identified the top
+10 critical paths, as highlighted in the figures below. Notably, these paths are constrained by
+cross-SLR long routes. In contrast, RapidStream optimizes efficiency by confining the critical path
+to a localized area.
 
 <img src="../../../common/img/vhk158_vitis_rs.jpg" width="800px" alt="Impl Comparison"/>
 
