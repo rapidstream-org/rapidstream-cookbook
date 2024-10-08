@@ -79,7 +79,7 @@ For this setup, we define 8 slots for the virtual device based on units of clock
 device = factory.generate_virtual_device()
 ```
 
-<img src="../img/au250_virtual_device.png" width="1000px" alt="RapidStream Logo" />
+<img src="../../common/img/au250_virtual_device.png" width="1000px" alt="u250 virtual device" />
 
 ## Tutorial
 Run command to extract resources of each slot of the platform:

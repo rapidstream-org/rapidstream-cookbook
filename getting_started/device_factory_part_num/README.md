@@ -47,7 +47,7 @@ factory.set_slot_crossing_capacity(0, 2, south=9435)
 factory.set_slot_crossing_capacity(1, 2, south=9435)
 ```
 
-<img src="../img/vp1552_virtual_device.png" height="512px" alt="VP2552 Layout"/>
+<img src="../../common/img/vp1552_virtual_device.png" height="512px" alt="VP1552 Layout"/>
 
 ## Tutorial
 

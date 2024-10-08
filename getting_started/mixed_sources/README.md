@@ -117,7 +117,7 @@ make hls
 
 You can find the HLS-generated Verilog files under `build` for different kernels.
 The interface information is automatically inferred from the HLS reports, such as
-`./build/kernel_add/solution/syn/report/kernel_add_csynth.rpt`
+`./build/run.py/kernel_add/solution/syn/report/kernel_add_csynth.rpt`
 
 This liminates the need for manual pragma additions to the RTL files.
 For instance, `stream_*` interfaces with HLS `axis` protocols will be inferred as handshake interfaces. RapidStream uses `.xml` files instead of `.rpt` files for this purpose. The `.rpt` screenshot here is for a readable demonstration purpose:
@@ -209,7 +209,7 @@ When execution is completed, we found the target modules are assigned to target 
 
 The final OoC implementation layout is as below.
 
-<img src="../img/mixed_ooc_layout.png" width="512px" alt="U50 Partitioning Scheme"/>
+<img src="../../common/img/mixed_ooc_layout.png" width="512px" alt="U50 Partitioning Scheme"/>
 
 
 ### Step 3: Check the Group Module Report
@@ -237,25 +237,22 @@ The module types for your design can be found in `build/module_types.csv`. Below
 |:--------------------------------:|:--------------:|
 | VecAddMix                        | grouped_module |
 |__rs_ap_ctrl_start_ready_pipeline | grouped_module |
-|__rs_ff_pipeline                  | grouped_module |
-|__rs_hs_pipeline                  | grouped_module |
-
 
 ### Step 4: Check results
 
 The RapidStream flow performs design space exploration and creates optimized design checkpoint (`.dcp`) files. If you execution is successful, you should find the post-routed dcp located at:
 
 ```bash
-build/dse/candidate_0/route.dcp
+build/run.py/dse/candidate_0/route.dcp
 ```
 
 To review the timing results for each generated design point, use this command:
 
 ```bash
-find ./build/dse -name timing_summary.rpt
+find build/run.py/dse -name timing_summary.rpt
 ```
 
-These commands will help you locate and analyze the relevant files within the `./build/dse` directory.
+These commands will help you locate and analyze the relevant files within the `./build/run.py/dse` directory.
 
 ## Next Step
 

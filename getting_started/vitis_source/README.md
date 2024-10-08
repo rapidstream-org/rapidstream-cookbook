@@ -18,9 +18,7 @@ In this recipe, we illustrate how to create a Vitis objective file (`.xo`) using
 
 ## Xilinx Object Files
 
-[Vitis compiled object files (`.xo`)](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Design-Topology) are IP packages used in the AMD Vitis kernel development flow for programming the programmable logic (PL) region of target devices.
-
-These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `VecAdd.xo` file, but the same flow applies to object files generated through other methods.
+[Vitis compiled object files (`.xo`)](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Design-Topology) are IP packages used in the AMD Vitis kernel development flow for programming the programmable logic (PL) region of target devices. These files can be [generated from HLS C++ code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/Developing-PL-Kernels-using-C) using the `v++` command, [packed from RTL code](https://docs.amd.com/r/en-US/ug1393-vitis-application-acceleration/RTL-Kernel-Development-Flow), or created using third-party frameworks like [TAPA](https://github.com/UCLA-VAST/tapa). In this example, we use `v++` to generate the `VecAdd.xo` file, but the same flow applies to object files generated through other methods.
 
 
 ## Tutorial
@@ -158,10 +156,10 @@ rapidstream ./run.py
 When finished, you can locate these files using the following command:
 
 ```bash
-find ./build/dse/ -name *.xo
+find ./build/run.py/dse/ -name *.xo
 ```
 
-If everything is successful, you should at least get one optimized `.xo` file located in `./build/dse/candidate_0/exported/VecAdd.xo`.
+If everything is successful, you should at least get one optimized `.xo` file located in `./build/run.py/dse/candidate_0/exported/VecAdd.xo`.
 
 ### Step 6: Check the Group Module Report
 
@@ -187,9 +185,8 @@ The module types for your design can be found in `build/module_types.csv`. Below
 | Module Name                      | Group Type     |
 |:--------------------------------:|:--------------:|
 | VecAdd                           | grouped_module |
-|__rs_ap_ctrl_start_ready_pipeline | grouped_module |
-|__rs_ff_pipeline                  | grouped_module |
-|__rs_hs_pipeline                  | grouped_module |
+| __rs_VecAdd_aux                  |  aux_module    |
+| ...                              | verilog_module |
 
 
 ### Step 7: Use Vitis --link with the Optimized `.xo` File

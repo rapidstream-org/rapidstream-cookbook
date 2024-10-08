@@ -4,7 +4,7 @@
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
 KERNEL_NAME      := workload
 RS_SCRIPT        := $(CURDIR)/run.py
-AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/ab_config.json
+AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/floorplan_config.json
 IMPL_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/impl_config.json
 LINK_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/link_config.ini
 PLATFORM         := xilinx_u55c_gen3x16_xdma_3_202210_1
@@ -24,7 +24,6 @@ DEVICE_GEN       := $(CURDIR)/gen_device.py
 
 all: $(RS_TARGET)
 	cd $(RSPATH) && $(RSPYTHON)	$(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-	@echo $(SUCCESS)
 
 $(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
 	mkdir -p $(TEMP_DIR)
@@ -33,7 +32,6 @@ $(RS_TARGET):$(TAPA_XO) $(DEVICE_CONFIG)
     --tapa-xo-path $< \
     --device-config $(DEVICE_CONFIG) \
     --floorplan-config $(AB_CONFIG) \
-	--single-reg \
     --run-impl \
     --implementation-config $(IMPL_CONFIG) \
     --connectivity-ini $(LINK_CONFIG)

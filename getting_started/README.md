@@ -27,6 +27,15 @@ Getting Started
     4. Infer interface information from XCI files.
     5. Manually specify the top-level module name and other constraints.
 
+## [TAPA Sources Design](./tapa_source)
+
+* RapidStream can be used as a plugin for the `v++` command in AMD Vitis.
+* This recipe demonstrates how to:
+    1. Use [RapidStream TAPA](https://github.com/rapidstream-org/rapidstream-tapa) to generate a `.xo` file.
+    2. Generate Virtual device for coarse grain floorplan.
+    3. Use `Rapidstream` to perform optimization and generate a new `.xo` file.
+    4. Use `v++` to link the optimized `.xo` file.
+
 ## [Custom Vitis Platforms](./device_factory_vitis_platform)
 
 * RapidStream can infer resource information from a Vitis platform.

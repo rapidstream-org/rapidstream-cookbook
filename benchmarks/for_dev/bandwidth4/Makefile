@@ -3,9 +3,9 @@
 
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
 KERNEL_NAME      := bandwidth4
-RS_SCRIPT        := $(CURDIR)/run.py
+RS_SCRIPT        := $(CURDIR)/run_vck5000.py
 SRC_DIR		     := $(CURDIR)/design
-AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/ab_config.json
+AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/floorplan_config.json
 IMPL_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/impl_config.json
 LINK_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/link_config.ini
 FIX_NOC_TCL      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/fix_noc.tcl

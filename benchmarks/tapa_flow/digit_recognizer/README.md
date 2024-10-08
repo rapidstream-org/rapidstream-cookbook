@@ -60,10 +60,11 @@ cd build/run_u55c.py && tapa compile \
 2>&1 | tee tapa.log
 
 ```
+
 ### Step 2: Define Virtual Device
 
 In this tutorial, we use the [Alveo U55C](https://www.amd.com/en/products/accelerators/alveo/u55c/a-u55c-p00g-pq-g.html) as an example. The device is organized into six slots, each
-containing 16 clock regions of logic. In actual implementations, the available slots are reduced
+containing 16 clock regions of logic. In actual implementations, the available reousrce of each slot is reduced
  based on the platform specifics, as some resources are reserved for shell logic.
 
 <img src="../../../common/img/au55c_virtual_device.jpg" width="400px" alt="AU55C Device"/>
@@ -85,7 +86,7 @@ The RapidStream flow for TAPA requires the following key inputs:
 - **tapa-xo-path**: The path to the tapa-generated `xo` file (digit_recognizer.xo).
 - **device-config**: The virtual device (`device.json`) generated in previous step 2 by calling rapidstream APIs based on platform.
 - **floorplan-config**: The configure file ([floorplan_config.json](design/config/run_u55c.py/floorplan_config.json)) to guide integrated Autobridge to floorplan the design.
-- **implementation-config**: The configure file ([impl_config.json](design/config/run_u55c.py/impl_config.json)) to guide Vitis to implement the design (e.g., kernek clock, vitis_platform and etc.).
+- **implementation-config**: The configure file ([impl_config.json](design/config/run_u55c.py/impl_config.json)) to guide Vitis to implement the design (e.g., kernel clock, vitis_platform and etc.).
 - **connectivity-ini**: The link configure file ([link_config.ini](design/config/run_u55c.py/link_config.ini)) to specify how the kernel interfaces are connected the memory controller. This is
 the same for vitis link configure file.
 
@@ -104,7 +105,7 @@ rapidstream-tapaopt --work-dir build/run_u55c.py \
 
 If everything is successful, you should at least get one optimized `.xclbin` file.
 
-### Step 3: Check the Group Module Report
+### Step 4: Check the Group Module Report
 
 
 RapidStream mandates a clear distinction between communication and computation within user designs.
@@ -119,7 +120,7 @@ To generate a report on group types, execute the commands below or `run make sho
 
 ```bash
 rapidstream ../../../../common/util/get_group.py \
-	-i build/passes/0-imported.json \
+	-i build/passes/1-importer.json \
 	-o build/module_types.csv
 ```
 
