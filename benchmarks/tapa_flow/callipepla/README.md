@@ -33,6 +33,23 @@ tapa compile \
 	2>&1 | tee tapa.log
 ```
 
+### Step 2: Define Virtual Device
+
+In this tutorial, we use the [Alveo U55C](https://www.amd.com/en/products/accelerators/alveo/u55c/a-u55c-p00g-pq-g.html) as an example. The device is organized into six slots, each
+containing 16 clock regions of logic. In actual implementations, the available slots are reduced
+ based on the platform specifics, as some resources are reserved for shell logic.
+
+<img src="../../../common/img/au55c_virtual_device.jpg" width="400px" alt="AU55C Device"/>
+
+To generate a `device.json` file that details the device features, such as slot resources and
+ locations, you can either run the `run_u55c.py` script by invoking RapidStream as shown below or
+ simply enter `make device` in the terminal.
+
+```bash
+rapidstream run_u55c.py
+```
+
+
 ### Step 2: Use Rapidstream to Optimize `.xo` Design
 
 
@@ -51,12 +68,13 @@ We encapulate the rapidstream command for TAPA as `rapidstream-tapaop` for invok
 You can run the command below or execute `make rs_xo` supported by our [Makefile](Makefile).
 
 ```bash
-rapidstream-tapaopt --work-dir build/run_vhk158.py \
-                    --tapa-xo-path build/run_vhk158.py/bandwidth52.xo \
-                    --device-config build/run_vhk158.py/device.json \
-                    --floorplan-config design/config/run_vhk158.py/ab_config.json \
-                    --implementation-config design/config/run_vhk158.py/impl_config.json \
-                    --connectivity-ini design/config/run_vhk158.py/link_config.ini
+rapidstream-tapaopt --work-dir build/run_u55c.py \
+                    --tapa-xo-path build/run_u55c.py/bandwidth52.xo \
+                    --device-config build/run_u55c.py/device.json \
+                    --floorplan-config design/config/run_u55c.py/ab_config.json \
+                    --implementation-config design/config/run_u55c.py/impl_config.json \
+                    --connectivity-ini design/config/run_u55c.py/link_config.ini \
+                    --run-impl
 ```
 
 
