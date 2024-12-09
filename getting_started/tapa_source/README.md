@@ -58,7 +58,7 @@ cd build/run_u55c.py && tapa compile \
 --part-num xcu280-fsvh2892-2L-e \
 --clock-period 3.33 \
 -o VecAdd.xo \
--f design/VecAdd.cpp \
+-f ../../design/VecAdd.cpp \
 2>&1 | tee tapa.log
 ```
 
@@ -112,8 +112,16 @@ The RapidStream flow for TAPA requires the following key inputs:
 - **device-config**: The virtual device (`device.json`) generated in previous step 2 by calling rapidstream APIs based on platform.
 - **floorplan-config**: The configure file ([floorplan_config.json](design/config/run_u55c.py/floorplan_config.json)) to guide integrated Autobridge to floorplan the design.
 - **implementation-config**: The configure file ([impl_config.json](design/config/run_u55c.py/impl_config.json)) to guide Vitis to implement the design (e.g., kernek clock, vitis_platform and etc.).
-- **connectivity-ini**: The link configure file ([link_config.ini](design/config/run_u55c.py/link_config.ini)) to specify how the kernel interfaces are connected the memory controller. This is
-the same for vitis link configure file.
+- **connectivity-ini**: The link configure file ([link_config.ini](design/config/run_u55c.py/link_config.ini)) to specify how the kernel interfaces are connected the memory controller. This is the same for vitis link configure file.
+
+In [floorplan_config.json](design/config/run_u55c.py/floorplan_config.json), we intentionally assign the cell "add_kernel" to "SLOT_X1Y1" by the following configuration.
+You can also specify the cell assignment by using similar regular expression.
+
+```json
+ "cell_pre_assignments": {
+        ".*add_kernel.*": "SLOT_X1Y1_TO_SLOT_X1Y1"
+    }
+```
 
 We encapulate the rapidstream command for TAPA as `rapidstream-tapaop` for invoking.
 You can run the command below or execute `make all` supported by our [Makefile](Makefile).
@@ -122,6 +130,7 @@ You can run the command below or execute `make all` supported by our [Makefile](
 rapidstream-tapaopt --work-dir build/run_u55c.py \
                     --tapa-xo-path ./VecAdd.xo \
                     --device-config build/run_u55c.py/device.json \
+                    --run-impl \
                     --floorplan-config ../../design/config/run_u55c.py/ab_config.json \
                     --implementation-config ../../ design/config/run_u55c.py/impl_config.json \
                     --connectivity-ini ../../design/config/run_u55c.py/link_config.ini
@@ -133,7 +142,41 @@ When finished, you can locate these files using the following command:
 find ./build/run_u55c.py/ -name *.xo
 ```
 
-If everything is successful, you should at least get one optimized `.xo` file located in `./build/dse/candidate_0/exported/VecAdd.xo`.
+If everything is successful, you should at least get one optimized `.xo` file located in `build/run_u55c.py/dse/solution_0/updated.xo`.
+
+Since we enable '--run-impl' option, rapidstream will launch Vitis to generate the `.xclbin` file for the optimized `.xo` file.
+You can find the optimized `.xclbin` file by running the following command:
+
+```bash
+find ./build -name *.xclbin.info
+```
+
+### Step 6: Check the Real Floorplan Report
+Since assign the cell "add_kernel" to "SLOT_X1Y1" in the configure file ([floorplan_config.json](design/config/run_u55c.py/floorplan_config.json)),
+we can check the real floorplan report by running the following command or `make check_floorplan`:
+
+```bash
+rapidstream ../../common/util/get_slot.py \
+  -i build/run_u55c.py \
+  -o  build/run_u55c.py
+```
+
+You can open the `build/run_u55c.py/floorplan_solution_<N>.csv" to check the real floorplan report. You may find more than one .csv files depending on the number of solutions.
+
+
+
+|name           |floorplan              |ff     |lut     |bram_18k |dsp  |uram |unpipelinable|
+|:-------------:|:----------------------:|:----:|:------:|:-------:|:---:|:---:|:-----------:|
+add_kernel_0    | SLOT_X1Y1_TO_SLOT_X1Y1 | 54   | 65     | 0       | 0   | 0   |             |
+control_s_axi_U | SLOT_X1Y0_TO_SLOT_X1Y0 | 245  | 223    | 0       | 0   | 0   |             |
+read_mem_0      | SLOT_X1Y0_TO_SLOT_X1Y0 | 790  | 546    | 1       | 0   | 0   |             |
+read_mem_1      | SLOT_X1Y0_TO_SLOT_X1Y0 | 790  | 546    | 1       | 0   | 0   |             |
+stream_in1      | SLOT_X1Y0_TO_SLOT_X1Y0 | 10   | 53     | 0       | 0   | 0   |             |
+stream_in2      | SLOT_X1Y1_TO_SLOT_X1Y1 | 10   | 53     | 0       | 0   | 0   |             |
+stream_out      | SLOT_X1Y0_TO_SLOT_X1Y0 | 10   | 53     | 0       | 0   | 0   |             |
+write_mem_0     | SLOT_X1Y0_TO_SLOT_X1Y0 | 1024 | 768    | 1       | 0   | 0   |             |
+__tapa_fsm_unit_write_mem_0|SLOT_X1Y0_TO_SLOT_X1Y0|0|0|0|0|0|non_pipeline|
+...    | ... | ... | ...    | ...       | ...   | ...   |  ...           |
 
 ### Step 7: Check the Group Module Report
 
@@ -163,7 +206,7 @@ The module types for your design can be found in `build/module_types.csv`. Below
 | ...                              | verilog_module |
 
 
-### Step 8: Use Vitis --link with the Optimized `.xo` File
+### Step 8: Use Vitis --link with the Optimized `.xo` File (optional)
 
 With the optimized `.xo` file generated, you can use `v++ -link` to generate the `.xclbin` file. Run the following command or run `make`:
 

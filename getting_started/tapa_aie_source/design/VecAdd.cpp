@@ -7,32 +7,29 @@
 #include <tapa.h>
 #define DATA_NUM 4096
 
-[[tapa::target("aie", "xilinx")]] void read_mem(tapa::mmap<const uint32_t> f, tapa::ostream<uint32_t>& g) {
+
+
+[[tapa::target("aie", "xilinx")]] void read_mem(tapa::mmap<const uint32_t> mem_in, tapa::ostream<uint32_t>& stream_out) {
 
     for (int i = 0; i < DATA_NUM; i++) {
-        g << f[i];
+        stream_out.write(mem_in[i]);
     }
 }
 
-
-[[tapa::target("aie", "xilinx")]] void
-add_kernel(tapa::istream<uint32_t>& a,
-           tapa::istream<uint32_t>& b,
-           tapa::ostream<uint32_t>& c) {
+[[tapa::target("aie", "xilinx")]] void add_kernel(tapa::istream<uint32_t>& stream_in1, tapa::istream<uint32_t>& stream_in2, tapa::ostream<uint32_t>& stream_out) {
 
     // Compute the addition
     [[tapa::pipeline(1)]] for (int i = 0; i < DATA_NUM; i++) {
-        c.write(a.read() + b.read());
+        stream_out.write(stream_in1.read() + stream_in2.read());
     }
 }
 
-[[tapa::target("aie", "xilinx")]] void write_mem(tapa::istream<uint32_t>& d, tapa::mmap<uint32_t>e) {
+[[tapa::target("aie", "xilinx")]] void write_mem(tapa::istream<uint32_t>& stream_in, tapa::mmap<uint32_t> mem_out) {
 
     for (int i = 0; i < DATA_NUM; i++) {
-        d >> e[i];
+        mem_out[i] =  stream_in.read();
     }
 }
-
 
 [[tapa::target("aie", "xilinx")]] void VecAdd(tapa::mmap<const uint32_t> mem_in1, tapa::mmap<const uint32_t> mem_in2, tapa::mmap<uint32_t> mem_out) {
 

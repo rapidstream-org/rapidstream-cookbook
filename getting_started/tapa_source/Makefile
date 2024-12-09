@@ -2,8 +2,8 @@
 # The contributor(s) of this file has/have agreed to the RapidStream Contributor License Agreement.
 
 ROOT_DIR         := $(shell git rev-parse --show-toplevel)
-PLATFORM         := xilinx_u280_gen3x16_xdma_1_202211_1
-PART_NUM         := xcu280-fsvh2892-2L-e
+PLATFORM         := xilinx_u55c_gen3x16_xdma_3_202210_1
+PART_NUM         := xcu55c-fsvh2892-2L-e
 GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
 KERNEL_NAME      := VecAdd
 RS_SCRIPT        := $(CURDIR)/run_u55c.py
@@ -25,6 +25,7 @@ RS_TARGET        := $(TEMP_DIR)/dse/candidate_0/exported/VecAdd.xo
 TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
 SUCCESS          := "Build Successful"
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
+SLOT_GETTER      := $(ROOT_DIR)/common/util/get_slot.py
 BUILD_LOG        := $(TEMP_DIR)/build.json
 RSXX             := rapidstream
 RSPATH           := $(CURDIR)
@@ -35,6 +36,7 @@ all: $(RS_KERNEL_XCLBIN)
 	$(RSXX) $(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
 	echo $(SUCCESS)
 
+# 	--run-impl \
 
 $(RS_KERNEL_XCLBIN):$(KERNEL_XO) $(DEVICE_CONFIG) $(AB_CONFIG)
 	mkdir -p $(TEMP_DIR)
@@ -43,9 +45,11 @@ $(RS_KERNEL_XCLBIN):$(KERNEL_XO) $(DEVICE_CONFIG) $(AB_CONFIG)
     --tapa-xo-path $< \
     --device-config $(DEVICE_CONFIG) \
     --floorplan-config $(AB_CONFIG) \
-    --implementation-config $(IMPL_CONFIG) \
 	--run-impl \
+    --implementation-config $(IMPL_CONFIG) \
     --connectivity-ini $(LINK_CONFIG)
+
+device:$(DEVICE_CONFIG)
 
 $(DEVICE_CONFIG):$(RS_SCRIPT)
 	mkdir -p $(TEMP_DIR)
@@ -82,6 +86,8 @@ $(TEMP_DIR)/main.exe: $(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 	mkdir -p $(TEMP_DIR)
 	cd $(TEMP_DIR) && tapa g++ $^ $(INCLUDE) -o $@ -O2
 
+check_floorplan:
+	$(RSPYTHON) $(SLOT_GETTER) -i $(TEMP_DIR) -o $(TEMP_DIR)
 
 show_groups:
 	@echo $(RS_KERNEL_XCLBIN)

@@ -1,4 +1,7 @@
 {
+    "cell_pre_assignments": {
+        ".*add_kernel.*": "SLOT_X1Y1_TO_SLOT_X1Y1"
+    },
     "dse_range_max": 0.8,
     "dse_range_min": 0.7,
     "partition_strategy": "flat",
