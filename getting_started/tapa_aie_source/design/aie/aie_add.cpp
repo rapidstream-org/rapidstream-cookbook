@@ -1,11 +1,12 @@
+
 // Copyright 2024 RapidStream Design Automation, Inc.
 // All Rights Reserved.
 
-#include "VecAdd.h"
+#include "aie_add.h"
 
 using namespace adf;
 
-VecAdd my_graph;
+aie_add my_graph;
 
 int main(int argc, char ** argv)
 {

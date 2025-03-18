@@ -8,15 +8,11 @@ PLATFORM         := xilinx_vck5000_gen4x8_qdma_2_202220_1
 PLATFORM_REPO_PATHS := /opt/xilinx/platforms
 XPFM_FILE        := $(PLATFORM_REPO_PATHS)/$(PLATFORM)/$(PLATFORM).xpfm
 GRP_UTIL         := $(ROOT_DIR)/common/util/get_group.py
-KERNEL_NAME      := VecAdd
-RS_SCRIPT        := $(CURDIR)/run_u55c.py
-SRC_DIR		     := $(CURDIR)/design
-AB_CONFIG        := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/floorplan_config.json
-IMPL_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/impl_config.json
-LINK_CONFIG      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/link_config.ini
-FIX_NOC_TCL      := $(CURDIR)/design/config/$(notdir $(RS_SCRIPT))/fix_noc.tcl
+KERNEL_NAME      := krnl_data_mover
+AIE_APP_NAME     := aie_add
+SRC_DIR          := $(CURDIR)/design
 TARGET           := hw
-TEMP_DIR         := $(CURDIR)/build/$(notdir $(RS_SCRIPT))
+TEMP_DIR         := $(CURDIR)/build
 KERNEL_XO        := $(TEMP_DIR)/$(KERNEL_NAME).xo
 KERNEL_XCLBIN    := $(TEMP_DIR)/$(KERNEL_NAME).xclbin
 RS_XCLBIN        := $(TEMP_DIR)/dse/solution_0/vitis_run_hw/$(KERNEL_NAME)_$(PLATFORM).xclbin
@@ -24,7 +20,6 @@ INCLUDE          := -I $(XILINX_HLS)/include
 CFLAGS           := $(INCLUDE) $(OPT_LEVEL)
 CXX              := g++
 HOST             := app.exe
-RS_TARGET        := $(TEMP_DIR)/dse/solution_0/updated.xo
 TIMING_RPT       := impl_1_hw_bb_locked_timing_summary_routed.rpt
 SUCCESS          := "Build Successful"
 SLACK_GETTER     := $(ROOT_DIR)/common/util/get_slack.py
@@ -33,65 +28,70 @@ RSXX             := rapidstream
 RSPATH           := $(CURDIR)
 RSPYTHON         := rapidstream
 DEVICE_CONFIG    := $(TEMP_DIR)/device.json
-AIE_OBJ          := $(TEMP_DIR)/libadf.a
+AIE_OBJ          := $(TEMP_DIR)/work.out/aie/$(AIE_APP_NAME)/libadf.a
 AXX              := aiecompiler
+JOBS             := 16
+XSA_OBJ          := $(TEMP_DIR)/overlay_$(TARGET).xsa
+VPP              := v++
+CXX              := g++
+XCLBIN           := $(TEMP_DIR)/overlay_$(TARGET).xclbin
+EXECUTABLE       := $(TEMP_DIR)/main.exe
+#IS_GDB           := gdb --args
 
-all:clean $(KERNEL_XO)
+all: $(XCLBIN) $(EXECUTABLE)
 
-all1: $(RS_XCLBIN)
-	$(RSXX) $(SLACK_GETTER) -d $(TEMP_DIR) -i $(TIMING_RPT) -o $(BUILD_LOG)  -c clk_kernel_00_unbuffered_net -p 3.333
-	echo $(SUCCESS)
+xclbin:$(XCLBIN)
 
-$(RS_XCLBIN): $(RS_TARGET)
-	v++ -l -t ${TARGET} \
+$(XCLBIN): $(XSA_OBJ)
+	cd $(TEMP_DIR) && $(VPP) -p -t $(TARGET) -f $(PLATFORM) $^ $(AIE_OBJ) -o $@ --package.boot_mode=ospi
+
+xsa: $(XSA_OBJ)
+
+$(XSA_OBJ): $(KERNEL_XO)
+	rm -rf build/_x
+	@mkdir -p $(TEMP_DIR)
+	@cd $(TEMP_DIR) && $(VPP) -l \
+	--kernel_frequency 200 \
+	--to_step vpl.update_bd \
 	--platform $(PLATFORM) \
-	--kernel $(KERNEL_NAME) \
-	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
-	--config $(LINK_CONFIG) \
-	--temp_dir $(TEMP_DIR) \
-	-o $@ \
-	$^
-
-$(RS_TARGET):$(KERNEL_XO) $(DEVICE_CONFIG) $(AB_CONFIG)
-	mkdir -p $(TEMP_DIR)
-	cd $(RSPATH) && $(RSXX)-tapaopt \
-    --work-dir $(TEMP_DIR) \
-    --tapa-xo-path $< \
-    --device-config $(DEVICE_CONFIG) \
-    --floorplan-config $(AB_CONFIG) \
-    --implementation-config $(IMPL_CONFIG) \
-    --connectivity-ini $(LINK_CONFIG)
-
-device: $(DEVICE_CONFIG)
-
-$(DEVICE_CONFIG):$(RS_SCRIPT)
-	mkdir -p $(TEMP_DIR)
-	cd $(RSPATH) && $(RSPYTHON) $(RS_SCRIPT)
-
-hw: $(KERNEL_XCLBIN)
-
-$(KERNEL_XCLBIN): $(KERNEL_XO)
-	v++ -l -t ${TARGET} \
+	-t $(TARGET) \
+	-g \
+	--vivado.synth.jobs $(JOBS) \
+	--save-temps \
+	--config $(SRC_DIR)/config/xclbin_overlay.cfg \
+	-o $(XSA_OBJ) \
+	$^ $(AIE_OBJ)
+	@cd $(TEMP_DIR) && $(VPP) -l \
+	--kernel_frequency 200 \
+	--from_step vpl.generate_target \
 	--platform $(PLATFORM) \
-	--kernel $(KERNEL_NAME) \
-	--connectivity.nk $(KERNEL_NAME):1:$(KERNEL_NAME) \
-	--config $(LINK_CONFIG) \
-	--temp_dir $(TEMP_DIR) \
-	-o $@ \
-	$^
+	-t $(TARGET) \
+	-g \
+	--vivado.synth.jobs $(JOBS) \
+	--save-temps \
+	--config $(SRC_DIR)/config/xclbin_overlay.cfg \
+	-o $(XSA_OBJ) \
+	$^ $(AIE_OBJ)
 
-xo:$(KERNEL_XO)
+xo: $(KERNEL_XO)
 
-#-o $(KERNEL_NAME).xo
-#
-
-#--flow-type pl \
-#	--flow-type aie \
-
-$(KERNEL_XO):$(SRC_DIR)/$(KERNEL_NAME).cpp
+$(KERNEL_XO):$(SRC_DIR)/VecAdd.cpp
 	mkdir -p $(TEMP_DIR)
 	cd $(TEMP_DIR) && tapa compile \
 	--top $(KERNEL_NAME) \
+	--platform $(PLATFORM) \
+	--flow-type hls \
+	--clock-period 3.33  \
+	--keep-hls-work-dir \
+	-f $< \
+	-o $@ \
+	2>&1 | tee tapa.log
+
+tapa:$(SRC_DIR)/VecAdd.cpp
+	rm -rf $(TEMP_DIR)
+	mkdir -p $(TEMP_DIR)
+	cd $(TEMP_DIR) && tapa compile \
+	--top aie_add \
 	--platform $(PLATFORM) \
 	--flow-type aie \
 	--clock-period 3.33  \
@@ -99,13 +99,42 @@ $(KERNEL_XO):$(SRC_DIR)/$(KERNEL_NAME).cpp
 	-f $< \
 	2>&1 | tee tapa.log
 
-csim:$(TEMP_DIR)/main.exe
-	$(TEMP_DIR)/main.exe
+csim:$(EXECUTABLE)
+	$(EXECUTABLE)
 
-$(TEMP_DIR)/main.exe: $(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
+host: $(EXECUTABLE)
+
+$(EXECUTABLE): $(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 	mkdir -p $(TEMP_DIR)
 	cd $(TEMP_DIR) && tapa g++ $^ $(INCLUDE) -o $@ -O2
 
+run:
+	@cd $(TEMP_DIR) && ./main.exe --bitstream $(XCLBIN)
+
+aie: $(AIE_OBJ)
+
+$(AIE_OBJ): $(SRC_DIR)/aie/*
+	@mkdir -p $(TEMP_DIR)/Work
+	@cd $(TEMP_DIR) && $(AXX) \
+	--target=$(TARGET) \
+	--platform=$(XPFM_FILE) \
+	--include="$(SRC_DIR)/aie" \
+	--workdir=$(TEMP_DIR)/Work \
+	$(SRC_DIR)/aie/aie_add.cpp
+
+x86_compile:
+	@mkdir -p $(TEMP_DIR)/Work
+	@cd $(TEMP_DIR) && aiecompiler \
+	--target=x86sim \
+	--include="$(SRC_DIR)" \
+	--include="$(CURDIR)/common" \
+	--workdir=$(TEMP_DIR)/Work \
+	$(SRC_DIR)/aie/aie_add.cpp
+
+run_x86:
+	@cd $(TEMP_DIR) && x86simulator --pkg-dir=./Work #--dump
+	@diff $(TEMP_DIR)/../data/s2_exp.txt $(TEMP_DIR)/data/s2_0_act.txt
+	@echo "PASS"
 
 show_groups:
 	@echo $(RS_KERNEL_XCLBIN)
@@ -118,17 +147,21 @@ cp:
 	@cp $(CURDIR)/../aie_source_gmio/design/aie/VecAdd.cpp $(TEMP_DIR)/work.out/cpp/
 	@echo "Copied files"
 
-aie_compile:$(AIE_OBJ)
-
-$(AIE_OBJ): $(TEMP_DIR)/work.out/cpp/*
-	@mkdir -p $(TEMP_DIR)/Work
-	@cd $(TEMP_DIR) && $(AXX) \
-	--target=$(TARGET) \
-	--platform=$(XPFM_FILE) \
-	--include="$(TEMP_DIR)/work.out/cpp" \
-	--workdir=$(TEMP_DIR)/Work \
-	$(TEMP_DIR)/work.out/cpp/VecAdd.cpp
-
+analize:
+	rm -rf ./build/aielog.txt
+	cd $(TEMP_DIR) && $(IS_GDB) /home/vagrantxiao24/opt/tapa/usr/bin/tapacc \
+	./work.out/flatten/flatten-67e77237-VecAdd.cpp \
+	-top aie_add \
+	-vitis -- -std=c++14 \
+	-nostdinc++ \
+	-isystem/home/vagrantxiao24/opt/tapa/usr/include \
+	-Wno-attributes -Wno-unknown-pragmas -Wno-unused-label \
+	-isystem/opt/tools/xilinx/Vitis_HLS/2022.2/include \
+	-isystem/opt/tools/xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0 \
+	-isystem/opt/tools/xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/x86_64-pc-linux-gnu \
+	-isystem/home/vagrantxiao24/opt/tapa/usr/share/tapa/system-include \
+	-DTAPA_TARGET_DEVICE_ \
+	-DTAPA_TARGET_STUB_
 
 clean:
 	rm -rf $(TEMP_DIR) *.log

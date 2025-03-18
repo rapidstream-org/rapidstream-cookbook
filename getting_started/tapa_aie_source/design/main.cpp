@@ -15,13 +15,14 @@ using std::clog;
 using std::endl;
 using std::vector;
 
-#define DATA_NUM 4096
+#define DATA_NUM 64
 
 void VecAdd(tapa::mmap<const uint32_t> mem_in1, tapa::mmap<const uint32_t> mem_in2, tapa::mmap<uint32_t> mem_out);
 DEFINE_string(bitstream, "", "path to bitstream file, run csim if empty");
 
 int main(int argc, char **argv)
 {
+  gflags::ParseCommandLineFlags(&argc, &argv, /*remove_flags=*/true);
   vector<uint32_t> mem_in1(DATA_NUM);
   vector<uint32_t> mem_in2(DATA_NUM);
   vector<uint32_t> mem_out(DATA_NUM);
@@ -38,7 +39,10 @@ int main(int argc, char **argv)
       tapa::read_only_mmap<const uint32_t>(mem_in2), tapa::write_only_mmap<uint32_t>(mem_out));
 
   for(int i=0; i<DATA_NUM; i++){
-    if(out_golden[i] != mem_out[i]){
+    if(out_golden[i] == mem_out[i]){
+      //printf("out[%d] is correct!\n", i)
+      ;
+    }else{
       printf("out[%d] is wrong!\n", i);
       return 1;
     }
