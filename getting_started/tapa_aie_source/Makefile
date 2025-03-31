@@ -47,10 +47,9 @@ $(XCLBIN): $(XSA_OBJ)
 
 xsa: $(XSA_OBJ)
 
-$(XSA_OBJ): $(KERNEL_XO)
-	rm -rf build/_x
+$(XSA_OBJ): $(KERNEL_XO) $(AIE_OBJ)
 	@mkdir -p $(TEMP_DIR)
-	@cd $(TEMP_DIR) && $(VPP) -l \
+	cd $(TEMP_DIR) && $(VPP) -l \
 	--kernel_frequency 200 \
 	--to_step vpl.update_bd \
 	--platform $(PLATFORM) \
@@ -60,7 +59,7 @@ $(XSA_OBJ): $(KERNEL_XO)
 	--save-temps \
 	--config $(SRC_DIR)/config/xclbin_overlay.cfg \
 	-o $(XSA_OBJ) \
-	$^ $(AIE_OBJ)
+	$^
 	@cd $(TEMP_DIR) && $(VPP) -l \
 	--kernel_frequency 200 \
 	--from_step vpl.generate_target \
@@ -87,8 +86,9 @@ $(KERNEL_XO):$(SRC_DIR)/VecAdd.cpp
 	-o $@ \
 	2>&1 | tee tapa.log
 
-tapa:$(SRC_DIR)/VecAdd.cpp
-	rm -rf $(TEMP_DIR)
+aie: $(AIE_OBJ)
+
+$(AIE_OBJ):$(SRC_DIR)/VecAdd.cpp
 	mkdir -p $(TEMP_DIR)
 	cd $(TEMP_DIR) && tapa compile \
 	--top aie_add \
@@ -111,9 +111,9 @@ $(EXECUTABLE): $(SRC_DIR)/main.cpp $(SRC_DIR)/VecAdd.cpp
 run:
 	@cd $(TEMP_DIR) && ./main.exe --bitstream $(XCLBIN)
 
-aie: $(AIE_OBJ)
 
-$(AIE_OBJ): $(SRC_DIR)/aie/*
+
+tapa: $(SRC_DIR)/aie/*
 	@mkdir -p $(TEMP_DIR)/Work
 	@cd $(TEMP_DIR) && $(AXX) \
 	--target=$(TARGET) \

@@ -16,7 +16,7 @@
     }
 }
 
-[[tapa::target("aie", "xilinx")]] void add_kernel(tapa::istream<uint32_t>& stream_in1, tapa::istream<uint32_t>& stream_in2, tapa::ostream<uint32_t>& stream_out) {
+[[tapa::target("aie", "xilinx")]] void add(tapa::istream<uint32_t>& stream_in1, tapa::istream<uint32_t>& stream_in2, tapa::ostream<uint32_t>& stream_out) {
 
     // Compute the addition
     [[tapa::pipeline(1)]] for (int i = 0; i < DATA_NUM; i++) {
@@ -40,7 +40,7 @@
     tapa::task()
     .invoke(read_mem, stream_in_a, stream_mem_out1)
     .invoke(read_mem, stream_in_b, stream_mem_out2)
-    .invoke(add_kernel, stream_mem_out1, stream_mem_out2, stream_add_out)
+    .invoke(add, stream_mem_out1, stream_mem_out2, stream_add_out)
     .invoke(write_mem, stream_add_out, stream_out_c);
 
 }
